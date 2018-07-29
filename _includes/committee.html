@@ -1,0 +1,21 @@
+<section id="committee">
+  <div class="container-fluid">
+    <h1 id="comm_title">COMMITTEES</h1>
+    <div class="flex-container">
+      {% for ct in site.data.committees %}
+      <div class="flex-element container">
+        <img src="{{ ct.bgimg }}" alt="{{ ct.name }}" class="image">
+        <div class="overlay">
+          <div class="text">
+            <h2>{{ ct.name }}</h2>
+            <br>
+            <p>{{ ct.agenda }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="https://drive.google.com/open?id=196bxzhKk6NzAXRlWZzgEMGm-vqf6ydPE" target="_blank" class="btn btn-default">View Country Matrix</a>
+    <a href="https://drive.google.com/drive/folders/1vFE44_Ff2nEtVSq-WHVGrtvHFlcktvv9?usp=sharing" target="_blank" class="btn btn-default">Background Guide</a>
+  </div>
+</section>

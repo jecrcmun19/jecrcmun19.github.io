@@ -1,0 +1,18 @@
+---
+layout: default
+title: Campus Ambassador
+permalink: /campus_ambassador/
+---
+<section id="ambassador">
+  <div class="container-fluid">
+    <h1>Campus Ambassadors</h1>
+    <div class="flex-container">
+      {% for data in site.data.ambassador %}
+      <div class="flex-element">
+        <img src="{{ data.pic }}" alt="{{ data.name }}" class="image">
+        <p class="name">{{ data.name }}<br>{{ data.org }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

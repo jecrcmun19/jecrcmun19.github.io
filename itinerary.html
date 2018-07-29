@@ -1,0 +1,129 @@
+---
+layout: default
+title: Itenary
+permalink: /itinerary/
+---
+<section id="itenary">
+  <div class="container-fluid">
+    <h1>ITINERARY</h1>
+    <div class="buttons">
+      <button type="button" id='day1' onclick="foo1()">Day 1</button>
+      <button type="button" id='day2'onclick="foo2()">Day 2</button>
+    </div>
+    <div id="div1">
+<table class="table table-bordered ">
+  <thead class="thead">
+    <td>EVENT</td>
+    <td>TIME</td>
+    <td>VENUE</td>
+  </thead>
+
+  <tr>
+    <td>Registration </td>
+    <td>08:00 AM - 08:45 AM</td>
+    <td>A-Block</td>
+  </tr>
+  <tr>
+    <td>Inaugural Ceremony </td>
+    <td>09:00 AM - 10:45 AM</td>
+    <td>Auditorium </td>
+  </tr>
+  <tr>
+    <td>High Tea </td>
+    <td>10:45 AM - 11:00 AM </td>
+    <td>A-Block </td>
+  </tr>
+  <tr>
+    <td>First Session </td>
+    <td>11:00 AM - 1:30 PM </td>
+    <td>Respective Committees </td>
+  </tr>
+  <tr>
+    <td>Lunch </td>
+    <td>01:30 PM - 2:30 PM </td>
+    <td>GH Mess </td>
+  </tr>
+  <tr>
+    <td>Second Session </td>
+    <td>02:30 PM - 5:00 PM </td>
+    <td>Respective Committees </td>
+  </tr>
+  <tr>
+    <td>Refreshment Break </td>
+    <td>05:00 PM - 05:30 PM</td>
+    <td>A-Block</td>
+  </tr>
+  <tr>
+    <td>Buses Leave for Socials </td>
+    <td>06:00 PM - 06:15 PM</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Social Night </td>
+    <td>06:30 AM - 09:30 PM</td>
+    <td>Hotel Grand Maple</td>
+  </tr>
+
+</table>
+</div>
+<div id="div2" >
+  <table class="table table-bordered ">
+    <thead class="thead">
+      <td>EVENT</td>
+      <td>TIME</td>
+      <td>VENUE</td>
+    </thead>
+
+    <tr>
+      <td>High Tea </td>
+      <td>9:30 AM - 10:00 AM </td>
+      <td>A-Block </td>
+    </tr>
+    <tr>
+      <td>Third Session </td>
+      <td>10:00 AM - 01:30 PM </td>
+      <td>Respective Committees </td>
+    </tr>
+    <tr>
+      <td>Lunch </td>
+      <td>01:30 PM - 02:30 PM </td>
+      <td>GH Mess </td>
+    </tr>
+    <tr>
+      <td>Fourth Session </td>
+      <td>02:30 PM - 05:00 PM</td>
+      <td>Respective Committees </td>
+    </tr>
+
+    <tr>
+      <td>Refreshment </td>
+      <td>05:00 PM - 05:30 PM </td>
+      <td>A-Block</td>
+    </tr>
+    <tr>
+      <td>Felicitation Ceremony</td>
+      <td>05:30 PM - 06:30 PM </td>
+      <td>Auditorium </td>
+    </tr>
+  </table>
+    </div>
+    <script type="text/javascript">
+      btn1=document.getElementById('day1')
+      btn2=document.getElementById('day2')
+      div1=document.getElementById('div1')
+      div2=document.getElementById('div2')
+      function foo1() {
+        div1.style.display = "block"
+        div2.style.display = "none"
+        btn1.style.background = "rgb(249, 142, 0)"
+        btn2.style.background = "linear-gradient(rgb(210, 0, 0),rgb(255, 0, 58))"
+      }
+      function foo2 () {
+        div2.style.display = "block"
+        div1.style.display = "none"
+        btn2.style.background = "rgb(249, 142, 0)"
+        btn1.style.background = "linear-gradient(rgb(210, 0, 0),rgb(255, 0, 58))"
+      }
+    </script>
+  </div>
+</section>

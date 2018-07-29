@@ -1,0 +1,15 @@
+<section id="apply">
+  <div class="container-fluid">
+    <h2 id="apply_title">APPLY NOW</h2>
+    <div class="flex-container">
+      {% for ap in site.data.apply %}
+      <div class="flex-element">
+        <h2 class="for">{{ ap.for }}</h2>
+        <img src="{{ ap.image }}" alt="{{ ap.for }}">
+        <p class="info">{{ ap.info }}</p>
+        <a  class="btn btn-default" >{{ ap.text }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

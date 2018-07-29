@@ -1,0 +1,19 @@
+---
+layout: default
+title: Collabrators
+permalink: /collabrators/
+---
+<section id="sponsors">
+  <div class="container-fluid">
+    <h1>OUR COLLABORATIONS</h1>
+    <div class="flex-container">
+      {% for collab in site.data.collabs %}
+      <div class="flex-element">
+        <a href="{{ collab.path }}">
+  <img src="{{ collab.photo }}" alt="Not Found">
+</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

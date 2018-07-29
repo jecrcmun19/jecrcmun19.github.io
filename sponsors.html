@@ -1,0 +1,25 @@
+---
+layout: default
+title: Sponsors
+permalink: /sponsors/
+---
+<section id="sponsors">
+  <div class="container-fluid">
+    <h1>OUR SPONSORS</h1>
+    <div class="flex-container">
+      {% for spon in site.data.sponsors %}
+      <div class="flex-element">
+        <img src="{{ spon.photo }}" alt="Not Found">
+      </div>
+      {% endfor %}
+    </div>
+    <h1>OUR HOSPITALITY PARTNER</h1>
+    <div class="flex-container">
+      <div class="flex-element">
+        <a href="http://www.grandmaple.in/" target="_blank">
+          <img src="/assets/img/sponsrs/gm.png" alt="Not Found">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

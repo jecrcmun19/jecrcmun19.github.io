@@ -1,0 +1,22 @@
+---
+layout: default
+title: Executive Board
+permalink: /execboard/
+---
+<section id="execboard">
+  <div class="container-fluid">
+    <h1>EXECUTIVE BOARD</h1> {% for grp in site.data.execboard %}
+
+    <h2 id="{{ forloop.index }}" class="group">{{ grp.group }}</h2>
+    <div class="flex-container">
+      {% for member in grp.members %}
+      <div class="flex-element">
+        <img src="{{ member.profile_pic }}" alt="{{ member.name }}" class="image">
+        <p class="name">{{ member.name }}</p>
+        <p class="post">{{ member.post }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</section>

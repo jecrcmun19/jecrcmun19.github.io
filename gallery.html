@@ -1,0 +1,24 @@
+---
+layout: default
+title: gallery
+permalink: /gallery/
+---
+<section id="gallery">
+  <div class="container-fluid">
+    <h1>OUR GALLERY</h1>
+    <div class="flex-container">
+
+      {% for pic in site.data.gallery %}
+      <div class="flex-element">
+        <div class="hovereffect">
+          <img class="img-responsive" src="{{ pic.pic }}" alt="Not found">
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+</section>

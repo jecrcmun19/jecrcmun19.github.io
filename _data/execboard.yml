@@ -1,0 +1,67 @@
+- group: GA-DISEC
+  members:
+    - name: Himanshu Grover
+      profile_pic: /assets/img/execboard/himanshu.jpg
+      post: Chairperson
+
+    - name: Rishabh Mittal
+      profile_pic: /assets/img/execboard/rishabh.jpg
+      post: Vice-Chairperson
+
+- group: UNSC
+  members:
+    - name: Soumya Basu
+      profile_pic: /assets/img/execboard/soumya.jpg
+      post: President
+
+    - name: Uday Shrivastava
+      profile_pic: /assets/img/execboard/uday.jpg
+      post: Rapporteur
+
+- group: UN-HCR
+  members:
+    - name: Faiz Khan
+      profile_pic: /assets/img/execboard/faiz.jpg
+      post: Chairperson
+
+    - name: Vani Sharma
+      profile_pic: /assets/img/execboard/vani.jpg
+      post: Vice-Chairperson
+
+    - name: Ratnam Agarwal
+      profile_pic: /assets/img/execboard/ratnam.jpg
+      post: Rapporteur
+
+- group: UN-CSW
+  members:
+    - name: Vaibhavi Pathak
+      profile_pic: /assets/img/execboard/vaibhavi.jpg
+      post: Chairperson
+
+    - name: Padmini Rathore
+      profile_pic: /assets/img/execboard/padmini.jpg
+      post: Rapporteur
+
+- group: LOKSABHA
+  members:
+    - name: Ayush Rawtani
+      profile_pic: /assets/img/execboard/ayush.jpg
+      post: Speaker
+
+    - name: Shreya Bhat
+      profile_pic: /assets/img/execboard/shreya.jpg
+      post: Deputy Speaker
+
+- group: INTERNATIONAL PRESS
+  members:
+    - name: Khudayar Hamid Beg
+      profile_pic: /assets/img/execboard/khudayar.jpg
+      post: Editor in Chief
+
+    - name: Pragya Bajaj
+      profile_pic: /assets/img/execboard/pragya.jpg
+      post: IP Head
+
+    - name: Abhinandan Joshi
+      profile_pic: /assets/img/execboard/abhinandan.jpg
+      post: Head of Photography
