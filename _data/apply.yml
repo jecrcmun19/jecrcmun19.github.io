@@ -1,17 +1,17 @@
 - for: APPLY AS A <br>DELEGATE
   image: /assets/img/delegate.jpeg
-  info: <strong>Application Fee:</strong> INR 1300/-
-  text: Closed
+  # info: <strong>Application Fee:</strong> INR 1300/-
+  text: Opening Soon ..
   link: /apply/delegate
 
 - for: APPLY AS AN AMBASSADOR
   image: /assets/img/ambassador.jpg
-  info: <strong>Closed !</strong>
-  text: Closed
+  # info: <strong>Closed !</strong>
+  text: Opening Soon ..
   link: /apply/ambassador/
 
 - for: INTERNATIONAL PRESS APPLICATION
   image: /assets/img/ipapplications.png
-  info: <strong>Application Fee:</strong> INR 800/-<br>
-  text: Closed
+  # info: <strong>Application Fee:</strong> INR 800/-<br>
+  text: Opening Soon ..
   link: /apply/ipapplications/

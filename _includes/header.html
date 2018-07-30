@@ -21,13 +21,13 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a class="item" href="/">HOME</a></li>
-          <li><a class="item" href="/itinerary/">ITINERARY</a></li>
+          <!-- <li><a class="item" href="/itinerary/">ITINERARY</a></li> -->
           <li><a class="item" href="/#committee">COMMITTEES</a></li>
           <li><a class="item" href="/#apply">APPLY NOW</a></li>
-          <li><a class="item" href="/campus_ambassador/">CAMPUS AMBASSADOR</a></li>
-          <li><a class="item" href="/collabrators/">OUR COLLABORATIONS</a></li>
+          <!-- <li><a class="item" href="/campus_ambassador/">CAMPUS AMBASSADOR</a></li> -->
+          <!-- <li><a class="item" href="/collabrators/">OUR COLLABORATIONS</a></li> -->
           <li><a class="item" href="/sponsors/">SPONSORS</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">EXECUTIVE BOARD<span class="caret"></span></a>
+          <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">EXECUTIVE BOARD<span class="caret"></span></a> -->
             <ul class="dropdown-menu">
               {% for grp in site.data.execboard %}
               <li><a class="item" href="/execboard/#{{ forloop.index }}">{{ grp.group }}</a></li>
@@ -35,7 +35,7 @@
             </ul>
           </li>
 
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">OUR TEAM<span class="caret"></span></a>
+          <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">OUR TEAM<span class="caret"></span></a> -->
             <ul class="dropdown-menu">
               {% for grp in site.data.team %}
               <li><a class="item" href="/our_team/#{{ forloop.index }}">{{ grp.group }}</a></li>
