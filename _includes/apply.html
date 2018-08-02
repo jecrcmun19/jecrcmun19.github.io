@@ -7,7 +7,7 @@
         <h2 class="for">{{ ap.for }}</h2>
         <img src="{{ ap.image }}" alt="{{ ap.for }}">
         <p class="info">{{ ap.info }}</p>
-        <a  class="btn btn-default" >{{ ap.text }}</a>
+        <a  class="btn btn-default" href="{{ ap.link }}" target="_blank">{{ ap.text }}</a>
       </div>
       {% endfor %}
     </div>

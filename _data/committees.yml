@@ -1,19 +1,19 @@
-- name: Comming Soon
-  agenda: 
+- name: GA-DISEC
+  agenda: Role of science and technology in promoting nuclear disarmament.
   bgimg: /assets/img/committees/ga.jpg
 
-# - name: Comming Soon
+# - name: coming Soon
 #   agenda: 
 #   bgimg: /assets/img/committees/unsc.jpg
 
-# - name: Comming Soon
-#   agenda: 
-#   bgimg: /assets/img/committees/unhcr.jpg
+- name: UN-HRC
+  agenda: Human rights voilation in Syrian Arab Republic.
+  bgimg: /assets/img/committees/unhcr.jpg
 
-# - name: Comming Soon
+# - name: coming Soon
 #   agenda: 
 #   bgimg: /assets/img/committees/csw.jpg
 
-- name: Comming Soon
-  agenda: 
-  bgimg: /assets/img/committees/loksabha.jpg
+# - name: coming Soon
+#   agenda: 
+#   bgimg: /assets/img/committees/loksabha.jpg
