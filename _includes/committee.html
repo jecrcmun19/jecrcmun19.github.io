@@ -3,7 +3,7 @@
     <h1 id="comm_title">COMMITTEES</h1>
     <div class="flex-container">
       {% for ct in site.data.committees %}
-      <div class="flex-element container">
+      <div class="flex-element container wow animated bounceInRight" data-wow-duration="1.5s" data-wow-delay="0.5s">
         <img src="{{ ct.bgimg }}" alt="{{ ct.name }}" class="image">
         <div class="overlay">
           <div class="text">
