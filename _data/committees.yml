@@ -8,7 +8,7 @@
 
 - name: UN-HRC
   agenda: Human rights voilation in Syrian Arab Republic.
-  bgimg: /assets/img/committees/unhcr.jpg
+  bgimg: /assets/img/committees/unhrc.jpg
 
 # - name: coming Soon
 #   agenda: 
@@ -17,3 +17,7 @@
 - name: LOKSABHA
   agenda: Restoring Peace in the Kashmir Valley.
   bgimg: /assets/img/committees/loksabha.jpg
+
+- name: AIPPM
+  agenda: Ayodhya Disputes.
+  bgimg: /assets/img/committees/aippm.jpg
