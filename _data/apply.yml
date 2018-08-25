@@ -1,4 +1,4 @@
-- for: APPLY AS A <br>DELEGATE
+- for: APPLY AS A <br /> DELEGATE
   image: /assets/img/delegate.jpeg
   info: <strong>Application Fee:</strong> INR 250/-
   text: Apply Now
@@ -9,3 +9,11 @@
   info: <strong>Application Fee:</strong> INR 250/-<br>
   text: Apply Now
   link: /apply/ipapplications/
+
+- for: CAMPUS <br />AMBASSADOR
+  image: /assets/img/ambassador.jpg
+  info: <br>
+  text: Apply Now
+  link: /apply/ambassador/
+
+

@@ -3,7 +3,7 @@
     {%for grp in site.data.message%}
     <h1 id="mess_title">{{ grp.group }}</h1>
     {% for member in grp.members %}
-    <div class="row">
+    <div class="row  wow animated fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.5s">
       <div class="col-md-4">
         <img src="{{ member.photo }}" alt="{{ member.author }}" id="profile_img">
         <h1 id="author">{{ member.author }}</h1>
