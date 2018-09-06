@@ -3,42 +3,48 @@
   - name: Sahil Kumar
     profile_pic: /assets/img/team/sahil.jpg
 
-  - name: Umang Goenka
-    profile_pic: /assets/img/team/umang.jpg
-
-  - name: Gopi Vallabh Agarwal
-    profile_pic: /assets/img/team/gopi.jpg
+  # - name: Gopi Vallabh Agarwal
+  #   profile_pic: /assets/img/team/gopi.jpg
 
   - name: Ritisha Kothari
     profile_pic: /assets/img/team/ritisha.jpg
     
   - name: Rashi Parikh
     profile_pic: /assets/img/team/rashi.jpg
+
+  - name: Umang Goenka
+    profile_pic: /assets/img/team/umang.jpg
     
-  - name: Simran Prasad
-    profile_pic: /assets/img/team/simran.jpg
+  # - name: Simran Prasad
+  #   profile_pic: /assets/img/team/simran.jpg
     
-  - name: Anjali Agarwal
-    profile_pic: /assets/img/team/gauravG.jpg
+  # - name: Anjali Agarwal
+  #   profile_pic: /assets/img/team/gauravG.jpg
+        
+  # - name: Shubham
+  #   profile_pic: /assets/img/team/subham.jpg
     
-  - name: Savita Mansharamani
-    profile_pic: /assets/img/team/savita.jpg
-    
-  - name: Shubham
-    profile_pic: /assets/img/team/subham.jpg
-    
-  - name: Surabhi Khandelwal
-    profile_pic: /assets/img/team/gauravG.jpg
+  # - name: Surabhi Khandelwal
+  #   profile_pic: /assets/img/team/gauravG.jpg
     
 - group: USG DELEGATE AFFAIRS
   members:
   - name: Palak Pareek
     profile_pic: /assets/img/team/palak.jpg
 
+  - name: Simran Prasad
+    profile_pic: /assets/img/team/simran.jpg
+
+  - name: Savita Mansharamani
+    profile_pic: /assets/img/team/savita.jpg
+
 - group: USG EB AFFAIRS
   members:
   - name: Suyash Shrey Jain
     profile_pic: /assets/img/team/suyash.jpg
+
+  - name: Kanika Bhatt
+    profile_pic: /assets/img/team/kanika.jpg
 
 
 - group: USG SPONSORSHIP
@@ -54,37 +60,35 @@
   - name: Devansh Dadhich
     profile_pic: /assets/img/team/devansh.jpg
 
-  - name: Ritisha Kothari
-    profile_pic: /assets/img/team/ritisha.jpg
+  # - name: Ritisha Kothari
+  #   profile_pic: /assets/img/team/ritisha.jpg
 
-- group: USG PROMOTIONS
-  members:
-  - name: Sahil Kumar
-    profile_pic: /assets/img/team/sahil.jpg
+# - group: USG PROMOTIONS
+#   members:
+#   - name: Sahil Kumar
+#     profile_pic: /assets/img/team/sahil.jpg
 
-  - name: Simran Prasad
-    profile_pic: /assets/img/team/simran.jpg
 
-  - name: Anjali Agarwal
-    profile_pic: /assets/img/team/anjali.jpg
+#   - name: Anjali Agarwal
+#     profile_pic: /assets/img/team/anjali.jpg
 
-  - name: Savita Mansharamani
-    profile_pic: /assets/img/team/savita.jpg
+#   - name: Savita Mansharamani
+#     profile_pic: /assets/img/team/savita.jpg
 
-  - name: Shubham
-    profile_pic: /assets/img/team/subham.jpg
+#   - name: Shubham
+#     profile_pic: /assets/img/team/subham.jpg
 
 
 - group: USG LOGISTICS
   members:
   - name: Aditya Joshi
-    profile_pic: /assets/img/team/chandrapal.jpg
+    profile_pic: /assets/img/team/ajoshi.jpg
 
-  - name: Shivansh Pandya
-    profile_pic: /assets/img/team/pourush.jpg
+  # - name: Shivansh Pandya
+  #   profile_pic: /assets/img/team/pourush.jpg
 
-  - name: Surabhi Khandelwal
-    profile_pic: /assets/img/team/surabhi.jpg
+  # - name: Surabhi Khandelwal
+  #   profile_pic: /assets/img/team/surabhi.jpg
 
 
 - group: USG TECHNICAL
@@ -113,18 +117,18 @@
   - name: Malvika Kushwah
     profile_pic: /assets/img/team/malvika.jpg
 
-- group: USG HOSPITALITY/ACCOMMODATION
+- group: USG HOSPITALITY
   members:
   - name: Gopi Vallabh Agarwal
     profile_pic: /assets/img/team/gopi.jpg
 
 - group: USG CINEMATOGRAPHY
   members:
-  - name: Umang Goenka
-    profile_pic: /assets/img/team/umang.jpg
-    
   - name: Aman Jain
     profile_pic: /assets/img/team/aman.jpg
+    
+  - name: Umang Goenka
+    profile_pic: /assets/img/team/umang.jpg
     
   - name: Mehul
     profile_pic: /assets/img/team/mehul.jpg
