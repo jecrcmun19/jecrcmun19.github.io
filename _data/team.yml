@@ -24,8 +24,6 @@
   # - name: Shubham
   #   profile_pic: /assets/img/team/subham.jpg
     
-  # - name: Surabhi Khandelwal
-  #   profile_pic: /assets/img/team/gauravG.jpg
     
 - group: USG DELEGATE AFFAIRS
   members:
@@ -121,6 +119,9 @@
   members:
   - name: Gopi Vallabh Agarwal
     profile_pic: /assets/img/team/gopi.jpg
+  - name: Surbhi Khandelwal
+    profile_pic: /assets/img/team/surbhi.jpg
+
 
 - group: USG CINEMATOGRAPHY
   members:
