@@ -18,8 +18,8 @@
   # - name: Simran Prasad
   #   profile_pic: /assets/img/team/simran.jpg
     
-  # - name: Anjali Agarwal
-  #   profile_pic: /assets/img/team/gauravG.jpg
+  - name: Anjali Agarwal
+    profile_pic: /assets/img/team/anjali.jpg
         
   # - name: Shubham
   #   profile_pic: /assets/img/team/subham.jpg
