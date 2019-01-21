@@ -10,11 +10,9 @@ permalink: /about_us/
     JECRC MUN, being conducted from 2012, has now become a widely acclaimed Model United Nations platform. Over the years, it has developed itself as the ideal to strengthen the skills of diplomacy and leadership.<br> 
     Beholding the success of our annual event, this year we are bringing JECRC Intra MUN for you. Having 5 councils and an expected participation of over 300 delegates, this is a break through opportunity in MUN for JECRC students. With this, we affirm, that our dominance in the region would henceforth strengthen.<br>
     The following councils would be simulated for JECRC Intra MUN 2019:<br>
-      <br>1. <strong>GA-DISEC : </strong>Role of science and technology in promoting Nuclear Disarmament.
-      <br>2. <strong>UN-HRC : </strong>Human rights violation in Syrian Arab Republic.
-      <br>3. <strong>LOK SABHA : </strong>Restoring peace in the Kashmir Valley.
-      <br>4. <strong>AIPPM : </strong>Ayodhya Disputes.
-      <br>5. <strong>INTERNATIONAL PRESS:</strong> Journalist and Photographer.
+    {% for ct in site.data.committees %}
+    <br>{{ forloop.index }}. <strong>{{ ct.name }} : </strong>{{ ct.agenda }}
+    {% endfor %}
     </p>
   </div>
 </section>

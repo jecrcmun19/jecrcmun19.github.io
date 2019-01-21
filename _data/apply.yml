@@ -16,4 +16,10 @@
   text: Apply Now
   link: /apply/ambassador/
 
+- for: APPLY AS AN <br />EXECUTIVE BOARD
+  image: /assets/img/eb.jpg
+  info: <br>
+  text: Apply Now
+  link: /apply/eb/
+
 
