@@ -1,16 +1,16 @@
-- name: DISEC
+- name: GA-DISEC
   agenda: The comprehensive review of UN counter terrorism strategy.
   bgimg: /assets/img/committees/ga.jpg
 
-- name: UNHC
+- name: UNSC
   agenda: Comprehensive review of the whole question of peacekeeping operations in all their aspects.
   bgimg: /assets/img/committees/unsc.jpg
 
-- name: HRC
+- name: UN-HRC
   agenda: Protection of the human rights of migrants- the global compact for safe, orderly and regular migration. 
   bgimg: /assets/img/committees/unhrc.jpg
 
-- name: CSW
+- name: UN-CSW
   agenda: The role of men and boys in gender equality
   bgimg: /assets/img/committees/csw.jpg
 
@@ -21,3 +21,4 @@
 - name: Emergency PrimeMinister's Meet
   agenda: Deliberation on future course of action in wake of widespread protests following Delhi Gang Rape Case of 2012.
   bgimg: /assets/img/committees/pmo.jpg
+  class: pmo
