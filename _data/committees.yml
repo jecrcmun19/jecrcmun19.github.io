@@ -1,5 +1,5 @@
-- name: GA-DISEC
-  agenda: Role of science and technology in promoting nuclear disarmament.
+- name: DISEC
+  agenda: The comprehensive review of UN counter-terrorism strategty.
   bgimg: /assets/img/committees/ga.jpg
 
 # - name: coming Soon
@@ -7,7 +7,7 @@
 #   bgimg: /assets/img/committees/unsc.jpg
 
 - name: UN-HRC
-  agenda: Human rights voilation in Syrian Arab Republic.
+  agenda: Protection of the human rights of migrants, the Global Compact on safe, orderly, and regular migration. 
   bgimg: /assets/img/committees/unhrc.jpg
 
 # - name: coming Soon
