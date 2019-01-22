@@ -3,10 +3,11 @@
 ---
 
 @import "minima";
-$defualt-color: black;
-$primary_color: red;
-$backgrond: rgb(219, 219, 218);
-$sec_color: rgba(62, 62, 62, 0.77);
+$default-color: rgb(15, 69, 112);
+$primary_color: #1795C1;
+$color-white: white;
+$sec_color: #282425;
+$backgrond: white;
 html {
   overflow-x: hidden;
 }
@@ -18,7 +19,7 @@ header {
   z-index: 1;
 
   .header {
-    background: $defualt-color;
+    background: $default-color;
     padding: 20px 10px 10px 15px;
     height: 100px;
   }
@@ -47,7 +48,7 @@ header {
   }
 
   .header-logo-title {
-    color: $primary_color;
+    color: $color-white;
     font-family: lato;
     font-size: 2vw;
     line-height: 25px;
@@ -63,11 +64,11 @@ header {
   }
 
   #logo-jecrc {
-    color: white;
+    color: $color-white;
   }
 
   .container-fluid {
-    background: $defualt-color;
+    background: $default-color;
     width: 100%;
   }
 
@@ -80,6 +81,10 @@ header {
     a {
       font-size: 14px;
     }
+  }
+
+  .nav-elements{
+    color: $color-white !important;
   }
   @media screen and (max-width: 425px) {
     .logo_mun {
@@ -215,7 +220,7 @@ header {
   }
 
   .mun {
-    color: white;
+    color: $color-white;
     font-size: 7vw;
     padding-top: 20px;
     text-shadow: 3px 5px 10px black;
@@ -224,13 +229,13 @@ header {
   }
 
   #year {
-    color: white;
+    color: $color-white;
   }
 
   .caption {
     font-size: 5vw;
     text-shadow: 3px 5px 10px black;
-    color: red;
+    color: $primary_color;
     -webkit-animation: reveal 1s steps(9) infinite;
             animation: reveal 1s steps(9) infinite;
     font-family: sans-serif;
@@ -239,7 +244,7 @@ header {
 
   .dates {
     font-size: 4vw;
-    color: white;
+    color: $color-white;
     font-weight: bold;
     -webkit-text-stroke: 1px $sec_color;
   }
@@ -247,16 +252,16 @@ header {
   .btn {
     margin-top: 1%;
     margin-bottom: 1%;
-    background: red;
-    color: white;
+    background: $default-color;
+    color: $color-white;
     font-size: 35px;
     border-radius: 15px;
     font-weight: bold;
   }
 
   .btn:hover {
-    background: white;
-    color: red;
+    background: $color-white;
+    color: $default-color;
     cursor: pointer;
   }
   @media screen and (max-width: 1024px) and (min-width: 768px) {
@@ -341,7 +346,7 @@ header {
 /*-------------------------------------------------------*/
 #message {
   .container-fluid {
-    background: $sec_color;
+    background: $color-white;
     min-height: 480px;
     text-align: center;
     padding-right: 4%;
@@ -351,7 +356,7 @@ header {
   }
 
   #mess_title {
-    color: white;
+    color: $default-color;
     font-size: 70px;
     padding-top: 2%;
     font-weight: bold;
@@ -370,14 +375,14 @@ header {
   #message {
     text-align: justify;
     font-size: 22px;
-    color: black;
+    color: white;
     font-family: arial;
     font-weight: 500;
     padding: 2% 1% 1%;
   }
 
   #msg_box {
-    background-color: white;
+    background-color: $primary_color;
     -webkit-box-shadow: 2px 3px 10px black;
     box-shadow: 2px 3px 10px black;
   }
@@ -386,13 +391,13 @@ header {
     font-size: 40px;
     font-weight: bold;
     font-family: sans-serif;
-    color: white;
+    color: $default-color;
   }
 
   #desg {
     font-size: 30px;
     font-family: serif;
-    color: white;
+    color: $default-color;
   }
   @media screen and (max-width: 420px) {
     #message {

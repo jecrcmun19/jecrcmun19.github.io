@@ -20,12 +20,12 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a class="item" href="/">HOME</a></li>
-          <li><a class="item" href="/#committee">COMMITTEES</a></li>
-          <li><a class="item" href="/#apply">APPLY NOW</a></li>
+          <li><a class="item nav-elements" href="/">HOME</a></li>
+          <li><a class="item nav-elements" href="/#committee">COMMITTEES</a></li>
+          <li><a class="item nav-elements" href="/#apply">APPLY NOW</a></li>
           <!-- <li><a class="item" href="/campus_ambassador/">CAMPUS AMBASSADOR</a></li> -->
           <!-- <li><a class="item" href="/collabrators/">OUR COLLABORATIONS</a></li> -->
-          <li><a class="item" href="/sponsors/">SPONSORS</a></li>
+          <li><a class="item nav-elements" href="/sponsors/">SPONSORS</a></li>
           <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">EXECUTIVE BOARD<span class="caret"></span></a> -->
             <ul class="dropdown-menu">
               {% for grp in site.data.execboard %}
@@ -34,16 +34,16 @@
             </ul>
           </li>
 
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">OUR TEAM<span class="caret"></span></a>
+          <li class="dropdown"><a class="dropdown-toggle nav-elements" data-toggle="dropdown" href="#">OUR TEAM<span class="caret"></span></a>
             <ul class="dropdown-menu">
               {% for grp in site.data.team %}
               <li><a class="item" href="/our_team/#{{ forloop.index }}">{{ grp.group }}</a></li>
               {% endfor %}
             </ul>
           </li>
-          <li><a class="item" href="/gallery/">GALLERY</a></li>
-          <li><a class="item" href="/about_us/">ABOUT US</a></li>
-          <li><a class="item" href="/#mailus">CONTACT US</a></li>
+          <li><a class="item nav-elements" href="/gallery/">GALLERY</a></li>
+          <li><a class="item nav-elements" href="/about_us/">ABOUT US</a></li>
+          <li><a class="item nav-elements" href="/#mailus">CONTACT US</a></li>
         </ul>
       </div>
     </div>
