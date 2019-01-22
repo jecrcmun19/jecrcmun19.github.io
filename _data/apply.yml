@@ -4,11 +4,11 @@
   text: Apply Now
   link: /apply/delegate
 
-- for: INTERNATIONAL PRESS APPLICATION
-  image: /assets/img/ipapplications.png
-  info: <strong>Application Fee:</strong> INR 250/-<br>
+- for: APPLY AS AN <br />EXECUTIVE BOARD
+  image: /assets/img/eb.jpg
+  info: <br>
   text: Apply Now
-  link: /apply/ipapplications/
+  link: /apply/eb/
 
 - for: CAMPUS <br />AMBASSADOR
   image: /assets/img/ambassador.jpg
@@ -16,10 +16,12 @@
   text: Apply Now
   link: /apply/ambassador/
 
-- for: APPLY AS AN <br />EXECUTIVE BOARD
-  image: /assets/img/eb.jpg
-  info: <br>
+- for: INTERNATIONAL PRESS APPLICATION
+  image: /assets/img/ipapplications.png
+  info: <strong>Application Fee:</strong> INR 250/-<br>
   text: Apply Now
-  link: /apply/eb/
+  link: /apply/ipapplications/
+
+
 
 
