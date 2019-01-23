@@ -6,8 +6,8 @@
       <div class="flex-element">
         <h2 class="for">{{ ap.for }}</h2>
         <img src="{{ ap.image }}" alt="{{ ap.for }}">
-        <p class="info">Coming Soon!!</p>
-        <!-- <a  class="btn btn-default" target="_blank">{{ ap.text }}</a> -->
+        <p class="info">{{ ap.info }}</p>
+        <a  class="btn btn-default" target="_blank" href="{{ ap.link }}">{{ ap.text }}</a>
       </div>
       {% endfor %}
     </div>
