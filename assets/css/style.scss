@@ -375,7 +375,7 @@ header {
   #message {
     text-align: justify;
     font-size: 22px;
-    color: white;
+    color: $color-white;
     font-family: arial;
     font-weight: 500;
     padding: 2% 1% 1%;
@@ -429,13 +429,13 @@ header {
 /*-------------------------------------------------------*/
 #committee {
   .container-fluid {
-    background: black;
+    background: $sec_color;
     padding-bottom: 4%;
     text-align: center;
   }
 
   #comm_title {
-    color: white;
+    color: $color-white;
     font-size: 50px;
     padding-top: 2%;
     text-align: center;
@@ -454,7 +454,7 @@ header {
     height: auto;
     padding: 0 0 2%;
     margin: 0;
-    background: black;
+    background: $sec_color;
   }
 
   .container {
@@ -485,7 +485,7 @@ header {
   }
 
   .text {
-    color: white;
+    color: $color-white;
     font-size: 20px;
     position: absolute;
     right: 5px;
@@ -510,7 +510,7 @@ header {
   .btn {
     margin-top: 1%;
     margin-bottom: 1%;
-    background: white;
+    background: $color-white;
     color: $primary_color;
     font-size: 20px;
     border-radius: 15px;
