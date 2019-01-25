@@ -7,8 +7,8 @@
 - for: APPLY AS AN <br />EXECUTIVE BOARD
   image: /assets/img/eb.jpg
   info: <br />
-  text: Apply Now
-  link: /apply/eb
+  text: Coming Soon
+  # link: /apply/eb
 
 - for: INTERNATIONAL PRESS APPLICATION
   image: /assets/img/ipapplications.png
@@ -21,4 +21,3 @@
   info: <br>
   text: Comming Soon
   # link: #
-
