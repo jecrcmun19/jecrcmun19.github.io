@@ -4,22 +4,21 @@
   text: Apply Now
   link: /apply/delegate
 
+- for: APPLY AS AN <br />EXECUTIVE BOARD
+  image: /assets/img/eb.jpg
+  info: <br />
+  text: Apply Now
+  link: /apply/eb
+
 - for: INTERNATIONAL PRESS APPLICATION
   image: /assets/img/ipapplications.png
   text: Comming Soon
   info: <br>
-  link: #
+  # link: #
 
 - for: CAMPUS <br />AMBASSADOR
   image: /assets/img/ambassador.jpg
   info: <br>
   text: Comming Soon
-  link: #
-
-- for: APPLY AS AN <br />EXECUTIVE BOARD
-  image: /assets/img/eb.jpg
-  info: <br>
-  text: Comming Soon
-  link: #
-
+  # link: #
 
