@@ -1,20 +1,5 @@
 - group: USG OUTREACH
   members:
-  - name: Sahil Kumar
-    profile_pic: /assets/img/team/sahil.jpg
-
-  # - name: Gopi Vallabh Agarwal
-  #   profile_pic: /assets/img/team/gopi.jpg
-
-  - name: Ritisha Kothari
-    profile_pic: /assets/img/team/ritisha.jpg
-    
-  - name: Rashi Parikh
-    profile_pic: /assets/img/team/rashi.jpg
-
-  - name: Umang Goenka
-    profile_pic: /assets/img/team/umang.jpg
-    
   # - name: Simran Prasad
   #   profile_pic: /assets/img/team/simran.jpg
     
@@ -30,28 +15,13 @@
   - name: Palak Pareek
     profile_pic: /assets/img/team/palak.jpg
 
-  - name: Simran Prasad
-    profile_pic: /assets/img/team/simran.jpg
-
   - name: Savita Mansharamani
     profile_pic: /assets/img/team/savita.jpg
-
-- group: USG EB AFFAIRS
-  members:
-  - name: Suyash Shrey Jain
-    profile_pic: /assets/img/team/suyash.jpg
-
-  - name: Kanika Bhatt
-    profile_pic: /assets/img/team/kanika.jpg
-
 
 - group: USG SPONSORSHIP
   members:
   - name: Avani Bansal
     profile_pic: /assets/img/team/avani.jpg
-
-  - name: Ayushi Johri
-    profile_pic: /assets/img/team/ayushi.jpg
 
   - name: Kirti Chauhan
     profile_pic: /assets/img/team/kirti.jpg
@@ -60,25 +30,6 @@
   members:
   - name: Devansh Dadhich
     profile_pic: /assets/img/team/devansh.jpg
-
-  # - name: Ritisha Kothari
-  #   profile_pic: /assets/img/team/ritisha.jpg
-
-# - group: USG PROMOTIONS
-#   members:
-#   - name: Sahil Kumar
-#     profile_pic: /assets/img/team/sahil.jpg
-
-
-#   - name: Anjali Agarwal
-#     profile_pic: /assets/img/team/anjali.jpg
-
-#   - name: Savita Mansharamani
-#     profile_pic: /assets/img/team/savita.jpg
-
-#   - name: Shubham
-#     profile_pic: /assets/img/team/subham.jpg
-
 
 - group: USG LOGISTICS
   members:
@@ -103,16 +54,6 @@
   - name: Darshit Gupta
     profile_pic: /assets/img/team/darshit.jpg
 
-
-- group: USG DESIGN
-  members:
-  - name: Soumil Khandelwal
-    profile_pic: /assets/img/team/soumil.jpg
-
-  - name: Namandeep Singh
-    profile_pic: /assets/img/team/namandeep.jpg
-
-
 - group: USG CONTENT
   members:
   - name: Malvika Kushwah
@@ -120,20 +61,10 @@
 
 - group: USG HOSPITALITY
   members:
-  - name: Gopi Vallabh Agarwal
-    profile_pic: /assets/img/team/gopi.jpg
   - name: Surbhi Khandelwal
     profile_pic: /assets/img/team/surbhi.jpg
-
 
 - group: USG CINEMATOGRAPHY
   members:
   - name: Aman Jain
     profile_pic: /assets/img/team/aman.jpg
-    
-  - name: Umang Goenka
-    profile_pic: /assets/img/team/umang.jpg
-    
-  - name: Mehul
-    profile_pic: /assets/img/team/mehul.jpg
-
