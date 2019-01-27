@@ -13,8 +13,8 @@
 - for: APPLY AS AN <br />EXECUTIVE BOARD
   image: /assets/img/eb.jpg
   info: <br />
-  text: Coming Soon
-  # link: #
+  text: Apply Now
+  link: /apply/eb
 
 - for: CAMPUS <br />AMBASSADOR
   image: /assets/img/ambassador.jpg
