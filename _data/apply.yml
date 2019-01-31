@@ -19,5 +19,5 @@
 - for: CAMPUS <br />AMBASSADOR
   image: /assets/img/ambassador.jpg
   info: <br>
-  text: Comming Soon
-  # link: #
+  text: Apply Now
+  link: apply/ambassador
