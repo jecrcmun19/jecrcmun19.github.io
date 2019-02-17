@@ -1,0 +1,14 @@
+<section id="blog">
+  <div class="container-fluid">
+    <h1 id="blog_title">Blogs</h1>
+    <div class="flex-container wow animated bounceInLeft" data-wow-duration="1.5s" data-wow-delay="0.5s">
+        {% for blog in site.data.blogs %}
+        <div class="flex-element">
+          <h2 class="for">{{ blog.title }}</h2>
+          <img src="{{ blog.img }}" alt="{{ blog.title }}">
+          <a  class="btn btn-default" {% if blog.link %} href="{{ blog.link }}" {% endif %}>Read Now</a>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+</section>
