@@ -1228,11 +1228,28 @@ footer {
   }
 
   .detail {
-    font-size: 25px;
+    font-size: 1.5em;
     line-height: 1.6;
     margin-top: 15px;
     margin-left: 15px;
     text-align: justify;
+  }
+  
+  .btn {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: $default-color;
+    color: $color-white;
+    font-size: 24px;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: background-color 0.5s ease-out;
+  }
+
+  .btn:hover {
+    background-color: $color-white;
+    color: $default-color;
+    cursor: pointer;
   }
 }
 
@@ -1380,6 +1397,7 @@ footer {
     padding: 12px;
     text-align: center;
   }
+
   .flex-container {
     display: -webkit-box;
     display: -ms-flexbox;
