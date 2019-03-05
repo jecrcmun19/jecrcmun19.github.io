@@ -1,47 +1,37 @@
 - group: USG OUTREACH
   members:
-  # - name: Simran Prasad
-  #   profile_pic: /assets/img/team/simran.jpg
-    
-  - name: Anjali Agarwal
-    profile_pic: /assets/img/team/anjali.jpg
-        
+  - name: Yash Sharma
+    profile_pic: /assets/img/team/yash.jpg
+
+  - name: Gopiraj Singh Shekhawat
+    profile_pic: /assets/img/team/gopiraj.jpg
+
   # - name: Shubham
   #   profile_pic: /assets/img/team/subham.jpg
-    
-    
-- group: USG DELEGATE AFFAIRS
-  members:
-  - name: Palak Pareek
-    profile_pic: /assets/img/team/palak.jpg
 
-  - name: Savita Mansharamani
-    profile_pic: /assets/img/team/savita.jpg
+
+# - group: USG DELEGATE AFFAIRS
+#   members:
+#   - name: Palak Pareek
+#     profile_pic: /assets/img/team/palak.jpg
+#
+#   - name: Savita Mansharamani
+#     profile_pic: /assets/img/team/savita.jpg
 
 - group: USG SPONSORSHIP
-  members:
-  - name: Avani Bansal
-    profile_pic: /assets/img/team/avani.jpg
-
-  - name: Kirti Chauhan
-    profile_pic: /assets/img/team/kirti.jpg
-
-- group: USG SOCIAL MEDIA
   members:
   - name: Devansh Dadhich
     profile_pic: /assets/img/team/devansh.jpg
 
-- group: USG LOGISTICS
+  # - name: Kirti Chauhan
+  #   profile_pic: /assets/img/team/kirti.jpg
+
+- group: USG DIGITAL MARKETING
   members:
-  - name: Aditya Joshi
-    profile_pic: /assets/img/team/ajoshi.jpg
-
-  # - name: Shivansh Pandya
-  #   profile_pic: /assets/img/team/pourush.jpg
-
-  # - name: Surabhi Khandelwal
-  #   profile_pic: /assets/img/team/surabhi.jpg
-
+  - name: Raman Choudhary
+    profile_pic: /assets/img/team/raman.jpg
+  - name: Harshit Thakuriya
+    profile_pic: /assets/img/team/harshit.jpg
 
 - group: USG TECHNICAL
   members:
@@ -54,17 +44,32 @@
   - name: Darshit Gupta
     profile_pic: /assets/img/team/darshit.jpg
 
+- group: USG DESIGNER
+  members:
+  - name: Chirayu Bansal
+    profile_pic: /assets/img/team/chirayu.jpg
+
 - group: USG CONTENT
   members:
   - name: Malvika Kushwah
     profile_pic: /assets/img/team/malvika.jpg
 
-- group: USG HOSPITALITY
+- group: USG LOGISTICS
   members:
-  - name: Surbhi Khandelwal
-    profile_pic: /assets/img/team/surbhi.jpg
+  - name: Aditya Joshi
+    profile_pic: /assets/img/team/ajoshi.jpg
+
+  - name: Shivansh Pandya
+    profile_pic: /assets/img/team/shivansh.jpg
+
+# - group: USG HOSPITALITY
+#   members:
+  # - name: Surbhi Khandelwal
+  #   profile_pic: /assets/img/team/surbhi.jpg
 
 - group: USG CINEMATOGRAPHY
   members:
   - name: Aman Jain
     profile_pic: /assets/img/team/aman.jpg
+  - name: Harender Singh
+    profile_pic: /assets/img/team/harender.jpg
