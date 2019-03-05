@@ -1,67 +1,74 @@
-- group: GA-DISEC
+- group: UNGA-DISEC
   members:
     - name: Raghav Dua
-      profile_pic: /assets/img/execboard/raghavdua.jpg
+      profile_pic: /assets/img/execboard/raghavdua.jpeg
       post: Chairperson
 
-    - name: Rishabh Mittal
-      profile_pic: /assets/img/execboard/rishabh.jpg
+    - name: Meru Madaan
+      profile_pic: /assets/img/execboard/merumadan.jpeg
       post: Vice-Chairperson
 
 - group: UNSC
   members:
-    - name: Soumya Basu
-      profile_pic: /assets/img/execboard/soumya.jpg
+    - name: Shubham Gupta
+      profile_pic: /assets/img/execboard/shubhamgupta.jpeg
       post: President
 
-    - name: Uday Shrivastava
-      profile_pic: /assets/img/execboard/uday.jpg
-      post: Rapporteur
+    - name: Yashaswini Tiwari
+      profile_pic: /assets/img/execboard/yashswinitiwari.jpeg
+      post: Vice-President
+
 
 - group: UN-HCR
   members:
-    - name: Faiz Khan
-      profile_pic: /assets/img/execboard/faiz.jpg
+    - name: Vaibhavi Pathak
+      profile_pic: /assets/img/execboard/vaibhavipathak.jpeg
       post: Chairperson
 
-    - name: Vani Sharma
-      profile_pic: /assets/img/execboard/vani.jpg
-      post: Vice-Chairperson
-
-    - name: Ratnam Agarwal
-      profile_pic: /assets/img/execboard/ratnam.jpg
-      post: Rapporteur
+    - name: Prakhar Joshi
+      profile_pic: /assets/img/execboard/prakharjoshi.jpeg
+      post: Co-Chairperson
 
 - group: UN-CSW
   members:
-    - name: Vaibhavi Pathak
-      profile_pic: /assets/img/execboard/vaibhavi.jpg
+    - name: Karishma Kharbanda
+      profile_pic: /assets/img/execboard/karishmakharbanda.jpeg
       post: Chairperson
 
-    - name: Padmini Rathore
-      profile_pic: /assets/img/execboard/padmini.jpg
-      post: Rapporteur
+    - name: Ujwal Sachdeva
+      profile_pic: /assets/img/execboard/ujwalsachdeva.jpeg
+      post: Vice-Chairperson
 
 - group: LOKSABHA
   members:
-    - name: Ayush Rawtani
-      profile_pic: /assets/img/execboard/ayush.jpg
+    - name: Rahul Menon
+      profile_pic: /assets/img/execboard/rahulmenon.jpeg
       post: Speaker
 
-    - name: Shreya Bhat
-      profile_pic: /assets/img/execboard/shreya.jpg
-      post: Deputy Speaker
+    - name: Garima Rajpal
+      profile_pic: /assets/img/execboard/garimarajpal.jpeg
+      post: Deputy-Speaker
 
-- group: INTERNATIONAL PRESS
+- group: EPMM
   members:
-    - name: Khudayar Hamid Beg
-      profile_pic: /assets/img/execboard/khudayar.jpg
-      post: Editor in Chief
+    - name: Roshan Patnaik
+      profile_pic: /assets/img/execboard/roshanpatanak.jpeg
+      post: Prime Minister
 
-    - name: Pragya Bajaj
-      profile_pic: /assets/img/execboard/pragya.jpg
-      post: IP Head
+    - name: Karan Bhagnani
+      profile_pic: /assets/img/execboard/karanbhagnani.jpeg
+      post: Cabinet Secretary
 
-    - name: Abhinandan Joshi
-      profile_pic: /assets/img/execboard/abhinandan.jpg
-      post: Head of Photography
+# - group: INTERNATIONAL PRESS
+#   members:
+#     - name: Khudayar Hamid Beg
+#       profile_pic: /assets/img/execboard/khudayar.jpg
+#       post: Editor in Chief
+#
+#     - name: Pragya Bajaj
+#       profile_pic: /assets/img/execboard/pragya.jpg
+#       post: IP Head
+#
+#     - name: Abhinandan Joshi
+#       profile_pic: /assets/img/execboard/abhinandan.jpg
+#       post: Head of Photography
