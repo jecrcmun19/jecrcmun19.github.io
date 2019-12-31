@@ -5,5 +5,9 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  plugins: [
+    'gatsby-plugin-top-layout',
+    'gatsby-plugin-material-ui',
+    'gatsby-plugin-react-helmet',
+  ],
 }
