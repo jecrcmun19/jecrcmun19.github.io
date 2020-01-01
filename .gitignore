@@ -1,2 +1,6 @@
 _site
 .sass-cache
+# ignore folders from newsite
+node_modules
+.cache
+public
