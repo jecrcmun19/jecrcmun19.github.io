@@ -31,13 +31,13 @@ You can find installation instructions according to your system at [Install Yarn
 1. Fork the repository
    1. You can see fork button on top-right corner.
    2. After forking, you will have your own copy of repository. For example:
-   `aditya81070/jecrcmun19.github.io`
+   `<your_username>/jecrcmun19.github.io`
 2. Clone the repository
    1. Click on `Clone or Download` button and copy the link.
    2. If you have configured `ssh` you can copy SSH Link by clicking on `ssh` and then copy.
    3. Clone the repository:
        ```bash
-      $git clone https://github.com/aditya81070/jecrcmun19.github.io.git
+      $git clone https://github.com/<your_username>/jecrcmun19.github.io.git
        ```
    4. This will create a new folder named `jecrcmun19.github.io`
 3. Change current working directory to this new folder:
@@ -66,8 +66,8 @@ The contribution will follow typical git-fork workflow. You can use following st
    1. `git remote -v`
    2. You can see 4 links as output:
       ```bash
-      origin	git@github.com:aditya81070/jecrcmun19.github.io.git (fetch)
-      origin	git@github.com:aditya81070/jecrcmun19.github.io.git (push)
+      origin	git@github.com:<your_username>/jecrcmun19.github.io.git (fetch)
+      origin	git@github.com:<your_username>/jecrcmun19.github.io.git (push)
       upstream	git@github.com:jecrcmun19/jecrcmun19.github.io.git (fetch)
       upstream	git@github.com:jecrcmun19/jecrcmun19.github.io.git (push)
       ```
