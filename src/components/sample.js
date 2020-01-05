@@ -1,10 +1,4 @@
-import React from 'react';
-const Sample= ()=> {
- return(
-<div>
-    Sample Component
-</div>
- );
-}
+import React from 'react'
+const Sample = () => <div>Sample Component</div>
 
-export default Sample;
+export default Sample
