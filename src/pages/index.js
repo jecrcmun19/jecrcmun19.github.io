@@ -1,5 +1,3 @@
 import React from 'react'
-import Wrapper from '../components/wrapper'
-
-export default () => <Wrapper>Hello World!</Wrapper>
-
+import Home from '../components/home'
+export default () => <Home />
