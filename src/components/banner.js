@@ -3,7 +3,7 @@ import { makeStyles, Typography } from '@material-ui/core'
 
 const styles = {
   backgroundImage: `linear-gradient(rgba(41, 24, 2, 0.75), rgba(41, 24, 2, 0.75)), url(images/bg.png)`,
-  height: '800px',
+  height: '100vh',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
   backgroundPosition: 'center center',

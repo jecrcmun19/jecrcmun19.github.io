@@ -15,8 +15,6 @@ import classnames from 'classnames'
 import NavBarWeb from './navbar'
 import MobileViewDrawer from './mobileDrawer'
 
-const drawerWidth = 240
-
 const transparentTheme = createMuiTheme({
   palette: {
     primary: { main: '#E5E5E5', contrastText: '#ffffff' },
@@ -44,14 +42,22 @@ const useStyles = makeStyles(theme => ({
   },
   header: {
     margin: 'auto',
-    height: 80,
-    color: 'ffffff',
+    height: 90,
+    color: '#ffffff',
     background: 'transparent',
     boxShadow: 'none',
+    transition: theme.transitions.create(['all'], {
+      duration: theme.transitions.duration.standard,
+      easing: theme.transitions.easing.sharp,
+    }),
   },
   onScroll: {
     margin: 'auto',
     height: 70,
+    transition: theme.transitions.create(['all'], {
+      duration: theme.transitions.duration.standard,
+      easing: theme.transitions.easing.sharp,
+    }),
   },
   imageProperties: {
     width: 60,
@@ -68,8 +74,8 @@ export default function Header(props) {
   const [open, setOpen] = React.useState(false)
 
   const appbarClases = classnames({
-    [classes.header]: scrollY < 110,
-    [classes.onScroll]: scrollY >= 110,
+    [classes.header]: scrollY === 0,
+    [classes.onScroll]: scrollY > 0,
   })
   // header scroll control
   window.onscroll = logScroll
@@ -102,7 +108,7 @@ export default function Header(props) {
   }, [matches])
 
   return (
-    <ThemeProvider theme={scrollY < 110 ? transparentTheme : blackTheme}>
+    <ThemeProvider theme={scrollY === 0 ? transparentTheme : blackTheme}>
       <AppBar className={appbarClases}>
         <Toolbar className={classes.root}>
           <Grid

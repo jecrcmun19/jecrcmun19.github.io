@@ -4,8 +4,7 @@ import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import { ExpandLess, ExpandMore } from '@material-ui/icons'
+import { ExpandLess, ExpandMore, CloseSharp } from '@material-ui/icons'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 
@@ -21,12 +20,6 @@ const useStyles = makeStyles(theme => ({
   headerItems: {
     fontFamily: "'Rubik', sans-serif",
   },
-  title: {
-    flexGrow: 1,
-  },
-  hide: {
-    display: 'none',
-  },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
@@ -34,38 +27,17 @@ const useStyles = makeStyles(theme => ({
   drawerPaper: {
     width: drawerWidth,
     height: 'auto',
-    backgroundColor: '#000000',
-    color: '#fff',
+    backgroundColor: theme.palette.secondary.light,
+    color: theme.palette.primary.main,
   },
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
   },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginRight: -drawerWidth,
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginRight: 0,
-  },
-  avatarProperties: {
-    marginRight: 5,
-    padding: 2,
-  },
-  chevron: {
-    color: '#fff',
+  close: {
+    color: theme.palette.primary.main,
   },
   listItem: {
     color: theme.palette.secondary.main,
@@ -101,8 +73,8 @@ function MobileViewDrawer(props) {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose} className={classes.chevron}>
-            <ChevronRightIcon className={classes.chevron} />
+          <IconButton onClick={handleDrawerClose} className={classes.close}>
+            <CloseSharp className={classes.close} />
           </IconButton>
         </div>
         <Divider />
