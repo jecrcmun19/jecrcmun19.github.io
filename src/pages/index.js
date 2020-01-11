@@ -1,3 +1,4 @@
 import React from 'react'
+import Wrapper from '../components/wrapper'
 
-export default () => <div>Hello world!</div>
+export default () => <Wrapper>Hello World!</Wrapper>
