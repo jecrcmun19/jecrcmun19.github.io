@@ -5,7 +5,7 @@ import FacebookIcon from '@material-ui/icons/Facebook'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import Grid from '@material-ui/core/Grid'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 
 const useStyles = makeStyles(theme => ({
@@ -16,29 +16,43 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     right: 0,
     overflowX: 'hidden',
-    backgroundImage:
-      'linear-gradient(rgba(41, 24, 2, 0.85), rgba(41, 24, 2, 0.85)), url(/images/footer-bg.png)',
+    backgroundImage: `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main}), url(/images/footer-bg.png)`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
   },
+  textColor: { color: theme.palette.font.primary },
 }))
 
 function Footer(props) {
   const classes = useStyles()
+  const theme = useTheme()
+  console.log(theme.palette.font.primary)
   return (
     <Paper className={classes.footer}>
       <Grid container alignContent='center'>
         <Grid container justify='center' className='my-10'>
           <img src='/images/munLogo.png' width='25px' className='mr-5' />
-          <Typography className='text-white' display='inline' variant='h5'>
+          <Typography
+            className={classes.textColor}
+            display='inline'
+            variant='h5'
+          >
             JECRC &nbsp; MUN &nbsp;2020
           </Typography>
         </Grid>
-        <Grid container justify='center' spacing={0} className='text-white'>
+        <Grid
+          container
+          justify='center'
+          spacing={0}
+          className={classes.textColor}
+        >
           <Grid item md={2} sm={12} xs={12} />
           <Grid item md={4} sm={12} xs={12} className='py-5'>
-            <Typography variant='h6' style={{ color: '#FF8E01' }}>
+            <Typography
+              variant='h6'
+              style={{ color: theme.palette.primary.main }}
+            >
               Address
             </Typography>
             <Typography>Shri Ram Ki Nangal,</Typography>
@@ -46,7 +60,10 @@ function Footer(props) {
             <Typography>Tonk Road, Jaipur</Typography>
           </Grid>
           <Grid item md={4} sm={12} xs={12} className='py-5'>
-            <Typography variant='h6' style={{ color: '#FF8E01' }}>
+            <Typography
+              variant='h6'
+              style={{ color: theme.palette.primary.main }}
+            >
               Contacts
             </Typography>
             <Typography>+91-999999999</Typography>
@@ -59,21 +76,30 @@ function Footer(props) {
             <hr
               width='70%'
               className='inline-flex border-dashed'
-              style={{ borderColor: '#FF8E01' }}
+              style={{ borderColor: theme.palette.primary.main }}
             />
           </Grid>
-          <Typography className='text-center text-white pt-1'>
+          <Typography className={['text-center pt-1', classes.textColor]}>
             © Copyright
           </Typography>
         </Grid>
         <Grid container justify='center'>
-          <Avatar style={{ background: '#FF8E01' }} className='m-2'>
+          <Avatar
+            style={{ background: theme.palette.primary.main }}
+            className='m-2'
+          >
             <FacebookIcon />
           </Avatar>
-          <Avatar style={{ background: '#FF8E01' }} className='m-2'>
+          <Avatar
+            style={{ background: theme.palette.primary.main }}
+            className='m-2'
+          >
             <InstagramIcon />
           </Avatar>
-          <Avatar style={{ background: '#FF8E01' }} className='m-2'>
+          <Avatar
+            style={{ background: theme.palette.primary.main }}
+            className='m-2'
+          >
             <TwitterIcon />
           </Avatar>
         </Grid>
