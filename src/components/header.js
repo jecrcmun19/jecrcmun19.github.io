@@ -1,18 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   makeStyles,
   createMuiTheme,
   ThemeProvider,
-  Avatar,
   Grid,
   AppBar,
   Toolbar,
-  Typography,
-  ListItem,
-  List,
   useMediaQuery,
+  IconButton,
+  Typography,
 } from '@material-ui/core'
+import MenuIcon from '@material-ui/icons/Menu'
+import classnames from 'classnames'
+import NavBarWeb from './navbar'
 import MobileViewDrawer from './mobileDrawer'
+
+const drawerWidth = 240
 
 const transparentTheme = createMuiTheme({
   palette: {
@@ -28,44 +31,46 @@ const blackTheme = createMuiTheme({
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    height: 80,
+  },
+  brand: {
+    width: 'auto',
+  },
+  hide: {
+    display: 'none',
+  },
+  show: {
+    marginLeft: 'auto',
   },
   header: {
     margin: 'auto',
-    height: 60,
+    height: 80,
     color: 'ffffff',
     background: 'transparent',
+    boxShadow: 'none',
   },
   onScroll: {
-    height: 55,
+    margin: 'auto',
+    height: 70,
   },
-  white: {
-    color: '#ffffff',
-    backgroundColor: '#ffffff',
-  },
-  black: {
-    backgroundColor: '#000',
-  },
-  headerItems: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  grid: {
-    marginLeft: 1,
-    marginRight: 1,
-  },
-  horizontalList: {
-    display: 'flex',
-    flexDirection: 'row',
-    padding: 0,
-    margin: 0,
+  imageProperties: {
+    width: 60,
+    height: 'auto',
+    marginTop: 2,
+    paddingTop: 2,
   },
 }))
 
 export default function Header(props) {
   const classes = useStyles()
   const [scrollY, setScrollY] = useState(0)
+  const [openDropDown, setOpenDropDown] = React.useState(false)
+  const [open, setOpen] = React.useState(false)
 
+  const appbarClases = classnames({
+    [classes.header]: scrollY < 110,
+    [classes.onScroll]: scrollY >= 110,
+  })
   // header scroll control
   window.onscroll = logScroll
 
@@ -75,81 +80,75 @@ export default function Header(props) {
   }
 
   // mobile-view handling
-  const matches = useMediaQuery('(min-width:800px)')
-  console.log(matches)
-  if (matches)
-    return (
-      <ThemeProvider theme={scrollY < 110 ? transparentTheme : blackTheme}>
-        <AppBar className={scrollY < 110 ? classes.header : classes.onScroll}>
-          <Toolbar>
-            <Grid container justify='flex-start'>
-              <Grid item lg={1} md={2} sm={1}>
-                <Avatar className={classes.black}>A</Avatar>
+  const matches = useMediaQuery('(min-width:850px)')
+  const verySmallView = useMediaQuery('(min-width:320px')
+
+  const handleDrawerOpen = () => {
+    setOpen(true)
+  }
+
+  const handleDrawerClose = () => {
+    setOpen(false)
+  }
+
+  const handleClick = () => {
+    setOpenDropDown(!openDropDown)
+  }
+
+  useEffect(() => {
+    if (matches) {
+      handleDrawerClose()
+    }
+  }, [matches])
+
+  return (
+    <ThemeProvider theme={scrollY < 110 ? transparentTheme : blackTheme}>
+      <AppBar className={appbarClases}>
+        <Toolbar className={classes.root}>
+          <Grid
+            container
+            className={classes.brand}
+            spacing={3}
+            alignItems='center'
+          >
+            <Grid item lg={1}>
+              <img
+                src='images/munLogo.png'
+                alt='munLogo'
+                className={classes.imageProperties}
+              />
+            </Grid>
+            {!matches && verySmallView ? (
+              <Grid item lg={1}>
+                <Typography variant='h6' noWrap className={classes.eventName}>
+                  JECRC MUN
+                </Typography>
               </Grid>
-            </Grid>
-            <Grid container justify='flex-end'>
-              <List className={classes.horizontalList}>
-                <ListItem>
-                  <Typography
-                    className={classes.headerItems}
-                    variant='subtitle2'
-                  >
-                    HOME
-                  </Typography>
-                </ListItem>
-                <ListItem>
-                  <Typography
-                    className={classes.headerItems}
-                    variant='subtitle2'
-                  >
-                    ABOUT
-                  </Typography>
-                </ListItem>
-                <ListItem>
-                  <Typography
-                    className={classes.headerItems}
-                    variant='subtitle2'
-                  >
-                    COMITTEES
-                  </Typography>
-                </ListItem>
-                <ListItem>
-                  <Typography
-                    className={classes.headerItems}
-                    variant='subtitle2'
-                  >
-                    REGISTRATIONS
-                  </Typography>
-                </ListItem>
-                <ListItem>
-                  <Typography
-                    className={classes.headerItems}
-                    variant='subtitle2'
-                  >
-                    BLOGS
-                  </Typography>
-                </ListItem>
-                <ListItem>
-                  <Typography
-                    className={classes.headerItems}
-                    variant='subtitle2'
-                  >
-                    GALLERY
-                  </Typography>
-                </ListItem>
-                <ListItem>
-                  <Typography
-                    className={classes.headerItems}
-                    variant='subtitle2'
-                  >
-                    CONTACT
-                  </Typography>
-                </ListItem>
-              </List>
-            </Grid>
-          </Toolbar>
-        </AppBar>
-      </ThemeProvider>
-    )
-  else return <MobileViewDrawer />
+            ) : null}
+          </Grid>
+          {!matches ? (
+            <IconButton
+              color='inherit'
+              aria-label='open drawer'
+              edge='end'
+              onClick={handleDrawerOpen}
+              className={open ? classes.hide : classes.show}
+            >
+              <MenuIcon />
+            </IconButton>
+          ) : (
+            <NavBarWeb handleClick={handleClick} />
+          )}
+        </Toolbar>
+        {open ? (
+          <MobileViewDrawer
+            handleDrawerClose={handleDrawerClose}
+            open={open}
+            handleClick={handleClick}
+            openDropDown={openDropDown}
+          />
+        ) : null}
+      </AppBar>
+    </ThemeProvider>
+  )
 }
