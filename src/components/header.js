@@ -78,7 +78,9 @@ export default function Header(props) {
     [classes.onScroll]: scrollY > 0,
   })
   // header scroll control
-  window.onscroll = logScroll
+  useEffect(() => {
+    window.onscroll = logScroll
+  }, [])
 
   function logScroll(e) {
     const { scrollY } = e.currentTarget
