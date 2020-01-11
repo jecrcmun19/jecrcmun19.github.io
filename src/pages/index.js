@@ -1,3 +1,5 @@
 import React from 'react'
-import Footer from '../components/footer'
-export default () => <Footer />
+import Wrapper from '../components/wrapper'
+
+export default () => <Wrapper>Hello World!</Wrapper>
+
