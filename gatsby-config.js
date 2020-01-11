@@ -9,5 +9,6 @@ module.exports = {
     'gatsby-plugin-top-layout',
     'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-postcss',
   ],
 }
