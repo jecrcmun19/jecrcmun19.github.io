@@ -7,38 +7,51 @@ import TwitterIcon from '@material-ui/icons/Twitter'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
+import { Link } from 'gatsby'
 
 const useStyles = makeStyles(theme => ({
   footer: {
-    position: 'absolute',
     textAlign: 'center',
-    left: 0,
-    bottom: 0,
-    right: 0,
-    overflowX: 'hidden',
     backgroundImage: `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main}), url(/images/footer-bg.png)`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
   },
   textColor: { color: theme.palette.font.primary },
+  socialIcon: {
+    backgroundColor: theme.palette.primary.main,
+    '&:hover': {
+      backgroundColor: theme.palette.font.primary,
+      color: theme.palette.primary.main,
+    },
+  },
 }))
 
 function Footer(props) {
   const classes = useStyles()
   const theme = useTheme()
-  console.log(theme.palette.font.primary)
   return (
-    <Paper className={classes.footer}>
+    <Paper className={classes.footer} square>
       <Grid container alignContent='center'>
-        <Grid container justify='center' className='my-10'>
-          <img src='/images/munLogo.png' width='25px' className='mr-5' />
+        <Grid
+          container
+          component={Link}
+          to='/'
+          justify='center'
+          className='my-10'
+        >
+          <img
+            src='/images/munLogo.png'
+            width='25px'
+            className='mr-5'
+            alt='MUN Logo'
+          />
           <Typography
             className={classes.textColor}
             display='inline'
             variant='h5'
           >
-            JECRC &nbsp; MUN &nbsp;2020
+            JECRC MUN 2020
           </Typography>
         </Grid>
         <Grid
@@ -80,26 +93,17 @@ function Footer(props) {
             />
           </Grid>
           <Typography className={['text-center pt-1', classes.textColor]}>
-            © Copyright
+            © Copyright JECRC MUN 2020
           </Typography>
         </Grid>
         <Grid container justify='center'>
-          <Avatar
-            style={{ background: theme.palette.primary.main }}
-            className='m-2'
-          >
+          <Avatar className={['m-2', classes.socialIcon]}>
             <FacebookIcon />
           </Avatar>
-          <Avatar
-            style={{ background: theme.palette.primary.main }}
-            className='m-2'
-          >
+          <Avatar className={['m-2', classes.socialIcon]}>
             <InstagramIcon />
           </Avatar>
-          <Avatar
-            style={{ background: theme.palette.primary.main }}
-            className='m-2'
-          >
+          <Avatar className={['m-2', classes.socialIcon]}>
             <TwitterIcon />
           </Avatar>
         </Grid>
