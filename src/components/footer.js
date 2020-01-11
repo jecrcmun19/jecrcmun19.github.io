@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import FacebookIcon from '@material-ui/icons/Facebook'
@@ -10,11 +9,6 @@ import { makeStyles } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 
 const useStyles = makeStyles(theme => ({
-  flex: {
-    flexGrow: 1,
-    marginBottom: '4vh',
-    marginTop: '5vh',
-  },
   footer: {
     position: 'absolute',
     textAlign: 'center',
@@ -22,164 +16,70 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     right: 0,
     overflowX: 'hidden',
-    overflowY: 'hidden',
-  },
-  orange: {
-    color: '#fff',
-    backgroundColor: '#FF8E01',
-  },
-  paper: {
-    backgroundColor: 'transparent',
-  },
-  footerDetails: {
-    padding: 0,
-    margin: 0,
-  },
-  borderLine: {
-    borderTop: '#E9AB1A dashed 2px',
-    width: '100%',
-    paddingTop: 10,
-    marginBottom: 10,
-    marginTop: 10,
-    alignContent: 'center',
-  },
-  alignFooter: {
-    height: '110%',
-    // alignItems: 'center',
-    alignContent: 'center',
-  },
-  head: {
-    marginTop: '5vh',
-  },
-  root: {
-    marginLeft: '20vw',
+    backgroundImage:
+      'linear-gradient(rgba(41, 24, 2, 0.85), rgba(41, 24, 2, 0.85)), url(/images/footer-bg.png)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
   },
 }))
 
-const style = {
-  backgroundImage:
-    'linear-gradient(rgba(41, 24, 2, 0.85), rgba(41, 24, 2, 0.85)), url(/images/footer-bg.png)',
-  height: '300px',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center center',
-}
 function Footer(props) {
   const classes = useStyles()
   return (
-    <Paper elevation={0} className={classes.footer} style={style}>
-      <Grid
-        container
-        spacing={8}
-        className={(classes.footerDetails, classes.alignFooter)}
-      >
-        <Grid container justify='center' spacing={0} className={classes.head}>
-          <Grid item md={0} xs={0} lg={0} sm={0}>
-            <img
-              src='/images/munLogo.png'
-              width='25px'
-              style={{ paddingTop: '3px' }}
-            ></img>
-          </Grid>
-          <Grid item md={2} xs={2} lg={2} sm={2}>
-            <Typography style={{ color: 'white' }} variant='h5'>
-              JECRC &nbsp; MUN &nbsp;2020
+    <Paper className={classes.footer}>
+      <Grid container alignContent='center'>
+        <Grid container justify='center' className='my-10'>
+          <img src='/images/munLogo.png' width='25px' className='mr-5' />
+          <Typography className='text-white' display='inline' variant='h5'>
+            JECRC &nbsp; MUN &nbsp;2020
+          </Typography>
+        </Grid>
+        <Grid container justify='center' spacing={0} className='text-white'>
+          <Grid item md={2} sm={12} xs={12} />
+          <Grid item md={4} sm={12} xs={12} className='py-5'>
+            <Typography variant='h6' style={{ color: '#FF8E01' }}>
+              Address
             </Typography>
+            <Typography>Shri Ram Ki Nangal,</Typography>
+            <Typography>via Sitapura RIICO,</Typography>
+            <Typography>Tonk Road, Jaipur</Typography>
           </Grid>
+          <Grid item md={4} sm={12} xs={12} className='py-5'>
+            <Typography variant='h6' style={{ color: '#FF8E01' }}>
+              Contacts
+            </Typography>
+            <Typography>+91-999999999</Typography>
+            <Typography>jecrcmun@jecrc.ac.in</Typography>
+          </Grid>
+          <Grid item md={2} sm={12} xs={12} />
         </Grid>
-        <Grid container justify='center' className={classes.root} spacing={0}>
-          <Grid item md={4} xs={12} lg={4} sm={12}>
-            <Paper elevation={0} className={classes.paper}>
-              <Grid item md={4} xs={12} lg={4} sm={4}>
-                <Typography variant='h6' style={{ color: '#FF8E01' }}>
-                  Address
-                </Typography>
-              </Grid>
-              <Grid item md={4} xs={12} lg={4} sm={4}>
-                <Typography variant='body2' style={{ color: 'white' }}>
-                  Shri Ram Ki Nangal,
-                </Typography>
-              </Grid>
-              <Grid item md={4} xs={12} lg={4} sm={4}>
-                <Typography variant='body2' style={{ color: 'white' }}>
-                  via Sitapura RIICO,
-                </Typography>
-              </Grid>
-              <Grid item md={4} xs={12} lg={4} sm={4}>
-                <Typography variant='body2' style={{ color: 'white' }}>
-                  Tonk Road, Jaipur
-                </Typography>
-              </Grid>
-            </Paper>
+        <Grid container justify='center' className='mb-4'>
+          <Grid item xs={12}>
+            <hr
+              width='70%'
+              className='inline-flex border-dashed'
+              style={{ borderColor: '#FF8E01' }}
+            />
           </Grid>
-          <Grid item md={4} xs={12} lg={4} sm={12}>
-            <Paper elevation={0} className={classes.paper}>
-              <Grid item md={4} xs={12} lg={4} sm={4}>
-                <Typography variant='h6' style={{ color: '#FF8E01' }}>
-                  Contacts
-                </Typography>
-              </Grid>
-              <Grid item md={4} xs={12} lg={4} sm={4}>
-                <Typography variant='body2' style={{ color: 'white' }}>
-                  +91-999999999
-                </Typography>
-              </Grid>
-              <Grid item md={4} xs={12} lg={4} sm={4}>
-                <Typography variant='body2' style={{ color: 'white' }}>
-                  jecrcmun@jecrc.ac.in
-                </Typography>
-              </Grid>
-              <Grid item md={4} xs={12} lg={4} sm={4}>
-                <Typography variant='body2'> </Typography>
-              </Grid>
-            </Paper>
-          </Grid>
+          <Typography className='text-center text-white pt-1'>
+            © Copyright
+          </Typography>
         </Grid>
-        <Typography
-          variant='caption'
-          className={classes.flex}
-          style={{ color: 'white' }}
-        >
-          <hr
-            width='70%'
-            style={{
-              color: '#E9AB1A',
-              backgroundColor: 'transparent',
-              borderStyle: 'dashed',
-              zIndex: 1200,
-            }}
-          />
-          © Copyright
-        </Typography>
-        <Grid
-          container
-          justify='center'
-          spacing={2}
-          style={{ marginBottom: '0vw' }}
-        >
-          <Grid item md={0} xs={0} lg={0} sm={0}>
-            <Avatar className={classes.orange}>
-              <FacebookIcon />
-            </Avatar>
-          </Grid>
-          <Grid item md={0} xs={0} lg={0} sm={0}>
-            <Avatar className={classes.orange}>
-              <InstagramIcon />
-            </Avatar>
-          </Grid>
-          <Grid item md={0} xs={0} lg={0} sm={0}>
-            <Avatar className={classes.orange}>
-              <TwitterIcon />
-            </Avatar>
-          </Grid>
+        <Grid container justify='center'>
+          <Avatar style={{ background: '#FF8E01' }} className='m-2'>
+            <FacebookIcon />
+          </Avatar>
+          <Avatar style={{ background: '#FF8E01' }} className='m-2'>
+            <InstagramIcon />
+          </Avatar>
+          <Avatar style={{ background: '#FF8E01' }} className='m-2'>
+            <TwitterIcon />
+          </Avatar>
         </Grid>
       </Grid>
     </Paper>
   )
-}
-
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired,
 }
 
 export default Footer
