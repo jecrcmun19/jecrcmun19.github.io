@@ -49,7 +49,11 @@ function Banner(props) {
     image.sharp.fluid,
   ]
   return (
-    <BackgroundImage className={classes.header} fluid={backgrounds}>
+    <BackgroundImage
+      className={classes.header}
+      fluid={backgrounds}
+      durationFadeIn={50}
+    >
       <div className='text-center'>
         <Typography className={classes.munTextProperty}>
           JECRC MUN 2020
