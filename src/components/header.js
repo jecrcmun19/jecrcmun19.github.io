@@ -85,7 +85,7 @@ export default function Header(props) {
 
   // mobile-view handling
   const matches = useMediaQuery('(min-width:850px)')
-  const verySmallView = useMediaQuery('(min-width:320px')
+  const verySmallView = useMediaQuery('(min-width:320px)')
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -111,7 +111,7 @@ export default function Header(props) {
         <Toolbar className={classes.root}>
           <div className='flex justify-center items-center'>
             <img
-              src='images/munLogo.png'
+              src='/images/munLogo.png'
               alt='munLogo'
               className={classes.imageProperties}
             />
