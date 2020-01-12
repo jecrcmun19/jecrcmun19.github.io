@@ -31,9 +31,6 @@ const useStyles = makeStyles(theme => ({
   root: {
     height: 80,
   },
-  brand: {
-    width: 'auto',
-  },
   hide: {
     display: 'none',
   },
@@ -113,27 +110,20 @@ export default function Header(props) {
     <ThemeProvider theme={scrollY === 0 ? transparentTheme : blackTheme}>
       <AppBar className={appbarClases}>
         <Toolbar className={classes.root}>
-          <Grid
-            container
-            className={classes.brand}
-            spacing={3}
-            alignItems='center'
-          >
-            <Grid item>
-              <img
-                src='images/munLogo.png'
-                alt='munLogo'
-                className={classes.imageProperties}
-              />
-            </Grid>
-            {!matches && verySmallView ? (
-              <Grid item lg={1}>
+          <div className='flex justify-center items-center'>
+            <img
+              src='images/munLogo.png'
+              alt='munLogo'
+              className={classes.imageProperties}
+            />
+            <div className='ml-3'>
+              {!matches && verySmallView ? (
                 <Typography variant='h6' noWrap className={classes.eventName}>
                   JECRC MUN
                 </Typography>
-              </Grid>
-            ) : null}
-          </Grid>
+              ) : null}
+            </div>
+          </div>
           {!matches ? (
             <IconButton
               color='inherit'
