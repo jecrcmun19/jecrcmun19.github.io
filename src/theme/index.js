@@ -15,12 +15,20 @@ const theme = createMuiTheme({
     },
     background: {
       default: '#fff',
+      pinkish: '#FFF5F8',
     },
     glare: {
       main: 'rgba(0, 0, 0, 0.87)',
     },
     font: {
       primary: '#ffffff',
+    },
+    border: {
+      pinkish: '#FFE4E6',
+    },
+    boxShadow: {
+      content:
+        '10px 20px 38px rgba(0, 0, 0, 0.3), 5px 15px 12px rgba(0, 0, 0, 0.22)',
     },
   },
 })
