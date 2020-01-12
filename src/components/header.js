@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import Toolbar from '@material-ui/core/Toolbar'
+import IconButton from '@material-ui/core/IconButton'
 import {
   makeStyles,
   createMuiTheme,
   ThemeProvider,
-  Grid,
-  AppBar,
-  Toolbar,
-  useMediaQuery,
-  IconButton,
-  Typography,
-} from '@material-ui/core'
+} from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import AppBar from '@material-ui/core/AppBar'
 import MenuIcon from '@material-ui/icons/Menu'
+import Typography from '@material-ui/core/Typography'
 import classnames from 'classnames'
 import NavBarWeb from './navbar'
 import MobileViewDrawer from './mobileDrawer'
