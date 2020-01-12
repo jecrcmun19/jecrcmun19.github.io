@@ -119,7 +119,7 @@ export default function Header(props) {
             spacing={3}
             alignItems='center'
           >
-            <Grid item lg={1}>
+            <Grid item>
               <img
                 src='images/munLogo.png'
                 alt='munLogo'
