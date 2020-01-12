@@ -70,6 +70,7 @@ function NavBarWeb(props) {
           <ListItem
             key={index}
             onMouseOver={text === 'ABOUT' ? e => handleOnMouse(text) : null}
+            onMouseLeave={handleClose}
           >
             <Typography className={classes.headerItems} variant='subtitle2'>
               {text}
