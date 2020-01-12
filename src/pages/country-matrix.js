@@ -1,17 +1,15 @@
 import React from 'react'
 import Wrapper from '../components/wrapper'
-import {
-  Grid,
-  makeStyles,
-  Card,
-  CardContent,
-  Typography,
-} from '@material-ui/core'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import Card from '@material-ui/core/Card'
+import makeStyles from '@material-ui/styles/makeStyles'
+import Grid from '@material-ui/core/Grid'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-import ListItem from '@material-ui/core/ListItem'
 import classNames from 'classnames'
-import { Committe } from './country-data'
+
+import { Committe } from '../data/country-data'
 
 const useStyles = makeStyles(theme => ({
   banner: {
@@ -22,11 +20,10 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'center center',
   },
   root: {
-    paddingTop: 80,
-    paddingBottom: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   cardContent: {
-    // backgroundColor: '#888',
     width: '100%',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -34,33 +31,23 @@ const useStyles = makeStyles(theme => ({
     padding: '5px',
   },
   cardStyle: {
-    margin: 10,
-    marginTop: 0,
+    marginBottom: '10%',
+    marginTop: '4%',
     paddingTop: 0,
   },
   listItemStyle: {
-    background: `linear-gradient(rgba(0,0,0,.14), rgba(0,0,0,.23))`,
     borderRadius: '2%',
     margin: 5,
   },
-  content: {
-    display: 'table-cell',
-    verticalAlign: 'middle',
+  cardProperty: {
+    margin: 5,
+    background: '#f7f7f7',
+  },
+  textProperty: {
     textAlign: 'center',
-  },
-  munTextProperty: {
-    color: '#FF8E01',
-    fontWeight: 'bold',
-    fontFamily: "'Rubik' , sans-serif",
-    fontSize: 60,
-    lineHeight: '71px',
-  },
-  diplomacyTextProperty: {
-    color: '#fff',
-    fontFamily: "'Rubik' , sans-serif",
-    fontWeight: 'bold',
-    fontSize: '24px',
-    lineHeight: '28px',
+    fontWeight: 400,
+    lineHeight: 1,
+    fontSize: 20,
   },
 }))
 
@@ -71,10 +58,7 @@ function CountryMatrix(props) {
   const bannerClasses = classNames(classes.header, classes.banner)
 
   const handleChange = (event, newValue) => {
-    console.log(event, newValue)
     setValue(newValue)
-    console.log(Committe[1])
-    console.log(Committe[newValue])
   }
   return (
     <Wrapper>
@@ -82,10 +66,12 @@ function CountryMatrix(props) {
       <Grid container justify='center' className={classes.root}>
         <Tabs
           value={value}
+          variant='scrollable'
           onChange={handleChange}
           indicatorColor='primary'
           textColor='primary'
-          centered
+          // centered
+          scrollButtons='desktop'
         >
           <Tab label='UNSC' />
           <Tab label='UNHRC' />
@@ -100,27 +86,25 @@ function CountryMatrix(props) {
         </Tabs>
       </Grid>
       <div className={classes.cardStyle}>
-        <Card className={classes.cardContent}>
-          <CardContent>
-            <Grid container justify='center' alignContent='space-around'>
-              {Committe[value].map((text, index) => (
-                <Grid
-                  item
-                  className={classes.listItemStyle}
-                  xl={2}
-                  md={3}
-                  lg={3}
-                  sm={6}
-                  xs={12}
-                >
-                  <ListItem alignItems='center'>
-                    <Typography>{text}</Typography>
-                  </ListItem>
-                </Grid>
-              ))}
+        <Grid container justify='center' alignContent='space-around'>
+          {Committe[value].map((text, index) => (
+            <Grid
+              item
+              className={classes.listItemStyle}
+              xl={2}
+              md={4}
+              lg={3}
+              sm={6}
+              xs={12}
+            >
+              <Card className={classes.cardProperty}>
+                <CardContent className={classes.textProperty}>
+                  {text}
+                </CardContent>
+              </Card>
             </Grid>
-          </CardContent>
-        </Card>
+          ))}
+        </Grid>
       </div>
     </Wrapper>
   )
