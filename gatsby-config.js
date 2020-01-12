@@ -10,5 +10,14 @@ module.exports = {
     'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: 'images',
+      },
+    },
   ],
 }
