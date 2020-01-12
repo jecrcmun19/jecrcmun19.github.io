@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     zIndex: 1200,
   },
   munTextProperty: {
-    color: '#FF8E01',
+    color: '#d90845',
     fontWeight: 'bold',
     fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,

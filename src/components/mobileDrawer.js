@@ -19,6 +19,8 @@ const useStyles = makeStyles(theme => ({
   },
   headerItems: {
     fontFamily: "'Rubik', sans-serif",
+    paddingBottom: 0,
+    paddingTop: 0,
   },
   drawer: {
     width: drawerWidth,
@@ -27,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   drawerPaper: {
     width: drawerWidth,
     height: 'auto',
-    backgroundColor: theme.palette.secondary.light,
+    backgroundColor: '#d90845',
     color: theme.palette.primary.main,
   },
   drawerHeader: {
@@ -40,7 +42,8 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.main,
   },
   listItem: {
-    color: theme.palette.secondary.main,
+    padding: 8,
+    paddingLeft: 16,
   },
 }))
 
@@ -92,6 +95,7 @@ function MobileViewDrawer(props) {
               <ListItem
                 button
                 onClick={() => (text === 'ABOUT' ? handleClick() : null)}
+                className={classes.listItem}
               >
                 <ListItemText primary={text} />
                 {text === 'ABOUT' ? (
