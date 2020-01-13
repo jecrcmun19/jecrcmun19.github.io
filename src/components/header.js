@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import Toolbar from '@material-ui/core/Toolbar'
+import IconButton from '@material-ui/core/IconButton'
 import {
   makeStyles,
   createMuiTheme,
   ThemeProvider,
-  Grid,
-  AppBar,
-  Toolbar,
-  useMediaQuery,
-  IconButton,
-  Typography,
-} from '@material-ui/core'
+} from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import AppBar from '@material-ui/core/AppBar'
 import MenuIcon from '@material-ui/icons/Menu'
+import Typography from '@material-ui/core/Typography'
 import classnames from 'classnames'
 import NavBarWeb from './navbar'
 import MobileViewDrawer from './mobileDrawer'
@@ -30,9 +29,6 @@ const blackTheme = createMuiTheme({
 const useStyles = makeStyles(theme => ({
   root: {
     height: 80,
-  },
-  brand: {
-    width: 'auto',
   },
   hide: {
     display: 'none',
@@ -89,7 +85,7 @@ export default function Header(props) {
 
   // mobile-view handling
   const matches = useMediaQuery('(min-width:850px)')
-  const verySmallView = useMediaQuery('(min-width:320px')
+  const verySmallView = useMediaQuery('(min-width:320px)')
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -113,27 +109,20 @@ export default function Header(props) {
     <ThemeProvider theme={scrollY === 0 ? transparentTheme : blackTheme}>
       <AppBar className={appbarClases}>
         <Toolbar className={classes.root}>
-          <Grid
-            container
-            className={classes.brand}
-            spacing={3}
-            alignItems='center'
-          >
-            <Grid item lg={1}>
-              <img
-                src='images/munLogo.png'
-                alt='munLogo'
-                className={classes.imageProperties}
-              />
-            </Grid>
-            {!matches && verySmallView ? (
-              <Grid item lg={1}>
+          <div className='flex justify-center items-center'>
+            <img
+              src='/images/munLogo.png'
+              alt='munLogo'
+              className={classes.imageProperties}
+            />
+            <div className='ml-3'>
+              {!matches && verySmallView ? (
                 <Typography variant='h6' noWrap className={classes.eventName}>
                   JECRC MUN
                 </Typography>
-              </Grid>
-            ) : null}
-          </Grid>
+              ) : null}
+            </div>
+          </div>
           {!matches ? (
             <IconButton
               color='inherit'
