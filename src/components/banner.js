@@ -1,69 +1,44 @@
 import React from 'react'
-import { makeStyles, Typography } from '@material-ui/core'
-import { graphql, useStaticQuery } from 'gatsby'
+import { makeStyles } from '@material-ui/core/styles'
 import BackgroundImage from 'gatsby-background-image'
+import PropTypes from 'prop-types'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   header: {
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh',
+    height: props => (props.height ? props.height : '100vh'),
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
     backgroundAttachment: 'fixed',
   },
-  munTextProperty: {
-    color: '#FF8E01',
-    fontWeight: 'bold',
-    fontFamily: "'Rubik' , sans-serif",
-    fontSize: 60,
-    lineHeight: '71px',
-  },
-  diplomacyTextProperty: {
-    color: '#fff',
-    fontFamily: "'Rubik' , sans-serif",
-    fontWeight: 'bold',
-    fontSize: '24px',
-    lineHeight: '28px',
-  },
-}))
+})
 
 function Banner(props) {
-  const classes = useStyles()
-  const { image } = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "bg.png" }) {
-        sharp: childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
-  const backgrounds = [
-    `linear-gradient(rgba(41, 24, 2, 0.75), rgba(41, 24, 2, 0.75))`,
-    image.sharp.fluid,
-  ]
+  const classes = useStyles(props)
   return (
     <BackgroundImage
       className={classes.header}
-      fluid={backgrounds}
+      fluid={props.backgrounds}
       durationFadeIn={50}
     >
-      <div className='text-center'>
-        <Typography className={classes.munTextProperty}>
-          JECRC MUN 2020
-        </Typography>
-        <Typography className={classes.diplomacyTextProperty}>
-          Deplomacy At It’s Zenith
-        </Typography>
-      </div>
+      <div className='text-center'>{props.children}</div>
     </BackgroundImage>
   )
+}
+
+Banner.propTypes = {
+  /**
+   * array of backgrounds. The order matters
+   */
+  backgrounds: PropTypes.array.isRequired,
+  /**
+   * height of the banner. Default to 100vh
+   */
+  height: PropTypes.string,
 }
 
 export default Banner

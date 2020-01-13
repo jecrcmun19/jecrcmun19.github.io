@@ -1,14 +1,11 @@
 import React from 'react'
-
-import {
-  Grid,
-  Typography,
-  ListItem,
-  List,
-  ClickAwayListener,
-  MenuList,
-  MenuItem,
-} from '@material-ui/core'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import ListItem from '@material-ui/core/ListItem'
+import List from '@material-ui/core/List'
+import ClickAwayListener from '@material-ui/core/ClickAwayListener'
+import MenuList from '@material-ui/core/MenuList'
+import MenuItem from '@material-ui/core/MenuItem'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({

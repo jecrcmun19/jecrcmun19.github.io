@@ -4,10 +4,11 @@ import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
-import { ExpandLess, ExpandMore, CloseSharp } from '@material-ui/icons'
+import ExpandLess from '@material-ui/icons/ExpandLess'
+import ExpandMore from '@material-ui/icons/ExpandMore'
+import CloseSharp from '@material-ui/icons/CloseSharp'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-
 import CollapseDropDown from './collapse'
 
 const drawerWidth = 240

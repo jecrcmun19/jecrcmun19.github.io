@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import Toolbar from '@material-ui/core/Toolbar'
+import IconButton from '@material-ui/core/IconButton'
 import {
   makeStyles,
   createMuiTheme,
   ThemeProvider,
-  Grid,
-  AppBar,
-  Toolbar,
-  useMediaQuery,
-  IconButton,
-  Typography,
-} from '@material-ui/core'
+} from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import AppBar from '@material-ui/core/AppBar'
 import MenuIcon from '@material-ui/icons/Menu'
+import Typography from '@material-ui/core/Typography'
 import classnames from 'classnames'
 import NavBarWeb from './navbar'
 import MobileViewDrawer from './mobileDrawer'
@@ -86,7 +85,7 @@ export default function Header(props) {
 
   // mobile-view handling
   const matches = useMediaQuery('(min-width:850px)')
-  const verySmallView = useMediaQuery('(min-width:320px')
+  const verySmallView = useMediaQuery('(min-width:320px)')
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -112,7 +111,7 @@ export default function Header(props) {
         <Toolbar className={classes.root}>
           <div className='flex justify-center items-center'>
             <img
-              src='images/munLogo.png'
+              src='/images/munLogo.png'
               alt='munLogo'
               className={classes.imageProperties}
             />

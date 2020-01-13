@@ -5,7 +5,7 @@ import FacebookIcon from '@material-ui/icons/Facebook'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import Grid from '@material-ui/core/Grid'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
 import { Link } from 'gatsby'
 
