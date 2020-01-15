@@ -67,6 +67,7 @@ function NavBarWeb(props) {
         ].map((text, index) => (
           <ListItem
             key={index}
+            onMouseLeave={handleClose}
             onMouseOver={
               text.name === 'ABOUT' ? e => handleOnMouse(text.name) : null
             }
