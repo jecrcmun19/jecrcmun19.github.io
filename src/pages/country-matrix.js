@@ -106,12 +106,7 @@ function CountryMatrix(props) {
                   <Tab className={classes.tabsTextProperty} label='UNSC' />
                   <Tab className={classes.tabsTextProperty} label='UNODC' />
                   <Tab className={classes.tabsTextProperty} label='DISEC' />
-                  <Tab className={classes.tabsTextProperty} label='LokSabha' />
-                  <Tab className={classes.tabsTextProperty} label='CSW' />
-                  <Tab className={classes.tabsTextProperty} label='IMF' />
-                  <Tab className={classes.tabsTextProperty} label='CSTD' />
-                  <Tab className={classes.tabsTextProperty} label='NSG' />
-                  <Tab className={classes.tabsTextProperty} label='SPECPOL' />
+                  <Tab className={classes.tabsTextProperty} label='UNCSW' />
                   <Tab className={classes.tabsTextProperty} label='WHA' />
                   <Tab className={classes.tabsTextProperty} label='AIPPM' />
                 </Tabs>
