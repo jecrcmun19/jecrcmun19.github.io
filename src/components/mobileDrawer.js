@@ -84,7 +84,7 @@ function MobileViewDrawer(props) {
           {[
             { name: 'HOME', link: '/' },
             { name: 'ABOUT', link: '/about' },
-            { name: 'COMMITTEES', link: '/committees' },
+            { name: 'COMMITTEES', link: '/' },
             {
               name: 'REGISTRATIONS',
               link: '/apply/delegate-priority-register',
