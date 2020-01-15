@@ -14,6 +14,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Link from '@material-ui/core/Link'
+import { Link as GatsbyLink } from 'gatsby'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -194,8 +195,8 @@ export default function DelegatePriorityForm() {
       <ContentBox className='my-16'>
         <div>
           <Typography variant='body1' component='p' paragraph>
-            Register before day, Feb date, 2020 to gain priority for acceptance
-            and maximize the chance of receiving your country preferences.
+            Register early to gain priority for acceptance and maximize the
+            chance of receiving your country preferences.
           </Typography>
           <Typography variant='body1' component='p' paragraph>
             Conference Date : 11th-12th April 2020
@@ -235,6 +236,17 @@ export default function DelegatePriorityForm() {
               </Typography>
             </li>
           </ol>
+          <div>
+            <Button
+              component={GatsbyLink}
+              variant='contained'
+              color='primary'
+              size='small'
+              to='/country-matrix'
+            >
+              View Country Matrix
+            </Button>
+          </div>
         </div>
       </ContentBox>
       {completed ? (

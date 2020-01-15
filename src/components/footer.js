@@ -7,7 +7,8 @@ import TwitterIcon from '@material-ui/icons/Twitter'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
-import { Link } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
+import MateriaLink from '@material-ui/core/Link'
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -35,7 +36,7 @@ function Footer(props) {
       <Grid container alignContent='center'>
         <Grid
           container
-          component={Link}
+          component={GatsbyLink}
           to='/'
           justify='center'
           className='my-10'
@@ -79,8 +80,14 @@ function Footer(props) {
             >
               Contacts
             </Typography>
-            <Typography>+91-999999999</Typography>
-            <Typography>jecrcmun@jecrc.ac.in</Typography>
+            <Typography>
+              <MateriaLink href='tel:9413900468'>9413900468</MateriaLink>
+            </Typography>
+            <Typography>
+              <MateriaLink href='mailto:mun@jecrc.ac.in'>
+                mun@jecrc.ac.in
+              </MateriaLink>
+            </Typography>
           </Grid>
           <Grid item md={2} sm={12} xs={12} />
         </Grid>
@@ -97,13 +104,28 @@ function Footer(props) {
           </Typography>
         </Grid>
         <Grid container justify='center'>
-          <Avatar className={['m-2', classes.socialIcon]}>
+          <Avatar
+            component='a'
+            href='https://facebook.com/jecrcmun'
+            target='_blank'
+            className={['m-2', classes.socialIcon]}
+          >
             <FacebookIcon />
           </Avatar>
-          <Avatar className={['m-2', classes.socialIcon]}>
+          <Avatar
+            component='a'
+            href='https://instagram.com/jecrcmun'
+            target='_blank'
+            className={['m-2', classes.socialIcon]}
+          >
             <InstagramIcon />
           </Avatar>
-          <Avatar className={['m-2', classes.socialIcon]}>
+          <Avatar
+            component='a'
+            href='https://twitter.com/jecrcmun'
+            target='_blank'
+            className={['m-2', classes.socialIcon]}
+          >
             <TwitterIcon />
           </Avatar>
         </Grid>
