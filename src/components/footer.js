@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.primary.main,
     },
   },
+  phoneText: {
+    color: '#FFF',
+  },
 }))
 
 function Footer(props) {
@@ -81,10 +84,15 @@ function Footer(props) {
               Contacts
             </Typography>
             <Typography>
-              <MateriaLink href='tel:9413900468'>9413900468</MateriaLink>
+              <MateriaLink className={classes.phoneText} href='tel:9413900468'>
+                9413900468
+              </MateriaLink>
             </Typography>
             <Typography>
-              <MateriaLink href='mailto:mun@jecrc.ac.in'>
+              <MateriaLink
+                className={classes.phoneText}
+                href='mailto:mun@jecrc.ac.in'
+              >
                 mun@jecrc.ac.in
               </MateriaLink>
             </Typography>
