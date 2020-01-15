@@ -1,11 +1,9 @@
 import React from 'react'
-import {
-  makeStyles,
-  Collapse,
-  ListItem,
-  List,
-  ListItemText,
-} from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import Collapse from '@material-ui/core/Collapse'
+import ListItem from '@material-ui/core/ListItem'
+import List from '@material-ui/core/List'
+import ListItemText from '@material-ui/core/ListItemText'
 
 const useStyles = makeStyles(theme => ({
   nested: {

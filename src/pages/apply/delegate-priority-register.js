@@ -1,32 +1,33 @@
 import React from 'react'
-import Wrapper from '../components/wrapper'
-import Banner from '../components/banner'
+import Wrapper from '../../components/wrapper'
+import Banner from '../../components/banner'
 import Helmet from 'react-helmet'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Typography, makeStyles, useTheme } from '@material-ui/core'
-import About from '../components/sections/home/about'
+import DelegateForm from '../../components/delegate-priority-form'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
-    color: theme.palette.primary.main,
     fontWeight: 'bold',
     fontFamily: "'Rubik' , sans-serif",
-    fontSize: 60,
-    lineHeight: '71px',
+    fontSize: '2.25rem',
+    lineHeight: '65px',
+    letterSpacing: '0.08em',
+    textTransform: 'uppercase',
   },
   diplomacyTextProperty: {
-    color: '#fff',
     fontFamily: "'Rubik' , sans-serif",
+    fontSize: '1.25rem',
     fontWeight: 'bold',
-    fontSize: '24px',
     lineHeight: '28px',
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
   },
 }))
 
 export default () => {
   const classes = useStyles()
-  const theme = useTheme()
-
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/bg.png" }) {
@@ -48,18 +49,23 @@ export default () => {
       </Helmet>
       <Banner
         backgrounds={[
-          `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+          'linear-gradient(rgba(41, 24, 2, 0.75), rgba(41, 24, 2, 0.75))',
           image.sharp.fluid,
         ]}
+        height='50vh'
       >
-        <Typography className={classes.munTextProperty}>
-          JECRC MUN 2020
+        <Typography
+          color='primary'
+          component='h2'
+          className={classes.munTextProperty}
+        >
+          Delegate Registrations
         </Typography>
-        <Typography className={classes.diplomacyTextProperty}>
-          Deplomacy At It’s Zenith
+        <Typography component='h3' className={classes.diplomacyTextProperty}>
+          Priority Round
         </Typography>
       </Banner>
-      <About />
+      <DelegateForm />
     </Wrapper>
   )
 }
