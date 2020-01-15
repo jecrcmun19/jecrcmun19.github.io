@@ -7,6 +7,7 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import MenuList from '@material-ui/core/MenuList'
 import MenuItem from '@material-ui/core/MenuItem'
 import { makeStyles } from '@material-ui/core/styles'
+import { Link } from 'gatsby'
 
 const useStyles = makeStyles(theme => ({
   headerItems: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     // border: 'solid #fff 0.5px',
     paddingTop: 0,
     paddingBottom: 0,
-    backgroundColor: '#FF8E01',
+    backgroundColor: '#D90845',
   },
   downBarListItem: {
     border: 'solid #fff 0.3px',
@@ -56,22 +57,29 @@ function NavBarWeb(props) {
     <Grid container justify='center'>
       <List className={classes.horizontalList}>
         {[
-          'HOME',
-          'ABOUT',
-          'COMITTEES',
-          'REGISTRATIONS',
-          'BLOGS',
-          'GALLERY',
-          'CONTACT',
+          { name: 'HOME', link: '/' },
+          { name: 'ABOUT', link: '/' },
+          { name: 'COMMITTEES', link: '/' },
+          { name: 'REGISTRATIONS', link: '/' },
+          { name: 'BLOGS', link: '/' },
+          { name: 'GALLERY', link: '/' },
+          { name: 'CONTACT', link: '/' },
         ].map((text, index) => (
           <ListItem
             key={index}
-            onMouseOver={text === 'ABOUT' ? e => handleOnMouse(text) : null}
+            onMouseOver={
+              text.name === 'ABOUT' ? e => handleOnMouse(text.name) : null
+            }
           >
-            <Typography className={classes.headerItems} variant='subtitle2'>
-              {text}
+            <Typography
+              component={Link}
+              to={text.link}
+              className={classes.headerItems}
+              variant='subtitle2'
+            >
+              {text.name}
             </Typography>
-            {hoverText === text && mouseOver ? (
+            {hoverText === text.name && mouseOver ? (
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList
                   autoFocusItem={mouseOver}
@@ -80,24 +88,32 @@ function NavBarWeb(props) {
                   <MenuItem
                     onClick={handleClose}
                     className={classes.downBarListItem}
+                    component={Link}
+                    to='/about'
                   >
                     JECRC MUN
-                  </MenuItem>{' '}
+                  </MenuItem>
                   <MenuItem
                     onClick={handleClose}
                     className={classes.downBarListItem}
+                    component={Link}
+                    to='/'
                   >
                     EXECUTIVE BOARD
                   </MenuItem>
                   <MenuItem
                     onClick={handleClose}
                     className={classes.downBarListItem}
+                    component={Link}
+                    to='/'
                   >
                     SECRETARIAT
                   </MenuItem>
                   <MenuItem
                     onClick={handleClose}
                     className={classes.downBarListItem}
+                    component={Link}
+                    to='/'
                   >
                     OUR SPONSORS
                   </MenuItem>
