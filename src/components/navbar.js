@@ -59,8 +59,8 @@ function NavBarWeb(props) {
         {[
           { name: 'HOME', link: '/' },
           { name: 'ABOUT', link: '/' },
-          { name: 'COMMITTEES', link: '/' },
-          { name: 'REGISTRATIONS', link: '/' },
+          { name: 'COMMITTEES', link: '/committees' },
+          { name: 'REGISTRATIONS', link: '/apply/delegate-priority-register' },
           { name: 'BLOGS', link: '/' },
           { name: 'GALLERY', link: '/' },
           { name: 'CONTACT', link: '/' },

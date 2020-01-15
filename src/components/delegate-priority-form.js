@@ -12,6 +12,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import Button from '@material-ui/core/Button'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import Link from '@material-ui/core/Link'
+import { Link as GatsbyLink } from 'gatsby'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -73,8 +76,8 @@ function CommitteePreference({ first, second, third }) {
           </div>
           <div className={radioWidth}>
             <Radio
-              name='first'
               checked={first.value === name}
+              name='firstPref'
               classes={classes}
               value={name}
               onChange={first.onChange}
@@ -82,8 +85,8 @@ function CommitteePreference({ first, second, third }) {
           </div>
           <div className={radioWidth}>
             <Radio
-              name='second'
               checked={second.value === name}
+              name='secondPref'
               classes={classes}
               value={name}
               onChange={second.onChange}
@@ -91,8 +94,8 @@ function CommitteePreference({ first, second, third }) {
           </div>
           <div className={radioWidth}>
             <Radio
-              name='third'
               checked={third.value === name}
+              name='thirdPref'
               classes={classes}
               value={name}
               onChange={third.onChange}
@@ -103,6 +106,27 @@ function CommitteePreference({ first, second, third }) {
     </div>
   )
 }
+
+const FormCompleted = () => (
+  <ContentBox className='mb-16'>
+    <div>
+      <Typography variant='h4' className='my-8' component='h1' paragraph>
+        Thank You for Registration
+      </Typography>
+      <Typography variant='body1' component='p' paragraph>
+        Our team will contact you for further information regarding event.
+      </Typography>
+      <Typography variant='body2' component='p'>
+        For more queries, you can contact:
+      </Typography>
+      <div className='mt-4'>
+        <Typography variant='subtitle2' component='p' paragraph>
+          Porush Choudhary: <Link href='tel:9413900468'>9413900468</Link>
+        </Typography>
+      </div>
+    </div>
+  </ContentBox>
+)
 export default function DelegatePriorityForm() {
   const classes = useStyles()
   const radioClasses = useRadioStyles()
@@ -123,6 +147,10 @@ export default function DelegatePriorityForm() {
   const portThird = useForm('')
   const accommodation = useForm('no')
   const referral = useForm('')
+  const [loading, setLoading] = useState(false)
+  const [completed, setCompleted] = useState(false)
+  const [error, setError] = useState(false)
+
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "pages-background.png" }) {
@@ -135,6 +163,29 @@ export default function DelegatePriorityForm() {
     }
   `)
 
+  const handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    setLoading(true)
+    console.log(new FormData(form).entries())
+    fetch(
+      'https://script.google.com/macros/s/AKfycbz_JnTw8tbJ07ZIaMXkAoTRcs6E6X8DknVyAhxHS4z4sTWO0Oc/exec',
+      {
+        method: 'POST',
+        body: new FormData(form),
+      },
+    )
+      .then(res => {
+        console.log(res)
+        setLoading(false)
+        setCompleted(true)
+      })
+      .catch(err => {
+        console.error(err)
+        setLoading(false)
+        setError(true)
+      })
+  }
   return (
     <BackgroundImage
       className='flex flex-col justify-center items-center'
@@ -144,8 +195,8 @@ export default function DelegatePriorityForm() {
       <ContentBox className='my-16'>
         <div>
           <Typography variant='body1' component='p' paragraph>
-            Register before day, Feb date, 2020 to gain priority for acceptance
-            and maximize the chance of receiving your country preferences.
+            Register early to gain priority for acceptance and maximize the
+            chance of receiving your country preferences.
           </Typography>
           <Typography variant='body1' component='p' paragraph>
             Conference Date : 11th-12th April 2020
@@ -185,95 +236,168 @@ export default function DelegatePriorityForm() {
               </Typography>
             </li>
           </ol>
-        </div>
-      </ContentBox>
-      <ContentBox className='mb-16'>
-        <form className={classes.form}>
-          <InputField
-            required
-            label='Full Name'
-            autoComplete='name'
-            {...fullName}
-          />
-          <InputField required label='Contact No.' type='tel' {...contact} />
-          <InputField required label='Email ID' type='email' {...email} />
-          <InputField required label='Institution' {...institute} />
-          <InputField required label='Class/Year' {...classYear} />
-          <div className='mt-8 mb-3'>
-            <Typography variant='h6' component='p'>
-              Prior MUN Experience
-            </Typography>
-            <Typography variant='body1' component='p'>
-              Please mention the detailed MUN experience in the below format:
-              (Name of Conference/ Year /Committee /Position /Awards(if any))
-            </Typography>
-          </div>
-          <InputField label='As a Delegate' {...expDelegate} />
-          <InputField label='As a member of EB' {...expEB} />
-          <InputField label='As a member of Secretariat' {...expSec} />
-          <InputField label='Any other experience' {...expOther} />
-          <div className='mt-8 mb-3'>
-            <Typography variant='h6' component='p'>
-              Committee Preferences
-            </Typography>
-          </div>
-          <CommitteePreference
-            first={prefFirst}
-            second={prefSecond}
-            third={prefThird}
-          />
-          <InputField
-            required
-            label='Country/Portfolio Preference 1'
-            {...portFirst}
-          />
-          <InputField
-            required
-            label='Country/Portfolio Preference 2'
-            {...portSecond}
-          />
-          <InputField
-            required
-            label='Country/Portfolio Preference 3'
-            {...portThird}
-          />
-          <div className='mt-4'>
-            <FormControl
-              component='fieldset'
-              fullWidth
-              required
-              margin='normal'
-            >
-              <FormLabel component='legend'>
-                Do You require accommodation ?
-              </FormLabel>
-              <RadioGroup name='accommodation' {...accommodation}>
-                <FormControlLabel
-                  value='yes'
-                  control={<Radio classes={radioClasses} />}
-                  label='yes'
-                />
-                <FormControlLabel
-                  value='no'
-                  control={<Radio classes={radioClasses} />}
-                  label='no'
-                />
-              </RadioGroup>
-            </FormControl>
-          </div>
-          <InputField required label='Referred By' {...referral} />
-          <div className='mt-6 text-center'>
+          <div>
             <Button
-              type='submit'
-              color='primary'
+              component={GatsbyLink}
               variant='contained'
-              size='large'
+              color='primary'
+              size='small'
+              to='/country-matrix'
             >
-              Register
+              View Country Matrix
             </Button>
           </div>
-        </form>
+        </div>
       </ContentBox>
+      {completed ? (
+        <FormCompleted />
+      ) : (
+        <ContentBox className='mb-16'>
+          <form className={classes.form} onSubmit={handleSubmit}>
+            <InputField
+              required
+              label='Full Name'
+              autoComplete='name'
+              name='fullName'
+              {...fullName}
+            />
+            <InputField
+              required
+              label='Contact No.'
+              type='tel'
+              name='contact'
+              {...contact}
+            />
+            <InputField
+              required
+              label='Email ID'
+              type='email'
+              name='email'
+              {...email}
+            />
+            <InputField
+              required
+              label='Institution'
+              name='institute'
+              {...institute}
+            />
+            <InputField
+              required
+              label='Class/Year'
+              name='classYear'
+              {...classYear}
+            />
+            <div className='mt-8 mb-3'>
+              <Typography variant='h6' component='p'>
+                Prior MUN Experience
+              </Typography>
+              <Typography variant='body1' component='p'>
+                Please mention the detailed MUN experience in the below format:
+                (Name of Conference/ Year /Committee /Position /Awards(if any))
+              </Typography>
+            </div>
+            <InputField
+              label='As a Delegate'
+              name='expDelegate'
+              {...expDelegate}
+            />
+            <InputField label='As a member of EB' name='expEb' {...expEB} />
+            <InputField
+              label='As a member of Secretariat'
+              name='expSec'
+              {...expSec}
+            />
+            <InputField
+              label='Any other experience'
+              name='expOther'
+              {...expOther}
+            />
+            <div className='mt-8 mb-3'>
+              <Typography variant='h6' component='p'>
+                Committee Preferences
+              </Typography>
+            </div>
+            <CommitteePreference
+              first={prefFirst}
+              second={prefSecond}
+              third={prefThird}
+            />
+            <InputField
+              required
+              label='Country/Portfolio Preference 1'
+              name='port1'
+              {...portFirst}
+            />
+            <InputField
+              required
+              label='Country/Portfolio Preference 2'
+              name='port2'
+              {...portSecond}
+            />
+            <InputField
+              required
+              label='Country/Portfolio Preference 3'
+              name='port3'
+              {...portThird}
+            />
+            <div className='mt-4'>
+              <FormControl
+                component='fieldset'
+                fullWidth
+                required
+                margin='normal'
+              >
+                <FormLabel component='legend'>
+                  Do You require accommodation ?
+                </FormLabel>
+                <RadioGroup name='accommodation' {...accommodation}>
+                  <FormControlLabel
+                    value='yes'
+                    control={
+                      <Radio classes={radioClasses} name='accommodation' />
+                    }
+                    label='yes'
+                  />
+                  <FormControlLabel
+                    value='no'
+                    control={
+                      <Radio classes={radioClasses} name='accommodation' />
+                    }
+                    label='no'
+                  />
+                </RadioGroup>
+              </FormControl>
+            </div>
+            <InputField
+              required
+              label='Referred By'
+              name='referred'
+              {...referral}
+            />
+            <div className='mt-6 text-center'>
+              {loading ? (
+                <CircularProgress />
+              ) : (
+                <Button
+                  type='submit'
+                  color='primary'
+                  variant='contained'
+                  size='large'
+                >
+                  Register
+                </Button>
+              )}
+              <div>
+                {error ? (
+                  <Typography variant='h6' component='p' color='error'>
+                    Cannot submit form. Please refresh the page and try again.
+                  </Typography>
+                ) : null}
+              </div>
+            </div>
+          </form>
+        </ContentBox>
+      )}
     </BackgroundImage>
   )
 }

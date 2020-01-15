@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography'
 import classnames from 'classnames'
 import NavBarWeb from './navbar'
 import MobileViewDrawer from './mobileDrawer'
+import { Link } from 'gatsby'
 
 const transparentTheme = createMuiTheme({
   palette: {
@@ -110,11 +111,13 @@ export default function Header(props) {
       <AppBar className={appbarClases}>
         <Toolbar className={classes.root}>
           <div className='flex justify-center items-center'>
-            <img
-              src='/images/munLogo.png'
-              alt='munLogo'
-              className={classes.imageProperties}
-            />
+            <Link to='/'>
+              <img
+                src='/images/munLogo.png'
+                alt='munLogo'
+                className={classes.imageProperties}
+              />
+            </Link>
             <div className='ml-3'>
               {!matches && verySmallView ? (
                 <Typography variant='h6' noWrap className={classes.eventName}>

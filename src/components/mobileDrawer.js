@@ -10,6 +10,7 @@ import CloseSharp from '@material-ui/icons/CloseSharp'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import CollapseDropDown from './collapse'
+import { Link } from 'gatsby'
 
 const drawerWidth = 240
 
@@ -81,29 +82,34 @@ function MobileViewDrawer(props) {
         <Divider />
         <List className={classes.headerItems}>
           {[
-            'HOME',
-            'ABOUT',
-            'COMITTEES',
-            'REGISTRATIONS',
-            'BLOGS',
-            'GALLERY',
-            'CONTACT',
+            { name: 'HOME', link: '/' },
+            { name: 'ABOUT', link: '/about' },
+            { name: 'COMMITTEES', link: '/committees' },
+            {
+              name: 'REGISTRATIONS',
+              link: '/apply/delegate-priority-register',
+            },
+            { name: 'BLOGS', link: '/' },
+            { name: 'GALLERY', link: '/' },
+            { name: 'CONTACT', link: '/' },
           ].map((text, index) => (
             <div key={index}>
               <ListItem
                 button
+                component={Link}
+                to={text.link}
                 onClick={() => (text === 'ABOUT' ? handleClick() : null)}
               >
-                <ListItemText primary={text} />
-                {text === 'ABOUT' ? (
+                <ListItemText primary={text.name} />
+                {/* {text.name === 'ABOUT' ? (
                   openDropDown ? (
                     <ExpandLess />
                   ) : (
                     <ExpandMore />
                   )
-                ) : null}
+                ) : null} */}
               </ListItem>
-              {text === 'ABOUT' ? (
+              {text.name === 'ABOUT' ? (
                 <CollapseDropDown
                   openDropDown={openDropDown}
                   handleDrawerClose={handleDrawerClose}

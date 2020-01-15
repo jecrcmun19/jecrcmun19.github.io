@@ -30,7 +30,7 @@ export default () => {
   const classes = useStyles()
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/bg.png" }) {
+      image: file(relativePath: { eq: "banners/registration-form-bg.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
