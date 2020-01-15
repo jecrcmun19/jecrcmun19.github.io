@@ -9,6 +9,7 @@ import Tab from '@material-ui/core/Tab'
 import classNames from 'classnames'
 
 import { Committe } from '../data/country-data'
+import Countries from '../data/country-code.json'
 
 const useStyles = makeStyles(theme => ({
   banner: {
@@ -47,7 +48,9 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     fontWeight: 400,
     lineHeight: 1,
-    fontSize: 20,
+    fontSize: '0.875rem',
+    display: 'flex',
+    justifyContent: 'center',
   },
   backgroundCardProperty: {
     // margin: '50px',
@@ -65,13 +68,17 @@ const useStyles = makeStyles(theme => ({
     padding: '6%',
   },
   tabsTextProperty: {
-    fontSize: '24px',
+    fontSize: '1.1rem',
     fontWeight: '500',
     color: '#FFF',
+  },
+  cardTextMargin: {
+    margin: 'auto',
   },
 }))
 
 function CountryMatrix(props) {
+  console.log(Countries)
   const classes = useStyles()
   const [value, setValue] = React.useState(0)
 
@@ -80,6 +87,7 @@ function CountryMatrix(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
+
   return (
     <Wrapper>
       <div className={bannerClasses}></div>
@@ -93,7 +101,6 @@ function CountryMatrix(props) {
                   variant='scrollable'
                   onChange={handleChange}
                   indicatorColor='#FFFF8C'
-                  centered
                   scrollButtons='desktop'
                 >
                   <Tab className={classes.tabsTextProperty} label='UNSC' />
@@ -113,23 +120,29 @@ function CountryMatrix(props) {
                   <span class='flag-icon flag-icon-gr w-32'></span>
                 </div>
                 <Grid container justify='center' alignContent='space-around'>
-                  {Committe[value].map((text, index) => (
-                    <Grid
-                      item
-                      className={classes.listItemStyle}
-                      xl={2}
-                      md={4}
-                      lg={3}
-                      sm={6}
-                      xs={12}
-                    >
-                      <Card className={classes.cardProperty}>
-                        <CardContent className={classes.textProperty}>
-                          {text}
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  ))}
+                  {Committe[value].map((text, index) => {
+                    const CountryCode = Countries[`${text.toLowerCase()}`]
+                    return (
+                      <Grid
+                        item
+                        className={classes.listItemStyle}
+                        xl={2}
+                        md={4}
+                        lg={3}
+                        sm={6}
+                        xs={12}
+                      >
+                        <Card className={classes.cardProperty}>
+                          <CardContent className={classes.textProperty}>
+                            <span className={classes.cardTextMargin}>
+                              {text}
+                            </span>
+                            <img src={`/flags-mini/${CountryCode}.png`} />
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    )
+                  })}
                 </Grid>
               </div>
             </CardContent>

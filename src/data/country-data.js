@@ -1,12 +1,12 @@
 export const UNSC = [
-  'Belgium ',
-  'Dominican Republic ',
+  'Belgium',
+  'Dominican Republic',
   'Estonia',
-  'Germany ',
-  'Indonesia ',
+  'Germany',
+  'Indonesia',
   'Niger',
   'Saint Vincent and the Grenadines',
-  'South Africa ',
+  'South Africa',
   'Tunisia',
   'Viet Nam',
 ]
