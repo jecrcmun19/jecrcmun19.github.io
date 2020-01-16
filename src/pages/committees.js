@@ -116,7 +116,7 @@ function CountryMatrix(props) {
                   <Tab className={classes.tabsTextProperty} label='UNODC' />
                   <Tab className={classes.tabsTextProperty} label='DISEC' />
                   <Tab className={classes.tabsTextProperty} label='UNCSW' />
-                  <Tab className={classes.tabsTextProperty} label='WHA' />
+                  <Tab className={classes.tabsTextProperty} label='WHO' />
                   <Tab className={classes.tabsTextProperty} label='AIPPM' />
                 </Tabs>
               </Grid>

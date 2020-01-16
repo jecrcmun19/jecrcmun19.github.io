@@ -301,7 +301,7 @@ export const UNCSW = [
   'Uruguay',
 ]
 
-export const WHA = [
+export const WHO = [
   // "Afghanistan**",
   'Afghanistan',
   'Albania',
@@ -599,6 +599,6 @@ export const Committe = {
   1: UNODC,
   2: DISEC,
   3: UNCSW,
-  4: WHA,
+  4: WHO,
   5: AIPPM,
 }

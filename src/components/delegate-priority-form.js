@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const committees = ['GA-DISEC', 'UN-SC', 'AIPPM', 'WHA', 'UN-ODC', 'UN-CSW']
+const committees = ['GA-DISEC', 'UN-SC', 'AIPPM', 'WHO', 'UN-ODC', 'UN-CSW']
 
 const useRadioStyles = makeStyles(theme => ({
   root: {
@@ -232,10 +232,13 @@ export default function DelegatePriorityForm() {
             </li>
             <li>
               <Typography variant='body1' component='p' paragraph>
-                World Health Assembly (WHA)
+                World Health Organization (WHO)
               </Typography>
             </li>
           </ol>
+          <Typography variant='h6' component='p' paragraph>
+            Delegation Fees: 1400 /-
+          </Typography>
           <div>
             <Button
               component={GatsbyLink}
@@ -348,22 +351,22 @@ export default function DelegatePriorityForm() {
                 margin='normal'
               >
                 <FormLabel component='legend'>
-                  Do You require accommodation ?
+                  Do you require accommodation ?
                 </FormLabel>
                 <RadioGroup name='accommodation' {...accommodation}>
                   <FormControlLabel
-                    value='yes'
+                    value='Yes'
                     control={
                       <Radio classes={radioClasses} name='accommodation' />
                     }
-                    label='yes'
+                    label='Yes'
                   />
                   <FormControlLabel
-                    value='no'
+                    value='No'
                     control={
                       <Radio classes={radioClasses} name='accommodation' />
                     }
-                    label='no'
+                    label='No'
                   />
                 </RadioGroup>
               </FormControl>
