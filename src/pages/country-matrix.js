@@ -7,8 +7,9 @@ import Grid from '@material-ui/core/Grid'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import classNames from 'classnames'
+import Typography from '@material-ui/core/Typography'
 
-import { Committe } from '../data/country-data'
+import { Committe, MembersUNSC } from '../data/country-data'
 import Countries from '../data/country-code.json'
 
 const useStyles = makeStyles(theme => ({
@@ -43,6 +44,7 @@ const useStyles = makeStyles(theme => ({
   cardProperty: {
     margin: 5,
     background: '#f7f7f7',
+    marginTop: '5px',
   },
   textProperty: {
     textAlign: 'center',
@@ -67,6 +69,16 @@ const useStyles = makeStyles(theme => ({
     minHeight: '300px',
     padding: '6%',
   },
+  textPropertyHeading: {
+    textAlign: 'center',
+    fontWeight: 700,
+    lineHeight: 1,
+    display: 'flex',
+    marginBottom: '1%',
+    justifyContent: 'center',
+    width: '100%',
+    marginTop: '2%',
+  },
   tabsTextProperty: {
     fontSize: '1.1rem',
     fontWeight: '500',
@@ -83,7 +95,11 @@ function CountryMatrix(props) {
   const [value, setValue] = React.useState(0)
 
   const bannerClasses = classNames(classes.header, classes.banner)
-
+  const membersObject = {
+    permanentMembers: 'Permanent Members',
+    nonPermanentMembers: 'Non Permanent Members',
+    observers: 'Observer',
+  }
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
@@ -115,33 +131,40 @@ function CountryMatrix(props) {
                 <div>
                   <span class='flag-icon flag-icon-gr w-32'></span>
                 </div>
-                <Grid container justify='center' alignContent='space-around'>
-                  {Committe[value].map((text, index) => {
-                    const CountryCode = Countries[`${text.toLowerCase()}`]
-                    return (
-                      <Grid
-                        item
-                        className={classes.listItemStyle}
-                        xl={2}
-                        md={4}
-                        lg={3}
-                        sm={6}
-                        xs={12}
-                      >
-                        <Card className={classes.cardProperty}>
-                          <CardContent className={classes.textProperty}>
-                            <span className={classes.cardTextMargin}>
-                              {text}
-                            </span>
-                            {CountryCode ? (
-                              <img src={`/flags-mini/${CountryCode}.png`} />
-                            ) : null}
-                          </CardContent>
-                        </Card>
-                      </Grid>
-                    )
-                  })}
-                </Grid>
+                {MembersUNSC.map(members => (
+                  <Grid container justify='center' alignContent='space-around'>
+                    {value === 0 ? (
+                      <Typography className={classes.textPropertyHeading}>
+                        {membersObject[members]}
+                      </Typography>
+                    ) : null}
+                    {Committe[value][members].map((text, index) => {
+                      const CountryCode = Countries[`${text.toLowerCase()}`]
+                      return (
+                        <Grid
+                          item
+                          className={classes.listItemStyle}
+                          xl={2}
+                          md={4}
+                          lg={3}
+                          sm={6}
+                          xs={12}
+                        >
+                          <Card className={classes.cardProperty}>
+                            <CardContent className={classes.textProperty}>
+                              <span className={classes.cardTextMargin}>
+                                {text}
+                              </span>
+                              {CountryCode ? (
+                                <img src={`/flags-mini/${CountryCode}.png`} />
+                              ) : null}
+                            </CardContent>
+                          </Card>
+                        </Grid>
+                      )
+                    })}
+                  </Grid>
+                ))}
               </div>
             </CardContent>
           </Card>
