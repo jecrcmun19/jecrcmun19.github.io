@@ -83,9 +83,21 @@ function Footer(props) {
             >
               Contacts
             </Typography>
+            <Typography>Porush Choudhary</Typography>
             <Typography>
               <MateriaLink className={classes.phoneText} href='tel:9413900468'>
                 9413900468
+              </MateriaLink>
+            </Typography>
+            <Typography>
+              <MateriaLink className={classes.phoneText} href='tel:7976605097'>
+                7976605097
+              </MateriaLink>
+            </Typography>
+            <Typography>Himanshu Damani</Typography>
+            <Typography>
+              <MateriaLink className={classes.phoneText} href='tel:7976780546'>
+                7976780546
               </MateriaLink>
             </Typography>
             <Typography>
