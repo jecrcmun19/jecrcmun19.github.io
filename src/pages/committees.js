@@ -38,6 +38,8 @@ const useStyles = makeStyles(theme => ({
     marginLeft: '5%',
     marginRight: '5%',
     textAlign: 'justify',
+    display: 'flex',
+    justifyContent: 'center',
   },
   listItemStyle: {
     borderRadius: '2%',
@@ -86,6 +88,10 @@ const useStyles = makeStyles(theme => ({
   cardTextMargin: {
     margin: 'auto',
   },
+  contentArea: {
+    width: '100%',
+    maxWidth: '1000px',
+  },
 }))
 
 function CountryMatrix(props) {
@@ -121,7 +127,12 @@ function CountryMatrix(props) {
                 </Tabs>
               </Grid>
               <div className={classes.cardStyle}>
-                <Grid container justify='center' alignContent='space-around'>
+                <Grid
+                  container
+                  justify='center'
+                  alignContent='space-around'
+                  className={classes.contentArea}
+                >
                   <Typography
                     variant='subtitle1'
                     className={classes.textProperty}
@@ -132,7 +143,7 @@ function CountryMatrix(props) {
                     variant='subtitle2'
                     className={classes.agendaProperty}
                   >
-                    Agenda
+                    Agenda - Coming Soon
                   </Typography>
                   <div>{Committe[value]}</div>
                 </Grid>
