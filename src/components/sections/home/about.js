@@ -22,10 +22,9 @@ export default () => {
           alt='---------------------'
         />
         <Typography className='text-center p-10 lg:text-left lg:pt-8 lg:pr-10 lg:pl-0'>
-          JECRC MUN, being conducted from 2012, has now become a widely
-          acclaimed Model United Nations platform. Over the years, it has
-          developed itself as the ideal to strengthen the skills of diplomacy
-          and leadership.
+          JECRC MUN is an eight years old legacy established in 2012, making
+          JECRC the first host of a MUN conference in Jaipur. Inaugurated by the
+          eminent educationist Shri Kul Bhushan Kothari
         </Typography>
         <Button
           type='submit'
