@@ -81,6 +81,7 @@ function CommitteePreference({ first, second, third, onChange }) {
               classes={classes}
               value={name}
               onChange={onChange}
+              required
             />
           </div>
           <div className={radioWidth}>
@@ -90,6 +91,7 @@ function CommitteePreference({ first, second, third, onChange }) {
               classes={classes}
               value={name}
               onChange={onChange}
+              required
             />
           </div>
           <div className={radioWidth}>
@@ -99,6 +101,7 @@ function CommitteePreference({ first, second, third, onChange }) {
               classes={classes}
               value={name}
               onChange={onChange}
+              required
             />
           </div>
         </div>
