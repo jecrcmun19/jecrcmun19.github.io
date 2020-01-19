@@ -91,7 +91,7 @@ function MobileViewDrawer(props) {
             },
             { name: 'BLOGS', link: '/' },
             { name: 'GALLERY', link: '/' },
-            { name: 'CONTACT', link: '/' },
+            { name: 'CONTACT', link: '#contact' },
           ].map((text, index) => (
             <div key={index}>
               <ListItem
