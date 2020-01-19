@@ -58,12 +58,12 @@ function NavBarWeb(props) {
       <List className={classes.horizontalList}>
         {[
           { name: 'HOME', link: '/' },
-          { name: 'ABOUT', link: '/' },
+          { name: 'ABOUT', link: '#about' },
           { name: 'COMMITTEES', link: '/committees' },
           { name: 'REGISTRATIONS', link: '/apply/delegate-priority-register' },
           { name: 'BLOGS', link: '/' },
           { name: 'GALLERY', link: '/' },
-          { name: 'CONTACT', link: '/' },
+          { name: 'CONTACT', link: '#contact' },
         ].map((text, index) => (
           <ListItem
             key={index}

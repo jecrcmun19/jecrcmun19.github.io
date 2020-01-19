@@ -35,7 +35,7 @@ function Footer(props) {
   const classes = useStyles()
   const theme = useTheme()
   return (
-    <Paper className={classes.footer} square>
+    <Paper className={classes.footer} square id='contact'>
       <Grid container alignContent='center'>
         <Grid
           container

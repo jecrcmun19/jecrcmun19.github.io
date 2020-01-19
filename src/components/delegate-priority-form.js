@@ -44,7 +44,7 @@ const useRadioStyles = makeStyles(theme => ({
   checked: {},
 }))
 
-function CommitteePreference({ first, second, third }) {
+function CommitteePreference({ first, second, third, onChange }) {
   const classes = useRadioStyles()
   const matches = useMediaQuery('(max-width: 480px)')
   const radioWidth = matches ? 'w-12' : 'w-20'
@@ -76,29 +76,32 @@ function CommitteePreference({ first, second, third }) {
           </div>
           <div className={radioWidth}>
             <Radio
-              checked={first.value === name}
+              checked={first === name}
               name='firstPref'
               classes={classes}
               value={name}
-              onChange={first.onChange}
+              onChange={onChange}
+              required
             />
           </div>
           <div className={radioWidth}>
             <Radio
-              checked={second.value === name}
+              checked={second === name}
               name='secondPref'
               classes={classes}
               value={name}
-              onChange={second.onChange}
+              onChange={onChange}
+              required
             />
           </div>
           <div className={radioWidth}>
             <Radio
-              checked={third.value === name}
+              checked={third === name}
               name='thirdPref'
               classes={classes}
               value={name}
-              onChange={third.onChange}
+              onChange={onChange}
+              required
             />
           </div>
         </div>
@@ -139,9 +142,9 @@ export default function DelegatePriorityForm() {
   const expEB = useForm('')
   const expSec = useForm('')
   const expOther = useForm('')
-  const prefFirst = useForm('')
-  const prefSecond = useForm('')
-  const prefThird = useForm('')
+  const [prefFirst, setPrefFirst] = useState('')
+  const [prefSecond, setPrefSecond] = useState('')
+  const [prefThird, setPrefThird] = useState('')
   const portFirst = useForm('')
   const portSecond = useForm('')
   const portThird = useForm('')
@@ -162,6 +165,34 @@ export default function DelegatePriorityForm() {
       }
     }
   `)
+  const handleRadioChange = e => {
+    const { name, value } = e.target
+    if (name === 'firstPref') {
+      if (prefSecond === value) {
+        setPrefSecond('')
+      }
+      if (prefThird === value) {
+        setPrefThird('')
+      }
+      setPrefFirst(value)
+    } else if (name === 'secondPref') {
+      if (prefFirst === value) {
+        setPrefFirst('')
+      }
+      if (prefThird === value) {
+        setPrefThird('')
+      }
+      setPrefSecond(value)
+    } else if (name === 'thirdPref') {
+      if (prefFirst === value) {
+        setPrefFirst('')
+      }
+      if (prefSecond === value) {
+        setPrefSecond('')
+      }
+      setPrefThird(value)
+    }
+  }
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -324,6 +355,7 @@ export default function DelegatePriorityForm() {
               first={prefFirst}
               second={prefSecond}
               third={prefThird}
+              onChange={handleRadioChange}
             />
             <InputField
               required

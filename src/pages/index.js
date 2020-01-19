@@ -59,7 +59,9 @@ export default () => {
           Deplomacy At It’s Zenith
         </Typography>
       </Banner>
-      <About />
+      <div id='about'>
+        <About />
+      </div>
     </Wrapper>
   )
 }
