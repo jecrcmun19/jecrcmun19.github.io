@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography'
 
 import { Committe, MembersUNSC } from '../data/country-data'
 import Countries from '../data/country-code.json'
+import Leaders from '../data/leader-code.json'
 
 const useStyles = makeStyles(theme => ({
   banner: {
@@ -91,6 +92,7 @@ const useStyles = makeStyles(theme => ({
 
 function CountryMatrix(props) {
   console.log(Countries)
+  console.log(Leaders)
   const classes = useStyles()
   const [value, setValue] = React.useState(0)
 
@@ -103,6 +105,8 @@ function CountryMatrix(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
+  console.log(Leaders)
+  console.log(Committe[5]['permanentMembers'], Committe, value)
 
   return (
     <Wrapper>
@@ -140,6 +144,8 @@ function CountryMatrix(props) {
                     ) : null}
                     {Committe[value][members].map((text, index) => {
                       const CountryCode = Countries[`${text.toLowerCase()}`]
+                      const LeaderCode = Leaders[`${text}`]
+                      console.log(LeaderCode, text)
                       return (
                         <Grid
                           item
@@ -157,6 +163,9 @@ function CountryMatrix(props) {
                               </span>
                               {CountryCode ? (
                                 <img src={`/flags-mini/${CountryCode}.png`} />
+                              ) : null}
+                              {LeaderCode ? (
+                                <img src={`/leader-logo/${LeaderCode}.jpg`} />
                               ) : null}
                             </CardContent>
                           </Card>
