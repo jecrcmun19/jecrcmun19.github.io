@@ -4,11 +4,13 @@ import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
-import { ExpandLess, ExpandMore, CloseSharp } from '@material-ui/icons'
+import ExpandLess from '@material-ui/icons/ExpandLess'
+import ExpandMore from '@material-ui/icons/ExpandMore'
+import CloseSharp from '@material-ui/icons/CloseSharp'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-
 import CollapseDropDown from './collapse'
+import { Link } from 'gatsby'
 
 const drawerWidth = 240
 
@@ -83,30 +85,35 @@ function MobileViewDrawer(props) {
         <Divider />
         <List className={classes.headerItems}>
           {[
-            'HOME',
-            'ABOUT',
-            'COMITTEES',
-            'REGISTRATIONS',
-            'BLOGS',
-            'GALLERY',
-            'CONTACT',
+            { name: 'HOME', link: '/' },
+            { name: 'ABOUT', link: '/about' },
+            { name: 'COMMITTEES', link: '/committees' },
+            {
+              name: 'REGISTRATIONS',
+              link: '/apply/delegate-priority-register',
+            },
+            { name: 'BLOGS', link: '/' },
+            { name: 'GALLERY', link: '/' },
+            { name: 'CONTACT', link: '#contact' },
           ].map((text, index) => (
             <div key={index}>
               <ListItem
                 button
+                component={Link}
+                to={text.link}
                 onClick={() => (text === 'ABOUT' ? handleClick() : null)}
                 className={classes.listItem}
               >
-                <ListItemText primary={text} />
-                {text === 'ABOUT' ? (
+                <ListItemText primary={text.name} />
+                {/* {text.name === 'ABOUT' ? (
                   openDropDown ? (
                     <ExpandLess />
                   ) : (
                     <ExpandMore />
                   )
-                ) : null}
+                ) : null} */}
               </ListItem>
-              {text === 'ABOUT' ? (
+              {text.name === 'ABOUT' ? (
                 <CollapseDropDown
                   openDropDown={openDropDown}
                   handleDrawerClose={handleDrawerClose}

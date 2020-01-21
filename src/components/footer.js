@@ -5,9 +5,10 @@ import FacebookIcon from '@material-ui/icons/Facebook'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import Grid from '@material-ui/core/Grid'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
-import { Link } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
+import MateriaLink from '@material-ui/core/Link'
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -25,17 +26,20 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.primary.main,
     },
   },
+  phoneText: {
+    color: '#FFF',
+  },
 }))
 
 function Footer(props) {
   const classes = useStyles()
   const theme = useTheme()
   return (
-    <Paper className={classes.footer} square>
+    <Paper className={classes.footer} square id='contact'>
       <Grid container alignContent='center'>
         <Grid
           container
-          component={Link}
+          component={GatsbyLink}
           to='/'
           justify='center'
           className='my-10'
@@ -79,8 +83,31 @@ function Footer(props) {
             >
               Contacts
             </Typography>
-            <Typography>+91-999999999</Typography>
-            <Typography>jecrcmun@jecrc.ac.in</Typography>
+            <Typography>Porush Choudhary</Typography>
+            <Typography>
+              <MateriaLink className={classes.phoneText} href='tel:9413900468'>
+                9413900468
+              </MateriaLink>
+            </Typography>
+            <Typography>
+              <MateriaLink className={classes.phoneText} href='tel:7976605097'>
+                7976605097
+              </MateriaLink>
+            </Typography>
+            <Typography>Himanshu Damani</Typography>
+            <Typography>
+              <MateriaLink className={classes.phoneText} href='tel:7976780546'>
+                7976780546
+              </MateriaLink>
+            </Typography>
+            <Typography>
+              <MateriaLink
+                className={classes.phoneText}
+                href='mailto:mun@jecrc.ac.in'
+              >
+                mun@jecrc.ac.in
+              </MateriaLink>
+            </Typography>
           </Grid>
           <Grid item md={2} sm={12} xs={12} />
         </Grid>
@@ -97,13 +124,28 @@ function Footer(props) {
           </Typography>
         </Grid>
         <Grid container justify='center'>
-          <Avatar className={['m-2', classes.socialIcon]}>
+          <Avatar
+            component='a'
+            href='https://facebook.com/jecrcmun'
+            target='_blank'
+            className={['m-2', classes.socialIcon]}
+          >
             <FacebookIcon />
           </Avatar>
-          <Avatar className={['m-2', classes.socialIcon]}>
+          <Avatar
+            component='a'
+            href='https://instagram.com/jecrcmun'
+            target='_blank'
+            className={['m-2', classes.socialIcon]}
+          >
             <InstagramIcon />
           </Avatar>
-          <Avatar className={['m-2', classes.socialIcon]}>
+          <Avatar
+            component='a'
+            href='https://twitter.com/jecrcmun'
+            target='_blank'
+            className={['m-2', classes.socialIcon]}
+          >
             <TwitterIcon />
           </Avatar>
         </Grid>
