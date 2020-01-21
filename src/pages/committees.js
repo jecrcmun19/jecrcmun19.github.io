@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import classNames from 'classnames'
-import { Committe, CommitteName } from '../data/committees-data'
+import { Committe, CommitteName, Agenda } from '../data/committees-data'
 
 import { Typography } from '@material-ui/core'
 
@@ -143,7 +143,7 @@ function CountryMatrix(props) {
                     variant='subtitle2'
                     className={classes.agendaProperty}
                   >
-                    Agenda - Coming Soon
+                    Agenda - {Agenda[value]}
                   </Typography>
                   <div>{Committe[value]}</div>
                 </Grid>

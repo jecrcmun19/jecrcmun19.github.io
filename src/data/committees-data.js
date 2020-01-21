@@ -16,6 +16,14 @@ export const WHO =
 export const AIPPM =
   'This committee simulates a platform that brings together personalities of various political parties and discuss matters for national importance. Unrestricted political debate is carried out without interference of legislative rules. It is a committee involving consensus of the members that participate in discussions and come to conclusions.'
 
+export const Agenda = [
+  'Climate Change as a Threat to International Peace and Security',
+  'Piracy and Maritime Crime in the Indian Ocean',
+  'Use of AI and unmanned aerial vehicle in armed conflict',
+  'Social protectoin systems, access to public services and sustainable infrastructure for gender equality',
+  'Ebola epidemic in Western Africa',
+  'Discussing the policy making approach of the NDA govt( special emphasis on the economic policies and Security',
+]
 export const Committe = {
   0: UNSC,
   1: UNODC,
