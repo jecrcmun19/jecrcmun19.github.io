@@ -1,35 +1,39 @@
 import React from 'react'
-import Wrapper from '../components/wrapper'
+import Helmet from 'react-helmet'
+
 import CardContent from '@material-ui/core/CardContent'
 import Card from '@material-ui/core/Card'
 import makeStyles from '@material-ui/styles/makeStyles'
+import useTheme from '@material-ui/styles/useTheme'
 import Grid from '@material-ui/core/Grid'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
+import Typography from '@material-ui/core/Typography'
 import classNames from 'classnames'
-import { Committe, CommitteName, Agenda } from '../data/committees-data'
 
-import { Typography } from '@material-ui/core'
+import { Committe, CommitteName, Agenda } from '../data/committees-data'
+import Wrapper from '../components/wrapper'
+import BackgroundImage from 'gatsby-background-image'
+import { graphql, useStaticQuery } from 'gatsby'
+import Banner from '../components/banner'
 
 const useStyles = makeStyles(theme => ({
-  banner: {
-    background: `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main}), url(images/country-matrix.png)`,
-    height: 300,
-    textAlign: 'center',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
+  munTextProperty: {
+    color: '#D90845',
+    fontWeight: 'bold',
+    fontFamily: "'Rubik' , sans-serif",
+    fontSize: 60,
+    lineHeight: '71px',
   },
   root: {
     paddingTop: 10,
     paddingBottom: 10,
     background: '#D90845',
   },
-  cardContent: {
-    width: '100%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginBottom: '5px',
-    padding: '5px',
+  tabsTextProperty: {
+    fontSize: '1.1rem',
+    fontWeight: '500',
+    color: '#FFF',
   },
   cardStyle: {
     marginBottom: '10%',
@@ -41,13 +45,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
   },
-  listItemStyle: {
-    borderRadius: '2%',
-    margin: 5,
-  },
-  cardProperty: {
-    margin: 5,
-    background: '#f7f7f7',
+  contentArea: {
+    width: '100%',
+    maxWidth: '1000px',
   },
   textProperty: {
     textAlign: 'center',
@@ -63,7 +63,8 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 400,
     lineHeight: 1,
     display: 'flex',
-    marginBottom: '1%',
+    marginTop: '1%',
+    marginBottom: '2%',
     justifyContent: 'center',
     width: '100%',
     paddingBottom: '1%',
@@ -72,86 +73,107 @@ const useStyles = makeStyles(theme => ({
   bgCardContentProperty: {
     padding: 0,
   },
-  countryMatrixBackground: {
-    background: 'url(images/committees-card.png)',
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    minHeight: '300px',
-    padding: '6%',
-  },
-  tabsTextProperty: {
-    fontSize: '1.1rem',
-    fontWeight: '500',
-    color: '#FFF',
-  },
-  cardTextMargin: {
-    margin: 'auto',
-  },
-  contentArea: {
-    width: '100%',
-    maxWidth: '1000px',
-  },
 }))
 
-function CountryMatrix(props) {
+function CountryMatrix() {
   const classes = useStyles()
+  const theme = useTheme()
+
   const [value, setValue] = React.useState(0)
 
-  const bannerClasses = classNames(classes.header, classes.banner)
+  const { image, bgImage } = useStaticQuery(graphql`
+    query {
+      image: file(relativePath: { eq: "banners/committees.png" }) {
+        sharp: childImageSharp {
+          fluid(maxWidth: 1080) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      bgImage: file(relativePath: { eq: "pages-background.png" }) {
+        sharp: childImageSharp {
+          fluid(maxWidth: 1080) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
   return (
     <Wrapper>
-      <div className={bannerClasses}></div>
-      <div className={classes.countryMatrixBackground}>
-        <div>
-          <Card raised={true}>
-            <CardContent className={classes.bgCardContentProperty}>
-              <Grid container justify='center' className={classes.root}>
-                <Tabs
-                  value={value}
-                  variant='scrollable'
-                  onChange={handleChange}
-                  indicatorColor='#FFFF8C'
-                  scrollButtons='desktop'
+      <Helmet>
+        <link
+          href='https://fonts.googleapis.com/css?family=Rubik&display=swap'
+          rel='stylesheet'
+        />
+      </Helmet>
+      <Banner
+        backgrounds={[
+          `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+          image.sharp.fluid,
+        ]}
+        height='50vh'
+      >
+        <Typography
+          color='primary'
+          component='h2'
+          className={classes.munTextProperty}
+        >
+          COMMITTEES
+        </Typography>
+      </Banner>
+      <BackgroundImage
+        className='flex flex-col justify-center items-center'
+        fluid={bgImage.sharp.fluid}
+        durationFadeIn={50}
+      >
+        <Card raised={true} className='my-16 w-10/12 lg:w-8/12'>
+          <CardContent className={classes.bgCardContentProperty}>
+            <Grid container justify='center' className={classes.root}>
+              <Tabs
+                value={value}
+                variant='scrollable'
+                onChange={handleChange}
+                indicatorColor='#FFFF8C'
+                scrollButtons='desktop'
+              >
+                <Tab className={classes.tabsTextProperty} label='UNSC' />
+                <Tab className={classes.tabsTextProperty} label='UNODC' />
+                <Tab className={classes.tabsTextProperty} label='DISEC' />
+                <Tab className={classes.tabsTextProperty} label='UNCSW' />
+                <Tab className={classes.tabsTextProperty} label='WHO' />
+                <Tab className={classes.tabsTextProperty} label='AIPPM' />
+              </Tabs>
+            </Grid>
+            <div className={classes.cardStyle}>
+              <Grid
+                container
+                justify='center'
+                alignContent='space-around'
+                className={classes.contentArea}
+              >
+                <Typography
+                  variant='subtitle1'
+                  className={classes.textProperty}
                 >
-                  <Tab className={classes.tabsTextProperty} label='UNSC' />
-                  <Tab className={classes.tabsTextProperty} label='UNODC' />
-                  <Tab className={classes.tabsTextProperty} label='DISEC' />
-                  <Tab className={classes.tabsTextProperty} label='UNCSW' />
-                  <Tab className={classes.tabsTextProperty} label='WHO' />
-                  <Tab className={classes.tabsTextProperty} label='AIPPM' />
-                </Tabs>
+                  {CommitteName[value]}
+                </Typography>
+                <Typography
+                  variant='subtitle2'
+                  className={classes.agendaProperty}
+                >
+                  Agenda - {Agenda[value]}
+                </Typography>
+                <div>{Committe[value]}</div>
               </Grid>
-              <div className={classes.cardStyle}>
-                <Grid
-                  container
-                  justify='center'
-                  alignContent='space-around'
-                  className={classes.contentArea}
-                >
-                  <Typography
-                    variant='subtitle1'
-                    className={classes.textProperty}
-                  >
-                    {CommitteName[value]}
-                  </Typography>
-                  <Typography
-                    variant='subtitle2'
-                    className={classes.agendaProperty}
-                  >
-                    Agenda - {Agenda[value]}
-                  </Typography>
-                  <div>{Committe[value]}</div>
-                </Grid>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+            </div>
+          </CardContent>
+        </Card>
+      </BackgroundImage>
     </Wrapper>
   )
 }
