@@ -165,7 +165,7 @@ function CountryMatrix(props) {
                                 <img src={`/flags-mini/${CountryCode}.png`} />
                               ) : null}
                               {LeaderCode ? (
-                                <img src={`/leader-logo/${LeaderCode}.jpg`} />
+                                <img src={`/leader-logo/${LeaderCode}.png`} />
                               ) : null}
                             </CardContent>
                           </Card>
