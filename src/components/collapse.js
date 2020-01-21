@@ -8,8 +8,8 @@ import { Link } from 'gatsby'
 
 const useStyles = makeStyles(theme => ({
   nested: {
-    color: '#999',
     paddingLeft: theme.spacing(4),
+    border: 'sold #fff 1px',
   },
 }))
 function CollapseDropDown(props) {
