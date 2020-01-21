@@ -56,7 +56,7 @@ export default () => {
           JECRC MUN 2020
         </Typography>
         <Typography className={classes.diplomacyTextProperty}>
-          Deplomacy At It’s Zenith
+          Diplomacy At It’s Zenith
         </Typography>
       </Banner>
       <div id='about'>
