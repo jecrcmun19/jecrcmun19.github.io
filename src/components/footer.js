@@ -123,7 +123,7 @@ function Footer(props) {
             © Copyright JECRC MUN 2020
           </Typography>
         </Grid>
-        <Grid container justify='center'>
+        <Grid container justify='center' className='mb-2'>
           <Avatar
             component='a'
             href='https://facebook.com/jecrcmun'
