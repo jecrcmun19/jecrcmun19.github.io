@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
   headerItems: {
     fontFamily: "'Rubik', sans-serif",
     paddingBottom: 0,
+    color: '#FFF',
     paddingTop: 0,
   },
   drawer: {
@@ -41,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'flex-end',
   },
   close: {
-    color: theme.palette.primary.main,
+    color: '#FFF',
   },
   listItem: {
     padding: 8,
