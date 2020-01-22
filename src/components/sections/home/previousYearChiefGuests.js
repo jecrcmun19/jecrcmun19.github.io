@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography'
 
 const PreviousYearChiefGuest = () => {
   return (
-    <Grid container className='h-full m-8' lg={8} md={9} sm={10}>
+    <Grid container className='h-full mx-auto' lg={8} md={9} sm={10}>
       <Grid item alignContent='center' className='bg-red-700 md:w-3/12 w-full'>
         <Grid
           container
@@ -17,16 +17,18 @@ const PreviousYearChiefGuest = () => {
               className='rounded-full w-32 h-32 mx-auto'
             />
           </div>
-          <div className='text-center w-full mt-2'>
-            <Typography className='w-full' variant='h6'>
+          <div className='text-center w-full mt-1'>
+            <Typography className='w-full text-white' variant='h6'>
               Name
             </Typography>
-            <Typography variant='subtitle1'>Designation</Typography>
+            <Typography variant='subtitle1' className='text-white w-full'>
+              Designation
+            </Typography>
           </div>
         </Grid>
       </Grid>
-      <Grid item className='md:w-9/12 w-full bg-blue-500'>
-        <div className='px-8 py-4 text-left text-justify'>
+      <Grid item className='md:w-9/12 w-full bg-white'>
+        <div className='px-8 py-8 text-left text-justify'>
           <Typography variant='subtitle1'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates
             officia dolores id illo, dolore neque necessitatibus dolorum iure
@@ -34,11 +36,7 @@ const PreviousYearChiefGuest = () => {
             in laboriosam totam.Lorem ipsum, dolor sit amet consectetur
             adipisicing elit. Voluptates officia dolores id illo, dolore neque
             necessitatibus dolorum iure sapiente ab doloribus explicabo?
-            Recusandae aliquid error eos, nam in laboriosam totam.Lorem ipsum,
-            dolor sit amet consectetur adipisicing elit. Voluptates officia
-            dolores id illo, dolore neque necessitatibus dolorum iure sapiente
-            ab doloribus explicabo? Recusandae aliquid error eos, nam in
-            laboriosam totam.
+            Recusandae aliquid error eos, nam in laboriosam totam.
           </Typography>
         </div>
       </Grid>

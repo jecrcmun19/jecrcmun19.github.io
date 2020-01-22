@@ -64,7 +64,24 @@ export default () => {
         <About />
       </div>
       <div className='flex flex-wrap justify-center'>
-        <PreviousYearChiefGuest />
+        <Banner
+          backgrounds={[
+            `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+            image.sharp.fluid,
+          ]}
+        >
+          <div>
+            <Typography className='w-full text-white font-black' variant='h4'>
+              OUR PREVIOUS CHIEF GUESTS
+            </Typography>
+          </div>
+          <div className='my-10'>
+            <PreviousYearChiefGuest />
+          </div>
+          <div className='my-10'>
+            <PreviousYearChiefGuest />
+          </div>
+        </Banner>
       </div>
     </Wrapper>
   )
