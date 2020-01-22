@@ -45,6 +45,12 @@ export default () => {
           href='https://fonts.googleapis.com/css?family=Rubik&display=swap'
           rel='stylesheet'
         />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/images/android-icon-36x36.png'
+        ></link>
       </Helmet>
       <Banner
         backgrounds={[
