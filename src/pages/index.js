@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Typography, makeStyles, useTheme } from '@material-ui/core'
 import About from '../components/sections/home/about'
+import Apply from '../components/sections/home/apply'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -61,6 +62,9 @@ export default () => {
       </Banner>
       <div id='about'>
         <About />
+      </div>
+      <div id='apply'>
+        <Apply />
       </div>
     </Wrapper>
   )
