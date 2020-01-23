@@ -101,7 +101,7 @@ export default function CampusAmbassadorForm() {
           <ol className='ml-4 list-decimal'>
             <li>
               <Typography variant='body1' component='p' paragraph>
-                Promote JECRC MUN 2019 to your institution.
+                Promote JECRC MUN 2020 to your institution.
               </Typography>
             </li>
             <li>
@@ -118,7 +118,7 @@ export default function CampusAmbassadorForm() {
           <Typography variant='body1' component='p' paragraph>
             Benefits of being an Ambassador
           </Typography>
-          <ol className='ml-4 list-decimal'>
+          {/* <ol className='ml-4 list-decimal'>
             <li>
               <Typography variant='body1' component='p' paragraph>
                 A campus ambassador will be given a unique ambassador badge,
@@ -144,7 +144,8 @@ export default function CampusAmbassadorForm() {
                 2020 will be responded immediately by the Secretariat.
               </Typography>
             </li>
-          </ol>
+          </ol> */}
+          <Typography>Will be declared soon....</Typography>
         </div>
       </ContentBox>
       {completed ? (

@@ -62,7 +62,7 @@ export default () => {
           Campus Ambassador Application
         </Typography>
         <Typography component='h3' className={classes.diplomacyTextProperty}>
-          JECEC MUN 2020
+          JECRC MUN 2020
         </Typography>
       </Banner>
       <AmbassadorForm />
