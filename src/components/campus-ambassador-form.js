@@ -9,11 +9,18 @@ import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Link from '@material-ui/core/Link'
 import { Link as GatsbyLink } from 'gatsby'
+import classnames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   form: {
     width: '100%',
     maxWidth: '700px',
+  },
+  content: {
+    justifyContent: 'start',
+  },
+  smallLabel: {
+    fontSize: '0.9rem',
   },
 }))
 
@@ -93,7 +100,7 @@ export default function CampusAmbassadorForm() {
       fluid={image.sharp.fluid}
       durationFadeIn={50}
     >
-      <ContentBox className='my-16'>
+      <ContentBox className={classnames(['my-16', classes.content])}>
         <div>
           <Typography variant='body1' component='p' paragraph>
             Roles of our Campus Ambassador
@@ -193,36 +200,68 @@ export default function CampusAmbassadorForm() {
               required
               label='Campus Ambassador Experience'
               name='expCA'
+              multiline
+              rowsMax={6}
               {...expCA}
             />
             <InputField
               required
               label='Delegate Experience'
               name='expDelegate'
+              multiline
+              rowsMax={6}
               {...expDelegate}
             />
             <InputField
               required
               label='Executive Board Experience'
               name='expEB'
+              multiline
+              rowsMax={6}
               {...expEB}
+              InputLabelProps={{
+                classes: {
+                  root: classes.smallLabel,
+                },
+              }}
             />
             <InputField
               required
               label='Organising Committee Experience'
               name='expOC'
+              multiline
+              rowsMax={6}
               {...expOC}
+              InputLabelProps={{
+                classes: {
+                  root: classes.smallLabel,
+                },
+              }}
             />
             <InputField
               required
-              label='How Do people benefit from MUN?(max 100 Words)'
+              label='How Do people benefit from MUN?'
               name='benefits'
+              multiline
+              rowsMax={6}
               {...benefits}
+              InputLabelProps={{
+                classes: {
+                  root: classes.smallLabel,
+                },
+              }}
             />
             <InputField
               label='Anything you want to know?'
               name='otherinfo'
+              multiline
+              rowsMax={6}
               {...otherinfo}
+              InputLabelProps={{
+                classes: {
+                  root: classes.smallLabel,
+                },
+              }}
             />
             <div className='mt-6 text-center'>
               {loading ? (

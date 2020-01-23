@@ -332,17 +332,27 @@ export default function DelegatePriorityForm() {
               label='As a Delegate'
               name='expDelegate'
               {...expDelegate}
+              multiline
+              rowsMax={6}
             />
-            <InputField label='As a member of EB' name='expEb' {...expEB} />
+            <InputField
+              label='As a member of EB'
+              name='expEb' {...expEB}
+              multiline
+              rowsMax={6} />
             <InputField
               label='As a member of Secretariat'
               name='expSec'
               {...expSec}
+              multiline
+              rowsMax={6}
             />
             <InputField
               label='Any other experience'
               name='expOther'
               {...expOther}
+              multiline
+              rowsMax={6}
             />
             <div className='mt-8 mb-3'>
               <Typography variant='h6' component='p'>
