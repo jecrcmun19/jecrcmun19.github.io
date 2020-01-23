@@ -70,7 +70,7 @@ export default function CampusAmbassadorForm() {
     setLoading(true)
     console.log(new FormData(form).entries())
     fetch(
-      'https://script.google.com/macros/s/AKfycbz_JnTw8tbJ07ZIaMXkAoTRcs6E6X8DknVyAhxHS4z4sTWO0Oc/exec',
+      'https://script.google.com/macros/s/AKfycbyjwsELUWO8CvRWX7gySnKShZgTgWVrQCC7hx-D8t2gqXeKHj4/exec',
       {
         method: 'POST',
         body: new FormData(form),
