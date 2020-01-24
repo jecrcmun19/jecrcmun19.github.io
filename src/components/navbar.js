@@ -60,7 +60,7 @@ function NavBarWeb(props) {
           { name: 'HOME', link: '/' },
           { name: 'ABOUT', link: '#about' },
           { name: 'COMMITTEES', link: '/committees' },
-          { name: 'REGISTRATIONS', link: '/apply/delegate-priority-register' },
+          { name: 'REGISTRATIONS', link: '#apply' },
           { name: 'BLOGS', link: '/' },
           { name: 'GALLERY', link: '/' },
           { name: 'CONTACT', link: '#contact' },
