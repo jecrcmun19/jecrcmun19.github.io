@@ -1,13 +1,3 @@
-import {
-  Card,
-  CardContent,
-  CardActionArea,
-  CardMedia,
-  Paper,
-} from '@material-ui/core'
-import MailOutlineIcon from '@material-ui/icons/MailOutline'
-import GpsFixedIcon from '@material-ui/icons/GpsFixed'
-import PhoneIcon from '@material-ui/icons/Phone'
 import React, { useState } from 'react'
 import Wrapper from '../components/wrapper'
 import InputField from '../components/input-field'
@@ -26,10 +16,6 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
-  },
-  cardStyle: {
-    borderRadius: 15,
-    padding: '10px',
   },
 }))
 
@@ -109,140 +95,99 @@ function Contact(props) {
         >
           CONTACT US
         </Typography>
+        <Typography className='text-white' variant='h5'>
+          JECRC MUN 2020
+        </Typography>
       </Banner>
-      <div className='text-center' className='w-auto m-0 max-w-full'>
-        <Grid
-          container
-          justify='center'
-          spacing={2}
-          style={{ backgroundColor: theme.palette.background.pinkish }}
-          className='py-6'
-        >
-          <Grid item alignContent='center' className='w-1/2'>
-            <div className='flex flex-wrap justify-center text-center'>
-              <ContentBox className='mb-16'>
-                <form className={classes.form} onSubmit={handleSubmit}>
-                  <InputField
-                    required
-                    label='Full Name'
-                    autoComplete='name'
-                    name='fullName'
-                    {...fullName}
-                  />
-                  <InputField
-                    required
-                    label='Contact No.'
-                    type='tel'
-                    name='contact'
-                    {...contact}
-                  />
-                  <InputField
-                    required
-                    label='Email ID'
-                    type='email'
-                    name='email'
-                    {...email}
-                  />
-                  <InputField
-                    required
-                    label='Institution'
-                    name='institute'
-                    {...subject}
-                  />
-                  <InputField
-                    required
-                    label='message'
-                    name='message'
-                    {...message}
-                  />
-                  <div className='mt-6 text-center'>
-                    {loading ? (
-                      <CircularProgress />
-                    ) : (
-                      <Button
-                        type='submit'
-                        color='primary'
-                        variant='contained'
-                        size='large'
-                      >
-                        Submit
-                      </Button>
-                    )}
-                    <div>
-                      {error ? (
-                        <Typography variant='h6' component='p' color='error'>
-                          Cannot submit form. Please refresh the page and try
-                          again.
-                        </Typography>
-                      ) : null}
+      <BackgroundImage
+        className='flex flex-col justify-center items-center'
+        fluid={bgImage.sharp.fluid}
+        durationFadeIn={50}
+      >
+        <div className='text-center' className='w-auto m-0 max-w-full'>
+          <Grid container justify='space-around' spacing={1} className='py-6'>
+            <Grid item alignContent='center' md={4}>
+              <div className='flex flex-wrap justify-center text-center'>
+                <ContentBox className='mb-16'>
+                  <form className={classes.form} onSubmit={handleSubmit}>
+                    <InputField
+                      required
+                      label='Full Name'
+                      autoComplete='name'
+                      name='fullName'
+                      {...fullName}
+                    />
+                    <InputField
+                      required
+                      label='Contact No.'
+                      type='tel'
+                      name='contact'
+                      {...contact}
+                    />
+                    <InputField
+                      required
+                      label='Email ID'
+                      type='email'
+                      name='email'
+                      {...email}
+                    />
+                    <InputField
+                      required
+                      label='Institution'
+                      name='institute'
+                      {...subject}
+                    />
+                    <InputField
+                      required
+                      label='Message'
+                      name='message'
+                      multiline
+                      {...message}
+                    />
+                    <div className='mt-6 text-center'>
+                      {loading ? (
+                        <CircularProgress />
+                      ) : (
+                        <Button
+                          type='submit'
+                          color='primary'
+                          variant='contained'
+                          size='large'
+                        >
+                          Submit
+                        </Button>
+                      )}
+                      <div>
+                        {error ? (
+                          <Typography variant='h6' component='p' color='error'>
+                            Cannot submit form. Please refresh the page and try
+                            again.
+                          </Typography>
+                        ) : null}
+                      </div>
                     </div>
-                  </div>
-                </form>
-              </ContentBox>
-            </div>
-          </Grid>
-          <Grid item alignContent='center' className='w-1/2'>
-            <div className='flex flex-wrap justify-center text-center'>
-              <iframe
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227908.73069868487!2d75.6670073777921!3d26.805774924086492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9f559acdd37%3A0xe17d9d15540b196b!2sJaipur%20Engineering%20College%20And%20Research%20Centre!5e0!3m2!1sen!2sin!4v1579793971191!5m2!1sen!2sin'
-                width='600'
-                height='450'
-                frameborder='0'
-                allowfullscreen=''
-              ></iframe>
-            </div>
-          </Grid>
-        </Grid>
-        <div>
-          <Grid
-            container
-            spacing={4}
-            justify='center'
-            style={{ backgroundColor: theme.palette.background.pinkish }}
-            className='py-6'
-          >
-            <Grid item className='text-center'>
-              <Card elevation={3} className={classes.cardStyle}>
-                <CardContent>
-                  <div style={{ color: theme.palette.primary.main }}>
-                    <MailOutlineIcon />
-                    <Typography variant='h6'>Email</Typography>
-                  </div>
-                  <Typography>mun@jecrc.ac.in</Typography>
-                </CardContent>
-              </Card>
+                  </form>
+                </ContentBox>
+              </div>
             </Grid>
-            <Grid item className='text-center'>
-              <Card elevation={3} className={classes.cardStyle}>
-                <CardContent>
-                  <div style={{ color: theme.palette.primary.main }}>
-                    <GpsFixedIcon />
-                    <Typography variant='h6'>Address</Typography>
-                  </div>
-                  <Typography>Shree Ram ki Nangal,</Typography>
-                  <Typography>via Sitapura RIICO,</Typography>
-                  <Typography>Tonk Road,Jaipur,</Typography>
-                  <Typography>302022</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item className='text-center'>
-              <Card elevation={3} className={classes.cardStyle}>
-                <CardContent>
-                  <div style={{ color: theme.palette.primary.main }}>
-                    <PhoneIcon />
-                    <Typography variant='h6'>Contact</Typography>
-                  </div>
-                  <Typography>Pourush Choudhary</Typography>
-                  <Typography>9413900468</Typography>
-                  <Typography>Himanshu Damani</Typography>
-                  <Typography>7976780546</Typography>
-                </CardContent>
-              </Card>
+            <Grid item alignContent='center' md={4}>
+              <div className='flex flex-wrap justify-center text-center'>
+                <iframe
+                  src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227908.73069868487!2d75.6670073777921!3d26.805774924086492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9f559acdd37%3A0xe17d9d15540b196b!2sJaipur%20Engineering%20College%20And%20Research%20Centre!5e0!3m2!1sen!2sin!4v1579793971191!5m2!1sen!2sin'
+                  frameborder='0'
+                  allowfullscreen=''
+                  className='xs:w-12 md:w-full rounded-lg'
+                  style={{
+                    height: '525px',
+                    boxShadow:
+                      '10px 20px 38px rgba(0, 0, 0, 0.3), 5px 15px 12px rgba(0, 0, 0, 0.22)',
+                  }}
+                ></iframe>
+              </div>
             </Grid>
           </Grid>
         </div>
-      </div>
+      </BackgroundImage>
     </Wrapper>
   )
 }
