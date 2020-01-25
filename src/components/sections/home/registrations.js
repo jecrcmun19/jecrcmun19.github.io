@@ -37,7 +37,7 @@ const useStyles = makeStyles({
   },
 })
 
-function Apply(props) {
+function Registrations(props) {
   const classes = useStyles(props)
   const theme = useTheme()
   const data = [
@@ -51,7 +51,6 @@ function Apply(props) {
     {
       title: 'Campus Ambassador',
       img: 'images/ambassador.png',
-      info: 'Application Fees: 1400 /-',
       btn: 'Apply Now',
       btnLink: '/apply/campus-ambassador-application',
     },
@@ -65,12 +64,7 @@ function Apply(props) {
         paddingTop: '80px',
       }}
     >
-      <Typography
-        variant='h4'
-        id='registration'
-        className='p-5'
-        color='primary'
-      >
+      <Typography variant='h4' className='p-5' color='primary'>
         REGISTRATIONS
       </Typography>
       <div className='flex flex-wrap justify-center'>
@@ -78,7 +72,7 @@ function Apply(props) {
           <Card
             raised={true}
             className={classnames([
-              'my-10 mx-10 justify-center text-center',
+              'my-10 mx-10 justify-center text-center flex flex-col',
               classes.card,
             ])}
           >
@@ -94,9 +88,11 @@ function Apply(props) {
               className={classnames(['mx-auto my-10', classes.imgStyle])}
             />
             <div className='w-full my-5'>
-              <Typography className='text-white'>{section.info}</Typography>
+              <Typography className='text-white'>
+                {section.info ? section.info : null}
+              </Typography>
             </div>
-            <div className='my-10'>
+            <div className='mt-auto mb-10'>
               <Button
                 variant='outlined'
                 component={Link}
@@ -113,4 +109,4 @@ function Apply(props) {
   )
 }
 
-export default Apply
+export default Registrations

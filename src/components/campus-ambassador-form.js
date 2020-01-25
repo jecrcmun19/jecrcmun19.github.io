@@ -38,7 +38,10 @@ const FormCompleted = () => (
       </Typography>
       <div className='mt-4'>
         <Typography variant='subtitle2' component='p' paragraph>
-          Porush Choudhary: <Link href='tel:9413900468'>9413900468</Link>
+          Pourush Choudhary: <Link href='tel:9413900468'>9413900468</Link>
+        </Typography>
+        <Typography variant='subtitle2' component='p' paragraph>
+          Shrey Bhargava: <Link href='tel:8955332841'>8955332841</Link>
         </Typography>
       </div>
     </div>
