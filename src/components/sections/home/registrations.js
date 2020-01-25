@@ -37,7 +37,7 @@ const useStyles = makeStyles({
   },
 })
 
-function Apply(props) {
+function Registrations(props) {
   const classes = useStyles(props)
   const theme = useTheme()
   const data = [
@@ -64,12 +64,7 @@ function Apply(props) {
         paddingTop: '80px',
       }}
     >
-      <Typography
-        variant='h4'
-        id='registration'
-        className='p-5'
-        color='primary'
-      >
+      <Typography variant='h4' className='p-5' color='primary'>
         REGISTRATIONS
       </Typography>
       <div className='flex flex-wrap justify-center'>
@@ -114,4 +109,4 @@ function Apply(props) {
   )
 }
 
-export default Apply
+export default Registrations
