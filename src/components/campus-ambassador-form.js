@@ -8,7 +8,6 @@ import InputField from './input-field'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Link from '@material-ui/core/Link'
-import { Link as GatsbyLink } from 'gatsby'
 import classnames from 'classnames'
 
 const useStyles = makeStyles(theme => ({

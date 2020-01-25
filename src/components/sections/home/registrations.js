@@ -1,13 +1,10 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import {
-  Card,
-  Typography,
-  Button,
-  makeStyles,
-  useTheme,
-} from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import Card from '@material-ui/core/Card'
+import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
 
 import theme from '../../../theme'
 import { Link } from 'gatsby'
@@ -85,6 +82,7 @@ function Registrations(props) {
             </div>
             <img
               src={section.img}
+              alt={section.title}
               className={classnames(['mx-auto my-10', classes.imgStyle])}
             />
             <div className='w-full my-5'>
