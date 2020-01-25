@@ -8,7 +8,10 @@ import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
-import { makeStyles, Typography, Grid, useTheme } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
     color: '#D90845',
@@ -16,6 +19,11 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+  },
+  map: {
+    position: 'relative',
+    width: '100%',
+    height: '80%',
   },
 }))
 
@@ -105,85 +113,81 @@ function Contact(props) {
         durationFadeIn={50}
       >
         <div className='text-center' className='w-auto m-0 max-w-full'>
-          <Grid container justify='space-around' spacing={1} className='py-6'>
-            <Grid item alignContent='center' md={4}>
-              <div className='flex flex-wrap justify-center text-center'>
-                <ContentBox className='mb-16'>
-                  <form className={classes.form} onSubmit={handleSubmit}>
-                    <InputField
-                      required
-                      label='Full Name'
-                      autoComplete='name'
-                      name='fullName'
-                      {...fullName}
-                    />
-                    <InputField
-                      required
-                      label='Contact No.'
-                      type='tel'
-                      name='contact'
-                      {...contact}
-                    />
-                    <InputField
-                      required
-                      label='Email ID'
-                      type='email'
-                      name='email'
-                      {...email}
-                    />
-                    <InputField
-                      required
-                      label='Institution'
-                      name='institute'
-                      {...subject}
-                    />
-                    <InputField
-                      required
-                      label='Message'
-                      name='message'
-                      multiline
-                      {...message}
-                    />
-                    <div className='mt-6 text-center'>
-                      {loading ? (
-                        <CircularProgress />
-                      ) : (
-                        <Button
-                          type='submit'
-                          color='primary'
-                          variant='contained'
-                          size='large'
-                        >
-                          Submit
-                        </Button>
-                      )}
-                      <div>
-                        {error ? (
-                          <Typography variant='h6' component='p' color='error'>
-                            Cannot submit form. Please refresh the page and try
-                            again.
-                          </Typography>
-                        ) : null}
-                      </div>
+          <Grid container justify='space-around' className='my-20'>
+            <Grid item md={5}>
+              <ContentBox
+                style={{
+                  width: '100%',
+                }}
+              >
+                <form className={classes.form} onSubmit={handleSubmit}>
+                  <InputField
+                    required
+                    label='Full Name'
+                    autoComplete='name'
+                    name='fullName'
+                    {...fullName}
+                  />
+                  <InputField
+                    required
+                    label='Contact No.'
+                    type='tel'
+                    name='contact'
+                    {...contact}
+                  />
+                  <InputField
+                    required
+                    label='Email ID'
+                    type='email'
+                    name='email'
+                    {...email}
+                  />
+                  <InputField
+                    required
+                    label='Institution'
+                    name='institute'
+                    {...subject}
+                  />
+                  <InputField
+                    required
+                    label='Message'
+                    name='message'
+                    multiline
+                    rowsMax={6}
+                    {...message}
+                  />
+                  <div className='mt-6 text-center'>
+                    {loading ? (
+                      <CircularProgress />
+                    ) : (
+                      <Button
+                        type='submit'
+                        color='primary'
+                        variant='contained'
+                        size='large'
+                      >
+                        Submit
+                      </Button>
+                    )}
+                    <div>
+                      {error ? (
+                        <Typography variant='h6' component='p' color='error'>
+                          Cannot submit form. Please refresh the page and try
+                          again.
+                        </Typography>
+                      ) : null}
                     </div>
-                  </form>
-                </ContentBox>
-              </div>
+                  </div>
+                </form>
+              </ContentBox>
             </Grid>
-            <Grid item alignContent='center' md={4}>
-              <div className='flex flex-wrap justify-center text-center'>
-                <iframe
-                  src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227908.73069868487!2d75.6670073777921!3d26.805774924086492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9f559acdd37%3A0xe17d9d15540b196b!2sJaipur%20Engineering%20College%20And%20Research%20Centre!5e0!3m2!1sen!2sin!4v1579793971191!5m2!1sen!2sin'
-                  frameborder='0'
-                  allowfullscreen=''
-                  className='xs:w-12 md:w-full rounded-lg'
-                  style={{
-                    height: '525px',
-                    boxShadow:
-                      '10px 20px 38px rgba(0, 0, 0, 0.3), 5px 15px 12px rgba(0, 0, 0, 0.22)',
-                  }}
-                ></iframe>
-              </div>
+            <Grid item md={5} className='flex flex-col justify-center'>
+              <iframe
+                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.825855186854!2d75.81833451496024!3d26.7818204831841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc977c6898ab9%3A0x8010b7bf0b1f29c9!2sJECRC%20Foundation!5e0!3m2!1sen!2sin!4v1579948771763!5m2!1sen!2sin'
+                frameborder='0'
+                className={classes.map}
+                allowfullscreen=''
+              ></iframe>
             </Grid>
           </Grid>
         </div>
