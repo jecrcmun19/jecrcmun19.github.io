@@ -76,6 +76,7 @@ export default () => {
             <PreviousYearChiefGuest />
           </div>
         </Banner>
+      </div>
       <div id='registrations'>
         <Registrations />
       </div>
