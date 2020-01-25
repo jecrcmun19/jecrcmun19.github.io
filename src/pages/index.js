@@ -6,6 +6,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import About from '../components/sections/home/about'
+import PreviousYearChiefGuest from '../components/sections/home/previousYearChiefGuests'
 import Registrations from '../components/sections/home/registrations'
 
 const useStyles = makeStyles(theme => ({
@@ -63,6 +64,19 @@ export default () => {
       </Banner>
       <div id='about'>
         <About />
+      </div>
+      <div className='flex flex-wrap justify-center h-auto'>
+        <Banner
+          backgrounds={[
+            `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+            image.sharp.fluid,
+          ]}
+          height='auto'
+        >
+          <div className='mx-4 pb-10'>
+            <PreviousYearChiefGuest />
+          </div>
+        </Banner>
       </div>
       <div id='registrations'>
         <Registrations />
