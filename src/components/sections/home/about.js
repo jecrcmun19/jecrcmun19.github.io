@@ -7,8 +7,11 @@ export default () => {
   return (
     <Grid
       container
-      style={{ backgroundColor: theme.palette.background.pinkish }}
-      className='py-20'
+      style={{
+        backgroundColor: theme.palette.background.pinkish,
+        minHeight: '100vh',
+      }}
+      className='py-20 h-full items-center'
     >
       <Grid item md={2} sm={0} xs={0} />
       <Grid item md={4} xs={12} className='p-5 text-center lg:text-left'>

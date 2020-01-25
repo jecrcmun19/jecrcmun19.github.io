@@ -61,7 +61,7 @@ export default () => {
           Diplomacy At It’s Zenith
         </Typography>
       </Banner>
-      <div id='about'>
+      <div id='about' style={{ minHeight: '100vh' }}>
         <About />
       </div>
       <div className='flex flex-wrap justify-center h-auto'>
@@ -71,13 +71,14 @@ export default () => {
             image.sharp.fluid,
           ]}
           height='auto'
+          minHeight={true}
         >
           <div className='mx-4 pb-10'>
             <PreviousYearChiefGuest />
           </div>
         </Banner>
       </div>
-      <div id='registrations'>
+      <div id='registrations' style={{ minHeight: '100vh' }}>
         <Registrations />
       </div>
     </Wrapper>

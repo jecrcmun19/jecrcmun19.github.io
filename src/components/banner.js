@@ -10,6 +10,7 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     height: props => (props.height ? props.height : '100vh'),
+    minHeight: props => (props.minHeight ? '100vh' : 'auto'),
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
@@ -39,6 +40,7 @@ Banner.propTypes = {
    * height of the banner. Default to 100vh
    */
   height: PropTypes.string,
+  minHeight: PropTypes.bool,
 }
 
 export default Banner
