@@ -64,7 +64,6 @@ function Footer(props) {
           spacing={0}
           className={classes.textColor}
         >
-          <Grid item md={2} sm={12} xs={12} />
           <Grid item md={4} sm={12} xs={12} className='py-5'>
             <Typography
               variant='h6'
@@ -75,6 +74,22 @@ function Footer(props) {
             <Typography>Shri Ram Ki Nangal,</Typography>
             <Typography>via Sitapura RIICO,</Typography>
             <Typography>Tonk Road, Jaipur</Typography>
+          </Grid>
+          <Grid item md={4} sm={12} xs={12}>
+            <Typography
+              variant='h6'
+              style={{ color: theme.palette.primary.main }}
+            >
+              Email
+            </Typography>
+            <Typography>
+              <MateriaLink
+                className={classes.phoneText}
+                href='mailto:mun@jecrc.ac.in'
+              >
+                mun@jecrc.ac.in
+              </MateriaLink>
+            </Typography>
           </Grid>
           <Grid item md={4} sm={12} xs={12} className='py-5'>
             <Typography
@@ -98,14 +113,6 @@ function Footer(props) {
             <Typography>
               <MateriaLink className={classes.phoneText} href='tel:7976780546'>
                 7976780546
-              </MateriaLink>
-            </Typography>
-            <Typography>
-              <MateriaLink
-                className={classes.phoneText}
-                href='mailto:mun@jecrc.ac.in'
-              >
-                mun@jecrc.ac.in
               </MateriaLink>
             </Typography>
           </Grid>
