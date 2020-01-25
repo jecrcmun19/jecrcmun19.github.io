@@ -22,7 +22,8 @@ const PreviousYearChiefGuest = () => {
           <Grid
             item
             alignContent='center'
-            className='bg-red-700 md:w-3/12 w-full'
+            className='md:w-3/12 w-full'
+            style={{ background: '#d90845' }}
           >
             <Grid
               container

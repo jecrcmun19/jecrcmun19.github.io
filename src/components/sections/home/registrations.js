@@ -59,6 +59,7 @@ function Registrations(props) {
       style={{
         backgroundColor: theme.palette.background.pinkish,
         paddingTop: '80px',
+        minHeight: '100vh',
       }}
     >
       <Typography variant='h4' className='p-5' color='primary'>
