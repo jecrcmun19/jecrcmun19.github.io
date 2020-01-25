@@ -6,6 +6,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Typography, makeStyles, useTheme } from '@material-ui/core'
 import About from '../components/sections/home/about'
 import PreviousYearChiefGuest from '../components/sections/home/previousYearChiefGuests'
+import Registrations from '../components/sections/home/registrations'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -75,6 +76,8 @@ export default () => {
             <PreviousYearChiefGuest />
           </div>
         </Banner>
+      <div id='registrations'>
+        <Registrations />
       </div>
     </Wrapper>
   )

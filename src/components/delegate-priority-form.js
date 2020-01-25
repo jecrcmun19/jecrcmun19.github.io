@@ -124,7 +124,10 @@ const FormCompleted = () => (
       </Typography>
       <div className='mt-4'>
         <Typography variant='subtitle2' component='p' paragraph>
-          Porush Choudhary: <Link href='tel:9413900468'>9413900468</Link>
+          Pourush Choudhary: <Link href='tel:9413900468'>9413900468</Link>
+        </Typography>
+        <Typography variant='subtitle2' component='p' paragraph>
+          Shrey Bhargava: <Link href='tel:8955332841'>8955332841</Link>
         </Typography>
       </div>
     </div>
@@ -198,7 +201,6 @@ export default function DelegatePriorityForm() {
     e.preventDefault()
     const form = e.target
     setLoading(true)
-    console.log(new FormData(form).entries())
     fetch(
       'https://script.google.com/macros/s/AKfycbz_JnTw8tbJ07ZIaMXkAoTRcs6E6X8DknVyAhxHS4z4sTWO0Oc/exec',
       {
@@ -207,7 +209,6 @@ export default function DelegatePriorityForm() {
       },
     )
       .then(res => {
-        console.log(res)
         setLoading(false)
         setCompleted(true)
       })
@@ -334,17 +335,29 @@ export default function DelegatePriorityForm() {
               label='As a Delegate'
               name='expDelegate'
               {...expDelegate}
+              multiline
+              rowsMax={6}
             />
-            <InputField label='As a member of EB' name='expEb' {...expEB} />
+            <InputField
+              label='As a member of EB'
+              name='expEb'
+              {...expEB}
+              multiline
+              rowsMax={6}
+            />
             <InputField
               label='As a member of Secretariat'
               name='expSec'
               {...expSec}
+              multiline
+              rowsMax={6}
             />
             <InputField
               label='Any other experience'
               name='expOther'
               {...expOther}
+              multiline
+              rowsMax={6}
             />
             <div className='mt-8 mb-3'>
               <Typography variant='h6' component='p'>

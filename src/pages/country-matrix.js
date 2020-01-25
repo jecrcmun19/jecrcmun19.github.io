@@ -91,8 +91,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function CountryMatrix(props) {
-  console.log(Countries)
-  console.log(Leaders)
   const classes = useStyles()
   const [value, setValue] = React.useState(0)
 
@@ -105,8 +103,6 @@ function CountryMatrix(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-  console.log(Leaders)
-  console.log(Committe[5]['permanentMembers'], Committe, value)
 
   return (
     <Wrapper>
@@ -145,7 +141,6 @@ function CountryMatrix(props) {
                     {Committe[value][members].map((text, index) => {
                       const CountryCode = Countries[`${text.toLowerCase()}`]
                       const LeaderCode = Leaders[`${text}`]
-                      console.log(LeaderCode, text)
                       return (
                         <Grid
                           item
@@ -162,10 +157,16 @@ function CountryMatrix(props) {
                                 {text}
                               </span>
                               {CountryCode ? (
-                                <img src={`/flags-mini/${CountryCode}.png`} />
+                                <img
+                                  src={`/flags-mini/${CountryCode}.png`}
+                                  className='h-5'
+                                />
                               ) : null}
                               {LeaderCode ? (
-                                <img src={`/leader-logo/${LeaderCode}.png`} />
+                                <img
+                                  src={`/leader-logo/${LeaderCode}.png`}
+                                  className='h-5'
+                                />
                               ) : null}
                             </CardContent>
                           </Card>
