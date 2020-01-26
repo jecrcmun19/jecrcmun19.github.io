@@ -11,6 +11,7 @@ import Helmet from 'react-helmet'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import FormCompleted from '../components/form-completed'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -20,10 +21,20 @@ const useStyles = makeStyles(theme => ({
     fontSize: 60,
     lineHeight: '71px',
   },
+  formContainer: {
+    maxWidth: '100%',
+  },
+  mapContainer: {
+    minHeight: '400px',
+    width: '90vw',
+    marginTop: theme.spacing(3),
+    border: `1px solid ${theme.palette.border.pinkish}`,
+    boxShadow: theme.palette.boxShadow.content,
+    borderRadius: '15px',
+  },
   map: {
-    position: 'relative',
+    height: '400px',
     width: '100%',
-    height: '80%',
   },
 }))
 
@@ -63,7 +74,7 @@ function Contact(props) {
     setLoading(true)
     console.log(new FormData(form).entries())
     fetch(
-      'https://script.google.com/macros/s/AKfycbz_JnTw8tbJ07ZIaMXkAoTRcs6E6X8DknVyAhxHS4z4sTWO0Oc/exec',
+      'https://script.google.com/macros/s/AKfycbyNtYRjDE5kMuZSot2WDJ81ISK6qDZ5llid6ZuzFsQ03DhzjB1N/exec',
       {
         method: 'POST',
         body: new FormData(form),
@@ -112,14 +123,18 @@ function Contact(props) {
         fluid={bgImage.sharp.fluid}
         durationFadeIn={50}
       >
-        <div className='text-center' className='w-auto m-0 max-w-full'>
-          <Grid container justify='space-around' className='my-20'>
-            <Grid item md={5}>
-              <ContentBox
-                style={{
-                  width: '100%',
-                }}
-              >
+        <Grid
+          container
+          direction='row'
+          justify='space-around'
+          alignItems='center'
+          className='py-16'
+        >
+          <Grid item md={5} lg={4}>
+            {completed ? (
+              <FormCompleted className={classes.formContainer} />
+            ) : (
+              <ContentBox className={classes.formContainer}>
                 <form className={classes.form} onSubmit={handleSubmit}>
                   <InputField
                     required
@@ -180,17 +195,17 @@ function Contact(props) {
                   </div>
                 </form>
               </ContentBox>
-            </Grid>
-            <Grid item md={5} className='flex flex-col justify-center'>
-              <iframe
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.825855186854!2d75.81833451496024!3d26.7818204831841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc977c6898ab9%3A0x8010b7bf0b1f29c9!2sJECRC%20Foundation!5e0!3m2!1sen!2sin!4v1579948771763!5m2!1sen!2sin'
-                frameborder='0'
-                className={classes.map}
-                allowfullscreen=''
-              ></iframe>
-            </Grid>
+            )}
           </Grid>
-        </div>
+          <Grid item md={5} lg={4} className={classes.mapContainer}>
+            <iframe
+              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.825855186854!2d75.81833451496024!3d26.7818204831841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc977c6898ab9%3A0x8010b7bf0b1f29c9!2sJECRC%20Foundation!5e0!3m2!1sen!2sin!4v1579948771763!5m2!1sen!2sin'
+              frameborder='0'
+              className={classes.map}
+              allowfullscreen=''
+            ></iframe>
+          </Grid>
+        </Grid>
       </BackgroundImage>
     </Wrapper>
   )
