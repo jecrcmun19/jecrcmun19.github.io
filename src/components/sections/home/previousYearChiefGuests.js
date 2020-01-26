@@ -20,7 +20,6 @@ const PreviousYearChiefGuest = () => {
       {guests.map((guest, index) => (
         <Grid container className='h-full my-10 mx-auto' lg={8} md={9} sm={10}>
           <Grid
-            item
             alignContent='center'
             className='md:w-3/12 w-full'
             style={{ background: '#d90845' }}
@@ -32,6 +31,7 @@ const PreviousYearChiefGuest = () => {
             >
               <div className='w-full'>
                 <img
+                  alt={guest}
                   src={`/images/${guest}.jpg`}
                   className='rounded-full w-32 h-32 mx-auto bg-white'
                 />
