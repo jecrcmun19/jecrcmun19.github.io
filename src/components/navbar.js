@@ -53,6 +53,19 @@ function NavBarWeb(props) {
     setMouseOver(false)
   }
 
+  const hoverListItems = {
+    ABOUT: ['JECRC MUN', 'EXECUTIVE BOARD', 'SECRETARIAT', 'OUR SPONSORS'],
+    REGISTRATIONS: ['DELEGATE', 'CAMPUS AMBASSADOR'],
+  }
+
+  const hoverListLinks = {
+    ABOUT: ['/about', '/', '/', '/'],
+    REGISTRATIONS: [
+      '/apply/delegate-priority-register',
+      '/apply/campus-ambassador-application',
+    ],
+  }
+
   return (
     <Grid container justify='center'>
       <List className={classes.horizontalList}>
@@ -69,7 +82,9 @@ function NavBarWeb(props) {
             key={index}
             onMouseLeave={handleClose}
             onMouseOver={
-              text.name === 'ABOUT' ? e => handleOnMouse(text.name) : null
+              ['ABOUT', 'REGISTRATIONS'].includes(text.name)
+                ? e => handleOnMouse(text.name)
+                : null
             }
           >
             <Typography
@@ -86,38 +101,16 @@ function NavBarWeb(props) {
                   autoFocusItem={mouseOver}
                   className={classes.downBarList}
                 >
-                  <MenuItem
-                    onClick={handleClose}
-                    className={classes.downBarListItem}
-                    component={Link}
-                    to='/about'
-                  >
-                    JECRC MUN
-                  </MenuItem>
-                  <MenuItem
-                    onClick={handleClose}
-                    className={classes.downBarListItem}
-                    component={Link}
-                    to='/'
-                  >
-                    EXECUTIVE BOARD
-                  </MenuItem>
-                  <MenuItem
-                    onClick={handleClose}
-                    className={classes.downBarListItem}
-                    component={Link}
-                    to='/'
-                  >
-                    SECRETARIAT
-                  </MenuItem>
-                  <MenuItem
-                    onClick={handleClose}
-                    className={classes.downBarListItem}
-                    component={Link}
-                    to='/'
-                  >
-                    OUR SPONSORS
-                  </MenuItem>
+                  {hoverListItems[text.name].map((value, index) => (
+                    <MenuItem
+                      onClick={handleClose}
+                      className={classes.downBarListItem}
+                      component={Link}
+                      to={hoverListLinks[text.name][index]}
+                    >
+                      {value}
+                    </MenuItem>
+                  ))}
                 </MenuList>
               </ClickAwayListener>
             ) : null}
