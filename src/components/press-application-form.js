@@ -7,13 +7,13 @@ import ContentBox from './content-box'
 import InputField from './input-field'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import Link from '@material-ui/core/Link'
 import classnames from 'classnames'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
+import FormCompleted from '../components/form-complete'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -47,29 +47,6 @@ const useRadioStyles = makeStyles(theme => ({
   checked: {},
 }))
 
-const FormCompleted = () => (
-  <ContentBox className='mb-16'>
-    <div>
-      <Typography variant='h4' className='my-8' component='h1' paragraph>
-        Thank You for Registration
-      </Typography>
-      <Typography variant='body1' component='p' paragraph>
-        Our team will contact you for further information regarding event.
-      </Typography>
-      <Typography variant='body2' component='p'>
-        For more queries, you can contact:
-      </Typography>
-      <div className='mt-4'>
-        <Typography variant='subtitle2' component='p' paragraph>
-          Pourush Choudhary: <Link href='tel:9413900468'>9413900468</Link>
-        </Typography>
-        <Typography variant='subtitle2' component='p' paragraph>
-          Shrey Bhargava: <Link href='tel:8955332841'>8955332841</Link>
-        </Typography>
-      </div>
-    </div>
-  </ContentBox>
-)
 export default function PressApplicationForm() {
   const radioClasses = useRadioStyles()
   const classes = useStyles()
@@ -78,8 +55,8 @@ export default function PressApplicationForm() {
   const contact = useForm('')
   const institute = useForm('')
   const expMun = useForm('')
-  const expIP = useForm('')
   const expOC = useForm('')
+  const expIP = useForm('')
   const otherinfo = useForm('')
   const referral = useForm('')
   const accommodation = useForm('no')
