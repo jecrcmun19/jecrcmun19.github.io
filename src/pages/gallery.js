@@ -21,16 +21,15 @@ const useStyles = makeStyles(theme => ({
   },
   imageSize: {
     width: '100%',
-    height: '70%',
+    height: '100%',
   },
   card: {
-    maxWidth: '700px',
-    width: '93%',
     background: theme.palette.background.pinkish,
+    margin: '10px',
   },
-  imageContainer: {
-    width: '70%',
-    height: '70%',
+  thumbnailStyle: {
+    width: '100%',
+    height: '200px',
   },
 }))
 
@@ -73,7 +72,6 @@ function Gallery() {
     loop: true,
     loopedSlides: 4,
   }
-
   const thumbnailSwiperParams = {
     getSwiper: getThumbnailSwiper,
     spaceBetween: 10,
@@ -164,17 +162,18 @@ function Gallery() {
       >
         <Card
           raised={true}
-          className={classnames(['md:w-8/12 w-full my-16', classes.card])}
+          className={classnames(['w-11/12 lg:w-8/12 my-16', classes.card])}
         >
           <CardContent className='w-full mx-auto p-24'>
             <div className='md:p-4 py-2'>
               <Swiper {...gallerySwiperParams}>
                 {imagesList.map(imageHere => (
-                  <div className={classes.imageContainer}>
+                  <div style={{ width: '100%', maxHeight: '700px' }}>
                     <img
                       className={classes.imageSize}
                       src={`/gallery/${imageHere}`}
                       alt=''
+                      style={{ width: '100%', height: '100%' }}
                     />
                   </div>
                 ))}
