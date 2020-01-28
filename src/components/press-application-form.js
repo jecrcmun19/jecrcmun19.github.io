@@ -81,9 +81,9 @@ export default function PressApplicationForm() {
     e.preventDefault()
     const form = e.target
     setLoading(true)
-    console.log(new FormData(form).entries())
+    console.log(new FormData(form))
     fetch(
-      'https://script.google.com/macros/s/AKfycbyjwsELUWO8CvRWX7gySnKShZgTgWVrQCC7hx-D8t2gqXeKHj4/exec',
+      'https://script.google.com/macros/s/AKfycbzkamvbxoXTmOqKlhgCEwpoTKT4Jmekz6_HEdYCKeMhoHepNPO8/exec',
       {
         method: 'POST',
         body: new FormData(form),
