@@ -14,7 +14,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { Link as GatsbyLink } from 'gatsby'
-import FormCompleted from '../components/form-complete'
+import FormCompleted from './form-completed'
 
 const useStyles = makeStyles(theme => ({
   form: {

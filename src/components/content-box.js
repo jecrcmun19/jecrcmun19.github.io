@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function ContentBox({ children, className = '' }) {
+export default function ContentBox({ children, className = '', ...props }) {
   const classes = useStyles()
   return (
     <Grid
@@ -25,6 +25,7 @@ export default function ContentBox({ children, className = '' }) {
       direction='row'
       justify='center'
       alignItems='center'
+      {...props}
     >
       {children}
     </Grid>

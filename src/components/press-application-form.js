@@ -13,7 +13,7 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
-import FormCompleted from '../components/form-complete'
+import FormCompleted from './form-completed'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -81,9 +81,9 @@ export default function PressApplicationForm() {
     e.preventDefault()
     const form = e.target
     setLoading(true)
-    console.log(new FormData(form).entries())
+    console.log(new FormData(form))
     fetch(
-      'https://script.google.com/macros/s/AKfycbyjwsELUWO8CvRWX7gySnKShZgTgWVrQCC7hx-D8t2gqXeKHj4/exec',
+      'https://script.google.com/macros/s/AKfycbzkamvbxoXTmOqKlhgCEwpoTKT4Jmekz6_HEdYCKeMhoHepNPO8/exec',
       {
         method: 'POST',
         body: new FormData(form),
@@ -131,6 +131,12 @@ export default function PressApplicationForm() {
               </Typography>
             </li>
           </ol>
+          <Typography variant='h6' component='p' paragraph>
+            Application Fees: 1000 /-
+          </Typography>
+          <Typography variant='h6' component='p' paragraph>
+            Accommodation Fees: 800 /-
+          </Typography>
         </div>
       </ContentBox>
       {completed ? (

@@ -1,11 +1,12 @@
 import React from 'react'
-import Typography from '@material-ui/core/Typography'
 import ContentBox from './content-box'
+import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
-
-export default function FormCompleted() {
+import classnames from 'classnames'
+const FormCompleted = ({ className = '', ...props }) => {
+  const classes = classnames('mb-16', className)
   return (
-    <ContentBox className='mb-16'>
+    <ContentBox className={classes} {...props}>
       <div>
         <Typography variant='h4' className='my-8' component='h1' paragraph>
           Thank You for Registration
@@ -28,3 +29,4 @@ export default function FormCompleted() {
     </ContentBox>
   )
 }
+export default FormCompleted
