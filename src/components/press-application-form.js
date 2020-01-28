@@ -8,6 +8,11 @@ import InputField from './input-field'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import classnames from 'classnames'
+import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormLabel from '@material-ui/core/FormLabel'
 import FormCompleted from './form-completed'
 
 const useStyles = makeStyles(theme => ({
@@ -21,20 +26,42 @@ const useStyles = makeStyles(theme => ({
   smallLabel: {
     fontSize: '0.9rem',
   },
+  radio: {
+    root: {
+      color: theme.palette.primary.main,
+      '&$checked': {
+        color: theme.palette.primary.main,
+      },
+    },
+    checked: {},
+  },
 }))
 
-export default function CampusAmbassadorForm() {
+const useRadioStyles = makeStyles(theme => ({
+  root: {
+    color: theme.palette.primary.main,
+    '&$checked': {
+      color: theme.palette.primary.main,
+    },
+  },
+  checked: {},
+}))
+
+export default function PressApplicationForm() {
+  const radioClasses = useRadioStyles()
   const classes = useStyles()
   const fullName = useForm('')
   const email = useForm('')
   const contact = useForm('')
   const institute = useForm('')
-  const expEB = useForm('')
-  const expCA = useForm('')
-  const expDelegate = useForm('')
+  const expMun = useForm('')
   const expOC = useForm('')
-  const benefits = useForm('')
+  const expIP = useForm('')
   const otherinfo = useForm('')
+  const referral = useForm('')
+  const accommodation = useForm('no')
+  const secPref = useForm('')
+  const firPref = useForm('')
   const [loading, setLoading] = useState(false)
   const [completed, setCompleted] = useState(false)
   const [error, setError] = useState(false)
@@ -82,56 +109,34 @@ export default function CampusAmbassadorForm() {
       <ContentBox className={classnames(['my-16', classes.content])}>
         <div>
           <Typography variant='body1' component='p' paragraph>
-            Roles of our Campus Ambassador
+            Conference Date : 11th - 12th April 2020
+          </Typography>
+          <Typography variant='body1' component='p' paragraph>
+            International Press:
           </Typography>
           <ol className='ml-4 list-decimal'>
             <li>
               <Typography variant='body1' component='p' paragraph>
-                Promote JECRC MUN 2020 to your institution.
+                Journalist
               </Typography>
             </li>
             <li>
               <Typography variant='body1' component='p' paragraph>
-                Help facilitate registrations in your campus and others.
+                Artist(Caricaturist)
               </Typography>
             </li>
             <li>
               <Typography variant='body1' component='p' paragraph>
-                Perform Weekly Tasks.
+                Photographer
               </Typography>
             </li>
           </ol>
-          <Typography variant='body1' component='p' paragraph>
-            Benefits of being an Ambassador
+          <Typography variant='h6' component='p' paragraph>
+            Application Fees: 1000 /-
           </Typography>
-          {/* <ol className='ml-4 list-decimal'>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                A campus ambassador will be given a unique ambassador badge,
-                special recognition certificate and felicitation at the end of
-                the conference.
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                Ambassadors are updated regularly on the changes and information
-                regarding the conference.
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                A direct line of communication and privilege of interacting
-                personally with members of the Secretariat.
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                Any suggestions or queries by Ambassadors regarding JECRC MUN
-                2020 will be responded immediately by the Secretariat.
-              </Typography>
-            </li>
-          </ol> */}
-          <Typography>Will be declared soon....</Typography>
+          <Typography variant='h6' component='p' paragraph>
+            Accommodation Fees: 800 /-
+          </Typography>
         </div>
       </ContentBox>
       {completed ? (
@@ -148,13 +153,6 @@ export default function CampusAmbassadorForm() {
             />
             <InputField
               required
-              label='Contact No.'
-              type='tel'
-              name='contact'
-              {...contact}
-            />
-            <InputField
-              required
               label='Email ID'
               type='email'
               name='email'
@@ -166,38 +164,21 @@ export default function CampusAmbassadorForm() {
               name='institute'
               {...institute}
             />
-            <div className='mt-8 mb-3'>
-              <Typography variant='h6' component='p'>
-                Prior MUN Experience
-              </Typography>
-              <Typography variant='body1' component='p'>
-                Please mention the detailed MUN experience in the below format:
-                (Name of Conference/ Year /Committee /Position /Awards(if any))
-              </Typography>
-            </div>
+
             <InputField
               required
-              label='Campus Ambassador Experience'
-              name='expCA'
-              multiline
-              rowsMax={6}
-              {...expCA}
+              label='Contact No.'
+              type='tel'
+              name='contact'
+              {...contact}
             />
             <InputField
               required
-              label='Delegate Experience'
-              name='expDelegate'
+              label='Previous MUN Experience(If any)'
+              name='expMun'
               multiline
               rowsMax={6}
-              {...expDelegate}
-            />
-            <InputField
-              required
-              label='Executive Board Experience'
-              name='expEB'
-              multiline
-              rowsMax={6}
-              {...expEB}
+              {...expMun}
               InputLabelProps={{
                 classes: {
                   root: classes.smallLabel,
@@ -205,8 +186,7 @@ export default function CampusAmbassadorForm() {
               }}
             />
             <InputField
-              required
-              label='Organising Committee Experience'
+              label='Previous OC Experience(If any)'
               name='expOC'
               multiline
               rowsMax={6}
@@ -219,19 +199,112 @@ export default function CampusAmbassadorForm() {
             />
             <InputField
               required
-              label='How Do people benefit from MUN?'
-              name='benefits'
+              label='Previous IP Experience(If any)'
+              name='expIP'
               multiline
               rowsMax={6}
-              {...benefits}
-              InputLabelProps={{
-                classes: {
-                  root: classes.smallLabel,
-                },
-              }}
+              {...expIP}
+            />
+            <div className='mt-4'>
+              <FormControl
+                component='fieldset'
+                fullWidth
+                required
+                margin='normal'
+              >
+                <FormLabel component='legend'>1st Preference</FormLabel>
+                <RadioGroup name='1st preference' {...firPref}>
+                  <FormControlLabel
+                    value='Journalist'
+                    control={
+                      <Radio classes={radioClasses} name='1st preference' />
+                    }
+                    label='Journalist'
+                  />
+                  <FormControlLabel
+                    value='Photographer'
+                    control={
+                      <Radio classes={radioClasses} name='1st preference' />
+                    }
+                    label='Photographer'
+                  />
+                  <FormControlLabel
+                    value='Artist(Caricaturist)'
+                    control={
+                      <Radio classes={radioClasses} name='1st preference' />
+                    }
+                    label='Artist(Caricaturist)'
+                  />
+                </RadioGroup>
+              </FormControl>
+            </div>
+            <div className='mt-4'>
+              <FormControl
+                component='fieldset'
+                fullWidth
+                required
+                margin='normal'
+              >
+                <FormLabel component='legend'>2nd Preference</FormLabel>
+                <RadioGroup name='2nd preference' {...secPref}>
+                  <FormControlLabel
+                    value='Journalist'
+                    control={
+                      <Radio classes={radioClasses} name='2nd preference' />
+                    }
+                    label='Journalist'
+                  />
+                  <FormControlLabel
+                    value='Photographer'
+                    control={
+                      <Radio classes={radioClasses} name='2nd preference' />
+                    }
+                    label='Photographer'
+                  />
+                  <FormControlLabel
+                    value='Artist(Caricaturist)'
+                    control={
+                      <Radio classes={radioClasses} name='2nd preference' />
+                    }
+                    label='Artist(Caricaturist)'
+                  />
+                </RadioGroup>
+              </FormControl>
+            </div>
+            <div className='mt-4'>
+              <FormControl
+                component='fieldset'
+                fullWidth
+                required
+                margin='normal'
+              >
+                <FormLabel component='legend'>Accommodation Needed?</FormLabel>
+                <RadioGroup name='accommodation' {...accommodation}>
+                  <FormControlLabel
+                    value='Yes'
+                    control={
+                      <Radio classes={radioClasses} name='accommodation' />
+                    }
+                    label='Yes'
+                  />
+                  <FormControlLabel
+                    value='No'
+                    control={
+                      <Radio classes={radioClasses} name='accommodation' />
+                    }
+                    label='No'
+                  />
+                </RadioGroup>
+              </FormControl>
+            </div>
+            <InputField
+              required
+              label='Referred By'
+              name='referred'
+              {...referral}
             />
             <InputField
-              label='Anything you want to know?'
+              label='Anything you want us to know?'
               name='otherinfo'
               multiline
               rowsMax={6}
@@ -276,6 +349,5 @@ function useForm(initialValue) {
   const handleChange = e => {
     setValue(e.target.value)
   }
-  console.log(value)
   return { value, onChange: handleChange }
 }
