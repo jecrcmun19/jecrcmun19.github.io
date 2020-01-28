@@ -7,7 +7,6 @@ import ContentBox from './content-box'
 import InputField from './input-field'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import Link from '@material-ui/core/Link'
 import classnames from 'classnames'
 import FormCompleted from './form-completed'
 
@@ -30,9 +29,9 @@ export default function CampusAmbassadorForm() {
   const email = useForm('')
   const contact = useForm('')
   const institute = useForm('')
-  const expDelegate = useForm('')
   const expEB = useForm('')
   const expCA = useForm('')
+  const expDelegate = useForm('')
   const expOC = useForm('')
   const benefits = useForm('')
   const otherinfo = useForm('')
@@ -277,5 +276,6 @@ function useForm(initialValue) {
   const handleChange = e => {
     setValue(e.target.value)
   }
+  console.log(value)
   return { value, onChange: handleChange }
 }

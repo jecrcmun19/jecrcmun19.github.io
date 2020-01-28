@@ -13,7 +13,6 @@ import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import Link from '@material-ui/core/Link'
 import { Link as GatsbyLink } from 'gatsby'
 import FormCompleted from './form-completed'
 
