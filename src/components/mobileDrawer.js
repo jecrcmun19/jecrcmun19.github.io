@@ -91,7 +91,7 @@ function MobileViewDrawer(props) {
               name: 'REGISTRATIONS',
               link: '#registrations',
             },
-            { name: 'BLOGS', link: '/blogs' },
+            { name: 'BLOGS', link: '#blogs' },
             { name: 'GALLERY', link: '/' },
             { name: 'CONTACT', link: '/contact' },
           ].map((text, index) => (
