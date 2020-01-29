@@ -54,15 +54,20 @@ function NavBarWeb(props) {
   }
 
   const hoverListItems = {
-    ABOUT: ['JECRC MUN', 'EXECUTIVE BOARD', 'SECRETARIAT', 'OUR SPONSORS'],
-    REGISTRATIONS: ['DELEGATE', 'CAMPUS AMBASSADOR'],
+    ABOUT: ['JECRC MUN', 'OUR SPONSORS'],
+    REGISTRATIONS: [
+      'PRIORITY DELEGATE',
+      'CAMPUS AMBASSADOR',
+      'INTERNATIONAL PRESS',
+    ],
   }
 
   const hoverListLinks = {
-    ABOUT: ['/about', '/', '/', '/'],
+    ABOUT: ['/about', '/sponsors'],
     REGISTRATIONS: [
       '/apply/delegate-priority-register',
       '/apply/campus-ambassador-application',
+      '/apply/international-press-application',
     ],
   }
 
