@@ -20,6 +20,10 @@ const useStyles = makeStyles(theme => ({
   borderStyle: {
     border: '5px solid #D90845',
   },
+  textStyle: {
+    color: '#D90845',
+    fontWeight: 'bolder',
+  },
 }))
 
 function Contact(props) {
@@ -107,13 +111,20 @@ function Contact(props) {
         fluid={bgImage.sharp.fluid}
         durationFadeIn={50}
       >
+        <Typography
+          variant='h4'
+          className={classes.textStyle}
+          style={{ marginTop: '30px' }}
+        >
+          Year 2019
+        </Typography>
         <div className='w-auto max-w-full py-6 flex flex-wrap justify-center'>
           {/* <Grid container justify='center' spacing={5} className='py-6'>
             <Grid item alignContent='center' md={4}> */}
 
           <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
             <img
-              src='/images/stepout.png'
+              src='/images/chill.png'
               className={`bg-white  h-32 w-64 p-5 ${classes.borderStyle}`}
             />
           </div>
@@ -121,32 +132,28 @@ function Contact(props) {
           {/* <Grid item alignContent='center' md={4}> */}
           <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
             <img
-              src='/images/ip.png'
+              src='/images/paytm.png'
               className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
             />
           </div>
-          {/* </Grid> */}
-          {/* <Grid item alignContent='center' md={4}> */}
           <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
             <img
               src='/images/omg.png'
               className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
             />
           </div>
-
-          {/* </Grid> */}
-          {/* </Grid> */}
-          {/* <Grid container justify='center' spacing={5} className='py-6'>
-            <Grid item alignContent='center' md={4}> */}
-
+        </div>
+        <Typography variant='h4' className={classes.textStyle}>
+          Year 2018
+        </Typography>
+        <div className='w-auto max-w-full py-6 flex flex-wrap justify-center'>
           <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
             <img
-              src='/images/chill.png'
+              src='/images/ip.png'
               className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
             />
           </div>
-          {/* </Grid>
-            <Grid item alignContent='center' md={4}> */}
+
           <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
             <img
               src='/images/gm.png'
@@ -157,7 +164,63 @@ function Contact(props) {
             <Grid item alignContent='center' md={4}> */}
           <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
             <img
+              src='/images/stepout.png'
+              className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
+            />
+          </div>
+          <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
+            <img
+              src='/images/omg.png'
+              className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
+            />
+          </div>
+          <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
+            <img
               src='/images/euonusit.png'
+              className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
+            />
+          </div>
+        </div>
+        <Typography variant='h4' className={classes.textStyle}>
+          Year 2017
+        </Typography>
+        <div className='w-auto max-w-full py-6 flex flex-wrap justify-center'>
+          <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
+            <img
+              src='/images/coolberg.jpg'
+              className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
+            />
+          </div>
+          {/* </Grid>
+            <Grid item alignContent='center' md={4}> */}
+          <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
+            <img
+              src='/images/bisleri.png'
+              className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
+            />
+          </div>
+          {/* </Grid>
+            <Grid item alignContent='center' md={4}> */}
+          <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
+            <img
+              src='/images/matrix.jpeg'
+              className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
+            />
+          </div>
+        </div>
+        <Typography variant='h4' className={classes.textStyle}>
+          Year 2016
+        </Typography>
+        <div className='w-auto max-w-full py-6 flex flex-wrap justify-center'>
+          <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
+            <img
+              src='/images/redbull.png'
+              className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
+            />
+          </div>
+          <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
+            <img
+              src='/images/toko.png'
               className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
             />
           </div>
