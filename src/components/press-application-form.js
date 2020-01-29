@@ -112,7 +112,7 @@ export default function PressApplicationForm() {
             Conference Date : 11th - 12th April 2020
           </Typography>
           <Typography variant='body1' component='p' paragraph>
-            International Press:
+            Apply As:
           </Typography>
           <ol className='ml-4 list-decimal'>
             <li>
@@ -134,8 +134,8 @@ export default function PressApplicationForm() {
           <Typography variant='h6' component='p' paragraph>
             Application Fees: 1000 /-
           </Typography>
-          <Typography variant='h6' component='p' paragraph>
-            Accommodation Fees: 800 /-
+          <Typography variant='subtitle2' component='p' paragraph>
+            Accommodation Fees (If needed): 800 /-
           </Typography>
         </div>
       </ContentBox>
