@@ -84,7 +84,7 @@ export default () => {
       <div id='registrations' style={{ minHeight: '100vh' }}>
         <Registrations />
       </div>
-      <div className='flex flex-wrap justify-center h-auto'>
+      <div id='blogs' className='flex flex-wrap justify-center h-auto'>
         <Banner
           backgrounds={[
             `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
