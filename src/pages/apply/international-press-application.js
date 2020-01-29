@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '65px',
     letterSpacing: '0.08em',
     textTransform: 'uppercase',
+    marginTop: '20px'
   },
   diplomacyTextProperty: {
     fontFamily: "'Rubik' , sans-serif",
