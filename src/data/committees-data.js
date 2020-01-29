@@ -1,7 +1,7 @@
 export const UNSC =
   'It is a selected nations committee, not having much strength in numbers; but holding the most decision-making powers. Having only 15 members, each with one vote, this committee deliberates the ways to ensure international peace and security. For the expert MUNners, this is the best choice!'
 
-export const UNODC =
+export const UNDOC =
   'To create a world safe from drugs and large scale organized crimes like corruption, terrorism, etc. the UNODC was established two decades ago. For large-scale threats that states can’t handle alone, UNODC offers assistance and action that is just and practical.'
 
 export const DISEC =
@@ -26,7 +26,7 @@ export const Agenda = [
 ]
 export const Committe = {
   0: UNSC,
-  1: UNODC,
+  1: UNDOC,
   2: DISEC,
   3: UNCSW,
   4: WHO,
@@ -34,10 +34,19 @@ export const Committe = {
 }
 
 export const CommitteName = {
-  0: 'UNSC',
-  1: 'UNODC',
-  2: 'DISEC',
-  3: 'UNCSW',
-  4: 'WHO',
-  5: 'AIPPM',
+  0: 'UNITED NATIONS SECURITY COUNSIL',
+  1: 'UNITED NATIONS OFFICE ON DRUGS AND CRIME',
+  2: 'DISARAMENT AND INTERNATIONAL SECURITY COMMITTEE',
+  3: 'UNITED NATIONS COMMISSION ON STATUS OF WOMEN',
+  4: 'WORLD HEALTH ORGANIZATION',
+  5: 'ALL INDIA POLITICAL PARTIES MEET',
+}
+
+export const CommitteLogo = {
+  0: 'images/committee-01.png',
+  1: 'images/committee-02.png',
+  2: 'images/committee-02.png',
+  3: 'images/committee-04.png',
+  4: 'images/committee-05.png',
+  5: 'images/committee-06.png',
 }
