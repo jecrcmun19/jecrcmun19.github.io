@@ -187,7 +187,7 @@ function Contact(props) {
         <div className='w-auto max-w-full py-6 flex flex-wrap justify-center'>
           <div className='flex flex-wrap justify-center text-center m-12 mt-3'>
             <img
-              src='/images/coolberg.jpg'
+              src='/images/coolberg.png'
               className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
             />
           </div>
