@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     color: '#FFF',
   },
   cardStyle: {
-    marginBottom: '10%',
+    marginBottom: '3%',
     marginTop: '3%',
     paddingTop: 0,
     marginLeft: '5%',
