@@ -13,8 +13,8 @@ import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import Link from '@material-ui/core/Link'
 import { Link as GatsbyLink } from 'gatsby'
+import FormCompleted from './form-completed'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -110,26 +110,6 @@ function CommitteePreference({ first, second, third, onChange }) {
   )
 }
 
-const FormCompleted = () => (
-  <ContentBox className='mb-16'>
-    <div>
-      <Typography variant='h4' className='my-8' component='h1' paragraph>
-        Thank You for Registration
-      </Typography>
-      <Typography variant='body1' component='p' paragraph>
-        Our team will contact you for further information regarding event.
-      </Typography>
-      <Typography variant='body2' component='p'>
-        For more queries, you can contact:
-      </Typography>
-      <div className='mt-4'>
-        <Typography variant='subtitle2' component='p' paragraph>
-          Porush Choudhary: <Link href='tel:9413900468'>9413900468</Link>
-        </Typography>
-      </div>
-    </div>
-  </ContentBox>
-)
 export default function DelegatePriorityForm() {
   const classes = useStyles()
   const radioClasses = useRadioStyles()
@@ -198,7 +178,6 @@ export default function DelegatePriorityForm() {
     e.preventDefault()
     const form = e.target
     setLoading(true)
-    console.log(new FormData(form).entries())
     fetch(
       'https://script.google.com/macros/s/AKfycbz_JnTw8tbJ07ZIaMXkAoTRcs6E6X8DknVyAhxHS4z4sTWO0Oc/exec',
       {
@@ -207,7 +186,6 @@ export default function DelegatePriorityForm() {
       },
     )
       .then(res => {
-        console.log(res)
         setLoading(false)
         setCompleted(true)
       })
@@ -334,17 +312,29 @@ export default function DelegatePriorityForm() {
               label='As a Delegate'
               name='expDelegate'
               {...expDelegate}
+              multiline
+              rowsMax={6}
             />
-            <InputField label='As a member of EB' name='expEb' {...expEB} />
+            <InputField
+              label='As a member of EB'
+              name='expEb'
+              {...expEB}
+              multiline
+              rowsMax={6}
+            />
             <InputField
               label='As a member of Secretariat'
               name='expSec'
               {...expSec}
+              multiline
+              rowsMax={6}
             />
             <InputField
               label='Any other experience'
               name='expOther'
               {...expOther}
+              multiline
+              rowsMax={6}
             />
             <div className='mt-8 mb-3'>
               <Typography variant='h6' component='p'>

@@ -1,5 +1,8 @@
 import React from 'react'
-import { Button, Grid, Typography, useTheme } from '@material-ui/core'
+import { useTheme } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import { Link } from 'gatsby'
 
 export default () => {
@@ -7,8 +10,11 @@ export default () => {
   return (
     <Grid
       container
-      style={{ backgroundColor: theme.palette.background.pinkish }}
-      className='py-20'
+      style={{
+        backgroundColor: theme.palette.background.pinkish,
+        minHeight: '100vh',
+      }}
+      className='py-20 h-full items-center'
     >
       <Grid item md={2} sm={0} xs={0} />
       <Grid item md={4} xs={12} className='p-5 text-center lg:text-left'>

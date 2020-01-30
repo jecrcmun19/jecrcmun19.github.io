@@ -4,8 +4,6 @@ import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
-import ExpandLess from '@material-ui/icons/ExpandLess'
-import ExpandMore from '@material-ui/icons/ExpandMore'
 import CloseSharp from '@material-ui/icons/CloseSharp'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -22,6 +20,7 @@ const useStyles = makeStyles(theme => ({
   headerItems: {
     fontFamily: "'Rubik', sans-serif",
     paddingBottom: 0,
+    color: '#FFF',
     paddingTop: 0,
   },
   drawer: {
@@ -41,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'flex-end',
   },
   close: {
-    color: theme.palette.primary.main,
+    color: '#FFF',
   },
   listItem: {
     padding: 8,
@@ -90,11 +89,11 @@ function MobileViewDrawer(props) {
             { name: 'COMMITTEES', link: '/committees' },
             {
               name: 'REGISTRATIONS',
-              link: '/apply/delegate-priority-register',
+              link: '#registrations',
             },
             { name: 'BLOGS', link: '/' },
             { name: 'GALLERY', link: '/' },
-            { name: 'CONTACT', link: '#contact' },
+            { name: 'CONTACT', link: '/contact' },
           ].map((text, index) => (
             <div key={index}>
               <ListItem

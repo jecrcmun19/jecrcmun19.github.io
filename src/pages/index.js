@@ -3,9 +3,11 @@ import Wrapper from '../components/wrapper'
 import Banner from '../components/banner'
 import Helmet from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Typography, makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 import About from '../components/sections/home/about'
-import Apply from '../components/sections/home/apply'
+import PreviousYearChiefGuest from '../components/sections/home/previousYearChiefGuests'
+import Registrations from '../components/sections/home/registrations'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -60,11 +62,25 @@ export default () => {
           Diplomacy At It’s Zenith
         </Typography>
       </Banner>
-      <div id='about'>
+      <div id='about' style={{ minHeight: '100vh' }}>
         <About />
       </div>
-      <div id='apply'>
-        <Apply />
+      <div className='flex flex-wrap justify-center h-auto'>
+        <Banner
+          backgrounds={[
+            `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+            image.sharp.fluid,
+          ]}
+          height='auto'
+          minHeight={true}
+        >
+          <div className='mx-4 pb-10'>
+            <PreviousYearChiefGuest />
+          </div>
+        </Banner>
+      </div>
+      <div id='registrations' style={{ minHeight: '100vh' }}>
+        <Registrations />
       </div>
     </Wrapper>
   )
