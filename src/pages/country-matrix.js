@@ -138,7 +138,7 @@ function CountryMatrix(props) {
                         {membersObject[members]}
                       </Typography>
                     ) : null}
-                    {Committe[value][members].map((text, index) => {
+                    {Committe[value][members].sort().map((text, index) => {
                       const CountryCode = Countries[`${text.toLowerCase()}`]
                       const LeaderCode = Leaders[`${text}`]
                       return (
