@@ -13,28 +13,33 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 function CollapseDropDown(props) {
-  const { openDropDown, handleDrawerClose, handleClick } = props
+  const {
+    openDropDown,
+    handleDrawerClose,
+    listOfItems,
+    handleDropDownClose,
+  } = props
   const classes = useStyles()
   return (
     <Collapse in={openDropDown} timeout='auto' unmountOnExit>
-      {['JECRC MUN', 'EXECUTIVE BOARD', 'SECRETARIAT', 'OUR SPONSORS'].map(
-        (text, index) => (
-          <List component='div' disablePadding key={index}>
+      {listOfItems.map((text, index) => {
+        return (
+          <List component='div' key={index} disablePadding key={index}>
             <ListItem
               button
               component={Link}
-              to='/about'
+              to={text.to}
               onClick={e => {
                 handleDrawerClose()
-                handleClick()
+                handleDropDownClose()
               }}
               className={classes.nested}
             >
-              <ListItemText primary={text} />
+              <ListItemText primary={text.name} />
             </ListItem>
           </List>
-        ),
-      )}
+        )
+      })}
     </Collapse>
   )
 }
