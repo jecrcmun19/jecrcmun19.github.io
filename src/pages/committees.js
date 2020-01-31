@@ -4,13 +4,18 @@ import Helmet from 'react-helmet'
 import CardContent from '@material-ui/core/CardContent'
 import Card from '@material-ui/core/Card'
 import makeStyles from '@material-ui/styles/makeStyles'
-import { useTheme } from '@material-ui/styles/useTheme'
+import { useTheme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 
-import { Committe, CommitteName, Agenda } from '../data/committees-data'
+import {
+  Committe,
+  CommitteName,
+  Agenda,
+  CommitteLogo,
+} from '../data/committees-data'
 import Wrapper from '../components/wrapper'
 import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -35,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     color: '#FFF',
   },
   cardStyle: {
-    marginBottom: '10%',
+    marginBottom: '3%',
     marginTop: '3%',
     paddingTop: 0,
     marginLeft: '5%',
@@ -155,6 +160,7 @@ function CountryMatrix() {
                 alignContent='space-around'
                 className={classes.contentArea}
               >
+                <img src={CommitteLogo[value]} className='w-48 h-48' />
                 <Typography
                   variant='subtitle1'
                   className={classes.textProperty}

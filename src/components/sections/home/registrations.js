@@ -51,6 +51,13 @@ function Registrations(props) {
       btn: 'Apply Now',
       btnLink: '/apply/campus-ambassador-application',
     },
+    {
+      title: 'International Press',
+      img: 'images/IPA.png',
+      info: 'Application Fees: 1000 /-',
+      btn: 'Apply Now',
+      btnLink: '/apply/international-press-application',
+    },
   ]
 
   return (

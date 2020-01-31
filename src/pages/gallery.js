@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useLayoutEffect, useEffect } from 'react'
 import Wrapper from '../components/wrapper'
 import Banner from '../components/banner'
 import BackgroundImage from 'gatsby-background-image'
@@ -57,6 +57,7 @@ function Gallery() {
 
   const [gallerySwiper, getGallerySwiper] = useState(null)
   const [thumbnailSwiper, getThumbnailSwiper] = useState(null)
+  const [slidesPerView, handleSlidesPerView] = useState(3)
 
   const gallerySwiperParams = {
     getSwiper: getGallerySwiper,
@@ -76,12 +77,27 @@ function Gallery() {
     getSwiper: getThumbnailSwiper,
     spaceBetween: 10,
     centeredSlides: true,
-    slidesPerView: 3,
     touchRatio: 0.2,
     loop: true,
     loopedSlides: 4,
     slideToClickedSlide: true,
   }
+
+  useLayoutEffect(() => {
+    const updateThumbnails = () => {
+      console.log(window.innerWidth)
+      if (window.innerWidth >= 1000) {
+        handleSlidesPerView(5)
+      } else {
+        handleSlidesPerView(3)
+      }
+      console.log(slidesPerView)
+    }
+
+    window.addEventListener('resize', updateThumbnails)
+    updateThumbnails()
+    return () => window.removeEventListener('resize', updateThumbnails)
+  }, [slidesPerView])
 
   useEffect(() => {
     if (
@@ -180,7 +196,7 @@ function Gallery() {
               </Swiper>
             </div>
             <div className='md:p-4 py-2'>
-              <Swiper {...thumbnailSwiperParams}>
+              <Swiper {...thumbnailSwiperParams} slidesPerView={slidesPerView}>
                 {imagesList.map(imageHere => (
                   <div className={classes.imageContainer}>
                     <img
