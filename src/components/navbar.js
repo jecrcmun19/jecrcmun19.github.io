@@ -81,7 +81,7 @@ function NavBarWeb(props) {
           { name: 'REGISTRATIONS', link: '#registrations' },
           { name: 'BLOGS', link: '/' },
           { name: 'GALLERY', link: '/gallery' },
-          { name: 'CONTACT', link: '#contact' },
+          { name: 'CONTACT', link: '/contact' },
         ].map((text, index) => (
           <ListItem
             key={index}

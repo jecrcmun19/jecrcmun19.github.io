@@ -13,8 +13,8 @@ import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import Link from '@material-ui/core/Link'
 import { Link as GatsbyLink } from 'gatsby'
+import FormCompleted from './form-completed'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -110,29 +110,6 @@ function CommitteePreference({ first, second, third, onChange }) {
   )
 }
 
-const FormCompleted = () => (
-  <ContentBox className='mb-16'>
-    <div>
-      <Typography variant='h4' className='my-8' component='h1' paragraph>
-        Thank You for Registration
-      </Typography>
-      <Typography variant='body1' component='p' paragraph>
-        Our team will contact you for further information regarding event.
-      </Typography>
-      <Typography variant='body2' component='p'>
-        For more queries, you can contact:
-      </Typography>
-      <div className='mt-4'>
-        <Typography variant='subtitle2' component='p' paragraph>
-          Pourush Choudhary: <Link href='tel:9413900468'>9413900468</Link>
-        </Typography>
-        <Typography variant='subtitle2' component='p' paragraph>
-          Shrey Bhargava: <Link href='tel:8955332841'>8955332841</Link>
-        </Typography>
-      </div>
-    </div>
-  </ContentBox>
-)
 export default function DelegatePriorityForm() {
   const classes = useStyles()
   const radioClasses = useRadioStyles()
