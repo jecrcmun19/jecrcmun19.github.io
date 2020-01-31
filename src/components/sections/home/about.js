@@ -4,9 +4,25 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'gatsby'
+import makeStyles from '@material-ui/styles/makeStyles'
+// import useMediaQuery from '@material-ui/core/useMediaQuery'
+
+const useStyles = makeStyles(theme => ({
+  bg: {
+    backgroundColor: '#D90845',
+  },
+  vl: {
+    borderLeft: '4px solid white',
+    height: '110px',
+    marginTop: '1vh',
+  },
+}))
 
 export default () => {
   const theme = useTheme()
+  const classes = useStyles()
+  // const matches = useMediaQuery('(min-width:600px)')
+
   return (
     <Grid
       container
@@ -14,7 +30,7 @@ export default () => {
         backgroundColor: theme.palette.background.pinkish,
         minHeight: '100vh',
       }}
-      className='py-20 h-full items-center'
+      className='py-15 h-full items-center'
     >
       <Grid item md={2} sm={0} xs={0} />
       <Grid item md={4} xs={12} className='p-5 text-center lg:text-left'>
@@ -51,6 +67,66 @@ export default () => {
         />
       </Grid>
       <Grid item md={2} sm={0} xs={0} />
+      <div className='w-auto max-w-full py-6 flex flex-wrap justify-center ml-5'>
+        <div
+          className={`flex flex-wrap justify-center text-center mt-3 ${classes.bg}`}
+        >
+          <Typography
+            className='text-white h-32 w-64 p-5'
+            style={{ fontSize: '20px' }}
+          >
+            1700+ DELEGATES
+          </Typography>
+          <div className={classes.vl}></div>
+        </div>
+
+        <div
+          className={`flex flex-wrap justify-center text-center mt-3 ${classes.bg}`}
+        >
+          <Typography
+            className='text-white h-32 w-64 p-5'
+            style={{ fontSize: '20px' }}
+          >
+            20+ INTERNATIONAL DELEGATES
+          </Typography>
+          <div className={classes.vl}></div>
+        </div>
+
+        <div
+          className={`flex flex-wrap justify-center text-center mt-3 ${classes.bg}`}
+        >
+          <Typography
+            className='text-white h-32 w-64 p-5'
+            style={{ fontSize: '20px' }}
+          >
+            6+ COMMITTEES
+          </Typography>
+          <div className={classes.vl}></div>
+        </div>
+
+        <div
+          className={`flex flex-wrap justify-center text-center mt-3 ${classes.bg}`}
+        >
+          <Typography
+            className='text-white h-32 w-64 p-5'
+            style={{ fontSize: '20px' }}
+          >
+            700+ PARTICIPATION INSTITUTES
+          </Typography>
+          <div className={classes.vl}></div>
+        </div>
+
+        <div
+          className={`flex flex-wrap justify-center text-center mt-3 ${classes.bg}`}
+        >
+          <Typography
+            className='text-white h-32 w-64 p-5'
+            style={{ fontSize: '20px' }}
+          >
+            13LAKH+ MASSIVE OUTREACH
+          </Typography>
+        </div>
+      </div>
     </Grid>
   )
 }
