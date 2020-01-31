@@ -79,7 +79,7 @@ function NavBarWeb(props) {
           { name: 'ABOUT', link: '#about' },
           { name: 'COMMITTEES', link: '/committees' },
           { name: 'REGISTRATIONS', link: '#registrations' },
-          { name: 'BLOGS', link: '/' },
+          { name: 'BLOGS', link: '#blogs' },
           { name: 'GALLERY', link: '/gallery' },
           { name: 'CONTACT', link: '/contact' },
         ].map((text, index) => (
