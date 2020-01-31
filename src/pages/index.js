@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import About from '../components/sections/home/about'
 import PreviousYearChiefGuest from '../components/sections/home/previousYearChiefGuests'
 import Registrations from '../components/sections/home/registrations'
+import HomeBlogs from '../components/sections/home/blogs'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -41,6 +42,7 @@ export default () => {
       }
     }
   `)
+
   return (
     <Wrapper>
       <Helmet>
@@ -81,6 +83,20 @@ export default () => {
       </div>
       <div id='registrations' style={{ minHeight: '100vh' }}>
         <Registrations />
+      </div>
+      <div id='blogs' className='flex flex-wrap justify-center h-auto'>
+        <Banner
+          backgrounds={[
+            `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+            image.sharp.fluid,
+          ]}
+          height='auto'
+          minHeight={true}
+        >
+          <div className='mx-4 pb-10'>
+            <HomeBlogs />
+          </div>
+        </Banner>
       </div>
     </Wrapper>
   )
