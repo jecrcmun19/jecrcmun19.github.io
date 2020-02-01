@@ -7,6 +7,9 @@ import classnames from 'classnames'
 const useStyles = makeStyles({
   header: {
     width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     height: props => (props.height ? props.height : '100vh'),
     minHeight: props => (props.minHeight ? '100vh' : 'auto'),
     backgroundRepeat: 'no-repeat',

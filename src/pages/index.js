@@ -72,7 +72,7 @@ export default () => {
         ]}
         className='flex flex-col justify-center item-center'
       >
-        <div className='mt-32 self-start self-center'>
+        <div className='self-start self-center'>
           {matches && <Countdown date='11 April 2020 09:00:000 GMT+05:30' />}
         </div>
         <div className='my-10'>
