@@ -32,15 +32,12 @@ const HomeBlogs = () => {
   ]
 
   return (
-    <div className='flex flex-wrap justify-center sm:px-4 px-2'>
-      <Typography
-        className='w-full text-white font-black py-10 xl:w-10/12'
-        variant='h4'
-      >
+    <div className='flex flex-wrap justify-center md:px-4 px-2'>
+      <Typography className='w-full text-white font-black py-10' variant='h4'>
         BLOGS
       </Typography>
       {blogData.map((blog, index) => (
-        <div className='h-full py-10 sm:px-4' style={{ width: '300px' }}>
+        <div className='h-full py-10 mx-2 sm:px-4' style={{ width: '300px' }}>
           <div className='w-full'>
             <img
               alt={blog.blogTitle}
