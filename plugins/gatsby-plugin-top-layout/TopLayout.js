@@ -13,6 +13,7 @@ export default function TopLayout(props) {
           name='viewport'
           content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no'
         />
+        <title>JECRC MUN 2020</title>
         <meta name='title' content='JECRC MUN 2020' />
         <meta
           name='description'
