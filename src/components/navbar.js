@@ -8,121 +8,201 @@ import MenuList from '@material-ui/core/MenuList'
 import MenuItem from '@material-ui/core/MenuItem'
 import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'gatsby'
+import MaterialLink from '@material-ui/core/Link'
 
 const useStyles = makeStyles(theme => ({
   headerItems: {
     color: '#fff',
     fontWeight: 'bold',
     fontFamily: "'Rubik', sans-serif",
+    textTransform: 'uppercase',
+    position: 'relative',
   },
-  horizontalList: {
-    display: 'flex',
-    flexDirection: 'row',
-    padding: 0,
-    margin: 0,
+  navItem: {
+    '& > h6::after, & > a::after': {
+      content: '""',
+      position: 'absolute',
+      top: '100%',
+      left: '0',
+      border: `2px solid #D90845`,
+      height: 0,
+      width: '100%',
+      transform: `scaleX(0)`,
+      transition: `transform 0.3s ease-out`,
+    },
+    '&:hover >h6::after, &:hover > a::after': {
+      transform: `scaleX(1)`,
+    },
   },
-  listItem: {
-    color: theme.palette.secondary.main,
-  },
-  downBarList: {
-    position: 'absolute',
-    top: 40,
-    // border: 'solid #fff 0.5px',
+  list: {
+    display: 'inline-flex',
     paddingTop: 0,
     paddingBottom: 0,
-    backgroundColor: '#D90845',
-  },
-  downBarListItem: {
-    border: 'solid #fff 0.3px',
-    // padding: 0,
-    // margin: 0,
+    height: '100%',
   },
 }))
 
+const dropdownList = {
+  about: [
+    { name: 'JECRC MUN', link: '/about', type: 'gatsby' },
+    { name: 'OUR SPONSORS', link: '/sponsors', type: 'gatsby' },
+  ],
+  registrations: [
+    {
+      name: 'PRIORITY DELEGATE',
+      link: '/apply/delegate-priority-register',
+      type: 'gatsby',
+    },
+    {
+      name: 'CAMPUS AMBASSADOR',
+      link: '/apply/campus-ambassador-application',
+      type: 'gatsby',
+    },
+    {
+      name: 'INTERNATIONAL PRESS',
+      link: '/apply/international-press-application',
+      type: 'gatsby',
+    },
+  ],
+}
+
+const useDropdownStyles = makeStyles(theme => ({
+  downBarList: {
+    position: 'absolute',
+    top: '100%',
+    left: '0',
+    paddingTop: 0,
+    paddingBottom: 0,
+    backgroundColor: '#fff', // will change this in future
+    color: '#D90845',
+    border: `1px solid #D90845`,
+  },
+  downBarListItem: {
+    '&:not(:last-of-type)': {
+      borderBottom: `1px solid #D90845`,
+    },
+    '&:hover': {
+      background: '#D90845',
+      color: '#fff',
+    },
+  },
+}))
+
+function Dropdown({ name, handleClose }) {
+  const menuList = dropdownList[name]
+  const classes = useDropdownStyles()
+  return (
+    <ClickAwayListener onClickAway={handleClose}>
+      <MenuList className={classes.downBarList}>
+        {menuList.map(({ name, link, type }) => (
+          <MenuItem
+            key={name}
+            onClick={handleClose}
+            className={classes.downBarListItem}
+            component={type === 'gatsby' ? Link : MaterialLink}
+            to={link}
+          >
+            <Typography variant='subtitle2'>{name}</Typography>
+          </MenuItem>
+        ))}
+      </MenuList>
+    </ClickAwayListener>
+  )
+}
 function NavBarWeb(props) {
   const classes = useStyles()
-  const [mouseOver, setMouseOver] = React.useState(false)
-  const [hoverText, setHoverText] = React.useState('')
+  const [open, setOpen] = React.useState(false)
+  const [current, setCurrent] = React.useState('')
 
-  function handleOnMouse(text) {
-    setMouseOver(true)
-    setHoverText(text)
+  function handleOnMouse(name) {
+    setCurrent(name)
+    setOpen(true)
   }
 
   function handleClose() {
-    setMouseOver(false)
-  }
-
-  const hoverListItems = {
-    ABOUT: ['JECRC MUN', 'OUR SPONSORS'],
-    REGISTRATIONS: [
-      'PRIORITY DELEGATE',
-      'CAMPUS AMBASSADOR',
-      'INTERNATIONAL PRESS',
-    ],
-  }
-
-  const hoverListLinks = {
-    ABOUT: ['/about', '/sponsors'],
-    REGISTRATIONS: [
-      '/apply/delegate-priority-register',
-      '/apply/campus-ambassador-application',
-      '/apply/international-press-application',
-    ],
+    setOpen(false)
   }
 
   return (
-    <Grid container justify='center'>
-      <List className={classes.horizontalList}>
-        {[
-          { name: 'HOME', link: '/' },
-          { name: 'ABOUT', link: '#about' },
-          { name: 'COMMITTEES', link: '/committees' },
-          { name: 'REGISTRATIONS', link: '#registrations' },
-          { name: 'BLOGS', link: '#blogs' },
-          { name: 'GALLERY', link: '/gallery' },
-          { name: 'CONTACT', link: '/contact' },
-        ].map((text, index) => (
-          <ListItem
-            key={index}
-            onMouseLeave={handleClose}
-            onMouseOver={
-              ['ABOUT', 'REGISTRATIONS'].includes(text.name)
-                ? e => handleOnMouse(text.name)
-                : null
-            }
-          >
-            <Typography
-              component={Link}
-              to={text.link}
-              className={classes.headerItems}
-              variant='subtitle2'
-            >
-              {text.name}
-            </Typography>
-            {hoverText === text.name && mouseOver ? (
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList
-                  autoFocusItem={mouseOver}
-                  className={classes.downBarList}
-                >
-                  {hoverListItems[text.name].map((value, index) => (
-                    <MenuItem
-                      onClick={handleClose}
-                      className={classes.downBarListItem}
-                      component={Link}
-                      to={hoverListLinks[text.name][index]}
-                    >
-                      {value}
-                    </MenuItem>
-                  ))}
-                </MenuList>
-              </ClickAwayListener>
-            ) : null}
-          </ListItem>
-        ))}
-      </List>
-    </Grid>
+    <List component='div' className={classes.list}>
+      <ListItem component={Link} to='/' className={classes.navItem}>
+        <Typography
+          variant='subtitle2'
+          color='inherit'
+          className={classes.headerItems}
+        >
+          Home
+        </Typography>
+      </ListItem>
+      <ListItem
+        component='div'
+        onMouseLeave={handleClose}
+        onMouseOver={e => handleOnMouse('about')}
+        className={classes.navItem}
+      >
+        <Typography
+          component={MaterialLink}
+          underline='none'
+          href='#about'
+          variant='subtitle2'
+          className={classes.headerItems}
+        >
+          About
+        </Typography>
+        {open && current === 'about' && (
+          <Dropdown name='about' handleClose={handleClose} />
+        )}
+      </ListItem>
+      <ListItem
+        component={Link}
+        to='/committees'
+        className={classes.navItem}
+        className={classes.navItem}
+      >
+        <Typography variant='subtitle2' className={classes.headerItems}>
+          Committees
+        </Typography>
+      </ListItem>
+      <ListItem
+        component='div'
+        onMouseLeave={handleClose}
+        onMouseOver={e => handleOnMouse('registrations')}
+        className={classes.navItem}
+      >
+        <Typography
+          component={MaterialLink}
+          href='#registrations'
+          underline='none'
+          variant='subtitle2'
+          className={classes.headerItems}
+        >
+          Registrations
+        </Typography>
+        {open && current === 'registrations' && (
+          <Dropdown name='registrations' handleClose={handleClose} />
+        )}
+      </ListItem>
+      <ListItem
+        component={MaterialLink}
+        underline='none'
+        href='#blogs'
+        className={classes.navItem}
+      >
+        <Typography variant='subtitle2' className={classes.headerItems}>
+          Blogs
+        </Typography>
+      </ListItem>
+      <ListItem component={Link} to='/gallery' className={classes.navItem}>
+        <Typography variant='subtitle2' className={classes.headerItems}>
+          Gallery
+        </Typography>
+      </ListItem>
+      <ListItem component={Link} to='/gallery' className={classes.navItem}>
+        <Typography variant='subtitle2' className={classes.headerItems}>
+          Contact
+        </Typography>
+      </ListItem>
+    </List>
   )
 }
 
