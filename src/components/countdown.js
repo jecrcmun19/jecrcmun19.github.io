@@ -1,7 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
-import moment from 'moment'
 
 const styles = theme => ({
   borderRound: {
@@ -23,13 +22,6 @@ const styles = theme => ({
     justifyContent: 'center',
     flexWrap: 'wrap',
   },
-  // countdownSvg: {
-  //   position: 'absolute',
-  //   top: 0,
-  //   left: 0,
-  //   width: '100px',
-  //   height: '100px',
-  // },
 })
 
 class Countdown extends React.Component {
@@ -41,16 +33,19 @@ class Countdown extends React.Component {
   }
   componentDidMount() {
     this.interval = setInterval(() => {
-      const { timeTillDate, timeFormat } = this.props
-      const then = moment('2020-01-31T16:25:07', moment.ISO_8601)
-      const now = new Date()
-      const countdown = moment(then - now)
-      console.log(then, now, countdown)
-      const days = countdown.format('DD')
-      const hours = countdown.format('HH')
-      const minutes = countdown.format('mm')
-      const seconds = countdown.format('ss')
+      var endTime = new Date(this.props.date)
+      endTime = Date.parse(endTime) / 1000
 
+      var now = new Date()
+      now = Date.parse(now) / 1000
+      var timeLeft = endTime - now
+
+      var days = Math.floor(timeLeft / 86400)
+      var hours = Math.floor((timeLeft - days * 86400) / 3600)
+      var minutes = Math.floor((timeLeft - days * 86400 - hours * 3600) / 60)
+      var seconds = Math.floor(
+        timeLeft - days * 86400 - hours * 3600 - minutes * 60,
+      )
       this.setState({ days, hours, minutes, seconds })
     }, 1000)
   }
@@ -64,7 +59,7 @@ class Countdown extends React.Component {
   render() {
     const { classes } = this.props
     const { days, hours, minutes, seconds } = this.state
-    const daysRadius = mapNumber(days, 30, 0, 0, 360)
+    const daysRadius = mapNumber(days, 90, 0, 0, 360)
     const hoursRadius = mapNumber(hours, 24, 0, 0, 360)
     const minutesRadius = mapNumber(minutes, 60, 0, 0, 360)
     const secondsRadius = mapNumber(seconds, 60, 0, 0, 360)
@@ -80,7 +75,7 @@ class Countdown extends React.Component {
             <div className={classes.borderRound}>
               <SVGCircle radius={daysRadius} />
               <Typography style={{ marginTop: -136 }}>
-                <Typography style={{ fontSize: '28px' }}>{days}</Typography>
+                <Typography style={{ fontSize: '30px' }}>{days}</Typography>
                 <Typography>
                   <span className='text-white'>DAYS</span>
                 </Typography>
@@ -91,7 +86,7 @@ class Countdown extends React.Component {
             <div className={classes.borderRound}>
               <SVGCircle radius={hoursRadius} />
               <Typography style={{ marginTop: -136 }}>
-                <Typography style={{ fontSize: '28px' }}>{hours}</Typography>
+                <Typography style={{ fontSize: '30px' }}>{hours}</Typography>
                 <Typography>
                   <span className='text-white'>HOURS</span>
                 </Typography>
@@ -103,7 +98,7 @@ class Countdown extends React.Component {
             <div className={classes.borderRound}>
               <SVGCircle radius={minutesRadius} />
               <Typography style={{ marginTop: -136 }}>
-                <Typography style={{ fontSize: '28px' }}>{minutes}</Typography>
+                <Typography style={{ fontSize: '30px' }}>{minutes}</Typography>
                 <Typography>
                   <span className='text-white'>MINUTES</span>
                 </Typography>
@@ -115,7 +110,7 @@ class Countdown extends React.Component {
             <div className={classes.borderRound}>
               <SVGCircle radius={secondsRadius} />
               <Typography style={{ marginTop: -136 }}>
-                <Typography style={{ fontSize: '28px' }}>{seconds}</Typography>
+                <Typography style={{ fontSize: '30px' }}>{seconds}</Typography>
                 <Typography>
                   <span className='text-white'>SECONDS</span>
                 </Typography>

@@ -2,13 +2,11 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import BackgroundImage from 'gatsby-background-image'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 const useStyles = makeStyles({
   header: {
     width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     height: props => (props.height ? props.height : '100vh'),
     minHeight: props => (props.minHeight ? '100vh' : 'auto'),
     backgroundRepeat: 'no-repeat',
@@ -26,7 +24,9 @@ function Banner(props) {
       fluid={props.backgrounds}
       durationFadeIn={50}
     >
-      <div className='text-center'>{props.children}</div>
+      <div className={classnames(['text-center', props.className])}>
+        {props.children}
+      </div>
     </BackgroundImage>
   )
 }
