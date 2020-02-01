@@ -13,11 +13,7 @@ export default function TopLayout(props) {
           name='viewport'
           content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no'
         />
-        <meta name='title' content='JECRC MUN 2019' />
-        <meta
-          name='google-site-verification'
-          content='-b8h4uNcT9S34HVme0_1t1qu8BJ4BOqUZnslqzxSgcY'
-        />
+        <meta name='title' content='JECRC MUN 2020' />
         <meta
           name='description'
           content='Model UN is an educational simulation that showcases the leadership and diplomatic skill of students by engaging them into research,debates and discussions.'
@@ -26,8 +22,15 @@ export default function TopLayout(props) {
         <meta name='author' content='JECRC Foundation' />
         <meta property='og:title' content='JECRC MUN 2020' />
         <meta property='og:url' content='https://www.jecrcmun.in/' />
-        <meta property='og:description' content='JECRC MUN is an eight years old legacy established in 2012, making JECRC the first host of a MUN conference in Jaipur.' />
-        <meta property="og:image" content="/images/munLogo.png" />
+        <meta
+          property='og:description'
+          content='JECRC MUN is an eight years old legacy established in 2012, making JECRC the first host of a MUN conference in Jaipur.'
+        />
+        <meta property='og:image' content='/images/munLogo.png' />
+        <meta
+          name='google-site-verification'
+          content='-b8h4uNcT9S34HVme0_1t1qu8BJ4BOqUZnslqzxSgcY'
+        />
         <link
           href='https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap'
           rel='stylesheet'

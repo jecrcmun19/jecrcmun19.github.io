@@ -8,8 +8,14 @@ import Typography from '@material-ui/core/Typography'
 import About from '../components/sections/home/about'
 import PreviousYearChiefGuest from '../components/sections/home/previousYearChiefGuests'
 import Registrations from '../components/sections/home/registrations'
+import HomeBlogs from '../components/sections/home/blogs'
 import Countdown from '../components/countdown'
+import VideoDialog from '../components/sections/home/videoDialog'
+import Fab from '@material-ui/core/Fab'
+import PlayIcon from '@material-ui/icons/PlayArrowSharp'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
+import LocationIcon from '@material-ui/icons/PlaceOutlined'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -18,6 +24,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+    letterSpacing: '0.08em',
   },
   diplomacyTextProperty: {
     color: '#fff',
@@ -29,6 +36,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default () => {
+  const [openVideoDialog, setVideoDialogOpen] = React.useState(false)
   const classes = useStyles()
   const theme = useTheme()
   const matches = useMediaQuery('(min-width:640px)')
@@ -43,6 +51,12 @@ export default () => {
       }
     }
   `)
+
+  const handleOpenVideoDialog = () => {
+    setVideoDialogOpen(!openVideoDialog)
+    console.log(openVideoDialog)
+  }
+
   return (
     <Wrapper>
       <Helmet>
@@ -56,21 +70,37 @@ export default () => {
           `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
           image.sharp.fluid,
         ]}
+        className='flex flex-col justify-center item-center'
       >
-        <div className='m-10'>
-          {matches && (
-            <Countdown
-              timeTillDate='Fri Jan 31 2020 15:59:57 GMT+0530 (India Standard Time)'
-              timeFormat='MM DD YYYY, h:mm a'
-            />
-          )}
+        <div className='mt-32 self-start self-center'>
+          {matches && <Countdown date='11 April 2020 09:00:000 GMT+05:30' />}
         </div>
-        <Typography className={classes.munTextProperty}>
-          JECRC MUN 2020
-        </Typography>
-        <Typography className={classes.diplomacyTextProperty}>
-          Diplomacy At It’s Zenith
-        </Typography>
+        <div className='my-10'>
+          <Typography className={classes.munTextProperty}>
+            JECRC MUN 2020
+          </Typography>
+          <Typography className={classes.diplomacyTextProperty}>
+            Diplomacy At It’s Zenith
+          </Typography>
+        </div>
+        <div className='my-10'>
+          <Typography className='text-white' variant='h6'>
+            <LocationIcon color='primary' /> Jaipur Engineering College and
+            Research Center, Jaipur
+          </Typography>
+          <Typography className='text-white' variant='h6'>
+            <CalendarIcon color='primary' /> 11th - 12th April 2020
+          </Typography>
+        </div>
+        <div>
+          <Fab color='primary' size='large' onClick={handleOpenVideoDialog}>
+            <PlayIcon fontSize='large' />
+          </Fab>
+          <VideoDialog
+            open={openVideoDialog}
+            handleOpen={handleOpenVideoDialog}
+          />
+        </div>
       </Banner>
       <div id='about' style={{ minHeight: '100vh' }}>
         <About />
@@ -91,6 +121,20 @@ export default () => {
       </div>
       <div id='registrations' style={{ minHeight: '100vh' }}>
         <Registrations />
+      </div>
+      <div id='blogs' className='flex flex-wrap justify-center h-auto'>
+        <Banner
+          backgrounds={[
+            `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+            image.sharp.fluid,
+          ]}
+          height='auto'
+          minHeight={true}
+        >
+          <div className='mx-4 pb-10'>
+            <HomeBlogs />
+          </div>
+        </Banner>
       </div>
     </Wrapper>
   )
