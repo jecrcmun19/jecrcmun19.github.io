@@ -40,9 +40,23 @@ export default () => {
   const classes = useStyles()
   const theme = useTheme()
   const matches = useMediaQuery('(min-width:640px)')
-  const { image } = useStaticQuery(graphql`
+  const { image, chiefGuestImage, blogsImage } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/bg.png" }) {
+        sharp: childImageSharp {
+          fluid(maxWidth: 1080) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      chiefGuestImage: file(relativePath: { eq: "banners/chief-guest.jpg" }) {
+        sharp: childImageSharp {
+          fluid(maxWidth: 1080) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      blogsImage: file(relativePath: { eq: "banners/blogs.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -109,7 +123,7 @@ export default () => {
         <Banner
           backgrounds={[
             `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
-            image.sharp.fluid,
+            chiefGuestImage.sharp.fluid,
           ]}
           height='auto'
           minHeight={true}
@@ -126,7 +140,7 @@ export default () => {
         <Banner
           backgrounds={[
             `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
-            image.sharp.fluid,
+            blogsImage.sharp.fluid,
           ]}
           height='auto'
           minHeight={true}

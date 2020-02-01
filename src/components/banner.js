@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     minHeight: props => (props.minHeight ? '100vh' : 'auto'),
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundPosition: 'center center',
+    backgroundPosition: 'top center',
     backgroundAttachment: 'fixed',
   },
 })
