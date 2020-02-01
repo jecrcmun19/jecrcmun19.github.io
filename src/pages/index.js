@@ -9,6 +9,13 @@ import About from '../components/sections/home/about'
 import PreviousYearChiefGuest from '../components/sections/home/previousYearChiefGuests'
 import Registrations from '../components/sections/home/registrations'
 import HomeBlogs from '../components/sections/home/blogs'
+import Countdown from '../components/countdown'
+import VideoDialog from '../components/sections/home/videoDialog'
+import Fab from '@material-ui/core/Fab'
+import PlayIcon from '@material-ui/icons/PlayArrowSharp'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
+import LocationIcon from '@material-ui/icons/PlaceOutlined'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -17,6 +24,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+    letterSpacing: '0.08em',
   },
   diplomacyTextProperty: {
     color: '#fff',
@@ -28,9 +36,10 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default () => {
+  const [openVideoDialog, setVideoDialogOpen] = React.useState(false)
   const classes = useStyles()
   const theme = useTheme()
-
+  const matches = useMediaQuery('(min-width:640px)')
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/bg.png" }) {
@@ -42,6 +51,11 @@ export default () => {
       }
     }
   `)
+
+  const handleOpenVideoDialog = () => {
+    setVideoDialogOpen(!openVideoDialog)
+    console.log(openVideoDialog)
+  }
 
   return (
     <Wrapper>
@@ -56,13 +70,37 @@ export default () => {
           `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
           image.sharp.fluid,
         ]}
+        className='flex flex-col justify-center item-center'
       >
-        <Typography className={classes.munTextProperty}>
-          JECRC MUN 2020
-        </Typography>
-        <Typography className={classes.diplomacyTextProperty}>
-          Diplomacy At It’s Zenith
-        </Typography>
+        <div className='mt-32 self-start self-center'>
+          {matches && <Countdown date='11 April 2020 09:00:000 GMT+05:30' />}
+        </div>
+        <div className='my-10'>
+          <Typography className={classes.munTextProperty}>
+            JECRC MUN 2020
+          </Typography>
+          <Typography className={classes.diplomacyTextProperty}>
+            Diplomacy At It’s Zenith
+          </Typography>
+        </div>
+        <div className='my-10'>
+          <Typography className='text-white' variant='h6'>
+            <LocationIcon color='primary' /> Jaipur Engineering College and
+            Research Center, Jaipur
+          </Typography>
+          <Typography className='text-white' variant='h6'>
+            <CalendarIcon color='primary' /> 11th - 12th April 2020
+          </Typography>
+        </div>
+        <div>
+          <Fab color='primary' size='large' onClick={handleOpenVideoDialog}>
+            <PlayIcon fontSize='large' />
+          </Fab>
+          <VideoDialog
+            open={openVideoDialog}
+            handleOpen={handleOpenVideoDialog}
+          />
+        </div>
       </Banner>
       <div id='about' style={{ minHeight: '100vh' }}>
         <About />
