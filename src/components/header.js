@@ -29,7 +29,8 @@ const blackTheme = createMuiTheme({
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: 80,
+    height: '100%',
+    justifyContent: 'space-evenly',
   },
   hide: {
     display: 'none',
@@ -108,23 +109,21 @@ export default function Header(props) {
 
   return (
     <ThemeProvider theme={scrollY === 0 ? transparentTheme : blackTheme}>
-      <AppBar className={appbarClases}>
+      <AppBar position='fixed' className={appbarClases}>
         <Toolbar className={classes.root}>
-          <div className='flex justify-center items-center'>
-            <Link to='/'>
-              <img
-                src='/images/munLogo.png'
-                alt='munLogo'
-                className={classes.imageProperties}
-              />
-            </Link>
-            <div className='ml-3'>
-              {!matches && verySmallView ? (
-                <Typography variant='h6' noWrap className={classes.eventName}>
-                  JECRC MUN
-                </Typography>
-              ) : null}
-            </div>
+          <Link to='/'>
+            <img
+              src='/images/munLogo.png'
+              alt='Mun Logo'
+              className={classes.imageProperties}
+            />
+          </Link>
+          <div className='ml-3'>
+            {!matches && verySmallView ? (
+              <Typography variant='h6' noWrap className={classes.eventName}>
+                JECRC MUN
+              </Typography>
+            ) : null}
           </div>
           {!matches ? (
             <IconButton
