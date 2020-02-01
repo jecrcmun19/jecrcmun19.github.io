@@ -114,7 +114,7 @@ export default () => {
           height='auto'
           minHeight={true}
         >
-          <div className='mx-4 pb-10'>
+          <div className='pb-10'>
             <PreviousYearChiefGuest />
           </div>
         </Banner>
@@ -131,7 +131,7 @@ export default () => {
           height='auto'
           minHeight={true}
         >
-          <div className='mx-4 pb-10'>
+          <div className='pb-10'>
             <HomeBlogs />
           </div>
         </Banner>
