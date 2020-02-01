@@ -9,6 +9,8 @@ import About from '../components/sections/home/about'
 import PreviousYearChiefGuest from '../components/sections/home/previousYearChiefGuests'
 import Registrations from '../components/sections/home/registrations'
 import HomeBlogs from '../components/sections/home/blogs'
+import Countdown from '../components/countdown'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -30,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 export default () => {
   const classes = useStyles()
   const theme = useTheme()
-
+  const matches = useMediaQuery('(min-width:640px)')
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/bg.png" }) {
@@ -57,6 +59,14 @@ export default () => {
           image.sharp.fluid,
         ]}
       >
+        <div className='m-10'>
+          {matches && (
+            <Countdown
+              timeTillDate='Fri Jan 31 2020 15:59:57 GMT+0530 (India Standard Time)'
+              timeFormat='MM DD YYYY, h:mm a'
+            />
+          )}
+        </div>
         <Typography className={classes.munTextProperty}>
           JECRC MUN 2020
         </Typography>
