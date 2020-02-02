@@ -12,7 +12,6 @@ import { Link } from 'gatsby'
 const useStyles = makeStyles({
   card: {
     backgroundColor: '#000929',
-    maxWidth: '350px',
     width: '300px',
     borderBottom: '10px solid #d90845',
     borderRadius: '20px',
