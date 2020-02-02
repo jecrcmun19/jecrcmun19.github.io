@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
       filter: `brightness(0.7) drop-shadow(0 0 6px #000)`,
     },
     marginLeft: theme.spacing(2),
-    width: '500px',
+    width: '450px',
     [theme.breakpoints.down('xs')]: {
       width: '90%',
       marginRight: theme.spacing(0),
@@ -67,12 +67,16 @@ const useStyles = makeStyles(theme => ({
   },
   blogDate: {
     fontStyle: 'italic',
+    fontSize: '20px',
   },
   blogTitle: {
     display: 'flex',
+    fontSize: '19px',
+    lineHeight: '1.5',
   },
   blogContent: {
     paddingTop: theme.spacing(1),
+    fontSize: '16px',
   },
   btnContainer: {
     background: '#FFF',
