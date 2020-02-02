@@ -9,6 +9,7 @@ import About from '../components/sections/home/about'
 import PreviousYearChiefGuest from '../components/sections/home/previousYearChiefGuests'
 import Registrations from '../components/sections/home/registrations'
 import HomeBlogs from '../components/sections/home/blogs'
+import Committees from '../components/sections/home/committees'
 import Countdown from '../components/countdown'
 import VideoDialog from '../components/sections/home/videoDialog'
 import Fab from '@material-ui/core/Fab'
@@ -135,6 +136,23 @@ export default () => {
       </div>
       <div id='registrations' style={{ minHeight: '100vh' }}>
         <Registrations />
+      </div>
+      <div
+        id='committees'
+        className='flex flex-wrap justify-center h-auto pt-10'
+      >
+        <Banner
+          backgrounds={[
+            `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+            blogsImage.sharp.fluid,
+          ]}
+          height='auto'
+          minHeight={true}
+        >
+          <div className='pb-10'>
+            <Committees />
+          </div>
+        </Banner>
       </div>
       <div id='blogs' style={{ minHeight: '100vh' }}>
         <HomeBlogs />

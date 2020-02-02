@@ -155,7 +155,7 @@ function NavBarWeb(props) {
       </ListItem>
       <ListItem
         component={Link}
-        to='/committees'
+        to='#committees'
         className={classes.navItem}
         className={classes.navItem}
       >

@@ -99,7 +99,7 @@ function MobileViewDrawer(props) {
                   { name: 'OUR SPONSORS', to: '/sponsors' },
                 ],
               },
-              { name: 'COMMITTEES', link: '/committees' },
+              { name: 'COMMITTEES', link: '#committees' },
               {
                 name: 'REGISTRATIONS',
                 link: '#registrations',
