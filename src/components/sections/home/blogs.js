@@ -31,11 +31,14 @@ const useStyles = makeStyles(theme => ({
   },
   containerCard: {
     height: '100%',
-    paddingBottom: theme.spacing(10),
-    paddingTop: theme.spacing(10),
+    marginBottom: theme.spacing(10),
+    marginTop: theme.spacing(10),
     marginRight: theme.spacing(2),
     '&:hover > div > h6, &:hover > div > a': {
       color: '#D90845',
+    },
+    '&:hover > img': {
+      filter: `brightness(0.7) drop-shadow(0 0 6px #000)`,
     },
     marginLeft: theme.spacing(2),
     width: '500px',
