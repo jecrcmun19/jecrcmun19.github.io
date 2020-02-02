@@ -14,11 +14,13 @@ const useStyles = makeStyles(theme => ({
     },
   },
   containerStyle: {
-    boxShadow: '0 0 5px #DDD',
+    '&:hover': {
+      boxShadow: '0 0 5px #DDD',
+    },
     borderRadius: '12px',
   },
   contentBlock: {
-    background: '#FFF',
+    background: 'rgb(255, 245, 248)',
     borderRadius: '0px 12px 12px 0px',
     [theme.breakpoints.down('sm')]: {
       borderRadius: '0px 0px 12px 12px',
@@ -39,7 +41,7 @@ const PreviousYearChiefGuest = () => {
           key={index}
           className={classnames(['my-10', 'mx-auto', classes.containerStyle])}
           xl={8}
-          lg={10}
+          lg={7}
           md={11}
           sm={9}
           xs={11}
@@ -64,9 +66,6 @@ const PreviousYearChiefGuest = () => {
               <Typography className='text-white px-2' variant='h6'>
                 {guest.name}
               </Typography>
-              {/* <Typography variant='subtitle1' className='text-white w-full'>
-                Designation
-              </Typography> */}
             </div>
           </Grid>
           <Grid item className={classes.contentBlock} md={8} lg={9} sm={12}>
