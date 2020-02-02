@@ -136,19 +136,8 @@ export default () => {
       <div id='registrations' style={{ minHeight: '100vh' }}>
         <Registrations />
       </div>
-      <div id='blogs' className='flex flex-wrap justify-center h-auto'>
-        <Banner
-          backgrounds={[
-            `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
-            blogsImage.sharp.fluid,
-          ]}
-          height='auto'
-          minHeight={true}
-        >
-          <div className='pb-10'>
-            <HomeBlogs />
-          </div>
-        </Banner>
+      <div id='blogs' style={{ minHeight: '100vh' }}>
+        <HomeBlogs />
       </div>
     </Wrapper>
   )

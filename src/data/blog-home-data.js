@@ -17,12 +17,12 @@ const blogData = [
     btnLink: '/blogs/freshmen',
     image: 'freshmen.jpg',
   },
-  {
-    blogTitle: 'How does it feel like to attend your first MUN conference?',
-    description: `Model United Nations need a lot of pre-preparations if you want to succeed at it. Before your first MUN, anxiety and excitement are at an all time high. The pressure of performance is there. But there is so much for you to look forward to. `,
-    btnLink: '/blogs/firstMUN',
-    image: 'firstMUN.jpg',
-  },
+  // {
+  //   blogTitle: 'How does it feel like to attend your first MUN conference?',
+  //   description: `Model United Nations need a lot of pre-preparations if you want to succeed at it. Before your first MUN, anxiety and excitement are at an all time high. The pressure of performance is there. But there is so much for you to look forward to. `,
+  //   btnLink: '/blogs/firstMUN',
+  //   image: 'firstMUN.jpg',
+  // },
 ]
 
 export default blogData

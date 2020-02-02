@@ -3,14 +3,13 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'gatsby'
 import blogData from '../../../data/blog-home-data'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
 import classnames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    marginBottom: theme.spacing(4),
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(4),
     [theme.breakpoints.up('md')]: {
@@ -22,17 +21,14 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: theme.spacing(0),
     },
   },
-  title: {
-    width: '100%',
-    color: '#FFF',
-    fontWeight: '500',
-    paddingTop: theme.spacing(10),
-    paddingBottom: theme.spacing(10),
+  backgroundColor: {
+    background: theme.palette.background.pinkish,
   },
   containerCard: {
-    height: '100%',
-    marginBottom: theme.spacing(10),
-    marginTop: theme.spacing(10),
+    border: '1px solid grey',
+    borderRadius: '12px 12px 0 0',
+    marginBottom: theme.spacing(5),
+    marginTop: theme.spacing(5),
     marginRight: theme.spacing(2),
     '&:hover > div > h6, &:hover > div > a': {
       color: '#D90845',
@@ -99,46 +95,59 @@ const useStyles = makeStyles(theme => ({
 const HomeBlogs = () => {
   const classes = useStyles()
   return (
-    <div className={classes.root}>
-      <Typography className={classes.title} variant='h4'>
-        BLOGS
-      </Typography>
-      {blogData.map((blog, index) => (
-        <div key={index} className={classes.containerCard}>
-          <img
-            alt={blog.blogTitle}
-            src={`/images/${blog.image}`}
-            className={classnames(['mx-auto', classes.blogImage])}
-          />
+    <Grid container className={classes.backgroundColor}>
+      <Grid item xs={12} className='text-center py-10'>
+        <Typography color='primary' variant='h4'>
+          Blogs
+        </Typography>
+        <img
+          src='/images/line.png'
+          className='mx-auto'
+          alt='---------------------'
+        />
+      </Grid>
+      <Grid container justify='center' className={classes.root}>
+        {blogData.map((blog, index) => (
+          <div key={index} className={classes.containerCard}>
+            <img
+              alt={blog.blogTitle}
+              src={`/images/${blog.image}`}
+              className={classnames(['mx-auto', classes.blogImage])}
+            />
 
-          <div className={classes.contentContainer}>
-            <Typography className={classes.blogDate} align='left' variant='h6'>
+            <div className={classes.contentContainer}>
+              {/* <Typography className={classes.blogDate} align='left' variant='h6'>
               Date
-            </Typography>
-            <Typography align='left' className={classes.blogTitle} variant='h6'>
-              {blog.blogTitle}
-            </Typography>
-            <Typography
-              align='justify'
-              component='p'
-              className={classes.blogContent}
-              variant='subtitle1'
-            >
-              {blog.description}
-            </Typography>
+            </Typography> */}
+              <Typography
+                align='left'
+                className={classes.blogTitle}
+                variant='h6'
+              >
+                {blog.blogTitle}
+              </Typography>
+              <Typography
+                align='justify'
+                component='p'
+                className={classes.blogContent}
+                variant='subtitle1'
+              >
+                {blog.description}
+              </Typography>
+            </div>
+            <div className={classes.btnContainer}>
+              <Button
+                component={Link}
+                to={blog.btnLink}
+                className={classes.blogBtn}
+              >
+                Read More
+              </Button>
+            </div>
           </div>
-          <div className={classes.btnContainer}>
-            <Button
-              component={Link}
-              to={blog.btnLink}
-              className={classes.blogBtn}
-            >
-              Read More
-            </Button>
-          </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </Grid>
+    </Grid>
   )
 }
 
