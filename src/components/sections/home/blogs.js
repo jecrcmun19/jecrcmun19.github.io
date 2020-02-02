@@ -2,94 +2,152 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'gatsby'
+import blogData from '../../../data/blog-home-data'
+import { makeStyles } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
+import classnames from 'classnames'
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginBottom: theme.spacing(4),
+    paddingLeft: theme.spacing(4),
+    paddingRight: theme.spacing(4),
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2),
+    },
+    [theme.breakpoints.down('xs')]: {
+      paddingRight: theme.spacing(0),
+      paddingLeft: theme.spacing(0),
+    },
+  },
+  backgroundColor: {
+    background: theme.palette.background.pinkish,
+  },
+  containerCard: {
+    border: '1px solid grey',
+    borderRadius: '12px 12px 0 0',
+    marginBottom: theme.spacing(5),
+    marginTop: theme.spacing(5),
+    marginRight: theme.spacing(2),
+    '&:hover > div > h6, &:hover > div > a': {
+      color: '#D90845',
+    },
+    '&:hover > img': {
+      filter: `brightness(0.7) drop-shadow(0 0 6px #000)`,
+    },
+    marginLeft: theme.spacing(2),
+    width: '450px',
+    [theme.breakpoints.down('xs')]: {
+      width: '90%',
+      marginRight: theme.spacing(0),
+      marginLeft: theme.spacing(0),
+    },
+  },
+  blogImage: {
+    width: '100%',
+    height: '300px',
+    background: '#000',
+    borderRadius: '12px 12px 0 0',
+  },
+  contentContainer: {
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: theme.spacing(4),
+      paddingRight: theme.spacing(4),
+    },
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+    background: '#FFF',
+  },
+  blogDate: {
+    fontStyle: 'italic',
+    fontSize: '20px',
+  },
+  blogTitle: {
+    display: 'flex',
+    fontSize: '19px',
+    lineHeight: '1.5',
+  },
+  blogContent: {
+    paddingTop: theme.spacing(1),
+    fontSize: '16px',
+  },
+  btnContainer: {
+    background: '#FFF',
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: theme.spacing(4),
+      paddingRight: theme.spacing(4),
+    },
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+    borderRadius: '0px 0px 12px 12px',
+    textAlign: 'left',
+  },
+  blogBtn: {
+    color: '#000',
+    borderRadius: '5px',
+  },
+}))
 
 const HomeBlogs = () => {
-  const blogData = [
-    {
-      blogTitle: 'What is MUN?',
-      description: `Have you recently heard about MUN and are curious to know what they are? Then this blog will give you an insight into the fascinating world of MUN. MUN or Model United Nations is the model of United Nations proceedings that help you experience the environment of a UN  `,
-      btnLink: '/blogs/MUN',
-      image: 'MUN.jpg',
-    },
-    {
-      blogTitle: 'What are the advantages of participating in MUN?',
-      description: `Rather than being a 2-3 day event, MUN conferences are a journey. It is a procedure of learning and evolving. It is not only about winning; but becoming better versions of ourselves. What you can get at an MUN conference can be an experience of a lifetime. It has preparations, debating,`,
-      btnLink: '/blogs/advantages',
-      image: 'advantages.jpg',
-    },
-    {
-      blogTitle: 'What the college MUN freshman must know?',
-      description: `Model United Nations in college can be challenging for the freshmen. Whether it your first MUN conference or you have achieved a lot in high school MUNs, the experience is different for all. Here are some tips for you to excel at college MUN and earn much more than just experience`,
-      btnLink: '/blogs/freshmen',
-      image: 'freshmen.jpg',
-    },
-    {
-      blogTitle: 'How does it feel like to attend your first MUN conference?',
-      description: `Model United Nations need a lot of pre-preparations if you want to succeed at it. Before your first MUN, anxiety and excitement are at an all time high. The pressure of performance is there. But there is so much for you to look forward to. Meet new people and have interesting conversations`,
-      btnLink: '/blogs/firstMUN',
-      image: 'firstMUN.jpg',
-    },
-  ]
-
+  const classes = useStyles()
   return (
-    <div className='flex flex-wrap justify-center md:px-4 px-2'>
-      <Typography className='w-full text-white font-black py-10' variant='h4'>
-        BLOGS
-      </Typography>
-      {blogData.map((blog, index) => (
-        <div className='h-full py-10 mx-2 sm:px-4' style={{ width: '300px' }}>
-          <div className='w-full'>
+    <Grid container className={classes.backgroundColor}>
+      <Grid item xs={12} className='text-center py-10'>
+        <Typography color='primary' variant='h4'>
+          Blogs
+        </Typography>
+        <img
+          src='/images/line.png'
+          className='mx-auto'
+          alt='---------------------'
+        />
+      </Grid>
+      <Grid container justify='center' className={classes.root}>
+        {blogData.map((blog, index) => (
+          <div key={index} className={classes.containerCard}>
             <img
               alt={blog.blogTitle}
               src={`/images/${blog.image}`}
-              className='mx-auto bg-white'
-              style={{
-                width: '100%',
-                height: '300px',
-              }}
+              className={classnames(['mx-auto', classes.blogImage])}
             />
-          </div>
 
-          <div className='sm:px-8 px-2 py-4  bg-white'>
-            <Typography
-              className=' font-extrabold'
-              variant='h6'
-              style={{
-                height: '108px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {blog.blogTitle}
-            </Typography>
-            <Typography
-              className=' text-left text-justify pt-4'
-              variant='subtitle1'
-              style={{
-                fontSize: '18px',
-              }}
-            >
-              {blog.description}
-            </Typography>
+            <div className={classes.contentContainer}>
+              {/* <Typography className={classes.blogDate} align='left' variant='h6'>
+              Date
+            </Typography> */}
+              <Typography
+                align='left'
+                className={classes.blogTitle}
+                variant='h6'
+              >
+                {blog.blogTitle}
+              </Typography>
+              <Typography
+                align='justify'
+                component='p'
+                className={classes.blogContent}
+                variant='subtitle1'
+              >
+                {blog.description}
+              </Typography>
+            </div>
+            <div className={classes.btnContainer}>
+              <Button
+                component={Link}
+                to={blog.btnLink}
+                className={classes.blogBtn}
+              >
+                Read More
+              </Button>
+            </div>
           </div>
-          <div className='bg-white pt-4 pb-8'>
-            <Button
-              variant='contained'
-              component={Link}
-              to={blog.btnLink}
-              style={{
-                background: '#d90845',
-                color: 'white',
-                borderRadius: '5px',
-              }}
-            >
-              Read More
-            </Button>
-          </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </Grid>
+    </Grid>
   )
 }
 
