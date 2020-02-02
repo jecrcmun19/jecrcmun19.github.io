@@ -32,9 +32,14 @@ const PreviousYearChiefGuest = () => {
   const classes = useStyles()
   return (
     <div>
-      <Typography className='text-white py-10' variant='h4'>
-        OUR PREVIOUS CHIEF GUESTS
+      <Typography className='text-white pt-10' variant='h4'>
+        Our Previous Chief Guests
       </Typography>
+      <img
+        src='/images/line.png'
+        className='mx-auto pb-10'
+        alt='---------------------'
+      />
       {guests.map((guest, index) => (
         <Grid
           container

@@ -154,7 +154,7 @@ export default () => {
           </div>
         </Banner>
       </div>
-      <div id='blogs' style={{ minHeight: '100vh' }}>
+      <div id='blogs' className='pt-10' style={{ minHeight: '100vh' }}>
         <HomeBlogs />
       </div>
     </Wrapper>

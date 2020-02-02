@@ -68,9 +68,19 @@ function Registrations(props) {
         minHeight: '100vh',
       }}
     >
-      <Typography variant='h4' className='p-5' color='primary'>
-        REGISTRATIONS
+      <Typography
+        variant='h4'
+        style={{ color: '#000a2a' }}
+        className='pt-5'
+        color='primary'
+      >
+        Registrations
       </Typography>
+      <img
+        src='/images/line.png'
+        className='mx-auto pb-5'
+        alt='---------------------'
+      />
       <div className='flex flex-wrap justify-center'>
         {data.map(section => (
           <Card
