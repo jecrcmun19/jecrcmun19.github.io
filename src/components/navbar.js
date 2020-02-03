@@ -143,7 +143,7 @@ function NavBarWeb(props) {
         <Typography
           component={MaterialLink}
           underline='none'
-          href='#about'
+          href='/#about'
           variant='subtitle2'
           className={classes.headerItems}
         >
@@ -155,7 +155,7 @@ function NavBarWeb(props) {
       </ListItem>
       <ListItem
         component={Link}
-        to='#committees'
+        to='/#committees'
         className={classes.navItem}
         className={classes.navItem}
       >
@@ -171,7 +171,7 @@ function NavBarWeb(props) {
       >
         <Typography
           component={MaterialLink}
-          href='#registrations'
+          href='/#registrations'
           underline='none'
           variant='subtitle2'
           className={classes.headerItems}
@@ -185,7 +185,7 @@ function NavBarWeb(props) {
       <ListItem
         component={MaterialLink}
         underline='none'
-        href='#blogs'
+        href='/#blogs'
         className={classes.navItem}
       >
         <Typography variant='subtitle2' className={classes.headerItems}>
@@ -195,7 +195,7 @@ function NavBarWeb(props) {
       <ListItem
         component={MaterialLink}
         underline='none'
-        href='#'
+        href='/#'
         className={classes.navItem}
       >
         <Typography variant='subtitle2' className={classes.headerItems}>

@@ -93,16 +93,16 @@ function MobileViewDrawer(props) {
               { name: 'HOME', link: '/' },
               {
                 name: 'ABOUT',
-                link: '#about',
+                link: '/#about',
                 items: [
                   { name: 'JECRC MUN', to: '/about' },
                   { name: 'OUR SPONSORS', to: '/sponsors' },
                 ],
               },
-              { name: 'COMMITTEES', link: '#committees' },
+              { name: 'COMMITTEES', link: '/#committees' },
               {
                 name: 'REGISTRATIONS',
-                link: '#registrations',
+                link: '/#registrations',
                 items: [
                   {
                     name: 'PRIORITY DELEGATE',
@@ -118,8 +118,8 @@ function MobileViewDrawer(props) {
                   },
                 ],
               },
-              { name: 'BLOGS', link: '#blogs' },
-              { name: 'GALLERY', link: '/gallery' },
+              { name: 'BLOGS', link: '/#blogs' },
+              { name: 'GALLERY', link: '/#' },
               { name: 'CONTACT', link: '/contact' },
             ].map((text, index) => (
               <div key={index}>
