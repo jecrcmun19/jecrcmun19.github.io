@@ -60,7 +60,6 @@ function Contact(props) {
     e.preventDefault()
     const form = e.target
     setLoading(true)
-    console.log(new FormData(form).entries())
     fetch(
       'https://script.google.com/macros/s/AKfycbz_JnTw8tbJ07ZIaMXkAoTRcs6E6X8DknVyAhxHS4z4sTWO0Oc/exec',
       {
@@ -69,12 +68,10 @@ function Contact(props) {
       },
     )
       .then(res => {
-        console.log(res)
         setLoading(false)
         setCompleted(true)
       })
       .catch(err => {
-        console.error(err)
         setLoading(false)
         setError(true)
       })

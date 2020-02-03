@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => ({
     },
     checked: {},
   },
+  feesText: {
+    fontWeight: '500',
+  },
 }))
 
 const committees = ['GA-DISEC', 'UN-SC', 'AIPPM', 'WHO', 'UN-ODC', 'UN-CSW']
@@ -245,7 +248,12 @@ export default function DelegatePriorityForm() {
               </Typography>
             </li>
           </ol>
-          <Typography variant='h6' component='p' paragraph>
+          <Typography
+            variant='body1'
+            component='p'
+            className={classes.feesText}
+            paragraph
+          >
             Delegation Fees: 1400 /-
           </Typography>
           <div>
