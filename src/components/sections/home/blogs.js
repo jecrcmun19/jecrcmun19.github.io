@@ -21,12 +21,9 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: theme.spacing(0),
     },
   },
-  backgroundColor: {
-    background: theme.palette.background.pinkish,
-  },
   containerCard: {
     border: '1px solid grey',
-    borderRadius: '12px 12px 0 0',
+    borderRadius: '12px 12px 0px 0px',
     marginBottom: theme.spacing(5),
     marginTop: theme.spacing(5),
     marginRight: theme.spacing(2),
@@ -43,6 +40,8 @@ const useStyles = makeStyles(theme => ({
       marginRight: theme.spacing(0),
       marginLeft: theme.spacing(0),
     },
+    boxShadow:
+      '10px 20px 38px rgba(0, 0, 0, 0.3), 5px 15px 12px rgba(0, 0, 0, 0.22)',
   },
   blogImage: {
     width: '100%',
@@ -83,7 +82,6 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
     paddingBottom: theme.spacing(2),
-    borderRadius: '0px 0px 12px 12px',
     textAlign: 'left',
   },
   blogBtn: {
@@ -95,7 +93,7 @@ const useStyles = makeStyles(theme => ({
 const HomeBlogs = () => {
   const classes = useStyles()
   return (
-    <Grid container className={classes.backgroundColor}>
+    <Grid container>
       <Grid item xs={12} className='text-center py-10'>
         <Typography style={{ color: '#000a2a' }} variant='h4'>
           Blogs
