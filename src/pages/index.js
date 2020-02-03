@@ -12,8 +12,8 @@ import HomeBlogs from '../components/sections/home/blogs'
 import Committees from '../components/sections/home/committees'
 import Countdown from '../components/countdown'
 import VideoDialog from '../components/sections/home/videoDialog'
-import Fab from '@material-ui/core/Fab'
-import PlayIcon from '@material-ui/icons/PlayArrowSharp'
+// import Fab from '@material-ui/core/Fab'
+// import PlayIcon from '@material-ui/icons/PlayArrowSharp'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 import LocationIcon from '@material-ui/icons/PlaceOutlined'
@@ -69,7 +69,6 @@ export default () => {
 
   const handleOpenVideoDialog = () => {
     setVideoDialogOpen(!openVideoDialog)
-    console.log(openVideoDialog)
   }
 
   return (
@@ -129,18 +128,21 @@ export default () => {
           height='auto'
           minHeight={true}
         >
-          <div className='pb-10'>
+          <div className='py-10'>
             <PreviousYearChiefGuest />
           </div>
         </Banner>
       </div>
-      <div id='registrations' style={{ minHeight: '100vh' }}>
+      <div
+        id='registrations'
+        style={{
+          minHeight: '100vh',
+          background: theme.palette.background.pinkish,
+        }}
+      >
         <Registrations />
       </div>
-      <div
-        id='committees'
-        className='flex flex-wrap justify-center h-auto pt-10'
-      >
+      <div id='committees' className='flex flex-wrap justify-center h-auto'>
         <Banner
           backgrounds={[
             `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
@@ -149,12 +151,19 @@ export default () => {
           height='auto'
           minHeight={true}
         >
-          <div className='pb-10'>
+          <div className='py-10'>
             <Committees />
           </div>
         </Banner>
       </div>
-      <div id='blogs' className='pt-10' style={{ minHeight: '100vh' }}>
+      <div
+        id='blogs'
+        className='pt-10'
+        style={{
+          minHeight: '100vh',
+          background: theme.palette.background.pinkish,
+        }}
+      >
         <HomeBlogs />
       </div>
     </Wrapper>

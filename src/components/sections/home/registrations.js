@@ -63,7 +63,6 @@ function Registrations(props) {
     <div
       className='text-center'
       style={{
-        backgroundColor: theme.palette.background.pinkish,
         paddingTop: '80px',
         minHeight: '100vh',
       }}

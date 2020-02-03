@@ -45,8 +45,7 @@ const PreviousYearChiefGuest = () => {
           container
           key={index}
           className={classnames(['my-10', 'mx-auto', classes.containerStyle])}
-          xl={8}
-          lg={7}
+          lg={8}
           md={11}
           sm={9}
           xs={11}
