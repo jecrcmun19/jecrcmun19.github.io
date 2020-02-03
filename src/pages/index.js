@@ -108,9 +108,9 @@ export default () => {
           </Typography>
         </div>
         <div>
-          <Fab color='primary' size='large' onClick={handleOpenVideoDialog}>
+          {/* <Fab color='primary' size='large' onClick={handleOpenVideoDialog}>
             <PlayIcon fontSize='large' />
-          </Fab>
+          </Fab> */}
           <VideoDialog
             open={openVideoDialog}
             handleOpen={handleOpenVideoDialog}
