@@ -51,6 +51,12 @@ function Registrations(props) {
       btnLink: '/apply/campus-ambassador-application',
     },
     {
+      title: 'Executive Board',
+      img: 'images/EBM.png',
+      btn: 'Apply Now',
+      btnLink: '/apply/executive-board',
+    },
+    {
       title: 'International Press',
       img: 'images/IPA.png',
       info: 'Application Fees: 1000 /-',

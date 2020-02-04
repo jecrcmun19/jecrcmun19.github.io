@@ -116,6 +116,10 @@ function MobileViewDrawer(props) {
                     name: 'INTERNATIONAL PRESS',
                     to: '/apply/international-press-application',
                   },
+                  {
+                    name: 'EXECUTIVE BOARD',
+                    to: '/apply/executive-board',
+                  },
                 ],
               },
               { name: 'BLOGS', link: '/#blogs' },

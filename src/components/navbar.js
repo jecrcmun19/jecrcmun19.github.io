@@ -59,8 +59,8 @@ const dropdownList = {
       type: 'gatsby',
     },
     {
-      name: 'INTERNATIONAL PRESS',
-      link: '/apply/international-press-application',
+      name: 'EXECUTIVE BOARD',
+      link: '/apply/executive-board',
       type: 'gatsby',
     },
   ],
