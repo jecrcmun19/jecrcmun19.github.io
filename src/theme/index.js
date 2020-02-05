@@ -31,5 +31,8 @@ const theme = createMuiTheme({
         '10px 20px 38px rgba(0, 0, 0, 0.3), 5px 15px 12px rgba(0, 0, 0, 0.22)',
     },
   },
+  typography: {
+    fontFamily: "'Rubik', 'sans-serif'",
+  },
 })
 export default theme

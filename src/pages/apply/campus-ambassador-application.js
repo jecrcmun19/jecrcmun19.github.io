@@ -10,14 +10,14 @@ import AmbassadorForm from '../../components/campus-ambassador-form'
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
     fontWeight: 'bold',
-    fontFamily: "'Rubik' , sans-serif",
+    // fontFamily: "'Rubik' , sans-serif",
     fontSize: '2.25rem',
     lineHeight: '65px',
     letterSpacing: '0.08em',
     textTransform: 'uppercase',
   },
   diplomacyTextProperty: {
-    fontFamily: "'Rubik' , sans-serif",
+    // fontFamily: "'Rubik' , sans-serif",
     fontSize: '1.25rem',
     fontWeight: 'bold',
     lineHeight: '28px',
@@ -42,10 +42,10 @@ export default () => {
   return (
     <Wrapper>
       <Helmet>
-        <link
+        {/* <link
           href='https://fonts.googleapis.com/css?family=Rubik&display=swap'
           rel='stylesheet'
-        />
+        /> */}
       </Helmet>
       <Banner
         backgrounds={[

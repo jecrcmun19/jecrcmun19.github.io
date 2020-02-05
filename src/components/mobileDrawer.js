@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     alignContent: 'center',
   },
   headerItems: {
-    fontFamily: "'Rubik', sans-serif",
+    // fontFamily: "'Rubik', sans-serif",
     paddingBottom: 0,
     color: '#FFF',
     paddingTop: 0,

@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   munTextProperty: {
     color: theme.palette.primary.main,
     fontWeight: 'bold',
-    fontFamily: "'Rubik' , sans-serif",
+    // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
     letterSpacing: '0.08em',
