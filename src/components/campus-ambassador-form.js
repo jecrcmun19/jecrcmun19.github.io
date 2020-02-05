@@ -54,7 +54,6 @@ export default function CampusAmbassadorForm() {
     e.preventDefault()
     const form = e.target
     setLoading(true)
-    console.log(new FormData(form).entries())
     fetch(
       'https://script.google.com/macros/s/AKfycbyjwsELUWO8CvRWX7gySnKShZgTgWVrQCC7hx-D8t2gqXeKHj4/exec',
       {
@@ -63,12 +62,10 @@ export default function CampusAmbassadorForm() {
       },
     )
       .then(res => {
-        console.log(res)
         setLoading(false)
         setCompleted(true)
       })
       .catch(err => {
-        console.error(err)
         setLoading(false)
         setError(true)
       })
@@ -276,6 +273,5 @@ function useForm(initialValue) {
   const handleChange = e => {
     setValue(e.target.value)
   }
-  console.log(value)
   return { value, onChange: handleChange }
 }

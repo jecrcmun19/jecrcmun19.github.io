@@ -8,6 +8,11 @@ const useStyles = makeStyles(theme => ({
     width: '90vw',
     maxWidth: '900px',
     padding: theme.spacing(6),
+    [theme.breakpoints.down('xs')]: {
+      paddingLeft: theme.spacing(1.7),
+      paddingRight: theme.spacing(1.7),
+      width: '97vw',
+    },
     minHeight: '100px',
     backgroundColor: theme.palette.background.pinkish,
     border: `1px solid ${theme.palette.border.pinkish}`,
