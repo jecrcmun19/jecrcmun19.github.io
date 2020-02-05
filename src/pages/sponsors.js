@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { makeStyles, Typography, useTheme } from '@material-ui/core'
 import sponsorsData from '../data/sponsors-data'
 import classnames from 'classnames'
-
+import Helmet from 'react-helmet'
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
     color: '#D90845',
@@ -49,22 +49,9 @@ function Sponsors(props) {
 
   return (
     <Wrapper>
-<<<<<<< HEAD
       <Helmet>
-        {/* <link
-          href='https://fonts.googleapis.com/css?family=Rubik&display=swap'
-          rel='stylesheet'
-        /> */}
+        <title>Sponsors</title>
       </Helmet>
-||||||| merged common ancestors
-      <Helmet>
-        <link
-          href='https://fonts.googleapis.com/css?family=Rubik&display=swap'
-          rel='stylesheet'
-        />
-      </Helmet>
-=======
->>>>>>> upstream/newsite
       <Banner
         backgrounds={[
           `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
