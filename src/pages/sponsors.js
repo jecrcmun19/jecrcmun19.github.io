@@ -46,6 +46,7 @@ function Sponsors(props) {
       }
     }
   `)
+
   return (
     <Wrapper>
       <Banner

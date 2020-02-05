@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
   smallLabel: {
     fontSize: '0.9rem',
   },
+  feesText: {
+    fontWeight: '500',
+  },
   radio: {
     root: {
       color: theme.palette.primary.main,
@@ -81,7 +84,6 @@ export default function PressApplicationForm() {
     e.preventDefault()
     const form = e.target
     setLoading(true)
-    console.log(new FormData(form))
     fetch(
       'https://script.google.com/macros/s/AKfycbzkamvbxoXTmOqKlhgCEwpoTKT4Jmekz6_HEdYCKeMhoHepNPO8/exec',
       {
@@ -90,7 +92,6 @@ export default function PressApplicationForm() {
       },
     )
       .then(res => {
-        console.log(res)
         setLoading(false)
         setCompleted(true)
       })
@@ -131,7 +132,12 @@ export default function PressApplicationForm() {
               </Typography>
             </li>
           </ol>
-          <Typography variant='h6' component='p' paragraph>
+          <Typography
+            variant='body1'
+            className={classes.feesText}
+            component='p'
+            paragraph
+          >
             Application Fees: 1000 /-
           </Typography>
           <Typography variant='subtitle2' component='p' paragraph>
