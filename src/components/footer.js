@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
   },
-  textColor: { color: theme.palette.font.primary },
+  textStyle: { color: theme.palette.font.primary, marginTop: '2px' },
   socialIcon: {
     backgroundColor: theme.palette.primary.main,
     '&:hover': {
@@ -46,12 +46,12 @@ function Footer(props) {
         >
           <img
             src='/images/munLogo.png'
-            width='25px'
+            width='38px'
             className='mr-5'
             alt='MUN Logo'
           />
           <Typography
-            className={classes.textColor}
+            className={`${classes.textStyle}`}
             display='inline'
             variant='h5'
           >
@@ -62,7 +62,7 @@ function Footer(props) {
           container
           justify='center'
           spacing={0}
-          className={classes.textColor}
+          className={classes.textStyle}
         >
           <Grid item md={4} sm={12} xs={12} className='py-5'>
             <Typography
@@ -75,7 +75,7 @@ function Footer(props) {
             <Typography>via Sitapura RIICO,</Typography>
             <Typography>Tonk Road, Jaipur</Typography>
           </Grid>
-          <Grid item md={4} sm={12} xs={12}>
+          <Grid item md={4} sm={12} xs={12} className='py-5'>
             <Typography
               variant='h6'
               style={{ color: theme.palette.primary.main }}
@@ -126,7 +126,7 @@ function Footer(props) {
               style={{ borderColor: theme.palette.primary.main }}
             />
           </Grid>
-          <Typography className={['text-center pt-1', classes.textColor]}>
+          <Typography className={['text-center pt-1', classes.textStyle]}>
             © Copyright JECRC MUN 2020
           </Typography>
         </Grid>

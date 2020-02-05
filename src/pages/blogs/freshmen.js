@@ -95,7 +95,7 @@ function Freshmen() {
                 <img
                   src='/images/freshmen.jpg'
                   alt='blogger image'
-                  className='mx-auto'
+                  className='mx-auto h-40 sm:h-64 md:h-64 rounded-lg'
                 />
               </div>
               <Typography className='text-justify py-5'>
