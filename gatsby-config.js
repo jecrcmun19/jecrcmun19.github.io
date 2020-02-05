@@ -26,5 +26,13 @@ module.exports = {
         head: false,
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Rubik'],
+        },
+      },
+    },
   ],
 }

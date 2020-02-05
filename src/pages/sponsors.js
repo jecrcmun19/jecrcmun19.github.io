@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   munTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
-    fontFamily: "'Rubik' , sans-serif",
+    // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
   },
@@ -49,6 +49,22 @@ function Sponsors(props) {
 
   return (
     <Wrapper>
+<<<<<<< HEAD
+      <Helmet>
+        {/* <link
+          href='https://fonts.googleapis.com/css?family=Rubik&display=swap'
+          rel='stylesheet'
+        /> */}
+      </Helmet>
+||||||| merged common ancestors
+      <Helmet>
+        <link
+          href='https://fonts.googleapis.com/css?family=Rubik&display=swap'
+          rel='stylesheet'
+        />
+      </Helmet>
+=======
+>>>>>>> upstream/newsite
       <Banner
         backgrounds={[
           `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
