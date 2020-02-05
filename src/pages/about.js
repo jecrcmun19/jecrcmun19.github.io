@@ -1,13 +1,13 @@
 import React from 'react'
 import Wrapper from '../components/wrapper'
 import Banner from '../components/banner'
-import ContentBox from '../components/content-box'
 import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
+import { Paper } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -69,13 +69,14 @@ function About() {
         fluid={bgImage.sharp.fluid}
         durationFadeIn={50}
       >
-        <ContentBox className='my-16'>
+        <Paper elevation={5} className='m-0 sm:m-10'>
           <Typography
             style={{
               fontSize: '40px',
               fontWeight: 500,
               color: theme.palette.primary.main,
               textAlign: 'center',
+              marginTop: '20px',
             }}
           >
             JECRC MUN
@@ -131,7 +132,7 @@ function About() {
               </Typography>
             </Grid>
           </Grid>
-        </ContentBox>
+        </Paper>
       </BackgroundImage>
     </Wrapper>
   )
