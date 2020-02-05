@@ -12,7 +12,6 @@ import { Link } from 'gatsby'
 const useStyles = makeStyles({
   card: {
     backgroundColor: '#000929',
-    maxWidth: '350px',
     width: '300px',
     borderBottom: '10px solid #d90845',
     borderRadius: '20px',
@@ -52,6 +51,12 @@ function Registrations(props) {
       btnLink: '/apply/campus-ambassador-application',
     },
     {
+      title: 'Executive Board',
+      img: 'images/EBM.png',
+      btn: 'Apply Now',
+      btnLink: '/apply/executive-board',
+    },
+    {
       title: 'International Press',
       img: 'images/IPA.png',
       info: 'Application Fees: 1000 /-',
@@ -64,14 +69,23 @@ function Registrations(props) {
     <div
       className='text-center'
       style={{
-        backgroundColor: theme.palette.background.pinkish,
         paddingTop: '80px',
         minHeight: '100vh',
       }}
     >
-      <Typography variant='h4' className='p-5' color='primary'>
-        REGISTRATIONS
+      <Typography
+        variant='h4'
+        style={{ color: '#000a2a' }}
+        className='pt-5'
+        color='primary'
+      >
+        Registrations
       </Typography>
+      <img
+        src='/images/line.png'
+        className='mx-auto pb-5'
+        alt='---------------------'
+      />
       <div className='flex flex-wrap justify-center'>
         {data.map(section => (
           <Card

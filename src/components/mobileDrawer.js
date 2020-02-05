@@ -93,16 +93,16 @@ function MobileViewDrawer(props) {
               { name: 'HOME', link: '/' },
               {
                 name: 'ABOUT',
-                link: '#about',
+                link: '/#about',
                 items: [
                   { name: 'JECRC MUN', to: '/about' },
                   { name: 'OUR SPONSORS', to: '/sponsors' },
                 ],
               },
-              { name: 'COMMITTEES', link: '/committees' },
+              { name: 'COMMITTEES', link: '/#committees' },
               {
                 name: 'REGISTRATIONS',
-                link: '#registrations',
+                link: '/#registrations',
                 items: [
                   {
                     name: 'PRIORITY DELEGATE',
@@ -116,9 +116,13 @@ function MobileViewDrawer(props) {
                     name: 'INTERNATIONAL PRESS',
                     to: '/apply/international-press-application',
                   },
+                  {
+                    name: 'EXECUTIVE BOARD',
+                    to: '/apply/executive-board',
+                  },
                 ],
               },
-              { name: 'BLOGS', link: '#blogs' },
+              { name: 'BLOGS', link: '/#blogs' },
               { name: 'GALLERY', link: '/gallery' },
               { name: 'CONTACT', link: '/contact' },
             ].map((text, index) => (
