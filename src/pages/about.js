@@ -106,7 +106,7 @@ function About() {
                 Inaugurated by the eminent educationist Shri Kul Bhushan
                 Kothari, JECRC MUN has spiraled out exponentially to achieve the
                 pinnacle of growth. With the zealous efforts of extensive
-                organizing committees over the 7 years of conducting MUN
+                organizing committees over the 8 years of conducting MUN
                 conferences, we have gained a lot of momentum inviting immense
                 participation from across the country.
               </Typography>
