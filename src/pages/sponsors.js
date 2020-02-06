@@ -6,12 +6,12 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { makeStyles, Typography, useTheme } from '@material-ui/core'
 import sponsorsData from '../data/sponsors-data'
 import classnames from 'classnames'
-
+import Helmet from 'react-helmet'
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
-    fontFamily: "'Rubik' , sans-serif",
+    // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
   },
@@ -49,6 +49,9 @@ function Sponsors(props) {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Sponsors</title>
+      </Helmet>
       <Banner
         backgrounds={[
           `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,

@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   headerItems: {
     color: '#fff',
     fontWeight: 'bold',
-    fontFamily: "'Rubik', sans-serif",
+    // fontFamily: "'Rubik', sans-serif",
     textTransform: 'uppercase',
     position: 'relative',
   },
@@ -192,12 +192,7 @@ function NavBarWeb(props) {
           Blogs
         </Typography>
       </ListItem>
-      <ListItem
-        component={MaterialLink}
-        underline='none'
-        href='/#'
-        className={classes.navItem}
-      >
+      <ListItem component={Link} to='/gallery' className={classes.navItem}>
         <Typography variant='subtitle2' className={classes.headerItems}>
           Gallery
         </Typography>
