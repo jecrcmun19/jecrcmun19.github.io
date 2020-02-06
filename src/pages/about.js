@@ -1,13 +1,14 @@
 import React from 'react'
 import Wrapper from '../components/wrapper'
 import Banner from '../components/banner'
-import ContentBox from '../components/content-box'
 import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
+import classnames from 'classnames'
+import { Paper } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -16,6 +17,22 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+  },
+  paper: {
+    backgroundColor: theme.palette.background.pinkish,
+    border: `1px solid ${theme.palette.border.pinkish}`,
+    boxShadow: theme.palette.boxShadow.content,
+    borderRadius: '15px',
+    width: '70vw',
+    margin: '30px',
+    [theme.breakpoints.down('sm')]: {
+      margin: '20px',
+      width: '90vw',
+    },
+    [theme.breakpoints.down('xs')]: {
+      margin: '10px',
+      width: '97vw',
+    },
   },
 }))
 
@@ -69,13 +86,14 @@ function About() {
         fluid={bgImage.sharp.fluid}
         durationFadeIn={50}
       >
-        <ContentBox className='my-16'>
+        <Paper elevation={5} className={classnames([classes.paper])}>
           <Typography
             style={{
               fontSize: '40px',
               fontWeight: 500,
               color: theme.palette.primary.main,
               textAlign: 'center',
+              marginTop: '20px',
             }}
           >
             JECRC MUN
@@ -131,7 +149,7 @@ function About() {
               </Typography>
             </Grid>
           </Grid>
-        </ContentBox>
+        </Paper>
       </BackgroundImage>
     </Wrapper>
   )
