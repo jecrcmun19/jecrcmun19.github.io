@@ -17,6 +17,7 @@ import VideoDialog from '../components/sections/home/videoDialog'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 import LocationIcon from '@material-ui/icons/PlaceOutlined'
+import WhyMun from '../components/sections/home/whyMun'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -119,6 +120,16 @@ export default () => {
       <div id='about' style={{ minHeight: '100vh' }}>
         <About />
       </div>
+      <div
+        id='why-mun'
+        className='pt-10'
+        style={{
+          minHeight: '100vh',
+          background: theme.palette.background.pinkish,
+        }}
+      >
+        <WhyMun />
+      </div>
       <div className='flex flex-wrap justify-center h-auto'>
         <Banner
           backgrounds={[
@@ -166,6 +177,7 @@ export default () => {
       >
         <HomeBlogs />
       </div>
+      
     </Wrapper>
   )
 }
