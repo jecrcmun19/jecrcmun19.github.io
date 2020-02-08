@@ -17,6 +17,7 @@ import VideoDialog from '../components/sections/home/videoDialog'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 import LocationIcon from '@material-ui/icons/PlaceOutlined'
+import Ambassador from '../components/sections/home/ambassador'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -41,7 +42,12 @@ export default () => {
   const classes = useStyles()
   const theme = useTheme()
   const matches = useMediaQuery('(min-width:640px)')
-  const { image, chiefGuestImage, blogsImage } = useStaticQuery(graphql`
+  const {
+    image,
+    chiefGuestImage,
+    blogsImage,
+    ambassadorImage,
+  } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/bg.png" }) {
         sharp: childImageSharp {
@@ -58,6 +64,13 @@ export default () => {
         }
       }
       blogsImage: file(relativePath: { eq: "banners/blogs.jpg" }) {
+        sharp: childImageSharp {
+          fluid(maxWidth: 1080) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      ambassadorImage: file(relativePath: { eq: "banners/chief-guest.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -118,6 +131,20 @@ export default () => {
       </Banner>
       <div id='about' style={{ minHeight: '100vh' }}>
         <About />
+      </div>
+      <div id='ambassador' className='flex flex-wrap justify-center h-auto'>
+        <Banner
+          backgrounds={[
+            `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+            ambassadorImage.sharp.fluid,
+          ]}
+          height='auto'
+          minHeight={true}
+        >
+          <div className='py-10'>
+            <Ambassador />
+          </div>
+        </Banner>
       </div>
       <div className='flex flex-wrap justify-center h-auto'>
         <Banner
