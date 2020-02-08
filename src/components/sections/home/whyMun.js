@@ -37,7 +37,7 @@ function WhyMun() {
         className='pt-5'
         color='primary'
       >
-        Why JECRC MUN
+        JECRC MUN Excellencies
       </Typography>
       <img
         src='/images/line.png'
