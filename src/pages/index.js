@@ -17,6 +17,7 @@ import VideoDialog from '../components/sections/home/videoDialog'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 import LocationIcon from '@material-ui/icons/PlaceOutlined'
+import classNames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -40,6 +41,16 @@ const useStyles = makeStyles(theme => ({
       fontSize: 35,
     },
   },
+  FontCalendar: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: 30,
+    },
+  },
+  FontLocation: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: 30,
+    },
+  },
 }))
 
 export default () => {
@@ -47,9 +58,6 @@ export default () => {
   const classes = useStyles()
   const theme = useTheme()
   const matches = useMediaQuery('(min-width:640px)')
-  const active = useMediaQuery('(min-width:960px)')
-  const FontLocation = active ? { fontSize: 30 } : null
-  const FontCalendar = active ? { fontSize: 30 } : null
   const { image, chiefGuestImage, blogsImage } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/bg.png" }) {
@@ -107,11 +115,17 @@ export default () => {
           </Typography>
         </div>
         <div className='my-10'>
-          <Typography className='text-white' style={FontLocation}>
+          <Typography
+            className={classNames('text-white', classes.FontCalendar)}
+            variant='h6'
+          >
             <LocationIcon color='primary' /> Jaipur Engineering College and
             Research Center, Jaipur
           </Typography>
-          <Typography className='text-white' style={FontCalendar}>
+          <Typography
+            className={classNames('text-white', classes.FontLocation)}
+            variant='h6'
+          >
             <CalendarIcon color='primary' /> 11th - 12th April 2020
           </Typography>
         </div>
