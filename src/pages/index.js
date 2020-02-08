@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: 60,
     lineHeight: '71px',
     letterSpacing: '0.08em',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 80,
+    },
   },
   diplomacyTextProperty: {
     color: '#fff',
@@ -33,6 +36,9 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     fontSize: '24px',
     lineHeight: '28px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
+    },
   },
 }))
 
@@ -41,6 +47,9 @@ export default () => {
   const classes = useStyles()
   const theme = useTheme()
   const matches = useMediaQuery('(min-width:640px)')
+  const active = useMediaQuery('(min-width:960px)')
+  const FontLocation = active ? { fontSize: 30 } : null
+  const FontCalendar = active ? { fontSize: 30 } : null
   const { image, chiefGuestImage, blogsImage } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/bg.png" }) {
@@ -98,11 +107,11 @@ export default () => {
           </Typography>
         </div>
         <div className='my-10'>
-          <Typography className='text-white' variant='h6'>
+          <Typography className='text-white' style={FontLocation}>
             <LocationIcon color='primary' /> Jaipur Engineering College and
             Research Center, Jaipur
           </Typography>
-          <Typography className='text-white' variant='h6'>
+          <Typography className='text-white' style={FontCalendar}>
             <CalendarIcon color='primary' /> 11th - 12th April 2020
           </Typography>
         </div>
