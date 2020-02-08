@@ -64,6 +64,7 @@ const useStyles = makeStyles(theme => ({
   blogImage: {
     width: '100%',
     height: '450px',
+    transition: 'all 0.3s ease-out',
     [theme.breakpoints.down('xs')]: {
       height: '300px',
     },
@@ -76,6 +77,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     color: '#FFF',
     height: '100px',
+    transition: 'all 0.3s ease-out',
     borderRadius: '12px',
     background: 'rgba(0, 0, 0, 0.7)',
     padding: theme.spacing(0.5),
