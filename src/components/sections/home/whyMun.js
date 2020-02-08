@@ -11,9 +11,11 @@ const useStyles = makeStyles(theme => ({
     '&:hover > div > h6, &:hover > div > p': {
       backgroundColor: theme.palette.primary.main,
       color: 'white',
+      transition: '1s',
     },
     '&:hover > div > h5': {
       color: theme.palette.primary.main,
+      transition: '1s',
     },
   },
   borderPink: {
@@ -27,8 +29,7 @@ function WhyMun() {
     <div
       className='text-center'
       style={{
-        paddingTop: '80px',
-        minHeight: '100vh',
+        minHeight: '60vh',
       }}
     >
       <Typography
@@ -44,7 +45,7 @@ function WhyMun() {
         className='mx-auto pb-5'
         alt='---------------------'
       />
-      <Grid container spacing={2} justify='center'>
+      <Grid container justify='center'>
         <Grid item md={4}>
           <div
             className={`my-10 mx-10 justify-center text-center flex flex-col ${classes.containerContent}`}

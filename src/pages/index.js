@@ -117,19 +117,18 @@ export default () => {
           />
         </div>
       </Banner>
-      <div id='about' style={{ minHeight: '100vh' }}>
+      <div id='about'>
         <About />
+        <div
+          id='why-mun'
+          style={{
+            background: theme.palette.background.pinkish,
+          }}
+        >
+          <WhyMun />
+        </div>
       </div>
-      <div
-        id='why-mun'
-        className='pt-10'
-        style={{
-          minHeight: '100vh',
-          background: theme.palette.background.pinkish,
-        }}
-      >
-        <WhyMun />
-      </div>
+
       <div className='flex flex-wrap justify-center h-auto'>
         <Banner
           backgrounds={[
@@ -177,7 +176,6 @@ export default () => {
       >
         <HomeBlogs />
       </div>
-      
     </Wrapper>
   )
 }
