@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
       width: '97vw',
     },
     minHeight: '100px',
-    backgroundColor: theme.palette.background.pinkish,
+    backgroundColor: theme.palette.background.lightPinkish,
     border: `1px solid ${theme.palette.border.pinkish}`,
     boxShadow: theme.palette.boxShadow.content,
     borderRadius: '15px',

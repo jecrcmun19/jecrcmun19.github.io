@@ -15,7 +15,8 @@ const theme = createMuiTheme({
     },
     background: {
       default: '#fff',
-      pinkish: '#FFF5F8',
+      pinkish: '#ffe4ec',
+      lightPinkish: '#FFF5F8',
     },
     glare: {
       main: 'rgba(0, 0, 0, 0.87)',
