@@ -35,12 +35,12 @@ const useStyles = makeStyles(theme => ({
   },
   containerCard: {
     border: '1px solid grey',
-    borderRadius: '12px 12px 0px 0px',
+    borderRadius: '12px',
     marginBottom: theme.spacing(5),
     marginTop: theme.spacing(5),
     marginRight: theme.spacing(2),
     position: 'relative',
-    maxHeight: '500px',
+    maxHeight: '450px',
     '&:hover > div': {
       background: 'rgba(217, 8, 69, 0.7)',
     },
@@ -53,7 +53,8 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(2),
     width: '450px',
     [theme.breakpoints.down('xs')]: {
-      width: '90%',
+      width: '300px',
+      maxHeight: '300px',
       marginRight: theme.spacing(0),
       marginLeft: theme.spacing(0),
     },
@@ -63,8 +64,12 @@ const useStyles = makeStyles(theme => ({
   blogImage: {
     width: '100%',
     height: '450px',
+    transition: 'all 0.3s ease-out',
+    [theme.breakpoints.down('xs')]: {
+      height: '300px',
+    },
     background: '#000',
-    borderRadius: '12px 12px 0 0',
+    borderRadius: '12px',
   },
   bottomText: {
     position: 'absolute',
@@ -72,7 +77,8 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     color: '#FFF',
     height: '100px',
-    borderRadius: '12px 12px 0 0',
+    transition: 'all 0.3s ease-out',
+    borderRadius: '12px',
     background: 'rgba(0, 0, 0, 0.7)',
     padding: theme.spacing(0.5),
   },
