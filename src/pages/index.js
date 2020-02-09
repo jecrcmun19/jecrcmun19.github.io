@@ -41,12 +41,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: 35,
     },
   },
-  FontCalendar: {
-    [theme.breakpoints.up('md')]: {
-      fontSize: 30,
-    },
-  },
-  FontLocation: {
+  FontIcons: {
     [theme.breakpoints.up('md')]: {
       fontSize: 30,
     },
@@ -116,14 +111,14 @@ export default () => {
         </div>
         <div className='my-10'>
           <Typography
-            className={classNames('text-white', classes.FontCalendar)}
+            className={classNames('text-white', classes.FontIcons)}
             variant='h6'
           >
             <LocationIcon color='primary' /> Jaipur Engineering College and
             Research Center, Jaipur
           </Typography>
           <Typography
-            className={classNames('text-white', classes.FontLocation)}
+            className={classNames('text-white', classes.FontIcons)}
             variant='h6'
           >
             <CalendarIcon color='primary' /> 11th - 12th April 2020
