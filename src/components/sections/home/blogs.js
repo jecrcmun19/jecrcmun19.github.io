@@ -6,6 +6,7 @@ import blogData from '../../../data/blog-home-data'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import classnames from 'classnames'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -95,55 +96,59 @@ const HomeBlogs = () => {
   return (
     <Grid container>
       <Grid item xs={12} className='text-center py-10'>
-        <Typography style={{ color: '#000a2a' }} variant='h4'>
-          Blogs
-        </Typography>
-        <img
-          src='/images/line.png'
-          className='mx-auto'
-          alt='---------------------'
-        />
+        <Fade bottom cascade>
+          <Typography style={{ color: '#000a2a' }} variant='h4'>
+            Blogs
+          </Typography>
+          <img
+            src='/images/line.png'
+            className='mx-auto'
+            alt='---------------------'
+          />
+        </Fade>
       </Grid>
       <Grid container justify='center' className={classes.root}>
-        {blogData.map((blog, index) => (
-          <div key={index} className={classes.containerCard}>
-            <img
-              alt={blog.blogTitle}
-              src={`/images/${blog.image}`}
-              className={classnames(['mx-auto', classes.blogImage])}
-            />
+        <Fade bottom>
+          {blogData.map((blog, index) => (
+            <div key={index} className={classes.containerCard}>
+              <img
+                alt={blog.blogTitle}
+                src={`/images/${blog.image}`}
+                className={classnames(['mx-auto', classes.blogImage])}
+              />
 
-            <div className={classes.contentContainer}>
-              {/* <Typography className={classes.blogDate} align='left' variant='h6'>
+              <div className={classes.contentContainer}>
+                {/* <Typography className={classes.blogDate} align='left' variant='h6'>
               Date
             </Typography> */}
-              <Typography
-                align='left'
-                className={classes.blogTitle}
-                variant='h6'
-              >
-                {blog.blogTitle}
-              </Typography>
-              <Typography
-                align='justify'
-                component='p'
-                className={classes.blogContent}
-                variant='subtitle1'
-              >
-                {blog.description}
-              </Typography>
+                <Typography
+                  align='left'
+                  className={classes.blogTitle}
+                  variant='h6'
+                >
+                  {blog.blogTitle}
+                </Typography>
+                <Typography
+                  align='justify'
+                  component='p'
+                  className={classes.blogContent}
+                  variant='subtitle1'
+                >
+                  {blog.description}
+                </Typography>
+              </div>
+              <div className={classes.btnContainer}>
+                <Button
+                  component={Link}
+                  to={blog.btnLink}
+                  className={classes.blogBtn}
+                >
+                  Read More
+                </Button>
+              </div>
             </div>
-            <div className={classes.btnContainer}>
-              <Button
-                component={Link}
-                to={blog.btnLink}
-                className={classes.blogBtn}
-              >
-                Read More
-              </Button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </Fade>
       </Grid>
     </Grid>
   )

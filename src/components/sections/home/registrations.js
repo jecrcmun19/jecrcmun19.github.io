@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 
 import theme from '../../../theme'
 import { Link } from 'gatsby'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles({
   card: {
@@ -73,57 +74,64 @@ function Registrations(props) {
         minHeight: '100vh',
       }}
     >
-      <Typography
-        variant='h4'
-        style={{ color: '#000a2a' }}
-        className='pt-5'
-        color='primary'
-      >
-        Registrations
-      </Typography>
-      <img
-        src='/images/line.png'
-        className='mx-auto pb-5'
-        alt='---------------------'
-      />
+      <Fade cascade bottom>
+        <Typography
+          variant='h4'
+          style={{ color: '#000a2a' }}
+          className='pt-5'
+          color='primary'
+        >
+          Registrations
+        </Typography>
+        <img
+          src='/images/line.png'
+          className='mx-auto pb-5'
+          alt='---------------------'
+        />
+      </Fade>
       <div className='flex flex-wrap justify-center'>
-        {data.map(section => (
-          <Card
-            raised={true}
-            className={classnames([
-              'my-10 mx-10 justify-center text-center flex flex-col',
-              classes.card,
-            ])}
-          >
-            <div
-              className={classnames(['m-0 flex justify-center', classes.curve])}
+        <Fade cascade bottom>
+          {data.map(section => (
+            <Card
+              raised={true}
+              className={classnames([
+                'my-10 mx-10 justify-center text-center flex flex-col',
+                classes.card,
+              ])}
             >
-              <Typography variant='h6' className='p-5 text-white'>
-                {section.title}
-              </Typography>
-            </div>
-            <img
-              src={section.img}
-              alt={section.title}
-              className={classnames(['mx-auto my-10', classes.imgStyle])}
-            />
-            <div className='w-full my-5'>
-              <Typography className='text-white'>
-                {section.info ? section.info : null}
-              </Typography>
-            </div>
-            <div className='mt-auto mb-10'>
-              <Button
-                variant='outlined'
-                component={Link}
-                to={section.btnLink}
-                className={classes.button}
+              <div
+                className={classnames([
+                  'm-0 flex justify-center',
+                  classes.curve,
+                ])}
               >
-                {section.btn}
-              </Button>
-            </div>
-          </Card>
-        ))}
+                <Typography variant='h6' className='p-5 text-white'>
+                  {section.title}
+                </Typography>
+              </div>
+              <img
+                src={section.img}
+                alt={section.title}
+                className={classnames(['mx-auto my-10', classes.imgStyle])}
+              />
+              <div className='w-full my-5'>
+                <Typography className='text-white'>
+                  {section.info ? section.info : null}
+                </Typography>
+              </div>
+              <div className='mt-auto mb-10'>
+                <Button
+                  variant='outlined'
+                  component={Link}
+                  to={section.btnLink}
+                  className={classes.button}
+                >
+                  {section.btn}
+                </Button>
+              </div>
+            </Card>
+          ))}{' '}
+        </Fade>
       </div>
     </div>
   )

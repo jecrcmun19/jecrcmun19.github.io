@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
-
+import Slide from 'react-reveal/Slide'
 const styles = theme => ({
   borderRound: {
     color: '#D90845',
@@ -79,7 +79,7 @@ class Countdown extends React.Component {
     }
 
     return (
-      <React.Fragment>
+      <Slide top cascade>
         <div className={classes.countdown}>
           {days && (
             <div className={classes.borderRound}>
@@ -128,7 +128,7 @@ class Countdown extends React.Component {
             </div>
           )}
         </div>
-      </React.Fragment>
+      </Slide>
     )
   }
 }

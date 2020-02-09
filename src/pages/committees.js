@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 
 import CardContent from '@material-ui/core/CardContent'
 import Card from '@material-ui/core/Card'
@@ -109,12 +108,6 @@ function CountryMatrix() {
   }
   return (
     <Wrapper>
-      <Helmet>
-        {/* <link
-          href='https://fonts.googleapis.com/css?family=Rubik&display=swap'
-          rel='stylesheet'
-        /> */}
-      </Helmet>
       <Banner
         backgrounds={[
           `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,

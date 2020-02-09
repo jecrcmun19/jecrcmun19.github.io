@@ -7,6 +7,8 @@ import { makeStyles, Typography, useTheme } from '@material-ui/core'
 import sponsorsData from '../data/sponsors-data'
 import classnames from 'classnames'
 import Helmet from 'react-helmet'
+import Fade from 'react-reveal/Fade'
+
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
     color: '#D90845',
@@ -85,17 +87,19 @@ function Sponsors(props) {
                 {data.year}
               </Typography>
               <div className='py-5 flex flex-wrap justify-center'>
-                {data.sponsors.map(sponsor => {
-                  return (
-                    <div className='m-5'>
-                      <img
-                        src={`/images/${sponsor}.png`}
-                        alt={sponsor}
-                        className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
-                      />
-                    </div>
-                  )
-                })}
+                <Fade bottom cascade>
+                  {data.sponsors.map(sponsor => {
+                    return (
+                      <div className='m-5'>
+                        <img
+                          src={`/images/${sponsor}.png`}
+                          alt={sponsor}
+                          className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
+                        />
+                      </div>
+                    )
+                  })}
+                </Fade>
               </div>
             </React.Fragment>
           )

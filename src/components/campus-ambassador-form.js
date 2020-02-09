@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import classnames from 'classnames'
 import FormCompleted from './form-completed'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -76,32 +77,33 @@ export default function CampusAmbassadorForm() {
       fluid={image.sharp.fluid}
       durationFadeIn={50}
     >
-      <ContentBox className={classnames(['my-16', classes.content])}>
-        <div>
-          <Typography variant='body1' component='p' paragraph>
-            Roles of our Campus Ambassador
-          </Typography>
-          <ol className='ml-4 list-decimal'>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                Promote JECRC MUN 2020 to your institution.
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                Help facilitate registrations in your campus and others.
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                Perform Weekly Tasks.
-              </Typography>
-            </li>
-          </ol>
-          <Typography variant='body1' component='p' paragraph>
-            Benefits of being an Ambassador
-          </Typography>
-          {/* <ol className='ml-4 list-decimal'>
+      <Fade bottom cascade>
+        <ContentBox className={classnames(['my-16', classes.content])}>
+          <div>
+            <Typography variant='body1' component='p' paragraph>
+              Roles of our Campus Ambassador
+            </Typography>
+            <ol className='ml-4 list-decimal'>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  Promote JECRC MUN 2020 to your institution.
+                </Typography>
+              </li>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  Help facilitate registrations in your campus and others.
+                </Typography>
+              </li>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  Perform Weekly Tasks.
+                </Typography>
+              </li>
+            </ol>
+            <Typography variant='body1' component='p' paragraph>
+              Benefits of being an Ambassador
+            </Typography>
+            {/* <ol className='ml-4 list-decimal'>
             <li>
               <Typography variant='body1' component='p' paragraph>
                 A campus ambassador will be given a unique ambassador badge,
@@ -128,11 +130,14 @@ export default function CampusAmbassadorForm() {
               </Typography>
             </li>
           </ol> */}
-          <Typography>Will be declared soon....</Typography>
-        </div>
-      </ContentBox>
+            <Typography>Will be declared soon....</Typography>
+          </div>
+        </ContentBox>
+      </Fade>
       {completed ? (
-        <FormCompleted />
+        <Fade bottom>
+          <FormCompleted />
+        </Fade>
       ) : (
         <ContentBox className='mb-16'>
           <form className={classes.form} onSubmit={handleSubmit}>
