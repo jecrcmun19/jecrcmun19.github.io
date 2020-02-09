@@ -117,14 +117,15 @@ export default () => {
           />
         </div>
       </Banner>
-      <div id='about'>
+      <div
+        id='about'
+        style={{
+          minHeight: '100vh',
+          background: theme.palette.background.pinkish,
+        }}
+      >
         <About />
-        <div
-          id='why-mun'
-          style={{
-            background: theme.palette.background.pinkish,
-          }}
-        >
+        <div>
           <WhyMun />
         </div>
       </div>
