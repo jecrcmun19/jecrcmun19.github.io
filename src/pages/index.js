@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "'Rubik' , sans-serif",
     fontWeight: 'bold',
     fontSize: '24px',
-    lineHeight: '28px',
+    lineHeight: '58px',
     [theme.breakpoints.up('md')]: {
       fontSize: 35,
     },
