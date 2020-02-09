@@ -26,6 +26,11 @@ const useStyles = makeStyles(theme => ({
   },
   borderStyle: {
     border: '5px solid #D90845',
+    width: 270,
+    [theme.breakpoints.up('xl')]: {
+      width: 400,
+      height: 200,
+    },
   },
   textStyle: {
     color: '#D90845',
@@ -231,15 +236,13 @@ function Sponsors(props) {
         <div className='py-5 flex flex-wrap justify-center'>
           {sponsorsData.map(sponsor => {
             return (
-              <React.Fragment>
-                <div className='m-8'>
-                  <img
-                    src={`/images/${sponsor}.png`}
-                    alt={sponsor}
-                    className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
-                  />
-                </div>
-              </React.Fragment>
+              <div>
+                <img
+                  src={`/images/${sponsor}.png`}
+                  alt={sponsor}
+                  className={`bg-white h-40 p-5 m-8 ${classes.borderStyle}`}
+                />
+              </div>
             )
           })}
         </div>
