@@ -15,7 +15,7 @@ import Helmet from 'react-helmet'
 import ContentBox from '../components/content-box'
 import InputField from '../components/input-field'
 import FormCompleted from '../components/form-completed'
-import GetAppIcon from '@material-ui/icons/GetApp'
+// import GetAppIcon from '@material-ui/icons/GetApp'
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
     color: '#D90845',
@@ -39,12 +39,12 @@ const useStyles = makeStyles(theme => ({
   smallLabel: {
     fontSize: '0.9rem',
   },
-  button: {
-    width: 200,
-    height: 65,
-    backgroundColor: '#D90845',
-    color: '#fff',
-  },
+  // button: {
+  //   width: 200,
+  //   height: 65,
+  //   backgroundColor: '#D90845',
+  //   color: '#fff',
+  // },
 }))
 
 function SponsorsForm() {
@@ -232,7 +232,7 @@ function Sponsors(props) {
           {sponsorsData.map(sponsor => {
             return (
               <React.Fragment>
-                <div className='m-5'>
+                <div className='m-8'>
                   <img
                     src={`/images/${sponsor}.png`}
                     alt={sponsor}
@@ -243,14 +243,14 @@ function Sponsors(props) {
             )
           })}
         </div>
-        <div className='flex justify-center'>
+        {/* <div className='flex justify-center'>
           <Button variant='contained' className={classes.button}>
             <div className='flex justify-center'>
               <GetAppIcon />
             </div>
             <Typography>SPONSORSHIP BROCHURE</Typography>
           </Button>
-        </div>
+        </div> */}
         <SponsorsForm />
       </BackgroundImage>
     </Wrapper>
