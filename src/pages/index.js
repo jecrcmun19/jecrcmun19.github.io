@@ -70,7 +70,7 @@ export default () => {
           }
         }
       }
-      ambassadorImage: file(relativePath: { eq: "banners/chief-guest.jpg" }) {
+      ambassadorImage: file(relativePath: { eq: "banners/ambassador.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -146,6 +146,15 @@ export default () => {
           </div>
         </Banner>
       </div>
+      <div
+        id='registrations'
+        style={{
+          minHeight: '100vh',
+          background: theme.palette.background.pinkish,
+        }}
+      >
+        <Registrations />
+      </div>
       <div className='flex flex-wrap justify-center h-auto'>
         <Banner
           backgrounds={[
@@ -161,13 +170,14 @@ export default () => {
         </Banner>
       </div>
       <div
-        id='registrations'
+        id='blogs'
+        className='pt-10'
         style={{
           minHeight: '100vh',
           background: theme.palette.background.pinkish,
         }}
       >
-        <Registrations />
+        <HomeBlogs />
       </div>
       <div id='committees' className='flex flex-wrap justify-center h-auto'>
         <Banner
@@ -182,16 +192,6 @@ export default () => {
             <Committees />
           </div>
         </Banner>
-      </div>
-      <div
-        id='blogs'
-        className='pt-10'
-        style={{
-          minHeight: '100vh',
-          background: theme.palette.background.pinkish,
-        }}
-      >
-        <HomeBlogs />
       </div>
     </Wrapper>
   )

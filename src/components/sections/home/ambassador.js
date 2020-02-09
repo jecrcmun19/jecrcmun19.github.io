@@ -1,7 +1,6 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import LocalLibraryIcon from '@material-ui/icons/LocalLibrary'
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle'
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard'
 import EmojiEventsRoundedIcon from '@material-ui/icons/EmojiEventsRounded'
