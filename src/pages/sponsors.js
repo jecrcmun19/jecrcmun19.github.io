@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Wrapper from '../components/wrapper'
 import Banner from '../components/banner'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
   makeStyles,
@@ -15,7 +14,10 @@ import Helmet from 'react-helmet'
 import ContentBox from '../components/content-box'
 import InputField from '../components/input-field'
 import FormCompleted from '../components/form-completed'
+import classnames from 'classnames'
 // import GetAppIcon from '@material-ui/icons/GetApp'
+import Grid from '@material-ui/core/Grid'
+
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
     color: '#D90845',
@@ -23,6 +25,9 @@ const useStyles = makeStyles(theme => ({
     // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
   },
   borderStyle: {
     border: '5px solid #D90845',
@@ -186,16 +191,9 @@ function SponsorsForm() {
 function Sponsors(props) {
   const classes = useStyles(props)
   const theme = useTheme()
-  const { image, bgImage } = useStaticQuery(graphql`
+  const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/about.jpg" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      bgImage: file(relativePath: { eq: "pages-background.png" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -228,10 +226,13 @@ function Sponsors(props) {
           JECRC MUN 2020
         </Typography>
       </Banner>
-      <BackgroundImage
-        className='flex flex-col justify-center items-center'
-        fluid={bgImage.sharp.fluid}
-        durationFadeIn={50}
+      <Grid
+        className={classnames([
+          'flex flex-col justify-center items-center',
+          classes.container,
+        ])}
+        // fluid={bgImage.sharp.fluid}
+        // durationFadeIn={50}
       >
         <div className='py-5 flex flex-wrap justify-center'>
           {sponsorsData.map(sponsor => {
@@ -255,7 +256,7 @@ function Sponsors(props) {
           </Button>
         </div> */}
         <SponsorsForm />
-      </BackgroundImage>
+      </Grid>
     </Wrapper>
   )
 }

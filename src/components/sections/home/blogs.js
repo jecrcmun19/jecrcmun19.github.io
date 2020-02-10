@@ -96,7 +96,7 @@ const HomeBlogs = () => {
     <Grid container>
       <Grid item xs={12} className='text-center py-10'>
         <Typography style={{ color: '#000a2a' }} variant='h4'>
-          Blogs
+          Informational Resources
         </Typography>
         <img
           src='/images/line.png'

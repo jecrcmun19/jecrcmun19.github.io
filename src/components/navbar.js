@@ -153,12 +153,7 @@ function NavBarWeb(props) {
           <Dropdown name='about' handleClose={handleClose} />
         )}
       </ListItem>
-      <ListItem
-        component={Link}
-        to='/#committees'
-        className={classes.navItem}
-        className={classes.navItem}
-      >
+      <ListItem component={Link} to='/#committees' className={classes.navItem}>
         <Typography variant='subtitle2' className={classes.headerItems}>
           Committees
         </Typography>

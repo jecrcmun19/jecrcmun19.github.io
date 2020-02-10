@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import BackgroundImage from 'gatsby-background-image'
 import Typography from '@material-ui/core/Typography'
 import ContentBox from './content-box'
 import InputField from './input-field'
@@ -15,6 +13,7 @@ import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import classnames from 'classnames'
 import FormCompleted from './form-completed'
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -32,6 +31,9 @@ const useStyles = makeStyles(theme => ({
       },
     },
     checked: {},
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
   },
 }))
 
@@ -140,17 +142,6 @@ export default function ExecutiveBoard() {
   const [completed, setCompleted] = useState(false)
   const [error, setError] = useState(false)
 
-  const { image } = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "pages-background.png" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
   const handleRadioChange = e => {
     const { name, value } = e.target
     if (name === 'firstPref') {
@@ -202,10 +193,11 @@ export default function ExecutiveBoard() {
       })
   }
   return (
-    <BackgroundImage
-      className='flex flex-col justify-center items-center'
-      fluid={image.sharp.fluid}
-      durationFadeIn={50}
+    <Grid
+      className={classnames([
+        'flex flex-col justify-center items-center',
+        classes.container,
+      ])}
     >
       <ContentBox className={classnames(['my-16', classes.content])}>
         <div>
@@ -373,7 +365,7 @@ export default function ExecutiveBoard() {
           </form>
         </ContentBox>
       )}
-    </BackgroundImage>
+    </Grid>
   )
 }
 

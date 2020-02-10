@@ -107,47 +107,52 @@ export default function Header(props) {
     }
   }, [matches])
 
+  const brandClasses = classnames('inline-flex items-center', {
+    'mr-auto': !matches,
+  })
   return (
-    <ThemeProvider theme={scrollY === 0 ? transparentTheme : blackTheme}>
-      <AppBar position='fixed' className={appbarClases}>
-        <Toolbar className={classes.root}>
-          <Link to='/'>
-            <img
-              src='/images/munLogo.png'
-              alt='Mun Logo'
-              className={classes.imageProperties}
-            />
-          </Link>
-          <div className='ml-3'>
-            {!matches && verySmallView ? (
-              <Typography variant='h6' noWrap className={classes.eventName}>
-                JECRC MUN
-              </Typography>
-            ) : null}
-          </div>
-          {!matches ? (
-            <IconButton
-              color='inherit'
-              aria-label='open drawer'
-              edge='end'
-              onClick={handleDrawerOpen}
-              className={open ? classes.hide : classes.show}
-            >
-              <MenuIcon />
-            </IconButton>
-          ) : (
-            <NavBarWeb handleClick={handleClick} />
-          )}
-        </Toolbar>
-        {open ? (
-          <MobileViewDrawer
-            handleDrawerClose={handleDrawerClose}
-            open={open}
-            handleClick={handleClick}
-            openDropDown={openDropDown}
-          />
-        ) : null}
-      </AppBar>
-    </ThemeProvider>
+    <>
+      <MobileViewDrawer
+        handleDrawerClose={handleDrawerClose}
+        open={open}
+        handleClick={handleClick}
+        openDropDown={openDropDown}
+      />
+      <ThemeProvider theme={scrollY === 0 ? transparentTheme : blackTheme}>
+        <AppBar position='fixed' className={appbarClases}>
+          <Toolbar className={classes.root}>
+            <div className={brandClasses}>
+              <Link to='/'>
+                <img
+                  src='/images/munLogo.png'
+                  alt='Mun Logo'
+                  className={classes.imageProperties}
+                />
+              </Link>
+              <div className='ml-3'>
+                {!matches && verySmallView ? (
+                  <Typography variant='h6' noWrap>
+                    JECRC MUN
+                  </Typography>
+                ) : null}
+              </div>
+            </div>
+            {matches ? (
+              <NavBarWeb handleClick={handleClick} />
+            ) : (
+              <IconButton
+                color='inherit'
+                aria-label='open drawer'
+                edge='end'
+                onClick={handleDrawerOpen}
+                className={open ? classes.hide : classes.show}
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
+          </Toolbar>
+        </AppBar>
+      </ThemeProvider>
+    </>
   )
 }
