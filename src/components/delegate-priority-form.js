@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import BackgroundImage from 'gatsby-background-image'
 import Typography from '@material-ui/core/Typography'
 import ContentBox from './content-box'
 import InputField from './input-field'
 import Radio from '@material-ui/core/Radio'
+import Grid from '@material-ui/core/Grid'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
@@ -32,6 +31,9 @@ const useStyles = makeStyles(theme => ({
   },
   feesText: {
     fontWeight: '500',
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
   },
 }))
 
@@ -137,17 +139,6 @@ export default function DelegatePriorityForm() {
   const [completed, setCompleted] = useState(false)
   const [error, setError] = useState(false)
 
-  const { image } = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "pages-background.png" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
   const handleRadioChange = e => {
     const { name, value } = e.target
     if (name === 'firstPref') {
@@ -199,10 +190,11 @@ export default function DelegatePriorityForm() {
       })
   }
   return (
-    <BackgroundImage
-      className='flex flex-col justify-center items-center'
-      fluid={image.sharp.fluid}
-      durationFadeIn={50}
+    <Grid
+      className={[
+        'flex flex-col justify-center items-center',
+        classes.container,
+      ]}
     >
       <ContentBox className='my-16'>
         <div>
@@ -431,7 +423,7 @@ export default function DelegatePriorityForm() {
           </form>
         </ContentBox>
       )}
-    </BackgroundImage>
+    </Grid>
   )
 }
 

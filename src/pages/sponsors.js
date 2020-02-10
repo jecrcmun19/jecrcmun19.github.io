@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Wrapper from '../components/wrapper'
 import Banner from '../components/banner'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
-import { makeStyles, Typography, useTheme } from '@material-ui/core'
+import {
+  makeStyles,
+  Typography,
+  useTheme,
+  Button,
+  CircularProgress,
+} from '@material-ui/core'
 import sponsorsData from '../data/sponsors-data'
-import classnames from 'classnames'
 import Helmet from 'react-helmet'
+import ContentBox from '../components/content-box'
+import InputField from '../components/input-field'
+import FormCompleted from '../components/form-completed'
+import classnames from 'classnames'
+// import GetAppIcon from '@material-ui/icons/GetApp'
+import Grid from '@material-ui/core/Grid'
+
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
     color: '#D90845',
@@ -15,29 +26,173 @@ const useStyles = makeStyles(theme => ({
     fontSize: 60,
     lineHeight: '71px',
   },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
+  },
   borderStyle: {
     border: '5px solid #D90845',
+    width: 270,
+    [theme.breakpoints.up('xl')]: {
+      width: 400,
+      height: 200,
+    },
   },
   textStyle: {
     color: '#D90845',
     fontWeight: 'bolder',
     textAlign: 'center',
   },
+  form: {
+    width: '100%',
+    maxWidth: '700px',
+  },
+  smallLabel: {
+    fontSize: '0.9rem',
+  },
+  // button: {
+  //   width: 200,
+  //   height: 65,
+  //   backgroundColor: '#D90845',
+  //   color: '#fff',
+  // },
 }))
+
+function SponsorsForm() {
+  const classes = useStyles()
+  const organization = useForm('')
+  const fullName = useForm('')
+  const email = useForm('')
+  const contact = useForm('')
+  const altContact = useForm('')
+  const subject = useForm('')
+  const message = useForm('')
+
+  const [loading, setLoading] = useState(false)
+  const [completed, setCompleted] = useState(false)
+  const [error, setError] = useState(false)
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    setLoading(true)
+    fetch(
+      'https://script.google.com/macros/s/AKfycbxXJsDB8OLnfjFxnc93dM8owvtGf62c7PfsQVJ5LVHBxGa6B4o/exec',
+      {
+        method: 'POST',
+        body: new FormData(form),
+      },
+    )
+      .then(res => {
+        setLoading(false)
+        setCompleted(true)
+      })
+      .catch(err => {
+        console.error(err)
+        setLoading(false)
+        setError(true)
+      })
+  }
+  return (
+    <div>
+      {completed ? (
+        <FormCompleted />
+      ) : (
+        <ContentBox className='m-16'>
+          <Typography variant='h6' style={{ color: '#D90845' }}>
+            Become Our Sponsor
+          </Typography>
+          <form className={classes.form} onSubmit={handleSubmit}>
+            <InputField
+              required
+              label='Name of the Organization'
+              name='organization'
+              {...organization}
+            />
+            <InputField
+              required
+              label='Full Name'
+              autoComplete='name'
+              name='fullName'
+              {...fullName}
+            />
+            <InputField
+              required
+              label='Email ID'
+              type='email'
+              name='email'
+              {...email}
+            />
+            <InputField
+              required
+              label='Contact No.'
+              type='tel'
+              name='contact'
+              {...contact}
+            />
+            <InputField
+              label='Alternative Contact No.'
+              type='tel'
+              name='altContact'
+              {...altContact}
+            />
+            <InputField
+              required
+              label='Subject'
+              name='subject'
+              rowsMax={6}
+              {...subject}
+              InputLabelProps={{
+                classes: {
+                  root: classes.smallLabel,
+                },
+              }}
+            />
+            <InputField
+              label='Body'
+              name='message'
+              multiline
+              rowsMax={6}
+              {...message}
+              InputLabelProps={{
+                classes: {
+                  root: classes.smallLabel,
+                },
+              }}
+            />
+            <div className='mt-6 text-center'>
+              {loading ? (
+                <CircularProgress />
+              ) : (
+                <Button
+                  type='submit'
+                  color='primary'
+                  variant='contained'
+                  size='large'
+                >
+                  Submit
+                </Button>
+              )}
+              <div>
+                {error ? (
+                  <Typography variant='h6' component='p' color='error'>
+                    Cannot submit form. Please refresh the page and try again.
+                  </Typography>
+                ) : null}
+              </div>
+            </div>
+          </form>
+        </ContentBox>
+      )}
+    </div>
+  )
+}
 
 function Sponsors(props) {
   const classes = useStyles(props)
   const theme = useTheme()
-  const { image, bgImage } = useStaticQuery(graphql`
+  const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/about.jpg" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      bgImage: file(relativePath: { eq: "pages-background.png" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -70,39 +225,48 @@ function Sponsors(props) {
           JECRC MUN 2020
         </Typography>
       </Banner>
-      <BackgroundImage
-        className='flex flex-col justify-center items-center'
-        fluid={bgImage.sharp.fluid}
-        durationFadeIn={50}
+      <Grid
+        className={classnames([
+          'flex flex-col justify-center items-center',
+          classes.container,
+        ])}
+        // fluid={bgImage.sharp.fluid}
+        // durationFadeIn={50}
       >
-        {sponsorsData.map(data => {
-          return (
-            <React.Fragment>
-              <Typography
-                variant='h4'
-                className={classnames([classes.textStyle, 'py-10'])}
-              >
-                {data.year}
-              </Typography>
-              <div className='py-5 flex flex-wrap justify-center'>
-                {data.sponsors.map(sponsor => {
-                  return (
-                    <div className='m-5'>
-                      <img
-                        src={`/images/${sponsor}.png`}
-                        alt={sponsor}
-                        className={`bg-white h-32 w-64 p-5 ${classes.borderStyle}`}
-                      />
-                    </div>
-                  )
-                })}
+        <div className='py-5 flex flex-wrap justify-center'>
+          {sponsorsData.map(sponsor => {
+            return (
+              <div>
+                <img
+                  src={`/images/${sponsor}.png`}
+                  alt={sponsor}
+                  className={`bg-white h-40 p-5 m-8 ${classes.borderStyle}`}
+                />
               </div>
-            </React.Fragment>
-          )
-        })}
-      </BackgroundImage>
+            )
+          })}
+        </div>
+        {/* <div className='flex justify-center'>
+          <Button variant='contained' className={classes.button}>
+            <div className='flex justify-center'>
+              <GetAppIcon />
+            </div>
+            <Typography>SPONSORSHIP BROCHURE</Typography>
+          </Button>
+        </div> */}
+        <SponsorsForm />
+      </Grid>
     </Wrapper>
   )
+}
+
+function useForm(initialValue) {
+  const [value, setValue] = useState(initialValue)
+
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
+  return { value, onChange: handleChange }
 }
 
 export default Sponsors

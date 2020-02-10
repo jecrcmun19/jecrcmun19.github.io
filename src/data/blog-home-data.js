@@ -1,7 +1,7 @@
 const blogData = [
   {
     blogTitle: 'What is MUN?',
-    description: `Have you recently heard about MUN and are curious to know what they are? Then this blog will give you an insight into the fascinating world of MUN. MUN or Model United Nations is the model of United Nations proceedings that help you experience the environment of a UN  `,
+    description: `Have you recently heard about MUN and are curious to know what they are? Then this blog will give you an insight into the fascinating world of MUN. MUN or Model United Nations is the model of United Nations proceedings that help you experience the environment of a UN conference. It simulates various councils  `,
     btnLink: '/blogs/MUN',
     image: 'MUN.jpg',
   },
