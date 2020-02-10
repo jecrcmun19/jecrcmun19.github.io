@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles'
-import BackgroundImage from 'gatsby-background-image'
 import Typography from '@material-ui/core/Typography'
 import ContentBox from './content-box'
 import InputField from './input-field'
@@ -13,6 +11,7 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
+import Grid from '@material-ui/core/Grid'
 import FormCompleted from './form-completed'
 
 const useStyles = makeStyles(theme => ({
@@ -37,6 +36,9 @@ const useStyles = makeStyles(theme => ({
       },
     },
     checked: {},
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
   },
 }))
 
@@ -69,17 +71,6 @@ export default function PressApplicationForm() {
   const [completed, setCompleted] = useState(false)
   const [error, setError] = useState(false)
 
-  const { image } = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "pages-background.png" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
   const handleSubmit = e => {
     e.preventDefault()
     const form = e.target
@@ -102,10 +93,11 @@ export default function PressApplicationForm() {
       })
   }
   return (
-    <BackgroundImage
-      className='flex flex-col justify-center items-center'
-      fluid={image.sharp.fluid}
-      durationFadeIn={50}
+    <Grid
+      className={[
+        'flex flex-col justify-center items-center',
+        classes.container,
+      ]}
     >
       <ContentBox className={classnames(['my-16', classes.content])}>
         <div>
@@ -345,7 +337,7 @@ export default function PressApplicationForm() {
           </form>
         </ContentBox>
       )}
-    </BackgroundImage>
+    </Grid>
   )
 }
 

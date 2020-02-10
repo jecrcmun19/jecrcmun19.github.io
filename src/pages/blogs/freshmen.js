@@ -5,7 +5,6 @@ import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { graphql, useStaticQuery } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
 
 import Wrapper from '../../components/wrapper'
 import Banner from '../../components/banner'
@@ -19,21 +18,17 @@ const useStyles = makeStyles(theme => ({
     fontSize: 60,
     lineHeight: '71px',
   },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
+  },
 }))
 
 function Freshmen() {
   const classes = useStyles()
   const theme = useTheme()
-  const { image, bgImage } = useStaticQuery(graphql`
+  const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/about.jpg" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      bgImage: file(relativePath: { eq: "pages-background.png" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -66,10 +61,11 @@ function Freshmen() {
           BLOGS
         </Typography>
       </Banner>
-      <BackgroundImage
-        className='flex flex-col justify-center items-center'
-        fluid={bgImage.sharp.fluid}
-        durationFadeIn={50}
+      <Grid
+        className={[
+          'flex flex-col justify-center items-center',
+          classes.container,
+        ]}
       >
         <ContentBox className='my-16'>
           <Typography
@@ -157,7 +153,7 @@ function Freshmen() {
             </Grid>
           </Grid>
         </ContentBox>
-      </BackgroundImage>
+      </Grid>
     </Wrapper>
   )
 }
