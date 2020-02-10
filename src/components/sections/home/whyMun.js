@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   containerContent: {
     color: theme.palette.primary.main,
 
-    '&:hover > div > h6, &:hover > div > p': {
+    '&:hover > div > div': {
       backgroundColor: theme.palette.primary.main,
       color: 'white',
       transition: '1s',
@@ -29,7 +29,7 @@ function WhyMun() {
     <div
       className='text-center'
       style={{
-        minHeight: '60vh',
+        minHeight: '70vh',
       }}
     >
       <Typography
@@ -46,74 +46,80 @@ function WhyMun() {
         alt='---------------------'
       />
       <Grid container justify='center'>
-        <Grid item md={4}>
-          <div
-            className={`my-10 mx-10 justify-center text-center flex flex-col ${classes.containerContent}`}
-          >
-            <div className='flex justify-center'>
-              <p
-                className={`rounded-full h-32 w-32 bg-white flex items-center justify-center ${classes.borderPink}`}
-              >
-                <CastForEducationIcon style={{ fontSize: '50px' }} />
-              </p>
-            </div>
-            <div className='w-full my-5 text-black'>
-              <Typography variant='h5'>Skills</Typography>
-            </div>
-            <div className='text-black'>
-              JECRC MUN is an ideal place to hone your public speaking, writing
-              and analytical skills. All writing piece will involve your
-              research and analytical abilities. Public speaking is a
-              fundamental part of the conference and it requires you to adapt to
-              several situations to have a strong and effective debate.
+        <Grid
+          item
+          md={4}
+          className={`my-10 mx-10 justify-center text-center flex flex-col ${classes.containerContent}`}
+        >
+          <div className='flex justify-center'>
+            <div
+              className={`rounded-full h-32 w-32 bg-white flex items-center justify-center ${classes.borderPink}`}
+            >
+              <CastForEducationIcon style={{ fontSize: '50px' }} />
             </div>
           </div>
+          <div className='my-5'>
+            <Typography variant='h5' color='textPrimary'>
+              Skills
+            </Typography>
+          </div>
+          <Typography color='textPrimary'>
+            JECRC MUN is an ideal place to hone your public speaking, writing
+            and analytical skills. All writing piece will involve your research
+            and analytical abilities. Public speaking is a fundamental part of
+            the conference and it requires you to adapt to several situations to
+            have a strong and effective debate.
+          </Typography>
         </Grid>
-        <Grid item md={4}>
-          <div
-            className={`my-10 mx-10 justify-center text-center flex flex-col ${classes.containerContent}`}
-          >
-            <div className='flex justify-center'>
-              <p
-                className={`rounded-full h-32 w-32 bg-white flex items-center justify-center ${classes.borderPink}`}
-              >
-                <GroupIcon style={{ fontSize: '50px' }} />
-              </p>
-            </div>
-            <div className='w-full my-5 text-black'>
-              <Typography variant='h5'>Networking</Typography>
-            </div>
-            <div className='text-black'>
-              JECRC MUN will provide you with an opportunity to meet many
-              talented people throughout the country, discover new cultures and
-              their different perspective. You can grow your network for the
-              future by making new contacts. You also build precious memories
-              and friendships that will last forever.
+        <Grid
+          item
+          md={4}
+          className={`my-10 mx-10 justify-center text-center flex flex-col ${classes.containerContent}`}
+        >
+          <div className='flex justify-center'>
+            <div
+              className={`rounded-full h-32 w-32 bg-white flex items-center justify-center ${classes.borderPink}`}
+            >
+              <GroupIcon style={{ fontSize: '50px' }} />
             </div>
           </div>
+          <div className='my-5'>
+            <Typography variant='h5' color='textPrimary'>
+              Networking
+            </Typography>
+          </div>
+          <Typography color='textPrimary'>
+            JECRC MUN will provide you with an opportunity to meet many talented
+            people throughout the country, discover new cultures and their
+            different perspective. You can grow your network for the future by
+            making new contacts. You also build precious memories and
+            friendships that will last forever.
+          </Typography>
         </Grid>
-        <Grid item md={4}>
-          <div
-            className={`my-10 mx-10 justify-center text-center flex flex-col ${classes.containerContent}`}
-          >
-            <div className='flex justify-center'>
-              <p
-                className={`rounded-full h-32 w-32 bg-white flex items-center justify-center ${classes.borderPink}`}
-              >
-                <LocalLibraryIcon style={{ fontSize: '50px' }} />
-              </p>
-            </div>
-            <div className='w-full my-5 text-black'>
-              <Typography variant='h5'>Learn from others</Typography>
-            </div>
-            <div className='text-black'>
-              Model UN is a great educational tool that provides extremely
-              valuable benefits to students. At JECRC MUN, students learn from
-              each other. MUN conferences are fun and during the conference, you
-              will meet other delegates and senior delegates who can help you in
-              learning new things.
+        <Grid
+          item
+          md={4}
+          className={`my-10 mx-10 justify-center text-center flex flex-col ${classes.containerContent}`}
+        >
+          <div className='flex justify-center'>
+            <div
+              className={`rounded-full h-32 w-32 bg-white flex items-center justify-center ${classes.borderPink}`}
+            >
+              <LocalLibraryIcon style={{ fontSize: '50px' }} />
             </div>
           </div>
+          <div className='my-5'>
+            <Typography variant='h5' color='textPrimary'>
+              Learn from others
+            </Typography>
+          </div>
+          <Typography color='textPrimary'>
+            Model UN is a great educational tool that provides extremely
+            valuable benefits to students. At JECRC MUN, students learn from
+            each other. MUN conferences are fun and during the conference, you
+            will meet other delegates and senior delegates who can help you in
+            learning new things.
+          </Typography>
         </Grid>
       </Grid>
     </div>
