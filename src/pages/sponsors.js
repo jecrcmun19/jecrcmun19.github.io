@@ -63,9 +63,9 @@ function SponsorsForm() {
   const fullName = useForm('')
   const email = useForm('')
   const contact = useForm('')
-  const alterContact = useForm('')
+  const altContact = useForm('')
   const subject = useForm('')
-  const body = useForm('')
+  const message = useForm('')
 
   const [loading, setLoading] = useState(false)
   const [completed, setCompleted] = useState(false)
@@ -76,7 +76,7 @@ function SponsorsForm() {
     const form = e.target
     setLoading(true)
     fetch(
-      'https://script.google.com/macros/s/AKfycbzkamvbxoXTmOqKlhgCEwpoTKT4Jmekz6_HEdYCKeMhoHepNPO8/exec',
+      'https://script.google.com/macros/s/AKfycbxXJsDB8OLnfjFxnc93dM8owvtGf62c7PfsQVJ5LVHBxGa6B4o/exec',
       {
         method: 'POST',
         body: new FormData(form),
@@ -105,7 +105,7 @@ function SponsorsForm() {
             <InputField
               required
               label='Name of the Organization'
-              name='organizationName'
+              name='organization'
               {...organization}
             />
             <InputField
@@ -130,11 +130,10 @@ function SponsorsForm() {
               {...contact}
             />
             <InputField
-              required
               label='Alternative Contact No.'
               type='tel'
-              name='alternateContact'
-              {...alterContact}
+              name='altContact'
+              {...altContact}
             />
             <InputField
               required
@@ -150,10 +149,10 @@ function SponsorsForm() {
             />
             <InputField
               label='Body'
-              name='body'
+              name='message'
               multiline
               rowsMax={6}
-              {...body}
+              {...message}
               InputLabelProps={{
                 classes: {
                   root: classes.smallLabel,
