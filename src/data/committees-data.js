@@ -50,3 +50,40 @@ export const CommitteLogo = {
   4: 'images/committee-05.png',
   5: 'images/committee-06.png',
 }
+
+export const CommitteesData = [
+  {
+    title: 'UNSC',
+    img: '/images/unsc.jpg',
+    agenda: 'Climate Change as a Threat to International Peace and Security',
+  },
+  {
+    title: 'UNODC',
+
+    img: '/images/csw.jpg',
+    agenda: 'Piracy and Maritime Crime in the Indian Ocean',
+  },
+  {
+    title: 'DISEC',
+    img: '/images/pmo.jpg',
+    agenda: 'Use of AI and unmanned aerial vehicle in armed conflict',
+  },
+  {
+    title: 'UNCSW',
+    img: '/images/unhrc.jpg',
+    agenda:
+      'Social protectoin systems, access to public services and sustainable infrastructure for gender equality',
+  },
+  {
+    title: 'WHO',
+
+    img: '/images/ga.jpg',
+    agenda: 'Ebola epidemic in Western Africa',
+  },
+  {
+    title: 'AIPPM',
+    img: '/images/loksabha.jpg',
+    agenda:
+      'Discussing the policy making approach of the NDA govt( special emphasis on the economic policies and Security',
+  },
+]

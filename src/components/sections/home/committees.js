@@ -1,140 +1,101 @@
 import React from 'react'
-
-import CardContent from '@material-ui/core/CardContent'
-import Card from '@material-ui/core/Card'
+import { CommitteesData } from '../../../data/committees-data'
 import makeStyles from '@material-ui/styles/makeStyles'
 import Grid from '@material-ui/core/Grid'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
+
 import Typography from '@material-ui/core/Typography'
 import classnames from 'classnames'
 import Fade from 'react-reveal/Fade'
-import {
-  Committe,
-  CommitteName,
-  Agenda,
-  CommitteLogo,
-} from '../../../data/committees-data'
+import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
-  primaryBackgroundColor: {
-    background: '#D90845',
-  },
-  cardContainer: {
-    width: '65vw',
-    [theme.breakpoints.down('md')]: {
-      width: '80vw',
+  containerCard: {
+    borderRadius: '12px',
+    '&:hover > div ': {
+      visibility: 'visible',
+      background: 'grey',
+      marginTop: '-200px',
+      bottom: 0,
+      height: '100px',
+      transition: 'all 0.3s ease-out',
+      borderRadius: '12px',
+      width: '250px',
     },
-    [theme.breakpoints.down('sm')]: {
-      width: '90vw',
+    '&:hover > .socialIcon ': {
+      visibility: 'visible',
     },
-    [theme.breakpoints.down('xs')]: {
-      width: '95vw',
+    '&:hover > img': {
+      filter: `brightness(0.7) drop-shadow(0 0 6px #000)`,
     },
-  },
-  tabsTextProperty: {
-    fontSize: '1.1rem',
-    fontWeight: '500',
-    color: '#FFF',
-  },
-  paddingZero: {
-    padding: 0,
-  },
-  content: {
-    [theme.breakpoints.up('md')]: {
-      fontSize: '1rem',
-    },
-    [theme.breakpoints.up('lg')]: {
-      fontSize: '1.3rem',
+    '&:hover > button': {
+      color: '#fff',
+      backgroundColor: '#D90845',
     },
   },
-  name: {
-    fontWeight: 'bold',
-    [theme.breakpoints.up('md')]: {
-      fontSize: '1.5rem',
-    },
+
+  socialIcon: {
+    background: 'transparent',
+  },
+  blogImage: {
+    transition: 'all 0.3s ease-out',
+    background: '#000',
+    borderRadius: '12px',
+  },
+  bottomText: {
+    visibility: 'hidden',
   },
 }))
 
-function CountryMatrix() {
+function CommitteeMatrix() {
   const classes = useStyles()
-
-  const [value, setValue] = React.useState(0)
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
   return (
-    <>
-      <div className='text-center my-10 text-white'>
-        <Fade bottom cascade>
-          <Typography variant='h4'>Committees</Typography>
-          <img
-            src='/images/line.png'
-            className='mx-auto'
-            alt='---------------------'
-          />
-        </Fade>
-      </div>
-      <Card
-        raised={true}
-        className={classnames([classes.cardContainer, 'my-10 mx-auto'])}
-      >
-        <CardContent className={classes.paddingZero}>
+    <div className='text-center py-10'>
+      <Fade bottom cascade>
+        <Typography
+          variant='h4'
+          style={{ color: '#000a2a' }}
+          className='pt-5'
+          color='primary'
+        >
+          Communities
+        </Typography>
+        <img
+          src='/images/line.png'
+          className='mx-auto pb-5'
+          alt='---------------------'
+        />
+      </Fade>
+      <Grid container justify='center'>
+        {CommitteesData.map(data => (
           <Grid
-            container
+            item
+            md={4}
+            key={data.title}
             justify='center'
-            className={classnames([classes.primaryBackgroundColor, 'py-3'])}
+            direction='column'
+            className={classnames(['m-10 p-10', classes.containerCard])}
           >
-            <Tabs
-              value={value}
-              variant='scrollable'
-              onChange={handleChange}
-              indicatorColor='#FFFF8C'
-              scrollButtons='desktop'
-            >
-              <Tab className={classes.tabsTextProperty} label='UNSC' />
-              <Tab className={classes.tabsTextProperty} label='UNODC' />
-              <Tab className={classes.tabsTextProperty} label='DISEC' />
-              <Tab className={classes.tabsTextProperty} label='UNCSW' />
-              <Tab className={classes.tabsTextProperty} label='WHO' />
-              <Tab className={classes.tabsTextProperty} label='AIPPM' />
-            </Tabs>
+            <img
+              src={data.img}
+              className={classnames(['h-64 w-64', classes.blogImage])}
+            />
+
+            <div className='my-5' className={classes.bottomText}>
+              <Typography variant='h5' color='textPrimary'>
+                {data.title}
+              </Typography>
+
+              <Typography color='textPrimary'>{data.agenda}</Typography>
+            </div>
+
+            <Button variant='contained' className={classes.socialIcon}>
+              View CommunityMatrix
+            </Button>
           </Grid>
-          <div className='mx-auto text-justify p-5 md:p-10'>
-            <Fade bottom cascade>
-              <Grid container justify='center' alignContent='space-around'>
-                <Grid item xs={12}>
-                  <img
-                    src={CommitteLogo[value]}
-                    alt={CommitteLogo[value]}
-                    className='w-48 h-48 mx-auto'
-                  />
-                </Grid>
-                <Grid item className='text-center'>
-                  <Typography variant='h6' className={classes.name}>
-                    {CommitteName[value]}
-                  </Typography>
-                  <Typography
-                    variant='subtitle2'
-                    className={classnames([
-                      'italic pt-1 pb-5',
-                      classes.content,
-                    ])}
-                  >
-                    Agenda - {Agenda[value]}
-                  </Typography>
-                </Grid>
-                <Grid item className={classes.content}>
-                  {Committe[value]}
-                </Grid>
-              </Grid>
-            </Fade>
-          </div>
-        </CardContent>
-      </Card>
-    </>
+        ))}
+      </Grid>
+    </div>
   )
 }
 
-export default CountryMatrix
+export default CommunityMatrix
