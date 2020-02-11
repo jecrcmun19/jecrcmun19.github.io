@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     width: '300px',
     borderBottom: '10px solid #d90845',
     borderRadius: '20px',
+    height: '460px',
   },
   curve: {
     backgroundColor: theme.palette.primary.main,
