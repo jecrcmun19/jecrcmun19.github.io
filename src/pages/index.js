@@ -24,8 +24,8 @@ import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
   munLogo: {
-    height: '180px',
-    [theme.breakpoints.down('md')]: {
+    height: '200px',
+    [theme.breakpoints.down('lg')]: {
       height: '150px',
     },
     [theme.breakpoints.down('sm')]: {
