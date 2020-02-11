@@ -18,11 +18,15 @@ const useStyles = makeStyles(theme => ({
   },
   diplomacyTextProperty: {
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: '1.25rem',
     fontWeight: 'bold',
-    lineHeight: '28px',
+
     color: theme.palette.font.primary,
     letterSpacing: '0.08em',
+    fontSize: '24px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
+    },
   },
 }))
 

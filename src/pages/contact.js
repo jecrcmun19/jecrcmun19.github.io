@@ -19,6 +19,10 @@ const useStyles = makeStyles(theme => ({
     // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+    letterSpacing: '0.08em',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 80,
+    },
   },
   container: {
     backgroundColor: theme.palette.background.pinkish,
@@ -53,7 +57,7 @@ function Contact(props) {
   const [error, setError] = useState(false)
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/about.jpg" }) {
+      image: file(relativePath: { eq: "banners/contact.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -106,7 +110,7 @@ function Contact(props) {
         >
           CONTACT US
         </Typography>
-        bgImage
+
         <Typography className='text-white' variant='h5'>
           JECRC MUN 2020
         </Typography>

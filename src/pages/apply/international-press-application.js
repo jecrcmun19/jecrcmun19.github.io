@@ -19,11 +19,15 @@ const useStyles = makeStyles(theme => ({
   },
   diplomacyTextProperty: {
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: '1.25rem',
     fontWeight: 'bold',
-    lineHeight: '28px',
+
     color: theme.palette.font.primary,
     letterSpacing: '0.08em',
+    fontSize: '24px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
+    },
   },
 }))
 
@@ -31,7 +35,7 @@ export default () => {
   const classes = useStyles()
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/registration-form-bg.jpg" }) {
+      image: file(relativePath: { eq: "banners/registration-form-bg4.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp

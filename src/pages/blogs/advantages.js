@@ -17,6 +17,10 @@ const useStyles = makeStyles(theme => ({
     // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+    letterSpacing: '0.08em',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 80,
+    },
   },
   container: {
     backgroundColor: theme.palette.background.pinkish,
@@ -28,7 +32,7 @@ function Advantages() {
   const theme = useTheme()
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/about.jpg" }) {
+      image: file(relativePath: { eq: "banners/blog1.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp

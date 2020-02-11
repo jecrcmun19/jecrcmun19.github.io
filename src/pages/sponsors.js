@@ -26,6 +26,11 @@ const useStyles = makeStyles(theme => ({
     // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+    lineHeight: '71px',
+    letterSpacing: '0.08em',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 80,
+    },
   },
   container: {
     backgroundColor: theme.palette.background.pinkish,
@@ -193,7 +198,7 @@ function Sponsors(props) {
   const theme = useTheme()
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/about.jpg" }) {
+      image: file(relativePath: { eq: "banners/img13.JPG" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -222,7 +227,7 @@ function Sponsors(props) {
         >
           OUR SPONSORS
         </Typography>
-        <Typography className='text-white' variant='h5'>
+        <Typography className='text-white' variant='h4'>
           JECRC MUN 2020
         </Typography>
       </Banner>

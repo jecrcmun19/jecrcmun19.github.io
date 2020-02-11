@@ -16,6 +16,11 @@ const useStyles = makeStyles(theme => ({
     // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+
+    letterSpacing: '0.08em',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 80,
+    },
   },
   container: {
     backgroundColor: theme.palette.background.pinkish,
