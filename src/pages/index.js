@@ -17,8 +17,8 @@ import VideoDialog from '../components/sections/home/videoDialog'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 import LocationIcon from '@material-ui/icons/PlaceOutlined'
-import WhyMun from '../components/sections/home/whyMun'
 import classNames from 'classnames'
+import MunExcellencies from '../components/sections/home/munExcellencies'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -143,9 +143,7 @@ export default () => {
         }}
       >
         <About />
-        <div>
-          <WhyMun />
-        </div>
+        <MunExcellencies />
       </div>
 
       <div className='flex flex-wrap justify-center h-auto'>
