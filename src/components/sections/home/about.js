@@ -33,9 +33,8 @@ export default () => {
         container
         style={{
           backgroundColor: theme.palette.background.pinkish,
-          minHeight: '100vh',
         }}
-        className='py-15 h-full'
+        className='pt-20 h-full'
         alignContent='center'
       >
         <Grid container>

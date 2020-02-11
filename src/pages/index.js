@@ -18,6 +18,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 import LocationIcon from '@material-ui/icons/PlaceOutlined'
 import classNames from 'classnames'
+import MunExcellencies from '../components/sections/home/munExcellencies'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -134,9 +135,17 @@ export default () => {
           />
         </div>
       </Banner>
-      <div id='about' style={{ minHeight: '100vh' }}>
+      <div
+        id='about'
+        style={{
+          minHeight: '100vh',
+          background: theme.palette.background.pinkish,
+        }}
+      >
         <About />
+        <MunExcellencies />
       </div>
+
       <div className='flex flex-wrap justify-center h-auto'>
         <Banner
           backgrounds={[
