@@ -17,11 +17,20 @@ import VideoDialog from '../components/sections/home/videoDialog'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 import LocationIcon from '@material-ui/icons/PlaceOutlined'
-import classNames from 'classnames'
+import classnames from 'classnames'
 import MunExcellencies from '../components/sections/home/munExcellencies'
 import Ambassador from '../components/sections/home/ambassador'
 
 const useStyles = makeStyles(theme => ({
+  munLogo: {
+    height: '180px',
+    [theme.breakpoints.down('md')]: {
+      height: '150px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      height: '120px',
+    },
+  },
   munTextProperty: {
     color: theme.palette.primary.main,
     fontWeight: 'bold',
@@ -55,6 +64,7 @@ export default () => {
   const classes = useStyles()
   const theme = useTheme()
   const matches = useMediaQuery('(min-width:640px)')
+  const logoMatches = useMediaQuery('(min-height:600px)')
   const {
     image,
     chiefGuestImage,
@@ -112,10 +122,17 @@ export default () => {
         ]}
         className='flex flex-col justify-center item-center'
       >
+        {logoMatches && (
+          <img
+            src='images/mun-logo-white.png'
+            className={classnames(['mx-auto mt-10 w-auto', classes.munLogo])}
+            alt='logo'
+          />
+        )}
         <div className='self-start self-center'>
           {matches && <Countdown date='11 April 2020 09:00:000 GMT+05:30' />}
         </div>
-        <div className='my-10'>
+        <div className='my-5'>
           <Typography className={classes.munTextProperty}>
             JECRC MUN 2020
           </Typography>
@@ -123,16 +140,16 @@ export default () => {
             Diplomacy At It’s Zenith
           </Typography>
         </div>
-        <div className='my-10'>
+        <div className='my-5'>
           <Typography
-            className={classNames('text-white', classes.FontInfo)}
+            className={classnames('text-white', classes.FontInfo)}
             variant='h6'
           >
             <LocationIcon color='primary' /> Jaipur Engineering College and
             Research Center, Jaipur
           </Typography>
           <Typography
-            className={classNames('text-white', classes.FontInfo)}
+            className={classnames('text-white', classes.FontInfo)}
             variant='h6'
           >
             <CalendarIcon color='primary' /> 11th - 12th April 2020
