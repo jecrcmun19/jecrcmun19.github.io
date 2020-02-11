@@ -18,6 +18,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 import LocationIcon from '@material-ui/icons/PlaceOutlined'
 import WhyMun from '../components/sections/home/whyMun'
+import classNames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -27,13 +28,24 @@ const useStyles = makeStyles(theme => ({
     fontSize: 60,
     lineHeight: '71px',
     letterSpacing: '0.08em',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 80,
+    },
   },
   diplomacyTextProperty: {
     color: '#fff',
     fontFamily: "'Rubik' , sans-serif",
     fontWeight: 'bold',
     fontSize: '24px',
-    lineHeight: '28px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
+    },
+  },
+  FontInfo: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: 30,
+    },
   },
 }))
 
@@ -99,11 +111,17 @@ export default () => {
           </Typography>
         </div>
         <div className='my-10'>
-          <Typography className='text-white' variant='h6'>
+          <Typography
+            className={classNames('text-white', classes.FontInfo)}
+            variant='h6'
+          >
             <LocationIcon color='primary' /> Jaipur Engineering College and
             Research Center, Jaipur
           </Typography>
-          <Typography className='text-white' variant='h6'>
+          <Typography
+            className={classNames('text-white', classes.FontInfo)}
+            variant='h6'
+          >
             <CalendarIcon color='primary' /> 11th - 12th April 2020
           </Typography>
         </div>

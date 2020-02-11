@@ -16,15 +16,11 @@ import { Link } from 'gatsby'
 const drawerWidth = 240
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    alignContent: 'center',
-  },
   headerItems: {
-    // fontFamily: "'Rubik', sans-serif",
     paddingBottom: 0,
     color: '#FFF',
     paddingTop: 0,
+    textTransform: 'uppercase',
   },
   drawer: {
     width: drawerWidth,
@@ -71,13 +67,11 @@ function MobileViewDrawer(props) {
     if (!open) handleDropDownClose()
   }, [open])
   return (
-    <ClickAwayListener onClickAway={handleDrawerClose}>
-      <div className={classes.root}>
         <Drawer
-          className={classes.drawer}
-          variant='persistent'
+      variant='temporary'
           anchor='right'
           open={open}
+      onClose={handleDrawerClose}
           classes={{
             paper: classes.drawerPaper,
           }}
@@ -158,8 +152,6 @@ function MobileViewDrawer(props) {
           </List>
           <Divider />
         </Drawer>
-      </div>
-    </ClickAwayListener>
   )
 }
 

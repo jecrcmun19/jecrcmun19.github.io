@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import BackgroundImage from 'gatsby-background-image'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import Pulse from 'react-reveal/Pulse'
 
 const useStyles = makeStyles({
   header: {
@@ -27,9 +28,11 @@ function Banner(props) {
       fluid={props.backgrounds}
       durationFadeIn={50}
     >
-      <div className={classnames(['text-center', props.className])}>
-        {props.children}
-      </div>
+      <Pulse>
+        <div className={classnames(['text-center', props.className])}>
+          {props.children}
+        </div>
+      </Pulse>
     </BackgroundImage>
   )
 }

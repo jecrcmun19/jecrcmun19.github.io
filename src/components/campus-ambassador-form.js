@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles'
-import BackgroundImage from 'gatsby-background-image'
 import Typography from '@material-ui/core/Typography'
 import ContentBox from './content-box'
 import InputField from './input-field'
@@ -9,6 +7,8 @@ import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import classnames from 'classnames'
 import FormCompleted from './form-completed'
+import Fade from 'react-reveal/Fade'
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -20,6 +20,9 @@ const useStyles = makeStyles(theme => ({
   },
   smallLabel: {
     fontSize: '0.9rem',
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
   },
 }))
 
@@ -39,17 +42,6 @@ export default function CampusAmbassadorForm() {
   const [completed, setCompleted] = useState(false)
   const [error, setError] = useState(false)
 
-  const { image } = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "pages-background.png" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
   const handleSubmit = e => {
     e.preventDefault()
     const form = e.target
@@ -71,37 +63,39 @@ export default function CampusAmbassadorForm() {
       })
   }
   return (
-    <BackgroundImage
-      className='flex flex-col justify-center items-center'
-      fluid={image.sharp.fluid}
-      durationFadeIn={50}
+    <Grid
+      className={classnames([
+        'flex flex-col justify-center items-center',
+        classes.container,
+      ])}
     >
-      <ContentBox className={classnames(['my-16', classes.content])}>
-        <div>
-          <Typography variant='body1' component='p' paragraph>
-            Roles of our Campus Ambassador
-          </Typography>
-          <ol className='ml-4 list-decimal'>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                Promote JECRC MUN 2020 to your institution.
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                Help facilitate registrations in your campus and others.
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                Perform Weekly Tasks.
-              </Typography>
-            </li>
-          </ol>
-          <Typography variant='body1' component='p' paragraph>
-            Benefits of being an Ambassador
-          </Typography>
-          {/* <ol className='ml-4 list-decimal'>
+      <Fade bottom cascade>
+        <ContentBox className={classnames(['my-16', classes.content])}>
+          <div>
+            <Typography variant='body1' component='p' paragraph>
+              Roles of our Campus Ambassador
+            </Typography>
+            <ol className='ml-4 list-decimal'>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  Promote JECRC MUN 2020 to your institution.
+                </Typography>
+              </li>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  Help facilitate registrations in your campus and others.
+                </Typography>
+              </li>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  Perform Weekly Tasks.
+                </Typography>
+              </li>
+            </ol>
+            <Typography variant='body1' component='p' paragraph>
+              Benefits of being an Ambassador
+            </Typography>
+            {/* <ol className='ml-4 list-decimal'>
             <li>
               <Typography variant='body1' component='p' paragraph>
                 A campus ambassador will be given a unique ambassador badge,
@@ -128,11 +122,14 @@ export default function CampusAmbassadorForm() {
               </Typography>
             </li>
           </ol> */}
-          <Typography>Will be declared soon....</Typography>
-        </div>
-      </ContentBox>
+            <Typography>Will be declared soon....</Typography>
+          </div>
+        </ContentBox>
+      </Fade>
       {completed ? (
-        <FormCompleted />
+        <Fade bottom>
+          <FormCompleted />
+        </Fade>
       ) : (
         <ContentBox className='mb-16'>
           <form className={classes.form} onSubmit={handleSubmit}>
@@ -263,7 +260,7 @@ export default function CampusAmbassadorForm() {
           </form>
         </ContentBox>
       )}
-    </BackgroundImage>
+    </Grid>
   )
 }
 
