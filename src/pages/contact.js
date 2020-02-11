@@ -3,7 +3,6 @@ import Wrapper from '../components/wrapper'
 import InputField from '../components/input-field'
 import Banner from '../components/banner'
 import ContentBox from '../components/content-box'
-import BackgroundImage from 'gatsby-background-image'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -20,6 +19,9 @@ const useStyles = makeStyles(theme => ({
     // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
   },
   formContainer: {
     maxWidth: '100%',
@@ -49,16 +51,9 @@ function Contact(props) {
   const [loading, setLoading] = useState(false)
   const [completed, setCompleted] = useState(false)
   const [error, setError] = useState(false)
-  const { image, bgImage } = useStaticQuery(graphql`
+  const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/about.jpg" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      bgImage: file(relativePath: { eq: "pages-background.png" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -111,14 +106,16 @@ function Contact(props) {
         >
           CONTACT US
         </Typography>
+        bgImage
         <Typography className='text-white' variant='h5'>
           JECRC MUN 2020
         </Typography>
       </Banner>
-      <BackgroundImage
-        className='flex flex-col justify-center items-center'
-        fluid={bgImage.sharp.fluid}
-        durationFadeIn={50}
+      <Grid
+        className={[
+          'flex flex-col justify-center items-center',
+          classes.container,
+        ]}
       >
         <Grid
           container
@@ -204,7 +201,7 @@ function Contact(props) {
             ></iframe>
           </Grid>
         </Grid>
-      </BackgroundImage>
+      </Grid>
     </Wrapper>
   )
 }

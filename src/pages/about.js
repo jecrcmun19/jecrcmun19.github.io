@@ -1,7 +1,6 @@
 import React from 'react'
 import Wrapper from '../components/wrapper'
 import Banner from '../components/banner'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
@@ -18,19 +17,27 @@ const useStyles = makeStyles(theme => ({
     fontSize: 60,
     lineHeight: '71px',
   },
-  paper: {
+  container: {
     backgroundColor: theme.palette.background.pinkish,
+    padding: theme.spacing(8),
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
+  },
+  paper: {
+    backgroundColor: theme.palette.background.lightPinkish,
     border: `1px solid ${theme.palette.border.pinkish}`,
     boxShadow: theme.palette.boxShadow.content,
     borderRadius: '15px',
     width: '70vw',
-    margin: '30px',
+    margin: 'auto',
     [theme.breakpoints.down('sm')]: {
-      margin: '20px',
+      margin: 'auto',
       width: '90vw',
     },
     [theme.breakpoints.down('xs')]: {
-      margin: '10px',
+      margin: 'auto',
       width: '97vw',
     },
   },
@@ -39,16 +46,9 @@ const useStyles = makeStyles(theme => ({
 function About() {
   const classes = useStyles()
   const theme = useTheme()
-  const { image, bgImage } = useStaticQuery(graphql`
+  const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/about.jpg" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      bgImage: file(relativePath: { eq: "pages-background.png" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -81,11 +81,7 @@ function About() {
           ABOUT US
         </Typography>
       </Banner>
-      <BackgroundImage
-        className='flex flex-col justify-center items-center'
-        fluid={bgImage.sharp.fluid}
-        durationFadeIn={50}
-      >
+      <Grid className={classes.container} justify='center'>
         <Paper elevation={5} className={classnames([classes.paper])}>
           <Typography
             style={{
@@ -152,7 +148,7 @@ function About() {
             </Grid>
           </Grid>
         </Paper>
-      </BackgroundImage>
+      </Grid>
     </Wrapper>
   )
 }

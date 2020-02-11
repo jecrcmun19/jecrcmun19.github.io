@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles'
-import BackgroundImage from 'gatsby-background-image'
 import Typography from '@material-ui/core/Typography'
 import ContentBox from './content-box'
 import InputField from './input-field'
@@ -10,6 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import classnames from 'classnames'
 import FormCompleted from './form-completed'
 import Fade from 'react-reveal/Fade'
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -21,6 +20,9 @@ const useStyles = makeStyles(theme => ({
   },
   smallLabel: {
     fontSize: '0.9rem',
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
   },
 }))
 
@@ -40,17 +42,6 @@ export default function CampusAmbassadorForm() {
   const [completed, setCompleted] = useState(false)
   const [error, setError] = useState(false)
 
-  const { image } = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "pages-background.png" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
   const handleSubmit = e => {
     e.preventDefault()
     const form = e.target
@@ -72,10 +63,11 @@ export default function CampusAmbassadorForm() {
       })
   }
   return (
-    <BackgroundImage
-      className='flex flex-col justify-center items-center'
-      fluid={image.sharp.fluid}
-      durationFadeIn={50}
+    <Grid
+      className={classnames([
+        'flex flex-col justify-center items-center',
+        classes.container,
+      ])}
     >
       <Fade bottom cascade>
         <ContentBox className={classnames(['my-16', classes.content])}>
@@ -268,7 +260,7 @@ export default function CampusAmbassadorForm() {
           </form>
         </ContentBox>
       )}
-    </BackgroundImage>
+    </Grid>
   )
 }
 

@@ -98,7 +98,7 @@ const HomeBlogs = () => {
       <Grid item xs={12} className='text-center py-10'>
         <Fade bottom cascade>
           <Typography style={{ color: '#000a2a' }} variant='h4'>
-            Blogs
+            Informational Resources
           </Typography>
           <img
             src='/images/line.png'

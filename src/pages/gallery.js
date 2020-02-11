@@ -1,7 +1,6 @@
 import React, { useState, useLayoutEffect, useEffect } from 'react'
 import Wrapper from '../components/wrapper'
 import Banner from '../components/banner'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
@@ -16,6 +15,9 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
   },
   imageContainer: {
     width: '25%',
@@ -49,7 +51,7 @@ const useStyles = makeStyles(theme => ({
 function Gallery() {
   const classes = useStyles()
   const theme = useTheme()
-  const { image, bgImage, gallery } = useStaticQuery(graphql`
+  const { image, gallery } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/about.jpg" }) {
         sharp: childImageSharp {
@@ -58,13 +60,7 @@ function Gallery() {
           }
         }
       }
-      bgImage: file(relativePath: { eq: "pages-background.png" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
+
       gallery: allFile(filter: { relativeDirectory: { eq: "gallery" } }) {
         images: nodes {
           sharp: childImageSharp {
@@ -99,10 +95,11 @@ function Gallery() {
           GALLERY
         </Typography>
       </Banner>
-      <BackgroundImage
-        className='flex flex-col justify-center items-center'
-        fluid={bgImage.sharp.fluid}
-        durationFadeIn={50}
+      <Grid
+        className={[
+          'flex flex-col justify-center items-center',
+          classes.container,
+        ]}
       >
         <Grid
           container
@@ -124,7 +121,7 @@ function Gallery() {
             </Grid>
           ))}
         </Grid>
-      </BackgroundImage>
+      </Grid>
     </Wrapper>
   )
 }
