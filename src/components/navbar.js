@@ -1,5 +1,4 @@
 import React from 'react'
-import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import ListItem from '@material-ui/core/ListItem'
 import List from '@material-ui/core/List'
@@ -51,6 +50,11 @@ const dropdownList = {
     {
       name: 'PRIORITY DELEGATE',
       link: '/apply/delegate-priority-register',
+      type: 'gatsby',
+    },
+    {
+      name: 'INTERNATIONAL PRESS',
+      link: '/apply/international-press-application',
       type: 'gatsby',
     },
     {
@@ -138,6 +142,7 @@ function NavBarWeb(props) {
         component='div'
         onMouseLeave={handleClose}
         onMouseOver={e => handleOnMouse('about')}
+        onFocus={e => handleOnMouse('about')}
         className={classes.navItem}
       >
         <Typography
@@ -162,6 +167,7 @@ function NavBarWeb(props) {
         component='div'
         onMouseLeave={handleClose}
         onMouseOver={e => handleOnMouse('registrations')}
+        onFocus={e => handleOnMouse('registrations')}
         className={classes.navItem}
       >
         <Typography

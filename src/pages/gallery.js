@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect } from 'react'
+import React from 'react'
 import Wrapper from '../components/wrapper'
 import Banner from '../components/banner'
 import { graphql, useStaticQuery } from 'gatsby'

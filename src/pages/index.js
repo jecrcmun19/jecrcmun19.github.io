@@ -20,6 +20,7 @@ import LocationIcon from '@material-ui/icons/PlaceOutlined'
 import classnames from 'classnames'
 import MunExcellencies from '../components/sections/home/munExcellencies'
 import Ambassador from '../components/sections/home/ambassador'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
   munLogo: {
@@ -123,11 +124,13 @@ export default () => {
         className='flex flex-col justify-center item-center'
       >
         {logoMatches && (
-          <img
-            src='images/mun-logo-white.png'
-            className={classnames(['mx-auto mt-10 w-auto', classes.munLogo])}
-            alt='logo'
-          />
+          <Fade top>
+            <img
+              src='images/mun-logo-white.png'
+              className={classnames(['mx-auto mt-10 w-auto', classes.munLogo])}
+              alt='logo'
+            />
+          </Fade>
         )}
         <div className='self-start self-center'>
           {matches && <Countdown date='11 April 2020 09:00:000 GMT+05:30' />}

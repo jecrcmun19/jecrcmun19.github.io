@@ -8,7 +8,6 @@ import CloseSharp from '@material-ui/icons/CloseSharp'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import CollapseDropDown from './collapse'
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 import ExpandLess from '@material-ui/icons/ExpandLess'
 import { Link } from 'gatsby'
@@ -67,91 +66,91 @@ function MobileViewDrawer(props) {
     if (!open) handleDropDownClose()
   }, [open])
   return (
-        <Drawer
+    <Drawer
       variant='temporary'
-          anchor='right'
-          open={open}
+      anchor='right'
+      open={open}
       onClose={handleDrawerClose}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-        >
-          <div className={classes.drawerHeader}>
-            <IconButton onClick={handleDrawerClose} className={classes.close}>
-              <CloseSharp className={classes.close} />
-            </IconButton>
-          </div>
-          <Divider />
-          <List className={classes.headerItems}>
-            {[
-              { name: 'HOME', link: '/' },
+      classes={{
+        paper: classes.drawerPaper,
+      }}
+    >
+      <div className={classes.drawerHeader}>
+        <IconButton onClick={handleDrawerClose} className={classes.close}>
+          <CloseSharp className={classes.close} />
+        </IconButton>
+      </div>
+      <Divider />
+      <List className={classes.headerItems}>
+        {[
+          { name: 'HOME', link: '/' },
+          {
+            name: 'ABOUT',
+            link: '/#about',
+            items: [
+              { name: 'JECRC MUN', to: '/about' },
+              { name: 'OUR SPONSORS', to: '/sponsors' },
+            ],
+          },
+          { name: 'COMMITTEES', link: '/#committees' },
+          {
+            name: 'REGISTRATIONS',
+            link: '/#registrations',
+            items: [
               {
-                name: 'ABOUT',
-                link: '/#about',
-                items: [
-                  { name: 'JECRC MUN', to: '/about' },
-                  { name: 'OUR SPONSORS', to: '/sponsors' },
-                ],
+                name: 'PRIORITY DELEGATE',
+                to: '/apply/delegate-priority-register',
               },
-              { name: 'COMMITTEES', link: '/#committees' },
               {
-                name: 'REGISTRATIONS',
-                link: '/#registrations',
-                items: [
-                  {
-                    name: 'PRIORITY DELEGATE',
-                    to: '/apply/delegate-priority-register',
-                  },
-                  {
-                    name: 'CAMPUS AMBASSADOR',
-                    to: '/apply/campus-ambassador-application',
-                  },
-                  {
-                    name: 'INTERNATIONAL PRESS',
-                    to: '/apply/international-press-application',
-                  },
-                  {
-                    name: 'EXECUTIVE BOARD',
-                    to: '/apply/executive-board',
-                  },
-                ],
+                name: 'CAMPUS AMBASSADOR',
+                to: '/apply/campus-ambassador-application',
               },
-              { name: 'BLOGS', link: '/#blogs' },
-              { name: 'GALLERY', link: '/gallery' },
-              { name: 'CONTACT', link: '/contact' },
-            ].map((text, index) => (
-              <div key={index}>
-                <ListItem
-                  button
-                  component={Link}
-                  to={text.link}
-                  className={classes.listItem}
-                >
-                  <ListItemText primary={text.name} />
-                  {['ABOUT', 'REGISTRATIONS'].includes(text.name) ? (
-                    openDropDown && text.name === openFor ? (
-                      <ExpandLess onClick={handleDropDownClose} />
-                    ) : (
-                      <ExpandMore
-                        value={text.name}
-                        onClick={() => handleOpen(text.name)}
-                      />
-                    )
-                  ) : null}
-                </ListItem>
-                {openFor === text.name ? (
-                  <CollapseDropDown
-                    openDropDown={openDropDown}
-                    handleDrawerClose={handleDrawerClose}
-                    listOfItems={text.items}
-                    handleDropDownClose={handleDropDownClose}
+              {
+                name: 'INTERNATIONAL PRESS',
+                to: '/apply/international-press-application',
+              },
+              {
+                name: 'EXECUTIVE BOARD',
+                to: '/apply/executive-board',
+              },
+            ],
+          },
+          { name: 'BLOGS', link: '/#blogs' },
+          { name: 'GALLERY', link: '/gallery' },
+          { name: 'CONTACT', link: '/contact' },
+        ].map((text, index) => (
+          <div key={index}>
+            <ListItem
+              button
+              component={Link}
+              to={text.link}
+              className={classes.listItem}
+            >
+              <ListItemText primary={text.name} />
+              {['ABOUT', 'REGISTRATIONS'].includes(text.name) ? (
+                openDropDown && text.name === openFor ? (
+                  <ExpandLess onClick={handleDropDownClose} />
+                ) : (
+                  <ExpandMore
+                    value={text.name}
+                    onClick={() => handleOpen(text.name)}
                   />
-                ) : null}
-              </div>
-            ))}
-          </List>
-          <Divider />
-        </Drawer>
+                )
+              ) : null}
+            </ListItem>
+            {openFor === text.name ? (
+              <CollapseDropDown
+                openDropDown={openDropDown}
+                handleDrawerClose={handleDrawerClose}
+                listOfItems={text.items}
+                handleDropDownClose={handleDropDownClose}
+              />
+            ) : null}
+          </div>
+        ))}
+      </List>
+      <Divider />
+    </Drawer>
   )
 }
 

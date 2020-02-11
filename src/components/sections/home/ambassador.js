@@ -22,6 +22,14 @@ const useStyles = makeStyles(theme => ({
   borderPink: {
     border: `2px solid ${theme.palette.primary.main}`,
   },
+  content: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '1.3rem',
+    },
+  },
 }))
 
 function Ambassador() {
@@ -29,12 +37,12 @@ function Ambassador() {
   return (
     <div className='text-center py-10'>
       <Fade bottom cascade>
-        <Typography variant='h4' className='pt-5 text-white'>
+        <Typography variant='h4' className='pt-15 text-white'>
           Become Our Campus Ambassador
         </Typography>
         <img
           src='/images/line.png'
-          className='mx-auto pb-5'
+          className='mx-auto pb-20'
           alt='---------------------'
         />
       </Fade>
@@ -48,7 +56,7 @@ function Ambassador() {
             direction='column'
             className={classnames(['m-10 p-10', classes.containerContent])}
           >
-            <Fade bottom cascade>
+            <Fade bottom>
               <div
                 className={classnames([
                   ' mx-auto rounded-full h-32 w-32 bg-white flex items-center justify-center icon',
@@ -57,10 +65,16 @@ function Ambassador() {
               >
                 <data.icon style={{ fontSize: '70px' }} />
               </div>
+            </Fade>
+            <Fade bottom cascade>
               <div className='my-5 text-white'>
                 <Typography variant='h5'>{data.title}</Typography>
               </div>
-              <Typography className='text-white'>{data.desc}</Typography>
+              <Typography
+                className={classnames(['text-white', classes.content])}
+              >
+                {data.desc}
+              </Typography>
             </Fade>
           </Grid>
         ))}

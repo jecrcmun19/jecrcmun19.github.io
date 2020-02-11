@@ -93,7 +93,7 @@ function Advantages() {
               <div className='w-11/12 mx-auto'>
                 <img
                   src='/images/advantages.jpg'
-                  alt='blogger image'
+                  alt='blogger'
                   className='mx-auto h-40 sm:h-64 md:h-64 rounded-lg'
                 />
               </div>

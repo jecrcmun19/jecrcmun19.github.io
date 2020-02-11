@@ -15,6 +15,22 @@ const useStyles = makeStyles(theme => ({
     minWidth: '300px',
     border: '2px solid #fff',
   },
+  heading: {
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '3rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '2.5rem',
+    },
+  },
+  content: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '1.3rem',
+    },
+  },
 }))
 
 export default () => {
@@ -37,14 +53,18 @@ export default () => {
         className='pt-20 h-full'
         alignContent='center'
       >
-        <Grid container>
-          <Grid item md={2} sm={0} xs={0} />
-          <Grid item md={4} xs={12} className='p-5 text-center lg:text-left'>
+        <Grid container justify='center'>
+          <Grid item md={6} xs={12} className='p-5 text-center lg:text-left'>
             <Fade bottom cascade>
-              <Typography variant='subtitle1' className='italic'>
+              <Typography
+                variant='subtitle1'
+                className={classnames(['italic', classes.content])}
+              >
                 About Us
               </Typography>
-              <Typography variant='h4'>WELCOME TO JECRC MUN</Typography>
+              <Typography variant='h4' className={classes.heading}>
+                WELCOME TO JECRC MUN
+              </Typography>
               <img
                 src='/images/line.png'
                 className='mx-auto lg:m-0'
@@ -52,10 +72,20 @@ export default () => {
               />
             </Fade>
             <Fade bottom cascade>
-              <Typography className='text-center p-10 lg:text-left lg:pt-8 lg:pr-10 lg:pl-0'>
+              <Typography
+                className={classnames([
+                  'text-center p-10 lg:text-justify lg:pt-8 lg:pr-10 lg:pl-0',
+                  classes.content,
+                ])}
+              >
                 JECRC MUN is an eight years old legacy established in 2012,
                 making JECRC the first host of a MUN conference in Jaipur.
-                Inaugurated by the eminent educationist Shri Kul Bhushan Kothari
+                Inaugurated by the eminent educationist Shri Kul Bhushan
+                Kothari, JECRC MUN has spiraled out exponentially to achieve the
+                pinnacle of growth. With the zealous efforts of extensive
+                organizing committees over the 8 years of conducting MUN
+                conferences, we have gained a lot of momentum inviting immense
+                participation from across the country.
               </Typography>
               <Button
                 type='submit'
@@ -78,7 +108,6 @@ export default () => {
               />
             </Fade>
           </Grid>
-          <Grid item md={2} sm={0} xs={0} />
         </Grid>
         <Grid container justify='center' className='p-5 my-5'>
           {stats.map(stat => (

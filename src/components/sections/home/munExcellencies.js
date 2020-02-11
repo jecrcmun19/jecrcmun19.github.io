@@ -22,6 +22,14 @@ const useStyles = makeStyles(theme => ({
   borderPink: {
     border: `2px solid ${theme.palette.primary.main}`,
   },
+  content: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '1.3rem',
+    },
+  },
 }))
 
 function MunExcellencies() {
@@ -53,7 +61,7 @@ function MunExcellencies() {
             direction='column'
             className={classnames(['m-10 p-10', classes.containerContent])}
           >
-            <Fade bottom cascade>
+            <Fade bottom>
               <div
                 className={classnames([
                   ' mx-auto rounded-full h-32 w-32 bg-white flex items-center justify-center icon',
@@ -62,12 +70,16 @@ function MunExcellencies() {
               >
                 <data.icon style={{ fontSize: '70px' }} />
               </div>
+            </Fade>
+            <Fade bottom cascade>
               <div className='my-5'>
                 <Typography variant='h5' color='textPrimary'>
                   {data.title}
                 </Typography>
               </div>
-              <Typography color='textPrimary'>{data.desc}</Typography>
+              <Typography color='textPrimary' className={classes.content}>
+                {data.desc}
+              </Typography>
             </Fade>
           </Grid>
         ))}

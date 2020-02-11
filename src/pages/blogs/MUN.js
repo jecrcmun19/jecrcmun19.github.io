@@ -98,7 +98,7 @@ function Mun() {
               <div className='w-11/12 mx-auto'>
                 <img
                   src='/images/MUN.jpg'
-                  alt='blogger image'
+                  alt='blogger'
                   className='mx-auto h-40 sm:h-64 md:h-64 rounded-lg'
                 />
               </div>

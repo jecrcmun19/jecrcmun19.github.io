@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button'
 import theme from '../../../theme'
 import { Link } from 'gatsby'
 import Fade from 'react-reveal/Fade'
+import RegistrationsData from '../../../data/registrations'
 
 const useStyles = makeStyles({
   card: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
     borderTopRightRadius: 0,
   },
   imgStyle: {
-    height: '150px',
+    height: '130px',
     width: 'auto',
   },
   button: {
@@ -37,35 +38,6 @@ const useStyles = makeStyles({
 
 function Registrations(props) {
   const classes = useStyles(props)
-  const theme = useTheme()
-  const data = [
-    {
-      title: 'Delegate Registrations',
-      img: 'images/delegate.png',
-      info: 'Application Fees: 1400 /-',
-      btn: 'Apply Now',
-      btnLink: '/apply/delegate-priority-register',
-    },
-    {
-      title: 'Campus Ambassador',
-      img: 'images/ambassador.png',
-      btn: 'Apply Now',
-      btnLink: '/apply/campus-ambassador-application',
-    },
-    {
-      title: 'Executive Board',
-      img: 'images/EBM.png',
-      btn: 'Apply Now',
-      btnLink: '/apply/executive-board',
-    },
-    {
-      title: 'International Press',
-      img: 'images/IPA.png',
-      info: 'Application Fees: 1000 /-',
-      btn: 'Apply Now',
-      btnLink: '/apply/international-press-application',
-    },
-  ]
 
   return (
     <div
@@ -92,11 +64,11 @@ function Registrations(props) {
       </Fade>
       <div className='flex flex-wrap justify-center'>
         <Fade cascade bottom>
-          {data.map(section => (
+          {RegistrationsData.map(section => (
             <Card
               raised={true}
               className={classnames([
-                'my-10 mx-10 justify-center text-center flex flex-col',
+                'my-10 mx-auto justify-center text-center flex flex-col sm:mx-10',
                 classes.card,
               ])}
             >
@@ -106,7 +78,7 @@ function Registrations(props) {
                   classes.curve,
                 ])}
               >
-                <Typography variant='h6' className='p-5 text-white'>
+                <Typography variant='h5' className='p-5 text-white'>
                   {section.title}
                 </Typography>
               </div>

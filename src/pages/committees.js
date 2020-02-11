@@ -153,7 +153,11 @@ function CountryMatrix() {
                 alignContent='space-around'
                 className={classes.contentArea}
               >
-                <img src={CommitteLogo[value]} className='w-48 h-48' />
+                <img
+                  src={CommitteLogo[value]}
+                  alt={CommitteLogo[value]}
+                  className='w-48 h-48'
+                />
                 <Typography
                   variant='subtitle1'
                   className={classes.textProperty}

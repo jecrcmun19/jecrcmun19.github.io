@@ -27,6 +27,19 @@ const useStyles = makeStyles(theme => ({
       borderRadius: '0px 0px 12px 12px',
     },
   },
+  content: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '1.2rem',
+    },
+  },
+  name: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1.5rem',
+    },
+  },
 }))
 
 const PreviousYearChiefGuest = () => {
@@ -75,15 +88,18 @@ const PreviousYearChiefGuest = () => {
                     className='rounded-full w-32 h-32 m-auto bg-white'
                   />
                 </div>
-                <div className='text-center w-full mt-1'>
-                  <Typography className='text-white px-2' variant='h6'>
+                <div className='text-center w-full mt-3'>
+                  <Typography
+                    className={classnames(['text-white px-2', classes.name])}
+                    variant='h6'
+                  >
                     {guest.name}
                   </Typography>
                 </div>
               </Grid>
               <Grid item className={classes.contentBlock} md={8} lg={9} sm={12}>
                 <div className='py-8 md:px-8 px-4 text-left text-justify'>
-                  <Typography variant='subtitle1'>
+                  <Typography variant='subtitle1' className={classes.content}>
                     {guest.description}
                   </Typography>
                 </div>
