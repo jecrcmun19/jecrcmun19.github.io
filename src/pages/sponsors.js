@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core'
 import sponsorsData from '../data/sponsors-data'
 import Helmet from 'react-helmet'
+import Fade from 'react-reveal/Fade'
 import ContentBox from '../components/content-box'
 import InputField from '../components/input-field'
 import FormCompleted from '../components/form-completed'
@@ -234,17 +235,19 @@ function Sponsors(props) {
         // durationFadeIn={50}
       >
         <div className='py-5 flex flex-wrap justify-center'>
-          {sponsorsData.map(sponsor => {
-            return (
-              <div>
-                <img
-                  src={`/images/${sponsor}.png`}
-                  alt={sponsor}
-                  className={`bg-white h-40 p-5 m-8 ${classes.borderStyle}`}
-                />
-              </div>
-            )
-          })}
+          <Fade bottom cascade>
+            {sponsorsData.map(sponsor => {
+              return (
+                <div>
+                  <img
+                    src={`/images/${sponsor}.png`}
+                    alt={sponsor}
+                    className={`bg-white h-40 p-5 m-8 ${classes.borderStyle}`}
+                  />
+                </div>
+              )
+            })}
+          </Fade>
         </div>
         {/* <div className='flex justify-center'>
           <Button variant='contained' className={classes.button}>
