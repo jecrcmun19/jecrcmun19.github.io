@@ -19,6 +19,7 @@ import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 import LocationIcon from '@material-ui/icons/PlaceOutlined'
 import classNames from 'classnames'
 import MunExcellencies from '../components/sections/home/munExcellencies'
+import Ambassador from '../components/sections/home/ambassador'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -54,7 +55,12 @@ export default () => {
   const classes = useStyles()
   const theme = useTheme()
   const matches = useMediaQuery('(min-width:640px)')
-  const { image, chiefGuestImage, blogsImage } = useStaticQuery(graphql`
+  const {
+    image,
+    chiefGuestImage,
+    blogsImage,
+    ambassadorImage,
+  } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/bg.png" }) {
         sharp: childImageSharp {
@@ -71,6 +77,13 @@ export default () => {
         }
       }
       blogsImage: file(relativePath: { eq: "banners/blogs.jpg" }) {
+        sharp: childImageSharp {
+          fluid(maxWidth: 1080) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      ambassadorImage: file(relativePath: { eq: "banners/ambassador.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -145,7 +158,29 @@ export default () => {
         <About />
         <MunExcellencies />
       </div>
-
+      <div id='ambassador' className='flex flex-wrap justify-center'>
+        <Banner
+          backgrounds={[
+            `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+            ambassadorImage.sharp.fluid,
+          ]}
+          height='auto'
+          minHeight={true}
+        >
+          <div className='py-10'>
+            <Ambassador />
+          </div>
+        </Banner>
+      </div>
+      <div
+        id='registrations'
+        style={{
+          minHeight: '100vh',
+          background: theme.palette.background.pinkish,
+        }}
+      >
+        <Registrations />
+      </div>
       <div className='flex flex-wrap justify-center h-auto'>
         <Banner
           backgrounds={[
@@ -161,13 +196,14 @@ export default () => {
         </Banner>
       </div>
       <div
-        id='registrations'
+        id='blogs'
+        className='pt-10'
         style={{
           minHeight: '100vh',
           background: theme.palette.background.pinkish,
         }}
       >
-        <Registrations />
+        <HomeBlogs />
       </div>
       <div id='committees' className='flex flex-wrap justify-center h-auto'>
         <Banner
@@ -182,16 +218,6 @@ export default () => {
             <Committees />
           </div>
         </Banner>
-      </div>
-      <div
-        id='blogs'
-        className='pt-10'
-        style={{
-          minHeight: '100vh',
-          background: theme.palette.background.pinkish,
-        }}
-      >
-        <HomeBlogs />
       </div>
     </Wrapper>
   )

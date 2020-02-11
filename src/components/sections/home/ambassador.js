@@ -3,13 +3,13 @@ import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import Fade from 'react-reveal/Fade'
 import classnames from 'classnames'
-import MunExcellenciesData from '../../../data/munExcellencies'
+import AmbassadorData from '../../../data/ambassador'
 
 const useStyles = makeStyles(theme => ({
   containerContent: {
     color: theme.palette.primary.main,
 
-    '&:hover > .icon ': {
+    '&:hover > .icon': {
       backgroundColor: theme.palette.primary.main,
       color: 'white',
       transition: '1s',
@@ -24,18 +24,13 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function MunExcellencies() {
+function Ambassador() {
   const classes = useStyles()
   return (
     <div className='text-center py-10'>
       <Fade bottom cascade>
-        <Typography
-          variant='h4'
-          style={{ color: '#000a2a' }}
-          className='pt-5'
-          color='primary'
-        >
-          JECRC MUN Excellencies
+        <Typography variant='h4' className='pt-5 text-white'>
+          Become Our Campus Ambassador
         </Typography>
         <img
           src='/images/line.png'
@@ -44,7 +39,7 @@ function MunExcellencies() {
         />
       </Fade>
       <Grid container justify='center'>
-        {MunExcellenciesData.map(data => (
+        {AmbassadorData.map(data => (
           <Grid
             item
             md={4}
@@ -62,12 +57,10 @@ function MunExcellencies() {
               >
                 <data.icon style={{ fontSize: '70px' }} />
               </div>
-              <div className='my-5'>
-                <Typography variant='h5' color='textPrimary'>
-                  {data.title}
-                </Typography>
+              <div className='my-5 text-white'>
+                <Typography variant='h5'>{data.title}</Typography>
               </div>
-              <Typography color='textPrimary'>{data.desc}</Typography>
+              <Typography className='text-white'>{data.desc}</Typography>
             </Fade>
           </Grid>
         ))}
@@ -76,4 +69,4 @@ function MunExcellencies() {
   )
 }
 
-export default MunExcellencies
+export default Ambassador
