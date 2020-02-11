@@ -158,7 +158,7 @@ export default () => {
         <About />
         <MunExcellencies />
       </div>
-      <div id='ambassador' className='flex flex-wrap justify-center h-auto'>
+      <div id='ambassador' className='flex flex-wrap justify-center'>
         <Banner
           backgrounds={[
             `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,

@@ -1,14 +1,15 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle'
-import CardGiftcardIcon from '@material-ui/icons/CardGiftcard'
-import EmojiEventsRoundedIcon from '@material-ui/icons/EmojiEventsRounded'
+import Fade from 'react-reveal/Fade'
+import classnames from 'classnames'
+import AmbassadorData from '../../../data/ambassador'
+
 const useStyles = makeStyles(theme => ({
   containerContent: {
     color: theme.palette.primary.main,
 
-    '&:hover > div > h6, &:hover > div > p': {
+    '&:hover > .icon': {
       backgroundColor: theme.palette.primary.main,
       color: 'white',
       transition: '1s',
@@ -26,87 +27,43 @@ const useStyles = makeStyles(theme => ({
 function Ambassador() {
   const classes = useStyles()
   return (
-    <div
-      className='text-center'
-      style={{
-        minHeight: '50vh',
-      }}
-    >
-      <Typography variant='h4' className='pt-5' color='primary'>
-        Become Our Campus Ambassador
-      </Typography>
-      <img
-        src='/images/line.png'
-        className='mx-auto pb-5'
-        alt='---------------------'
-      />
+    <div className='text-center py-10'>
+      <Fade bottom cascade>
+        <Typography variant='h4' className='pt-5 text-white'>
+          Become Our Campus Ambassador
+        </Typography>
+        <img
+          src='/images/line.png'
+          className='mx-auto pb-5'
+          alt='---------------------'
+        />
+      </Fade>
       <Grid container justify='center'>
-        <Grid item md={4}>
-          <div
-            className={`my-10 mx-10 justify-center text-center flex flex-col ${classes.containerContent}`}
+        {AmbassadorData.map(data => (
+          <Grid
+            item
+            md={4}
+            key={data.title}
+            justify='center'
+            direction='column'
+            className={classnames(['m-10 p-10', classes.containerContent])}
           >
-            <div className='flex justify-center'>
-              <p
-                className={`rounded-full h-32 w-32 bg-white flex items-center justify-center ${classes.borderPink}`}
+            <Fade bottom cascade>
+              <div
+                className={classnames([
+                  ' mx-auto rounded-full h-32 w-32 bg-white flex items-center justify-center icon',
+                  classes.borderPink,
+                ])}
               >
-                <CardGiftcardIcon style={{ fontSize: '50px' }} />
-              </p>
-            </div>
-            <div className='w-full my-5 text-white'>
-              <Typography variant='h5'> Perks and Entitlements </Typography>
-            </div>
-            <div className='text-white'>
-              Campus Ambassadors of JECRC MUN are entitled to additional
-              benefits in form of concessions and discounts. This is an
-              opportunity to make your conference experience more fulfilling, by
-              paying the fee simply with your networking skills.
-            </div>
-          </div>
-        </Grid>
-        <Grid item md={4}>
-          <div
-            className={`my-10 mx-10 justify-center text-center flex flex-col ${classes.containerContent}`}
-          >
-            <div className='flex justify-center'>
-              <p
-                className={`rounded-full h-32 w-32 bg-white flex items-center justify-center ${classes.borderPink}`}
-              >
-                <SupervisedUserCircleIcon style={{ fontSize: '50px' }} />
-              </p>
-            </div>
-            <div className='w-full my-5 text-white'>
-              <Typography variant='h5'>Networking Skills</Typography>
-            </div>
-            <div className='text-white'>
-              As a campus ambassador you get to enhance your network within your
-              campus with the prestigious tag of JECRC MUN. Get an edge at being
-              heard by your peers and connect with them at a greater level,
-              honing your interpersonal skills.
-            </div>
-          </div>
-        </Grid>
-        <Grid item md={4}>
-          <div
-            className={`my-10 mx-10 justify-center text-center flex flex-col ${classes.containerContent}`}
-          >
-            <div className='flex justify-center'>
-              <p
-                className={`rounded-full h-32 w-32 bg-white flex items-center justify-center ${classes.borderPink}`}
-              >
-                <EmojiEventsRoundedIcon style={{ fontSize: '50px' }} />
-              </p>
-            </div>
-            <div className='w-full my-5 text-white'>
-              <Typography variant='h5'>Recognition</Typography>
-            </div>
-            <div className='text-white'>
-              The merits of being a Campus Ambassador don't end with the
-              conference, but stay with you thereafter. A certificate
-              recognizing your milestones will be conferred upon you, investing
-              the repute and excellence of JECRC MUN on you as well.
-            </div>
-          </div>
-        </Grid>
+                <data.icon style={{ fontSize: '70px' }} />
+              </div>
+              <div className='my-5 text-white'>
+                <Typography variant='h5'>{data.title}</Typography>
+              </div>
+              <Typography className='text-white'>{data.desc}</Typography>
+            </Fade>
+          </Grid>
+        ))}
       </Grid>
     </div>
   )

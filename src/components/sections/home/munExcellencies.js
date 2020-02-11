@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import Fade from 'react-reveal/Fade'
+import classnames from 'classnames'
 import MunExcellenciesData from '../../../data/munExcellencies'
 
 const useStyles = makeStyles(theme => ({
@@ -47,13 +48,17 @@ function MunExcellencies() {
           <Grid
             item
             md={4}
+            key={data.title}
             justify='center'
             direction='column'
-            className={`m-10 p-10 ${classes.containerContent}`}
+            className={classnames(['m-10 p-10', classes.containerContent])}
           >
             <Fade bottom cascade>
               <div
-                className={` mx-auto rounded-full h-32 w-32 bg-white flex items-center justify-center icon ${classes.borderPink}`}
+                className={classnames([
+                  ' mx-auto rounded-full h-32 w-32 bg-white flex items-center justify-center icon',
+                  classes.borderPink,
+                ])}
               >
                 <data.icon style={{ fontSize: '70px' }} />
               </div>
