@@ -44,6 +44,7 @@ const useStyles = makeStyles(theme => ({
 const dropdownList = {
   about: [
     { name: 'JECRC MUN', link: '/about', type: 'gatsby' },
+    { name: 'OUR CHIEF GUEST', link: '/#chief-guest', type: 'gatsby' },
     { name: 'OUR SPONSORS', link: '/sponsors', type: 'gatsby' },
   ],
   registrations: [
@@ -158,11 +159,6 @@ function NavBarWeb(props) {
           <Dropdown name='about' handleClose={handleClose} />
         )}
       </ListItem>
-      <ListItem component={Link} to='/#committees' className={classes.navItem}>
-        <Typography variant='subtitle2' className={classes.headerItems}>
-          Committees
-        </Typography>
-      </ListItem>
       <ListItem
         component='div'
         onMouseLeave={handleClose}
@@ -191,6 +187,11 @@ function NavBarWeb(props) {
       >
         <Typography variant='subtitle2' className={classes.headerItems}>
           Blogs
+        </Typography>
+      </ListItem>
+      <ListItem component={Link} to='/#committees' className={classes.navItem}>
+        <Typography variant='subtitle2' className={classes.headerItems}>
+          Committees
         </Typography>
       </ListItem>
       <ListItem component={Link} to='/gallery' className={classes.navItem}>

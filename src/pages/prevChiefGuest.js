@@ -84,7 +84,7 @@ function PreviousYearChiefGuest() {
           component='h2'
           className={classes.munTextProperty}
         >
-          OUR SPONSORS
+          Our Previous Year Chief Guests
         </Typography>
         <Typography className='text-white' variant='h5'>
           JECRC MUN 2020

@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import About from '../components/sections/home/about'
-import PreviousYearChiefGuest from '../components/sections/home/ourChiefGuest'
+import ChiefGuest from '../components/sections/home/ourChiefGuest'
 import Registrations from '../components/sections/home/registrations'
 import HomeBlogs from '../components/sections/home/blogs'
 import Committees from '../components/sections/home/committees'
@@ -24,8 +24,8 @@ import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
   munLogo: {
-    height: '180px',
-    [theme.breakpoints.down('md')]: {
+    height: '200px',
+    [theme.breakpoints.down('lg')]: {
       height: '150px',
     },
     [theme.breakpoints.down('sm')]: {
@@ -201,7 +201,7 @@ export default () => {
       >
         <Registrations />
       </div>
-      <div className='flex flex-wrap justify-center h-auto'>
+      <div className='flex flex-wrap justify-center h-auto' id='chief-guest'>
         <Banner
           backgrounds={[
             `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
@@ -211,7 +211,7 @@ export default () => {
           minHeight={true}
         >
           <div className='py-10'>
-            <PreviousYearChiefGuest />
+            <ChiefGuest />
           </div>
         </Banner>
       </div>

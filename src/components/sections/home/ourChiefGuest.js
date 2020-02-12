@@ -6,32 +6,60 @@ import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core'
 import classnames from 'classnames'
 import Fade from 'react-reveal/Fade'
-import { useTheme } from '@material-ui/core/styles'
+import chiefGuestData from '../../../data/chiefGuest'
 
 const useStyles = makeStyles(theme => ({
+  imageContainer: {
+    width: '300px',
+    height: '400px',
+    position: 'relative',
+    '&:hover > img': {
+      border: `5px solid #fff`,
+      transition: '1s',
+    },
+    '&:hover > div ': {
+      backgroundColor: '#ffffff91',
+      transition: '1s',
+    },
+    '&:hover > div > h5, &:hover > div > h6': {
+      color: '#000929',
+      fontWeight: 'bold',
+      transition: '1s',
+    },
+  },
+  image: {
+    height: '400px',
+    borderRadius: '15px',
+    border: `5px solid ${theme.palette.primary.main}`,
+  },
   layer: {
     backgroundColor: 'rgba(217, 8, 69, 0.7)',
-    position: 'relative',
-    paddingTop: '20px',
+    position: 'absolute',
     bottom: 0,
+    borderRadius: '0px 0px 15px 15px',
   },
   content: {
     color: '#fff',
-    lineHeight: '30px',
     [theme.breakpoints.up('md')]: {
       fontSize: '1rem',
     },
     [theme.breakpoints.up('lg')]: {
       fontSize: '1.2rem',
     },
+    '&:hover': {
+      '-webkit-text-stroke': `1px ${theme.palette.primary.main}`,
+      transition: '0.5s',
+      transitionTimingFunction: 'ease-out',
+      fontWeight: 'bold',
+    },
   },
 }))
 
 const OurChiefGuest = () => {
+  console.log(chiefGuestData)
   const classes = useStyles()
-  const theme = useTheme()
   return (
-    <div>
+    <div className='h-full'>
       <Fade bottom cascade>
         <Typography className='text-white pt-10' variant='h4'>
           Our Chief Guests
@@ -42,21 +70,25 @@ const OurChiefGuest = () => {
           alt='---------------------'
         />
       </Fade>
-      <Grid container className='h-full' alignContent='center'>
-        <Grid container justify='center'>
+      {chiefGuestData.map(data => (
+        <Grid key={data.name} container justify='center' alignItems='center'>
           <Grid item md={4} xs={12}>
             <Fade bottom>
-              <div className={classnames(['text-center mx-auto'])}>
+              <div className={classnames(['mx-auto', classes.imageContainer])}>
                 <img
-                  src='images/SanjayJha.png'
-                  className='w-56 h-full mt-12 mx-auto lg:m-0'
+                  src={data.image}
+                  alt={data.name}
+                  className={classnames(['w-full'], classes.image)}
                 />
-                <div className={classnames(['w-56', classes.layer])}>
+                <div className={classnames(['w-full p-2', classes.layer])}>
                   <Typography variant='h5' className='text-white'>
-                    Sanjay Jha
+                    {data.name}
                   </Typography>
                   <Typography variant='subtitle1' className='text-white'>
-                    National Spokesman INC
+                    {data.designation}
+                  </Typography>
+                  <Typography variant='subtitle1' className='text-white'>
+                    {data.organization}
                   </Typography>
                 </div>
               </div>
@@ -64,39 +96,32 @@ const OurChiefGuest = () => {
           </Grid>
           <Grid item md={6} xs={12}>
             <Fade bottom cascade>
-              <Typography
-                className={classnames([
-                  'text-center p-10 text-justify lg:pt-8 lg:pr-10 lg:pl-0',
-                  classes.content,
-                ])}
-              >
-                Sanjay Jha is the National Spokesperson of INC since 2013, and
-                also the President of All India Professionals Congress,
-                Maharashtra. He has addressed numerous gatherings at world-class
-                business schools and MNCs as a TEDx Speaker, also regularly
-                contributing to social media and internationally acclaimed
-                newspapers. Jha founded CricketNext. com and has also held
-                senior positions at various reputed investment and banking
-                firms. Coming as an MBA graduate from XLRI, Jamshedpur, he holds
-                graduation and PG degrees in Economics from Fergusson College
-                and Gokhale Institute of Politics and Economics respectively.
-                Jha has also co-authored a leadership bestseller, The Superstar
-                Syndrome.
-              </Typography>
-              <Button
-                type='submit'
-                color='primary'
-                variant='contained'
-                size='large'
-                component={Link}
-                to='/prevChiefGuest'
-              >
-                Our Previous Year Cheif Guests
-              </Button>
+              {data.content.map(content => (
+                <Typography
+                  className={classnames([
+                    'text-justify font-medium p-3',
+                    classes.content,
+                  ])}
+                >
+                  {content}
+                </Typography>
+              ))}
             </Fade>
           </Grid>
         </Grid>
-      </Grid>
+      ))}
+      <div className='mt-10'>
+        <Button
+          type='submit'
+          color='primary'
+          variant='contained'
+          size='large'
+          component={Link}
+          to='/prevChiefGuest'
+        >
+          Our Previous Year Chief Guests
+        </Button>
+      </div>
     </div>
   )
 }

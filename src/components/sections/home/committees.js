@@ -7,7 +7,10 @@ import Grid from '@material-ui/core/Grid'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
 import classnames from 'classnames'
+import { Link } from 'gatsby'
+
 import Fade from 'react-reveal/Fade'
 import {
   Committe,
@@ -133,6 +136,15 @@ function CountryMatrix() {
           </div>
         </CardContent>
       </Card>
+      <Button
+        component={Link}
+        variant='contained'
+        color='primary'
+        size='large'
+        to='/country-matrix'
+      >
+        View Country Matrix
+      </Button>
     </>
   )
 }

@@ -89,6 +89,7 @@ function MobileViewDrawer(props) {
             link: '/#about',
             items: [
               { name: 'JECRC MUN', to: '/about' },
+              { name: 'OUR CHIEF GUEST', to: '/#chief-guest' },
               { name: 'OUR SPONSORS', to: '/sponsors' },
             ],
           },
