@@ -1,12 +1,16 @@
-import React, { useState, useLayoutEffect, useEffect } from 'react'
-import Wrapper from '../components/wrapper'
-import Banner from '../components/banner'
-import { graphql, useStaticQuery } from 'gatsby'
+import React, { useState } from 'react'
 import Helmet from 'react-helmet'
+
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import Image from 'gatsby-image'
 import Grid from '@material-ui/core/Grid'
+
+import { graphql, useStaticQuery } from 'gatsby'
+import Image from 'gatsby-image'
+
+import Wrapper from '../components/wrapper'
+import Banner from '../components/banner'
+import GalleryDialog from '../components/galleryDialog'
 
 const useStyles = makeStyles(theme => ({
   munTextProperty: {
@@ -36,7 +40,6 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
     maxWidth: '100%',
     maxHeight: '100%',
-    border: `1px solid #D90845`,
     borderRadius: `16px`,
     '&:hover': {
       cursor: 'pointer',
@@ -47,10 +50,25 @@ const useStyles = makeStyles(theme => ({
   gridContainer: {
     margin: theme.spacing(4, 0),
   },
+  closeButton: {
+    position: 'absolute',
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
+  },
 }))
+
 function Gallery() {
   const classes = useStyles()
   const theme = useTheme()
+  const [dialogOpen, setDialogOpen] = useState(false)
+
+  const handleDialogOpen = index => {
+    setDialogOpen(true)
+    setImageFile(index)
+  }
+  const handleDialogClose = () => setDialogOpen(false)
+
   const { image, gallery } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/about.jpg" }) {
@@ -72,6 +90,8 @@ function Gallery() {
       }
     }
   `)
+  const [imageIndex, setImageFile] = useState(image.sharp.fluid)
+
   return (
     <Wrapper>
       <Helmet>
@@ -110,8 +130,12 @@ function Gallery() {
           className={classes.gridContainer}
           justify='center'
         >
-          {gallery.images.map(image => (
-            <Grid item className={classes.imageContainer}>
+          {gallery.images.map((image, index) => (
+            <Grid
+              item
+              className={classes.imageContainer}
+              onClick={() => handleDialogOpen(index)}
+            >
               <Image
                 fluid={image.sharp.fluid}
                 fadeIn={false}
@@ -121,6 +145,11 @@ function Gallery() {
             </Grid>
           ))}
         </Grid>
+        <GalleryDialog
+          imageIndex={imageIndex}
+          handleDialogClose={handleDialogClose}
+          dialogOpen={dialogOpen}
+        />
       </Grid>
     </Wrapper>
   )
