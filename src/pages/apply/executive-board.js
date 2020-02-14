@@ -8,15 +8,20 @@ import { graphql, useStaticQuery } from 'gatsby'
 import ExecutiveBoardForm from '../../components/executive-board'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     fontWeight: 'bold',
-    fontFamily: "'Rubik' , sans-serif",
-    fontSize: '2.25rem',
+    // fontFamily: "'Rubik' , sans-serif",
+    fontSize: '1.75rem',
     lineHeight: '65px',
     letterSpacing: '0.08em',
     textTransform: 'uppercase',
+    [theme.breakpoints.up('md')]: {
+      fontSize: '2.25rem',
+    },
   },
-  diplomacyTextProperty: {
+  munTextProperty: {
+    // fontFamily: "'Rubik' , sans-serif",
+
     fontWeight: 'bold',
 
     color: theme.palette.font.primary,
@@ -60,11 +65,11 @@ export default () => {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           Executive Board Applications
         </Typography>
-        <Typography component='h3' className={classes.diplomacyTextProperty}>
+        <Typography component='h3' className={classes.munTextProperty}>
           JECRC MUN 2020
         </Typography>
       </Banner>

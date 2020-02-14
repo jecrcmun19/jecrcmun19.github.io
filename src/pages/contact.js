@@ -13,15 +13,29 @@ import Typography from '@material-ui/core/Typography'
 import FormCompleted from '../components/form-completed'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: 60,
+    fontSize: 50,
     lineHeight: '71px',
+
     letterSpacing: '0.08em',
     [theme.breakpoints.up('md')]: {
       fontSize: 80,
+    },
+  },
+  munTextProperty: {
+    // fontFamily: "'Rubik' , sans-serif",
+
+    fontWeight: 'bold',
+
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
+    fontSize: '24px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
     },
   },
   container: {
@@ -106,12 +120,12 @@ function Contact(props) {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           CONTACT US
         </Typography>
 
-        <Typography className='text-white' variant='h5'>
+        <Typography className={classes.munTextProperty} variant='h5'>
           JECRC MUN 2020
         </Typography>
       </Banner>

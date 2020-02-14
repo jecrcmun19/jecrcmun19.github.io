@@ -21,15 +21,29 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Banner from '../components/banner'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: 60,
+    fontSize: 50,
     lineHeight: '71px',
+
     letterSpacing: '0.08em',
     [theme.breakpoints.up('md')]: {
       fontSize: 80,
+    },
+  },
+  munTextProperty: {
+    // fontFamily: "'Rubik' , sans-serif",
+
+    fontWeight: 'bold',
+
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
+    fontSize: '24px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
     },
   },
   root: {
@@ -122,9 +136,12 @@ function CountryMatrix() {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           COMMITTEES
+        </Typography>
+        <Typography className={classes.munTextProperty} variant='h5'>
+          JECRC MUN 2020
         </Typography>
       </Banner>
       <BackgroundImage

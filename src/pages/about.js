@@ -10,7 +10,7 @@ import classnames from 'classnames'
 import { Paper } from '@material-ui/core'
 import Fade from 'react-reveal/Fade'
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
     // fontFamily: "'Rubik' , sans-serif",
@@ -20,6 +20,19 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: '0.08em',
     [theme.breakpoints.up('md')]: {
       fontSize: 80,
+    },
+  },
+  munTextProperty: {
+    // fontFamily: "'Rubik' , sans-serif",
+
+    fontWeight: 'bold',
+
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
+    fontSize: '24px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
     },
   },
   container: {
@@ -81,9 +94,12 @@ function About() {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           ABOUT US
+        </Typography>
+        <Typography variant='h5' className={classes.munTextProperty}>
+          JECRC MUN 2020
         </Typography>
       </Banner>
       <Grid className={classes.container} justify='center'>
