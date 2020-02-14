@@ -1,12 +1,23 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import guests from '../../../data/previous-year-cg-data'
-import { makeStyles } from '@material-ui/core'
+import guests from '../data/previous-year-cg-data'
+import { makeStyles, useTheme } from '@material-ui/core'
 import classnames from 'classnames'
 import Fade from 'react-reveal/Fade'
+import Wrapper from '../components/wrapper'
+import Banner from '../components/banner'
+import Helmet from 'react-helmet'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const useStyles = makeStyles(theme => ({
+  munTextProperty: {
+    color: '#D90845',
+    fontWeight: 'bold',
+    // fontFamily: "'Rubik' , sans-serif",
+    fontSize: 60,
+    lineHeight: '71px',
+  },
   imageBlock: {
     background: '#d90845',
     borderRadius: '12px 0px 0px 12px',
@@ -40,25 +51,51 @@ const useStyles = makeStyles(theme => ({
       fontSize: '1.5rem',
     },
   },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
+  },
 }))
 
-const PreviousYearChiefGuest = () => {
+function PreviousYearChiefGuest() {
   const classes = useStyles()
+  const theme = useTheme()
+  const { image } = useStaticQuery(graphql`
+    query {
+      image: file(relativePath: { eq: "banners/about.jpg" }) {
+        sharp: childImageSharp {
+          fluid(maxWidth: 1080) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
   return (
-    <div>
-      <Fade bottom cascade>
-        <Typography className='text-white pt-10' variant='h4'>
+    <Wrapper>
+      <Helmet>
+        <title>Our Previous Chief Guests</title>
+      </Helmet>
+      <Banner
+        backgrounds={[
+          `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+          image.sharp.fluid,
+        ]}
+        height='50vh'
+      >
+        <Typography
+          color='primary'
+          component='h2'
+          className={classes.munTextProperty}
+        >
           Our Previous Chief Guests
         </Typography>
-        <img
-          src='/images/line.png'
-          className='mx-auto pb-10'
-          alt='---------------------'
-        />
-      </Fade>
-      {guests.map((guest, index) => (
-        <Fade bottom>
-          <Grid bottom>
+        <Typography className='text-white' variant='h5'>
+          JECRC MUN 2020
+        </Typography>
+      </Banner>
+      <Grid container className={classes.container}>
+        {guests.map((guest, index) => (
+          <Fade bottom>
             <Grid
               container
               key={index}
@@ -105,10 +142,10 @@ const PreviousYearChiefGuest = () => {
                 </div>
               </Grid>
             </Grid>
-          </Grid>
-        </Fade>
-      ))}
-    </div>
+          </Fade>
+        ))}
+      </Grid>
+    </Wrapper>
   )
 }
 
