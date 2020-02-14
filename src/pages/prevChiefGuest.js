@@ -94,8 +94,8 @@ function PreviousYearChiefGuest() {
         </Typography>
       </Banner>
       <Grid container className={classes.container}>
-        {guests.map((guest, index) => (
-          <Fade bottom>
+        <Fade bottom cascade>
+          {guests.map((guest, index) => (
             <Grid
               container
               key={index}
@@ -142,8 +142,8 @@ function PreviousYearChiefGuest() {
                 </div>
               </Grid>
             </Grid>
-          </Fade>
-        ))}
+          ))}
+        </Fade>
       </Grid>
     </Wrapper>
   )
