@@ -51,6 +51,9 @@ const useStyles = makeStyles(theme => ({
       fontSize: '1.5rem',
     },
   },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
+  },
 }))
 
 function PreviousYearChiefGuest() {
@@ -70,7 +73,7 @@ function PreviousYearChiefGuest() {
   return (
     <Wrapper>
       <Helmet>
-        <title>Sponsors</title>
+        <title>Our Previous Chief Guests</title>
       </Helmet>
       <Banner
         backgrounds={[
@@ -84,72 +87,64 @@ function PreviousYearChiefGuest() {
           component='h2'
           className={classes.munTextProperty}
         >
-          Our Previous Year Chief Guests
+          Our Previous Chief Guests
         </Typography>
         <Typography className='text-white' variant='h5'>
           JECRC MUN 2020
         </Typography>
       </Banner>
-      <div>
-        {guests.map((guest, index) => (
-          <Fade bottom>
-            <Grid bottom>
+      <Grid container className={classes.container}>
+        <Fade bottom cascade>
+          {guests.map((guest, index) => (
+            <Grid
+              container
+              key={index}
+              className={classnames([
+                'my-10',
+                'mx-auto',
+                classes.containerStyle,
+              ])}
+              lg={8}
+              md={11}
+              sm={9}
+              xs={11}
+            >
               <Grid
+                id='imageDiv'
                 container
-                key={index}
-                className={classnames([
-                  'my-10',
-                  'mx-auto',
-                  classes.containerStyle,
-                ])}
-                lg={8}
-                md={11}
-                sm={9}
-                xs={11}
+                alignContent='center'
+                className={classnames(['py-4', classes.imageBlock])}
+                md={4}
+                sm={12}
+                lg={3}
               >
-                <Grid
-                  id='imageDiv'
-                  container
-                  alignContent='center'
-                  className={classnames(['py-4', classes.imageBlock])}
-                  md={4}
-                  sm={12}
-                  lg={3}
-                >
-                  <div className='w-full'>
-                    <img
-                      alt={guest.image}
-                      src={`/images/${guest.image}.jpg`}
-                      className='rounded-full w-32 h-32 m-auto bg-white'
-                    />
-                  </div>
-                  <div className='text-center w-full mt-3'>
-                    <Typography
-                      className={classnames(['text-white px-2', classes.name])}
-                      variant='h6'
-                    >
-                      {guest.name}
-                    </Typography>
-                  </div>
-                </Grid>
-                <Grid
-                  item
-                  className={classes.contentBlock}
-                  md={8}
-                  lg={9}
-                  sm={12}
-                >
-                  <div className='py-8 md:px-8 px-4 text-left text-justify'>
-                    <Typography variant='subtitle1' className={classes.content}>
-                      {guest.description}
-                    </Typography>
-                  </div>
-                </Grid>
+                <div className='w-full'>
+                  <img
+                    alt={guest.image}
+                    src={`/images/${guest.image}.jpg`}
+                    className='rounded-full w-32 h-32 m-auto bg-white'
+                  />
+                </div>
+                <div className='text-center w-full mt-3'>
+                  <Typography
+                    className={classnames(['text-white px-2', classes.name])}
+                    variant='h6'
+                  >
+                    {guest.name}
+                  </Typography>
+                </div>
+              </Grid>
+              <Grid item className={classes.contentBlock} md={8} lg={9} sm={12}>
+                <div className='py-8 md:px-8 px-4 text-left text-justify'>
+                  <Typography variant='subtitle1' className={classes.content}>
+                    {guest.description}
+                  </Typography>
+                </div>
               </Grid>
             </Grid>
-          </Fade>
-        ))}
-      </div>
+          ))}
+        </Fade>
+      </Grid>
     </Wrapper>
   )
 }
