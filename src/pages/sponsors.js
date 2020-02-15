@@ -20,12 +20,30 @@ import classnames from 'classnames'
 import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: 60,
+    fontSize: 50,
     lineHeight: '71px',
+
+    letterSpacing: '0.08em',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 80,
+    },
+  },
+  munTextProperty: {
+    // fontFamily: "'Rubik' , sans-serif",
+
+    fontWeight: 'bold',
+
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
+    fontSize: '24px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
+    },
   },
   container: {
     backgroundColor: theme.palette.background.pinkish,
@@ -193,7 +211,7 @@ function Sponsors(props) {
   const theme = useTheme()
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/about.jpg" }) {
+      image: file(relativePath: { eq: "banners/sponsor.JPG" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -218,11 +236,11 @@ function Sponsors(props) {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           OUR SPONSORS
         </Typography>
-        <Typography className='text-white' variant='h5'>
+        <Typography className={classes.munTextProperty} variant='h5'>
           JECRC MUN 2020
         </Typography>
       </Banner>
