@@ -60,29 +60,29 @@ export const CommitteesData = [
   {
     title: 'UNODC',
 
-    img: '/images/csw.jpg',
+    img: '/images/unodc.jpg',
     agenda: 'Piracy and Maritime Crime in the Indian Ocean',
   },
   {
     title: 'DISEC',
-    img: '/images/pmo.jpg',
+    img: '/images/disec.jpg',
     agenda: 'Use of AI and unmanned aerial vehicle in armed conflict',
   },
   {
     title: 'UNCSW',
-    img: '/images/unhrc.jpg',
+    img: '/images/csw.jpg',
     agenda:
       'Social protectoin systems, access to public services and sustainable infrastructure for gender equality',
   },
   {
     title: 'WHO',
 
-    img: '/images/ga.jpg',
+    img: '/images/who.jpg',
     agenda: 'Ebola epidemic in Western Africa',
   },
   {
     title: 'AIPPM',
-    img: '/images/loksabha.jpg',
+    img: '/images/pmo.jpg',
     agenda:
       'Discussing the policy making approach of the NDA govt( special emphasis on the economic policies and Security',
   },

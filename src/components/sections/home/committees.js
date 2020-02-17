@@ -9,57 +9,65 @@ import classnames from 'classnames'
 import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
+  image: {
+    width: '100%',
+    height: '300px',
+    [theme.breakpoints.down('xs')]: {
+      height: '250px',
+    },
+  },
   content: {
+    width: '400px',
+    margin: '3%',
     position: 'relative',
-    width: '90%',
-    maxWidth: '450px',
-    margin: 'auto',
-    overflow: 'hidden',
+    overflowY: 'hidden',
     '&:hover > .layer': {
       opacity: 1,
-      width: '100%',
-      height: '100%',
-
       position: 'absolute',
-      top: '0%',
-
-      zIndex: '1000',
+      top: '0',
     },
-
-    '&:hover > .blogImage': {
-      top: '50%',
-      left: '50%',
-      opacity: 1,
-    },
-
     '&:hover > .text': {
-      top: '20%',
+      top: '25%',
+    },
+    [theme.breakpoints.down('lg')]: {
+      width: '350px',
+      margin: '2%',
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '300px',
+      margin: '20px auto',
+      '&:hover > .text': {
+        top: '20%',
+      },
     },
   },
   overlay: {
     background: 'rgba(217, 8, 69, 0.7)',
     position: 'absolute',
-    height: '100%',
-    width: '100%',
     left: 0,
-    top: '60%',
+    top: '70%',
     right: 0,
     bottom: 0,
-    opacity: 1,
     transition: 'all 0.4s ease-in-out 0s',
   },
 
   bottomText: {
     position: 'absolute',
+    top: '80%',
     textAlign: 'center',
     color: '#FFF',
     width: '100%',
     paddingLeft: '1em',
-    paddingight: '1em',
-    top: '75%',
-
+    paddingRight: '1em',
     transition: 'all 0.4s ease-in-out 0s',
-    zIndex: 1000,
+  },
+  agenda: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '1.3rem',
+    },
   },
 }))
 
@@ -69,7 +77,7 @@ function Committees() {
     <div className='text-center py-10 sm:py-5'>
       <Fade bottom cascade>
         <Typography variant='h4' className='pt-5 text-white'>
-          Communities
+          Committees
         </Typography>
         <img
           src='/images/line.png'
@@ -79,48 +87,45 @@ function Committees() {
       </Fade>
       <Grid container justify='center'>
         {CommitteesData.map(data => (
-          <Grid
-            item
-            md={4}
-            key={data.title}
-            className='w-full p-5 md:p-10 h-64 mx-12'
-          >
-            <div className={classes.content}>
-              <div className={classnames([classes.overlay, 'layer'])}></div>
-              <img src={data.img} className='w-full blogImage h-56' />
+          <Grid key={data.title} item className={classes.content}>
+            <img src={data.img} alt={data.img} className={classes.image} />
 
-              <div className={classnames([classes.bottomText, 'text'])}>
-                <Typography variant='h4' className='text-white pb-5 sm:text-xs'>
-                  {data.title}
-                </Typography>
+            <div className={classnames([classes.overlay, 'layer'])} />
 
-                <Typography className='text-white pb-5'>
-                  {data.agenda}
-                </Typography>
-              </div>
+            <div className={classnames([classes.bottomText, 'text'])}>
+              <Typography variant='h4' className='pb-5'>
+                {data.title}
+              </Typography>
+              <Typography className={classnames([classes.agenda, 'pb-5'])}>
+                {data.agenda}
+              </Typography>
             </div>
           </Grid>
         ))}
       </Grid>
       <Grid container justify='center' className='mt-8'>
-        <Grid item md={3} xs={12} className='p-2 md:p-5 w-64'>
+        <Grid item xl={2} lg={3} md={4} sm={5} xs={10} className='px-5 py-2'>
           <Button
             color='primary'
             variant='contained'
             component={Link}
-            to='/committee-matrix'
+            to='/committee'
+            size='large'
+            fullWidth
           >
-            View CommitteeMatrix
+            Committee Details
           </Button>
         </Grid>
-        <Grid item md={3} xs={12} className='p-2 md:p-5 w-64'>
+        <Grid item xl={2} lg={3} md={4} sm={5} xs={10} className='px-5 py-2'>
           <Button
             color='primary'
             variant='contained'
             component={Link}
             to='/country-matrix'
+            size='large'
+            fullWidth
           >
-            View CountryMatrix
+            View Country Matrix
           </Button>
         </Grid>
       </Grid>
