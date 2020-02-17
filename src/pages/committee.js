@@ -1,5 +1,4 @@
 import React from 'react'
-
 import CardContent from '@material-ui/core/CardContent'
 import Card from '@material-ui/core/Card'
 import makeStyles from '@material-ui/styles/makeStyles'
@@ -8,7 +7,6 @@ import Grid from '@material-ui/core/Grid'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
-
 import {
   Committe,
   CommitteName,
@@ -16,28 +14,24 @@ import {
   CommitteLogo,
 } from '../data/committees-data'
 import Wrapper from '../components/wrapper'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import Banner from '../components/banner'
+import classnames from 'classnames'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
   headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
-    // fontFamily: "'Rubik' , sans-serif",
     fontSize: 50,
     lineHeight: '71px',
-
     letterSpacing: '0.08em',
     [theme.breakpoints.up('md')]: {
       fontSize: 80,
     },
   },
   munTextProperty: {
-    // fontFamily: "'Rubik' , sans-serif",
-
     fontWeight: 'bold',
-
     color: theme.palette.font.primary,
     letterSpacing: '0.08em',
     fontSize: '24px',
@@ -46,72 +40,57 @@ const useStyles = makeStyles(theme => ({
       fontSize: 35,
     },
   },
-  root: {
-    paddingTop: 10,
-    paddingBottom: 10,
-    background: '#D90845',
+  primaryBackgroundColor: {
+    background: theme.palette.primary.main,
+  },
+  cardContainer: {
+    width: '65vw',
+    [theme.breakpoints.down('md')]: {
+      width: '80vw',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '90vw',
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '95vw',
+    },
   },
   tabsTextProperty: {
     fontSize: '1.1rem',
     fontWeight: '500',
     color: '#FFF',
   },
-  cardStyle: {
-    marginBottom: '3%',
-    marginTop: '3%',
-    paddingTop: 0,
-    marginLeft: '5%',
-    marginRight: '5%',
-    textAlign: 'justify',
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  contentArea: {
-    width: '100%',
-    maxWidth: '1000px',
-  },
-  textProperty: {
-    textAlign: 'center',
-    fontWeight: 700,
-    lineHeight: 1,
-    display: 'flex',
-    marginBottom: '1%',
-    justifyContent: 'center',
-    width: '100%',
-  },
-  agendaProperty: {
-    textAlign: 'center',
-    fontWeight: 400,
-    lineHeight: 1,
-    display: 'flex',
-    marginTop: '1%',
-    marginBottom: '2%',
-    justifyContent: 'center',
-    width: '100%',
-    paddingBottom: '1%',
-    fontStyle: 'italic',
-  },
-  bgCardContentProperty: {
+  paddingZero: {
     padding: 0,
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
+  },
+  content: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '1.3rem',
+    },
+  },
+  name: {
+    fontWeight: 'bold',
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1.5rem',
+    },
   },
 }))
 
-function CountryMatrix() {
+function Committee() {
   const classes = useStyles()
   const theme = useTheme()
 
   const [value, setValue] = React.useState(0)
 
-  const { image, bgImage } = useStaticQuery(graphql`
+  const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/committees.png" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      bgImage: file(relativePath: { eq: "pages-background.png" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -144,14 +123,22 @@ function CountryMatrix() {
           JECRC MUN 2020
         </Typography>
       </Banner>
-      <BackgroundImage
-        className='flex flex-col justify-center items-center'
-        fluid={bgImage.sharp.fluid}
-        durationFadeIn={50}
+      <Grid
+        className={[
+          'flex flex-col justify-center items-center',
+          classes.container,
+        ]}
       >
-        <Card raised={true} className='my-16 w-10/12 lg:w-8/12'>
-          <CardContent className={classes.bgCardContentProperty}>
-            <Grid container justify='center' className={classes.root}>
+        <Card
+          raised={true}
+          className={classnames([classes.cardContainer, 'my-10 mx-auto'])}
+        >
+          <CardContent className={classes.paddingZero}>
+            <Grid
+              container
+              justify='center'
+              className={classnames([classes.primaryBackgroundColor, 'py-3'])}
+            >
               <Tabs
                 value={value}
                 variant='scrollable'
@@ -167,38 +154,41 @@ function CountryMatrix() {
                 <Tab className={classes.tabsTextProperty} label='AIPPM' />
               </Tabs>
             </Grid>
-            <div className={classes.cardStyle}>
-              <Grid
-                container
-                justify='center'
-                alignContent='space-around'
-                className={classes.contentArea}
-              >
-                <img
-                  src={CommitteLogo[value]}
-                  alt={CommitteLogo[value]}
-                  className='w-48 h-48'
-                />
-                <Typography
-                  variant='subtitle1'
-                  className={classes.textProperty}
-                >
-                  {CommitteName[value]}
-                </Typography>
-                <Typography
-                  variant='subtitle2'
-                  className={classes.agendaProperty}
-                >
-                  Agenda - {Agenda[value]}
-                </Typography>
-                <div>{Committe[value]}</div>
-              </Grid>
+            <div className='mx-auto text-justify p-5 md:p-10'>
+              <Fade bottom cascade>
+                <Grid container justify='center' alignContent='space-around'>
+                  <Grid item xs={12}>
+                    <img
+                      src={CommitteLogo[value]}
+                      alt={CommitteLogo[value]}
+                      className='w-48 h-48 mx-auto'
+                    />
+                  </Grid>
+                  <Grid item className='text-center'>
+                    <Typography variant='h6' className={classes.name}>
+                      {CommitteName[value]}
+                    </Typography>
+                    <Typography
+                      variant='subtitle2'
+                      className={classnames([
+                        'italic pt-1 pb-5',
+                        classes.content,
+                      ])}
+                    >
+                      Agenda - {Agenda[value]}
+                    </Typography>
+                  </Grid>
+                  <Grid item className={classes.content}>
+                    {Committe[value]}
+                  </Grid>
+                </Grid>
+              </Fade>
             </div>
           </CardContent>
         </Card>
-      </BackgroundImage>
+      </Grid>
     </Wrapper>
   )
 }
 
-export default CountryMatrix
+export default Committee
