@@ -216,7 +216,7 @@ export default () => {
         </Banner>
       </div>
       <div
-        id='blogs'
+        id='resources'
         className='pt-10'
         style={{
           minHeight: '100vh',

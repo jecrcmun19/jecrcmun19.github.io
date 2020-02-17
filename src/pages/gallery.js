@@ -6,6 +6,7 @@ import Helmet from 'react-helmet'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Image from 'gatsby-image'
+import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Fade from 'react-reveal/Fade'
 
@@ -13,20 +14,15 @@ const useStyles = makeStyles(theme => ({
   headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
-    // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
-
     letterSpacing: '0.08em',
     [theme.breakpoints.up('md')]: {
       fontSize: 80,
     },
   },
   munTextProperty: {
-    // fontFamily: "'Rubik' , sans-serif",
-
     fontWeight: 'bold',
-
     color: theme.palette.font.primary,
     letterSpacing: '0.08em',
     fontSize: '24px',
@@ -116,6 +112,16 @@ function Gallery() {
         <Typography className={classes.munTextProperty} variant='h5'>
           JECRC MUN 2020
         </Typography>
+        <Button
+          type='submit'
+          color='primary'
+          variant='contained'
+          size='large'
+          href='https://drive.google.com/open?id=1w1f8IPEiYPZlLE6ypmIF9B7vo1p-8hRV'
+          target='_blank'
+        >
+          Previous Year Conference Pictures
+        </Button>
       </Banner>
       <Grid
         className={[

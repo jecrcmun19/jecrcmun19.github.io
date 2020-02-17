@@ -182,11 +182,11 @@ function NavBarWeb(props) {
       <ListItem
         component={MaterialLink}
         underline='none'
-        href='/#blogs'
+        href='/#resources'
         className={classes.navItem}
       >
         <Typography variant='subtitle2' className={classes.headerItems}>
-          Blogs
+          Resources
         </Typography>
       </ListItem>
       <ListItem component={Link} to='/#committees' className={classes.navItem}>
