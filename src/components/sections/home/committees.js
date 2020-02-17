@@ -1,152 +1,131 @@
 import React from 'react'
-
-import CardContent from '@material-ui/core/CardContent'
-import Card from '@material-ui/core/Card'
+import { CommitteesData } from '../../../data/committees-data'
 import makeStyles from '@material-ui/styles/makeStyles'
 import Grid from '@material-ui/core/Grid'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
+import { Link } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import classnames from 'classnames'
-import { Link } from 'gatsby'
-
 import Fade from 'react-reveal/Fade'
-import {
-  Committe,
-  CommitteName,
-  Agenda,
-  CommitteLogo,
-} from '../../../data/committees-data'
 
 const useStyles = makeStyles(theme => ({
-  primaryBackgroundColor: {
-    background: '#D90845',
-  },
-  cardContainer: {
-    width: '65vw',
-    [theme.breakpoints.down('md')]: {
-      width: '80vw',
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: '90vw',
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: '95vw',
-    },
-  },
-  tabsTextProperty: {
-    fontSize: '1.1rem',
-    fontWeight: '500',
-    color: '#FFF',
-  },
-  paddingZero: {
-    padding: 0,
-  },
   content: {
-    [theme.breakpoints.up('md')]: {
-      fontSize: '1rem',
+    position: 'relative',
+    width: '90%',
+    maxWidth: '450px',
+    margin: 'auto',
+    overflow: 'hidden',
+    '&:hover > .layer': {
+      opacity: 1,
+      width: '100%',
+      height: '100%',
+
+      position: 'absolute',
+      top: '0%',
+
+      zIndex: '1000',
     },
-    [theme.breakpoints.up('lg')]: {
-      fontSize: '1.3rem',
+
+    '&:hover > .blogImage': {
+      top: '50%',
+      left: '50%',
+      opacity: 1,
+    },
+
+    '&:hover > .text': {
+      top: '20%',
     },
   },
-  name: {
-    fontWeight: 'bold',
-    [theme.breakpoints.up('md')]: {
-      fontSize: '1.5rem',
-    },
+  overlay: {
+    background: 'rgba(217, 8, 69, 0.7)',
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    left: 0,
+    top: '60%',
+    right: 0,
+    bottom: 0,
+    opacity: 1,
+    transition: 'all 0.4s ease-in-out 0s',
+  },
+
+  bottomText: {
+    position: 'absolute',
+    textAlign: 'center',
+    color: '#FFF',
+    width: '100%',
+    paddingLeft: '1em',
+    paddingight: '1em',
+    top: '75%',
+
+    transition: 'all 0.4s ease-in-out 0s',
+    zIndex: 1000,
   },
 }))
 
-function CountryMatrix() {
+function Committees() {
   const classes = useStyles()
-
-  const [value, setValue] = React.useState(0)
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
   return (
-    <>
-      <div className='text-center my-10 text-white'>
-        <Fade bottom cascade>
-          <Typography variant='h4'>Committees</Typography>
-          <img
-            src='/images/line.png'
-            className='mx-auto'
-            alt='---------------------'
-          />
-        </Fade>
-      </div>
-      <Card
-        raised={true}
-        className={classnames([classes.cardContainer, 'my-10 mx-auto'])}
-      >
-        <CardContent className={classes.paddingZero}>
+    <div className='text-center py-10 sm:py-5'>
+      <Fade bottom cascade>
+        <Typography variant='h4' className='pt-5 text-white'>
+          Communities
+        </Typography>
+        <img
+          src='/images/line.png'
+          className='mx-auto pb-5'
+          alt='---------------------'
+        />
+      </Fade>
+      <Grid container justify='center'>
+        {CommitteesData.map(data => (
           <Grid
-            container
-            justify='center'
-            className={classnames([classes.primaryBackgroundColor, 'py-3'])}
+            item
+            md={4}
+            key={data.title}
+            className='w-full p-5 md:p-10 h-64 mx-12'
           >
-            <Tabs
-              value={value}
-              variant='scrollable'
-              onChange={handleChange}
-              indicatorColor='#FFFF8C'
-              scrollButtons='desktop'
-            >
-              <Tab className={classes.tabsTextProperty} label='UNSC' />
-              <Tab className={classes.tabsTextProperty} label='UNODC' />
-              <Tab className={classes.tabsTextProperty} label='DISEC' />
-              <Tab className={classes.tabsTextProperty} label='UNCSW' />
-              <Tab className={classes.tabsTextProperty} label='WHO' />
-              <Tab className={classes.tabsTextProperty} label='AIPPM' />
-            </Tabs>
+            <div className={classes.content}>
+              <div className={classnames([classes.overlay, 'layer'])}></div>
+              <img src={data.img} className='w-full blogImage h-56' />
+
+              <div className={classnames([classes.bottomText, 'text'])}>
+                <Typography variant='h4' className='text-white pb-5 sm:text-xs'>
+                  {data.title}
+                </Typography>
+
+                <Typography className='text-white pb-5'>
+                  {data.agenda}
+                </Typography>
+              </div>
+            </div>
           </Grid>
-          <div className='mx-auto text-justify p-5 md:p-10'>
-            <Fade bottom cascade>
-              <Grid container justify='center' alignContent='space-around'>
-                <Grid item xs={12}>
-                  <img
-                    src={CommitteLogo[value]}
-                    alt={CommitteLogo[value]}
-                    className='w-48 h-48 mx-auto'
-                  />
-                </Grid>
-                <Grid item className='text-center'>
-                  <Typography variant='h6' className={classes.name}>
-                    {CommitteName[value]}
-                  </Typography>
-                  <Typography
-                    variant='subtitle2'
-                    className={classnames([
-                      'italic pt-1 pb-5',
-                      classes.content,
-                    ])}
-                  >
-                    Agenda - {Agenda[value]}
-                  </Typography>
-                </Grid>
-                <Grid item className={classes.content}>
-                  {Committe[value]}
-                </Grid>
-              </Grid>
-            </Fade>
-          </div>
-        </CardContent>
-      </Card>
-      <Button
-        component={Link}
-        variant='contained'
-        color='primary'
-        size='large'
-        to='/country-matrix'
-      >
-        View Country Matrix
-      </Button>
-    </>
+        ))}
+      </Grid>
+      <Grid container justify='center' className='mt-8'>
+        <Grid item md={3} xs={12} className='p-2 md:p-5 w-64'>
+          <Button
+            color='primary'
+            variant='contained'
+            component={Link}
+            to='/committee-matrix'
+          >
+            View CommitteeMatrix
+          </Button>
+        </Grid>
+        <Grid item md={3} xs={12} className='p-2 md:p-5 w-64'>
+          <Button
+            color='primary'
+            variant='contained'
+            component={Link}
+            to='/country-matrix'
+          >
+            View CountryMatrix
+          </Button>
+        </Grid>
+      </Grid>
+    </div>
   )
 }
 
-export default CountryMatrix
+export default Committees

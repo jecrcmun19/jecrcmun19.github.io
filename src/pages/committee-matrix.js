@@ -96,7 +96,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function CountryMatrix() {
+function CommitteeMatrix() {
   const classes = useStyles()
   const theme = useTheme()
 
@@ -201,4 +201,4 @@ function CountryMatrix() {
   )
 }
 
-export default CountryMatrix
+export default CommitteeMatrix
