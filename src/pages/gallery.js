@@ -7,6 +7,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Image from 'gatsby-image'
 import Grid from '@material-ui/core/Grid'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
   headingTextProperty: {
@@ -133,12 +134,14 @@ function Gallery() {
         >
           {gallery.images.map(image => (
             <Grid item className={classes.imageContainer}>
-              <Image
-                fluid={image.sharp.fluid}
-                fadeIn={false}
-                alt='JECRC MUN Gallery'
-                className={classes.image}
-              />
+              <Fade bottom>
+                <Image
+                  fluid={image.sharp.fluid}
+                  fadeIn={false}
+                  alt='JECRC MUN Gallery'
+                  className={classes.image}
+                />
+              </Fade>
             </Grid>
           ))}
         </Grid>

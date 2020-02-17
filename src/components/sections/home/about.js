@@ -55,22 +55,20 @@ export default () => {
       >
         <Grid container justify='center'>
           <Grid item md={6} xs={12} className='p-5 text-center lg:text-left'>
-            <Fade bottom cascade>
-              <Typography
-                variant='subtitle1'
-                className={classnames(['italic', classes.content])}
-              >
-                About Us
-              </Typography>
-              <Typography variant='h4' className={classes.heading}>
-                WELCOME TO JECRC MUN
-              </Typography>
-              <img
-                src='/images/line.png'
-                className='mx-auto lg:m-0'
-                alt='---------------------'
-              />
-            </Fade>
+            <Typography
+              variant='subtitle1'
+              className={classnames(['italic', classes.content])}
+            >
+              About Us
+            </Typography>
+            <Typography variant='h4' className={classes.heading}>
+              WELCOME TO JECRC MUN
+            </Typography>
+            <img
+              src='/images/line.png'
+              className='mx-auto lg:m-0'
+              alt='---------------------'
+            />
             <Fade bottom cascade>
               <Typography
                 className={classnames([

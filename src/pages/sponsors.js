@@ -116,91 +116,93 @@ function SponsorsForm() {
       {completed ? (
         <FormCompleted />
       ) : (
-        <ContentBox className='m-16'>
-          <Typography variant='h6' style={{ color: '#D90845' }}>
-            Become Our Sponsor
-          </Typography>
-          <form className={classes.form} onSubmit={handleSubmit}>
-            <InputField
-              required
-              label='Name of the Organization'
-              name='organization'
-              {...organization}
-            />
-            <InputField
-              required
-              label='Full Name'
-              autoComplete='name'
-              name='fullName'
-              {...fullName}
-            />
-            <InputField
-              required
-              label='Email ID'
-              type='email'
-              name='email'
-              {...email}
-            />
-            <InputField
-              required
-              label='Contact No.'
-              type='tel'
-              name='contact'
-              {...contact}
-            />
-            <InputField
-              label='Alternative Contact No.'
-              type='tel'
-              name='altContact'
-              {...altContact}
-            />
-            <InputField
-              required
-              label='Subject'
-              name='subject'
-              rowsMax={6}
-              {...subject}
-              InputLabelProps={{
-                classes: {
-                  root: classes.smallLabel,
-                },
-              }}
-            />
-            <InputField
-              label='Body'
-              name='message'
-              multiline
-              rowsMax={6}
-              {...message}
-              InputLabelProps={{
-                classes: {
-                  root: classes.smallLabel,
-                },
-              }}
-            />
-            <div className='mt-6 text-center'>
-              {loading ? (
-                <CircularProgress />
-              ) : (
-                <Button
-                  type='submit'
-                  color='primary'
-                  variant='contained'
-                  size='large'
-                >
-                  Submit
-                </Button>
-              )}
-              <div>
-                {error ? (
-                  <Typography variant='h6' component='p' color='error'>
-                    Cannot submit form. Please refresh the page and try again.
-                  </Typography>
-                ) : null}
+        <Fade bottom>
+          <ContentBox className='m-16'>
+            <Typography variant='h6' style={{ color: '#D90845' }}>
+              Become Our Sponsor
+            </Typography>
+            <form className={classes.form} onSubmit={handleSubmit}>
+              <InputField
+                required
+                label='Name of the Organization'
+                name='organization'
+                {...organization}
+              />
+              <InputField
+                required
+                label='Full Name'
+                autoComplete='name'
+                name='fullName'
+                {...fullName}
+              />
+              <InputField
+                required
+                label='Email ID'
+                type='email'
+                name='email'
+                {...email}
+              />
+              <InputField
+                required
+                label='Contact No.'
+                type='tel'
+                name='contact'
+                {...contact}
+              />
+              <InputField
+                label='Alternative Contact No.'
+                type='tel'
+                name='altContact'
+                {...altContact}
+              />
+              <InputField
+                required
+                label='Subject'
+                name='subject'
+                rowsMax={6}
+                {...subject}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.smallLabel,
+                  },
+                }}
+              />
+              <InputField
+                label='Body'
+                name='message'
+                multiline
+                rowsMax={6}
+                {...message}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.smallLabel,
+                  },
+                }}
+              />
+              <div className='mt-6 text-center'>
+                {loading ? (
+                  <CircularProgress />
+                ) : (
+                  <Button
+                    type='submit'
+                    color='primary'
+                    variant='contained'
+                    size='large'
+                  >
+                    Submit
+                  </Button>
+                )}
+                <div>
+                  {error ? (
+                    <Typography variant='h6' component='p' color='error'>
+                      Cannot submit form. Please refresh the page and try again.
+                    </Typography>
+                  ) : null}
+                </div>
               </div>
-            </div>
-          </form>
-        </ContentBox>
+            </form>
+          </ContentBox>
+        </Fade>
       )}
     </div>
   )

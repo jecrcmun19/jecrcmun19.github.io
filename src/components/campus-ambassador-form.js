@@ -131,134 +131,137 @@ export default function CampusAmbassadorForm() {
           <FormCompleted />
         </Fade>
       ) : (
-        <ContentBox className='mb-16'>
-          <form className={classes.form} onSubmit={handleSubmit}>
-            <InputField
-              required
-              label='Full Name'
-              autoComplete='name'
-              name='fullName'
-              {...fullName}
-            />
-            <InputField
-              required
-              label='Contact No.'
-              type='tel'
-              name='contact'
-              {...contact}
-            />
-            <InputField
-              required
-              label='Email ID'
-              type='email'
-              name='email'
-              {...email}
-            />
-            <InputField
-              required
-              label='Institution'
-              name='institute'
-              {...institute}
-            />
-            <div className='mt-8 mb-3'>
-              <Typography variant='h6' component='p'>
-                Prior MUN Experience
-              </Typography>
-              <Typography variant='body1' component='p'>
-                Please mention the detailed MUN experience in the below format:
-                (Name of Conference/ Year /Committee /Position /Awards(if any))
-              </Typography>
-            </div>
-            <InputField
-              required
-              label='Campus Ambassador Experience'
-              name='expCA'
-              multiline
-              rowsMax={6}
-              {...expCA}
-            />
-            <InputField
-              required
-              label='Delegate Experience'
-              name='expDelegate'
-              multiline
-              rowsMax={6}
-              {...expDelegate}
-            />
-            <InputField
-              required
-              label='Executive Board Experience'
-              name='expEB'
-              multiline
-              rowsMax={6}
-              {...expEB}
-              InputLabelProps={{
-                classes: {
-                  root: classes.smallLabel,
-                },
-              }}
-            />
-            <InputField
-              required
-              label='Organising Committee Experience'
-              name='expOC'
-              multiline
-              rowsMax={6}
-              {...expOC}
-              InputLabelProps={{
-                classes: {
-                  root: classes.smallLabel,
-                },
-              }}
-            />
-            <InputField
-              required
-              label='How Do people benefit from MUN?'
-              name='benefits'
-              multiline
-              rowsMax={6}
-              {...benefits}
-              InputLabelProps={{
-                classes: {
-                  root: classes.smallLabel,
-                },
-              }}
-            />
-            <InputField
-              label='Anything you want to know?'
-              name='otherinfo'
-              multiline
-              rowsMax={6}
-              {...otherinfo}
-              InputLabelProps={{
-                classes: {
-                  root: classes.smallLabel,
-                },
-              }}
-            />
-            <div className='mt-6 text-center'>
-              {loading ? (
-                <CircularProgress />
-              ) : (
-                <Button
-                  type='submit'
-                  color='primary'
-                  variant='contained'
-                  size='large'
-                >
-                  Submit
-                </Button>
-              )}
-              <div>
-                {error ? (
-                  <Typography variant='h6' component='p' color='error'>
-                    Cannot submit form. Please refresh the page and try again.
-                  </Typography>
-                ) : null}
+        <Fade bottom>
+          <ContentBox className='mb-16'>
+            <form className={classes.form} onSubmit={handleSubmit}>
+              <InputField
+                required
+                label='Full Name'
+                autoComplete='name'
+                name='fullName'
+                {...fullName}
+              />
+              <InputField
+                required
+                label='Contact No.'
+                type='tel'
+                name='contact'
+                {...contact}
+              />
+              <InputField
+                required
+                label='Email ID'
+                type='email'
+                name='email'
+                {...email}
+              />
+              <InputField
+                required
+                label='Institution'
+                name='institute'
+                {...institute}
+              />
+              <div className='mt-8 mb-3'>
+                <Typography variant='h6' component='p'>
+                  Prior MUN Experience
+                </Typography>
+                <Typography variant='body1' component='p'>
+                  Please mention the detailed MUN experience in the below
+                  format: (Name of Conference/ Year /Committee /Position
+                  /Awards(if any))
+                </Typography>
               </div>
-            </div>
-          </form>
-        </ContentBox>
+              <InputField
+                required
+                label='Campus Ambassador Experience'
+                name='expCA'
+                multiline
+                rowsMax={6}
+                {...expCA}
+              />
+              <InputField
+                required
+                label='Delegate Experience'
+                name='expDelegate'
+                multiline
+                rowsMax={6}
+                {...expDelegate}
+              />
+              <InputField
+                required
+                label='Executive Board Experience'
+                name='expEB'
+                multiline
+                rowsMax={6}
+                {...expEB}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.smallLabel,
+                  },
+                }}
+              />
+              <InputField
+                required
+                label='Organising Committee Experience'
+                name='expOC'
+                multiline
+                rowsMax={6}
+                {...expOC}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.smallLabel,
+                  },
+                }}
+              />
+              <InputField
+                required
+                label='How Do people benefit from MUN?'
+                name='benefits'
+                multiline
+                rowsMax={6}
+                {...benefits}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.smallLabel,
+                  },
+                }}
+              />
+              <InputField
+                label='Anything you want to know?'
+                name='otherinfo'
+                multiline
+                rowsMax={6}
+                {...otherinfo}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.smallLabel,
+                  },
+                }}
+              />
+              <div className='mt-6 text-center'>
+                {loading ? (
+                  <CircularProgress />
+                ) : (
+                  <Button
+                    type='submit'
+                    color='primary'
+                    variant='contained'
+                    size='large'
+                  >
+                    Submit
+                  </Button>
+                )}
+                <div>
+                  {error ? (
+                    <Typography variant='h6' component='p' color='error'>
+                      Cannot submit form. Please refresh the page and try again.
+                    </Typography>
+                  ) : null}
+                </div>
+              </div>
+            </form>
+          </ContentBox>
+        </Fade>
       )}
     </Grid>
   )

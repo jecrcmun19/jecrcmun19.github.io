@@ -11,6 +11,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import FormCompleted from '../components/form-completed'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
   headingTextProperty: {
@@ -135,90 +136,92 @@ function Contact(props) {
           classes.container,
         ]}
       >
-        <Grid
-          container
-          direction='row'
-          justify='space-around'
-          alignItems='center'
-          className='py-16'
-        >
-          <Grid item md={5} lg={4}>
-            {completed ? (
-              <FormCompleted className={classes.formContainer} />
-            ) : (
-              <ContentBox className={classes.formContainer}>
-                <form className={classes.form} onSubmit={handleSubmit}>
-                  <InputField
-                    required
-                    label='Full Name'
-                    autoComplete='name'
-                    name='fullName'
-                    {...fullName}
-                  />
-                  <InputField
-                    required
-                    label='Contact No.'
-                    type='tel'
-                    name='contact'
-                    {...contact}
-                  />
-                  <InputField
-                    required
-                    label='Email ID'
-                    type='email'
-                    name='email'
-                    {...email}
-                  />
-                  <InputField
-                    required
-                    label='Institution'
-                    name='institute'
-                    {...subject}
-                  />
-                  <InputField
-                    required
-                    label='Message'
-                    name='message'
-                    multiline
-                    rowsMax={6}
-                    {...message}
-                  />
-                  <div className='mt-6 text-center'>
-                    {loading ? (
-                      <CircularProgress />
-                    ) : (
-                      <Button
-                        type='submit'
-                        color='primary'
-                        variant='contained'
-                        size='large'
-                      >
-                        Submit
-                      </Button>
-                    )}
-                    <div>
-                      {error ? (
-                        <Typography variant='h6' component='p' color='error'>
-                          Cannot submit form. Please refresh the page and try
-                          again.
-                        </Typography>
-                      ) : null}
+        <Fade bottom cascade>
+          <Grid
+            container
+            direction='row'
+            justify='space-around'
+            alignItems='center'
+            className='py-16'
+          >
+            <Grid item md={5} lg={4}>
+              {completed ? (
+                <FormCompleted className={classes.formContainer} />
+              ) : (
+                <ContentBox className={classes.formContainer}>
+                  <form className={classes.form} onSubmit={handleSubmit}>
+                    <InputField
+                      required
+                      label='Full Name'
+                      autoComplete='name'
+                      name='fullName'
+                      {...fullName}
+                    />
+                    <InputField
+                      required
+                      label='Contact No.'
+                      type='tel'
+                      name='contact'
+                      {...contact}
+                    />
+                    <InputField
+                      required
+                      label='Email ID'
+                      type='email'
+                      name='email'
+                      {...email}
+                    />
+                    <InputField
+                      required
+                      label='Institution'
+                      name='institute'
+                      {...subject}
+                    />
+                    <InputField
+                      required
+                      label='Message'
+                      name='message'
+                      multiline
+                      rowsMax={6}
+                      {...message}
+                    />
+                    <div className='mt-6 text-center'>
+                      {loading ? (
+                        <CircularProgress />
+                      ) : (
+                        <Button
+                          type='submit'
+                          color='primary'
+                          variant='contained'
+                          size='large'
+                        >
+                          Submit
+                        </Button>
+                      )}
+                      <div>
+                        {error ? (
+                          <Typography variant='h6' component='p' color='error'>
+                            Cannot submit form. Please refresh the page and try
+                            again.
+                          </Typography>
+                        ) : null}
+                      </div>
                     </div>
-                  </div>
-                </form>
-              </ContentBox>
-            )}
+                  </form>
+                </ContentBox>
+              )}
+            </Grid>
+            <Grid item md={5} lg={4} className={classes.mapContainer}>
+              <iframe
+                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.825855186854!2d75.81833451496024!3d26.7818204831841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc977c6898ab9%3A0x8010b7bf0b1f29c9!2sJECRC%20Foundation!5e0!3m2!1sen!2sin!4v1579948771763!5m2!1sen!2sin'
+                frameborder='0'
+                className={classes.map}
+                allowfullscreen=''
+                title='JECRC Foundation'
+              ></iframe>
+            </Grid>
           </Grid>
-          <Grid item md={5} lg={4} className={classes.mapContainer}>
-            <iframe
-              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.825855186854!2d75.81833451496024!3d26.7818204831841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc977c6898ab9%3A0x8010b7bf0b1f29c9!2sJECRC%20Foundation!5e0!3m2!1sen!2sin!4v1579948771763!5m2!1sen!2sin'
-              frameborder='0'
-              className={classes.map}
-              allowfullscreen=''
-              title='JECRC Foundation'
-            ></iframe>
-          </Grid>
-        </Grid>
+        </Fade>
       </Grid>
     </Wrapper>
   )
