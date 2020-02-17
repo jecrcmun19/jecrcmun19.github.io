@@ -7,14 +7,33 @@ import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Image from 'gatsby-image'
 import Grid from '@material-ui/core/Grid'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
-    fontFamily: "'Rubik' , sans-serif",
+    // fontFamily: "'Rubik' , sans-serif",
     fontSize: 60,
     lineHeight: '71px',
+
+    letterSpacing: '0.08em',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 80,
+    },
+  },
+  munTextProperty: {
+    // fontFamily: "'Rubik' , sans-serif",
+
+    fontWeight: 'bold',
+
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
+    fontSize: '24px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
+    },
   },
   container: {
     backgroundColor: theme.palette.background.pinkish,
@@ -53,7 +72,7 @@ function Gallery() {
   const theme = useTheme()
   const { image, gallery } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/about.jpg" }) {
+      image: file(relativePath: { eq: "banners/gallery.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -90,9 +109,12 @@ function Gallery() {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           GALLERY
+        </Typography>
+        <Typography className={classes.munTextProperty} variant='h5'>
+          JECRC MUN 2020
         </Typography>
       </Banner>
       <Grid
@@ -112,12 +134,14 @@ function Gallery() {
         >
           {gallery.images.map(image => (
             <Grid item className={classes.imageContainer}>
-              <Image
-                fluid={image.sharp.fluid}
-                fadeIn={false}
-                alt='JECRC MUN Gallery'
-                className={classes.image}
-              />
+              <Fade bottom>
+                <Image
+                  fluid={image.sharp.fluid}
+                  fadeIn={false}
+                  alt='JECRC MUN Gallery'
+                  className={classes.image}
+                />
+              </Fade>
             </Grid>
           ))}
         </Grid>

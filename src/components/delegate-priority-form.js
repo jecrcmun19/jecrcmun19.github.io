@@ -14,6 +14,7 @@ import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { Link as GatsbyLink } from 'gatsby'
 import FormCompleted from './form-completed'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -196,232 +197,237 @@ export default function DelegatePriorityForm() {
         classes.container,
       ]}
     >
-      <ContentBox className='my-16'>
-        <div>
-          <Typography variant='body1' component='p' paragraph>
-            Register early to gain priority for acceptance and maximize the
-            chance of receiving your country preferences.
-          </Typography>
-          <Typography variant='body1' component='p' paragraph>
-            Conference Date : 11th-12th April 2020
-          </Typography>
-          <Typography variant='body1' component='p' paragraph>
-            Committees to be simulated this year are :
-          </Typography>
-          <ol className='ml-4 list-decimal'>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                United Nations General Assembly-DISEC (GA-DISEC)
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                United Nations Office on Drugs and Crimes (UN-ODC)
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                All India Political Parties Meet (AIPPM)
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                United Nations Commission on the Status of Women (CSW)
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                United Nations- Security Council (UN-SC)
-              </Typography>
-            </li>
-            <li>
-              <Typography variant='body1' component='p' paragraph>
-                World Health Organization (WHO)
-              </Typography>
-            </li>
-          </ol>
-          <Typography
-            variant='body1'
-            component='p'
-            className={classes.feesText}
-            paragraph
-          >
-            Delegation Fees: 1400 /-
-          </Typography>
+      <Fade bottom>
+        <ContentBox className='my-16'>
           <div>
-            <Button
-              component={GatsbyLink}
-              variant='contained'
-              color='primary'
-              size='small'
-              to='/country-matrix'
+            <Typography variant='body1' component='p' paragraph>
+              Register early to gain priority for acceptance and maximize the
+              chance of receiving your country preferences.
+            </Typography>
+            <Typography variant='body1' component='p' paragraph>
+              Conference Date : 11th-12th April 2020
+            </Typography>
+            <Typography variant='body1' component='p' paragraph>
+              Committees to be simulated this year are :
+            </Typography>
+            <ol className='ml-4 list-decimal'>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  United Nations General Assembly-DISEC (GA-DISEC)
+                </Typography>
+              </li>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  United Nations Office on Drugs and Crimes (UN-ODC)
+                </Typography>
+              </li>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  All India Political Parties Meet (AIPPM)
+                </Typography>
+              </li>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  United Nations Commission on the Status of Women (CSW)
+                </Typography>
+              </li>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  United Nations- Security Council (UN-SC)
+                </Typography>
+              </li>
+              <li>
+                <Typography variant='body1' component='p' paragraph>
+                  World Health Organization (WHO)
+                </Typography>
+              </li>
+            </ol>
+            <Typography
+              variant='body1'
+              component='p'
+              className={classes.feesText}
+              paragraph
             >
-              View Country Matrix
-            </Button>
+              Delegation Fees: 1400 /-
+            </Typography>
+            <div>
+              <Button
+                component={GatsbyLink}
+                variant='contained'
+                color='primary'
+                size='small'
+                to='/country-matrix'
+              >
+                View Country Matrix
+              </Button>
+            </div>
           </div>
-        </div>
-      </ContentBox>
+        </ContentBox>
+      </Fade>
       {completed ? (
         <FormCompleted />
       ) : (
-        <ContentBox className='mb-16'>
-          <form className={classes.form} onSubmit={handleSubmit}>
-            <InputField
-              required
-              label='Full Name'
-              autoComplete='name'
-              name='fullName'
-              {...fullName}
-            />
-            <InputField
-              required
-              label='Contact No.'
-              type='tel'
-              name='contact'
-              {...contact}
-            />
-            <InputField
-              required
-              label='Email ID'
-              type='email'
-              name='email'
-              {...email}
-            />
-            <InputField
-              required
-              label='Institution'
-              name='institute'
-              {...institute}
-            />
-            <InputField
-              required
-              label='Class/Year'
-              name='classYear'
-              {...classYear}
-            />
-            <div className='mt-8 mb-3'>
-              <Typography variant='h6' component='p'>
-                Prior MUN Experience
-              </Typography>
-              <Typography variant='body1' component='p'>
-                Please mention the detailed MUN experience in the below format:
-                (Name of Conference/ Year /Committee /Position /Awards(if any))
-              </Typography>
-            </div>
-            <InputField
-              label='As a Delegate'
-              name='expDelegate'
-              {...expDelegate}
-              multiline
-              rowsMax={6}
-            />
-            <InputField
-              label='As a member of EB'
-              name='expEb'
-              {...expEB}
-              multiline
-              rowsMax={6}
-            />
-            <InputField
-              label='As a member of Secretariat'
-              name='expSec'
-              {...expSec}
-              multiline
-              rowsMax={6}
-            />
-            <InputField
-              label='Any other experience'
-              name='expOther'
-              {...expOther}
-              multiline
-              rowsMax={6}
-            />
-            <div className='mt-8 mb-3'>
-              <Typography variant='h6' component='p'>
-                Committee Preferences
-              </Typography>
-            </div>
-            <CommitteePreference
-              first={prefFirst}
-              second={prefSecond}
-              third={prefThird}
-              onChange={handleRadioChange}
-            />
-            <InputField
-              required
-              label='Country/Portfolio Preference 1'
-              name='port1'
-              {...portFirst}
-            />
-            <InputField
-              required
-              label='Country/Portfolio Preference 2'
-              name='port2'
-              {...portSecond}
-            />
-            <InputField
-              required
-              label='Country/Portfolio Preference 3'
-              name='port3'
-              {...portThird}
-            />
-            <div className='mt-4'>
-              <FormControl
-                component='fieldset'
-                fullWidth
+        <Fade bottom>
+          <ContentBox className='mb-16'>
+            <form className={classes.form} onSubmit={handleSubmit}>
+              <InputField
                 required
-                margin='normal'
-              >
-                <FormLabel component='legend'>
-                  Do you require accommodation ?
-                </FormLabel>
-                <RadioGroup name='accommodation' {...accommodation}>
-                  <FormControlLabel
-                    value='Yes'
-                    control={
-                      <Radio classes={radioClasses} name='accommodation' />
-                    }
-                    label='Yes'
-                  />
-                  <FormControlLabel
-                    value='No'
-                    control={
-                      <Radio classes={radioClasses} name='accommodation' />
-                    }
-                    label='No'
-                  />
-                </RadioGroup>
-              </FormControl>
-            </div>
-            <InputField
-              required
-              label='Referred By'
-              name='referred'
-              {...referral}
-            />
-            <div className='mt-6 text-center'>
-              {loading ? (
-                <CircularProgress />
-              ) : (
-                <Button
-                  type='submit'
-                  color='primary'
-                  variant='contained'
-                  size='large'
-                >
-                  Register
-                </Button>
-              )}
-              <div>
-                {error ? (
-                  <Typography variant='h6' component='p' color='error'>
-                    Cannot submit form. Please refresh the page and try again.
-                  </Typography>
-                ) : null}
+                label='Full Name'
+                autoComplete='name'
+                name='fullName'
+                {...fullName}
+              />
+              <InputField
+                required
+                label='Contact No.'
+                type='tel'
+                name='contact'
+                {...contact}
+              />
+              <InputField
+                required
+                label='Email ID'
+                type='email'
+                name='email'
+                {...email}
+              />
+              <InputField
+                required
+                label='Institution'
+                name='institute'
+                {...institute}
+              />
+              <InputField
+                required
+                label='Class/Year'
+                name='classYear'
+                {...classYear}
+              />
+              <div className='mt-8 mb-3'>
+                <Typography variant='h6' component='p'>
+                  Prior MUN Experience
+                </Typography>
+                <Typography variant='body1' component='p'>
+                  Please mention the detailed MUN experience in the below
+                  format: (Name of Conference/ Year /Committee /Position
+                  /Awards(if any))
+                </Typography>
               </div>
-            </div>
-          </form>
-        </ContentBox>
+              <InputField
+                label='As a Delegate'
+                name='expDelegate'
+                {...expDelegate}
+                multiline
+                rowsMax={6}
+              />
+              <InputField
+                label='As a member of EB'
+                name='expEb'
+                {...expEB}
+                multiline
+                rowsMax={6}
+              />
+              <InputField
+                label='As a member of Secretariat'
+                name='expSec'
+                {...expSec}
+                multiline
+                rowsMax={6}
+              />
+              <InputField
+                label='Any other experience'
+                name='expOther'
+                {...expOther}
+                multiline
+                rowsMax={6}
+              />
+              <div className='mt-8 mb-3'>
+                <Typography variant='h6' component='p'>
+                  Committee Preferences
+                </Typography>
+              </div>
+              <CommitteePreference
+                first={prefFirst}
+                second={prefSecond}
+                third={prefThird}
+                onChange={handleRadioChange}
+              />
+              <InputField
+                required
+                label='Country/Portfolio Preference 1'
+                name='port1'
+                {...portFirst}
+              />
+              <InputField
+                required
+                label='Country/Portfolio Preference 2'
+                name='port2'
+                {...portSecond}
+              />
+              <InputField
+                required
+                label='Country/Portfolio Preference 3'
+                name='port3'
+                {...portThird}
+              />
+              <div className='mt-4'>
+                <FormControl
+                  component='fieldset'
+                  fullWidth
+                  required
+                  margin='normal'
+                >
+                  <FormLabel component='legend'>
+                    Do you require accommodation ?
+                  </FormLabel>
+                  <RadioGroup name='accommodation' {...accommodation}>
+                    <FormControlLabel
+                      value='Yes'
+                      control={
+                        <Radio classes={radioClasses} name='accommodation' />
+                      }
+                      label='Yes'
+                    />
+                    <FormControlLabel
+                      value='No'
+                      control={
+                        <Radio classes={radioClasses} name='accommodation' />
+                      }
+                      label='No'
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </div>
+              <InputField
+                required
+                label='Referred By'
+                name='referred'
+                {...referral}
+              />
+              <div className='mt-6 text-center'>
+                {loading ? (
+                  <CircularProgress />
+                ) : (
+                  <Button
+                    type='submit'
+                    color='primary'
+                    variant='contained'
+                    size='large'
+                  >
+                    Register
+                  </Button>
+                )}
+                <div>
+                  {error ? (
+                    <Typography variant='h6' component='p' color='error'>
+                      Cannot submit form. Please refresh the page and try again.
+                    </Typography>
+                  ) : null}
+                </div>
+              </div>
+            </form>
+          </ContentBox>
+        </Fade>
       )}
     </Grid>
   )

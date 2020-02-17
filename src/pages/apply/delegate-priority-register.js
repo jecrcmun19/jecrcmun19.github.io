@@ -8,7 +8,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import DelegateForm from '../../components/delegate-priority-form'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     fontWeight: 'bold',
     // fontFamily: "'Rubik' , sans-serif",
     fontSize: '2.25rem',
@@ -16,13 +16,18 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: '0.08em',
     textTransform: 'uppercase',
   },
-  diplomacyTextProperty: {
+  munTextProperty: {
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: '1.25rem',
+
     fontWeight: 'bold',
-    lineHeight: '28px',
+
     color: theme.palette.font.primary,
     letterSpacing: '0.08em',
+    fontSize: '24px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
+    },
   },
 }))
 
@@ -57,11 +62,11 @@ export default () => {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           Delegate Registrations
         </Typography>
-        <Typography component='h3' className={classes.diplomacyTextProperty}>
+        <Typography component='h3' className={classes.munTextProperty}>
           Priority Round
         </Typography>
       </Banner>

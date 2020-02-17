@@ -20,12 +20,30 @@ import classnames from 'classnames'
 import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: 60,
+    fontSize: 50,
     lineHeight: '71px',
+
+    letterSpacing: '0.08em',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 80,
+    },
+  },
+  munTextProperty: {
+    // fontFamily: "'Rubik' , sans-serif",
+
+    fontWeight: 'bold',
+
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
+    fontSize: '24px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
+    },
   },
   container: {
     backgroundColor: theme.palette.background.pinkish,
@@ -98,91 +116,93 @@ function SponsorsForm() {
       {completed ? (
         <FormCompleted />
       ) : (
-        <ContentBox className='m-16'>
-          <Typography variant='h6' style={{ color: '#D90845' }}>
-            Become Our Sponsor
-          </Typography>
-          <form className={classes.form} onSubmit={handleSubmit}>
-            <InputField
-              required
-              label='Name of the Organization'
-              name='organization'
-              {...organization}
-            />
-            <InputField
-              required
-              label='Full Name'
-              autoComplete='name'
-              name='fullName'
-              {...fullName}
-            />
-            <InputField
-              required
-              label='Email ID'
-              type='email'
-              name='email'
-              {...email}
-            />
-            <InputField
-              required
-              label='Contact No.'
-              type='tel'
-              name='contact'
-              {...contact}
-            />
-            <InputField
-              label='Alternative Contact No.'
-              type='tel'
-              name='altContact'
-              {...altContact}
-            />
-            <InputField
-              required
-              label='Subject'
-              name='subject'
-              rowsMax={6}
-              {...subject}
-              InputLabelProps={{
-                classes: {
-                  root: classes.smallLabel,
-                },
-              }}
-            />
-            <InputField
-              label='Body'
-              name='message'
-              multiline
-              rowsMax={6}
-              {...message}
-              InputLabelProps={{
-                classes: {
-                  root: classes.smallLabel,
-                },
-              }}
-            />
-            <div className='mt-6 text-center'>
-              {loading ? (
-                <CircularProgress />
-              ) : (
-                <Button
-                  type='submit'
-                  color='primary'
-                  variant='contained'
-                  size='large'
-                >
-                  Submit
-                </Button>
-              )}
-              <div>
-                {error ? (
-                  <Typography variant='h6' component='p' color='error'>
-                    Cannot submit form. Please refresh the page and try again.
-                  </Typography>
-                ) : null}
+        <Fade bottom>
+          <ContentBox className='m-16'>
+            <Typography variant='h6' style={{ color: '#D90845' }}>
+              Become Our Sponsor
+            </Typography>
+            <form className={classes.form} onSubmit={handleSubmit}>
+              <InputField
+                required
+                label='Name of the Organization'
+                name='organization'
+                {...organization}
+              />
+              <InputField
+                required
+                label='Full Name'
+                autoComplete='name'
+                name='fullName'
+                {...fullName}
+              />
+              <InputField
+                required
+                label='Email ID'
+                type='email'
+                name='email'
+                {...email}
+              />
+              <InputField
+                required
+                label='Contact No.'
+                type='tel'
+                name='contact'
+                {...contact}
+              />
+              <InputField
+                label='Alternative Contact No.'
+                type='tel'
+                name='altContact'
+                {...altContact}
+              />
+              <InputField
+                required
+                label='Subject'
+                name='subject'
+                rowsMax={6}
+                {...subject}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.smallLabel,
+                  },
+                }}
+              />
+              <InputField
+                label='Body'
+                name='message'
+                multiline
+                rowsMax={6}
+                {...message}
+                InputLabelProps={{
+                  classes: {
+                    root: classes.smallLabel,
+                  },
+                }}
+              />
+              <div className='mt-6 text-center'>
+                {loading ? (
+                  <CircularProgress />
+                ) : (
+                  <Button
+                    type='submit'
+                    color='primary'
+                    variant='contained'
+                    size='large'
+                  >
+                    Submit
+                  </Button>
+                )}
+                <div>
+                  {error ? (
+                    <Typography variant='h6' component='p' color='error'>
+                      Cannot submit form. Please refresh the page and try again.
+                    </Typography>
+                  ) : null}
+                </div>
               </div>
-            </div>
-          </form>
-        </ContentBox>
+            </form>
+          </ContentBox>
+        </Fade>
       )}
     </div>
   )
@@ -193,7 +213,7 @@ function Sponsors(props) {
   const theme = useTheme()
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/about.jpg" }) {
+      image: file(relativePath: { eq: "banners/sponsor.JPG" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -218,11 +238,11 @@ function Sponsors(props) {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           OUR SPONSORS
         </Typography>
-        <Typography className='text-white' variant='h5'>
+        <Typography className={classes.munTextProperty} variant='h5'>
           JECRC MUN 2020
         </Typography>
       </Banner>
