@@ -23,10 +23,10 @@ const useStyles = makeStyles(theme => ({
   headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
-    fontSize: 50,
+    fontSize: 40,
     lineHeight: '71px',
     letterSpacing: '0.08em',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       fontSize: 80,
     },
   },
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: '0.08em',
     fontSize: '24px',
     lineHeight: '58px',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       fontSize: 35,
     },
   },

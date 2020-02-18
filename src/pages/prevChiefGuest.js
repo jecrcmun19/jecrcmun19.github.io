@@ -11,12 +11,30 @@ import Helmet from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
-    color: '#D90845',
+  headingTextProperty: {
     fontWeight: 'bold',
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: 60,
-    lineHeight: '71px',
+    fontSize: '2rem',
+    lineHeight: '40px',
+    letterSpacing: '0.08em',
+    textTransform: 'uppercase',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '3rem',
+      lineHeight: '50px',
+    },
+  },
+  munTextProperty: {
+    // fontFamily: "'Rubik' , sans-serif",
+
+    fontWeight: 'bold',
+
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
+    fontSize: '20px',
+    lineHeight: '50px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 35,
+    },
   },
   imageBlock: {
     background: '#d90845',
@@ -85,11 +103,11 @@ function PreviousYearChiefGuest() {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           Our Previous Chief Guests
         </Typography>
-        <Typography className='text-white' variant='h5'>
+        <Typography className={classes.munTextProperty} variant='h5'>
           JECRC MUN 2020
         </Typography>
       </Banner>
