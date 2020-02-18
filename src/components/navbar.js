@@ -65,7 +65,7 @@ const dropdownList = {
     },
     {
       name: 'EXECUTIVE BOARD',
-      link: '/apply/executive-board',
+      link: '/#registrations',
       type: 'gatsby',
     },
   ],

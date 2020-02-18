@@ -22,8 +22,8 @@ const registrations = [
   {
     title: 'Executive Board',
     img: 'images/EBM.png',
-    btn: 'Apply Now',
-    btnLink: '/apply/executive-board',
+    btn: 'Closed',
+    btnLink: '/#registrations',
   },
 ]
 

@@ -67,13 +67,13 @@ export default () => {
           component='h2'
           className={classes.headingTextProperty}
         >
-          Executive Board Applications
+          Executive Board Applications Closed
         </Typography>
         <Typography component='h3' className={classes.munTextProperty}>
           JECRC MUN 2020
         </Typography>
       </Banner>
-      <ExecutiveBoardForm />
+      {/* <ExecutiveBoardForm /> */}
     </Wrapper>
   )
 }

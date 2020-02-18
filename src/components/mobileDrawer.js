@@ -112,7 +112,7 @@ function MobileViewDrawer(props) {
               },
               {
                 name: 'EXECUTIVE BOARD',
-                to: '/apply/executive-board',
+                to: '/#registrations',
               },
             ],
           },
