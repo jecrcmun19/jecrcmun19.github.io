@@ -49,8 +49,8 @@ const dropdownList = {
   ],
   registrations: [
     {
-      name: 'PRIORITY DELEGATE',
-      link: '/apply/delegate-priority-register',
+      name: 'DELEGATE REGISTRATIONS',
+      link: '/apply/delegate-registration',
       type: 'gatsby',
     },
     {

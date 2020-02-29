@@ -99,8 +99,8 @@ function MobileViewDrawer(props) {
             link: '/#registrations',
             items: [
               {
-                name: 'PRIORITY DELEGATE',
-                to: '/apply/delegate-priority-register',
+                name: 'DELEGATE REGISTRATIONS',
+                to: '/apply/delegate-registration',
               },
               {
                 name: 'CAMPUS AMBASSADOR',

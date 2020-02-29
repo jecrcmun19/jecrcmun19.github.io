@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import { graphql, useStaticQuery } from 'gatsby'
-import DelegateForm from '../../components/delegate-priority-form'
+import DelegateForm from '../../components/delegate-registration-form'
 
 const useStyles = makeStyles(theme => ({
   headingTextProperty: {
@@ -67,7 +67,7 @@ export default () => {
           Delegate Registrations
         </Typography>
         <Typography component='h3' className={classes.munTextProperty}>
-          Priority Round
+          JECRC MUN 2020
         </Typography>
       </Banner>
       <DelegateForm />

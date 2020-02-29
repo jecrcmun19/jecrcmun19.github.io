@@ -15,11 +15,15 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import { Link as GatsbyLink } from 'gatsby'
 import FormCompleted from './form-completed'
 import Fade from 'react-reveal/Fade'
+import classnames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   form: {
     width: '100%',
     maxWidth: '700px',
+  },
+  content: {
+    justifyContent: 'start',
   },
   radio: {
     root: {
@@ -198,12 +202,8 @@ export default function DelegatePriorityForm() {
       ]}
     >
       <Fade bottom>
-        <ContentBox className='my-16'>
+        <ContentBox className={classnames(['my-16', classes.content])}>
           <div>
-            <Typography variant='body1' component='p' paragraph>
-              Register early to gain priority for acceptance and maximize the
-              chance of receiving your country preferences.
-            </Typography>
             <Typography variant='body1' component='p' paragraph>
               Conference Date : 11th-12th April 2020
             </Typography>
@@ -248,7 +248,7 @@ export default function DelegatePriorityForm() {
               className={classes.feesText}
               paragraph
             >
-              Delegation Fees: 1400 /-
+              Delegation Fees: 1500 /-
             </Typography>
             <div>
               <Button
