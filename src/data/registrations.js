@@ -2,9 +2,9 @@ const registrations = [
   {
     title: 'Delegate Registration',
     img: 'images/delegate.png',
-    info: 'Application Fees: 1400 /-',
+    info: 'Application Fees: 1500 /-',
     btn: 'Apply Now',
-    btnLink: '/apply/delegate-priority-register',
+    btnLink: '/apply/delegate-registration',
   },
   {
     title: 'International Press',
