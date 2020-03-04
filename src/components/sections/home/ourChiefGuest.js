@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core'
 import classnames from 'classnames'
 import Fade from 'react-reveal/Fade'
 import chiefGuestData from '../../../data/chiefGuest'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const useStyles = makeStyles(theme => ({
   imageContainer: {
@@ -54,10 +55,53 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }))
+const Content = props => {
+  const classes = useStyles()
 
+  return (
+    <Fade bottom>
+      <div className={classnames(['mx-auto', classes.imageContainer])}>
+        <img
+          src={props.data.image}
+          alt={props.data.name}
+          className={classnames(['w-full'], classes.image)}
+        />
+        <div className={classnames(['w-full p-2', classes.layer])}>
+          <Typography variant='h5' className='text-white'>
+            {props.data.name}
+          </Typography>
+          <Typography variant='subtitle1' className='text-white'>
+            {props.data.designation}
+          </Typography>
+          <Typography variant='subtitle1' className='text-white'>
+            {props.data.organization}
+          </Typography>
+        </div>
+      </div>
+    </Fade>
+  )
+}
+
+const ImageContent = props => {
+  const classes = useStyles()
+  return (
+    <Fade bottom cascade>
+      {props.data.content.map(content => (
+        <Typography
+          className={classnames([
+            'text-justify font-medium p-3',
+            classes.content,
+          ])}
+        >
+          {content}
+        </Typography>
+      ))}
+    </Fade>
+  )
+}
 const OurChiefGuest = () => {
   console.log(chiefGuestData)
-  const classes = useStyles()
+  const matches = useMediaQuery('(min-width:1024px)')
   return (
     <div className='h-full'>
       <Fade bottom cascade>
@@ -70,44 +114,41 @@ const OurChiefGuest = () => {
           alt='---------------------'
         />
       </Fade>
-      {chiefGuestData.map(data => (
-        <Grid key={data.name} container justify='center' alignItems='center'>
-          <Grid item md={4} xs={12}>
-            <Fade bottom>
-              <div className={classnames(['mx-auto', classes.imageContainer])}>
-                <img
-                  src={data.image}
-                  alt={data.name}
-                  className={classnames(['w-full'], classes.image)}
-                />
-                <div className={classnames(['w-full p-2', classes.layer])}>
-                  <Typography variant='h5' className='text-white'>
-                    {data.name}
-                  </Typography>
-                  <Typography variant='subtitle1' className='text-white'>
-                    {data.designation}
-                  </Typography>
-                  <Typography variant='subtitle1' className='text-white'>
-                    {data.organization}
-                  </Typography>
-                </div>
-              </div>
-            </Fade>
-          </Grid>
-          <Grid item md={6} xs={12}>
-            <Fade bottom cascade>
-              {data.content.map(content => (
-                <Typography
-                  className={classnames([
-                    'text-justify font-medium p-3',
-                    classes.content,
-                  ])}
-                >
-                  {content}
-                </Typography>
-              ))}
-            </Fade>
-          </Grid>
+      {chiefGuestData.map((data, index) => (
+        <Grid
+          key={data.name[0]}
+          container
+          justify='center'
+          alignItems='center'
+          className='py-10'
+        >
+          {matches ? (
+            <React.Fragment>
+              <Grid item md={index % 2 ? 6 : 4} xs={12}>
+                {index % 2 ? (
+                  <ImageContent data={data} />
+                ) : (
+                  <Content data={data} />
+                )}
+              </Grid>
+              <Grid item md={index % 2 ? 4 : 6} xs={12}>
+                {index % 2 ? (
+                  <Content data={data} />
+                ) : (
+                  <ImageContent data={data} />
+                )}
+              </Grid>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <Grid item md={4} xs={12}>
+                <Content data={data} />
+              </Grid>
+              <Grid item md={6} xs={12}>
+                <ImageContent data={data} />
+              </Grid>
+            </React.Fragment>
+          )}
         </Grid>
       ))}
       <div className='mt-10'>
