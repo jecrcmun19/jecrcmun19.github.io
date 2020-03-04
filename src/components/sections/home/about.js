@@ -107,6 +107,56 @@ export default () => {
             </Fade>
           </Grid>
         </Grid>
+        <Grid container justify='center'>
+          <Grid item md={4} xs={12}>
+            <Fade bottom>
+              <img
+                src='/images/committee-02.png'
+                className='mx-auto p-10 lg:mx-0 lg:px-10 lg:py-0 mt-16'
+                alt='JECRC MUN'
+              />
+            </Fade>
+          </Grid>
+          <Grid item md={6} xs={12} className='p-5 text-center lg:text-left'>
+            <Typography variant='h4' className={classes.heading}>
+              COLLABORATION WITH UNIC
+            </Typography>
+            <img
+              src='/images/line.png'
+              className='mx-auto lg:m-0'
+              alt='---------------------'
+            />
+            <Fade bottom cascade>
+              <Typography
+                className={classnames([
+                  'text-center p-10 lg:text-justify lg:pt-8 lg:pr-10 lg:pl-0',
+                  classes.content,
+                ])}
+              >
+                JECRC MUN 2020 is now in collaboration with the United Nations
+                Information Centre (UNIC) for India and Bhutan. The United
+                Nations Information Centre for India and Bhutan is based in New
+                Delhi, India and is one of 63 United Nations Information Centres
+                established worldwide. The United Nations Information Centre for
+                India and Bhutan performs an essential role in broadcasting and
+                communicating information from the United Nations to India and
+                Bhutan. It interprets the information in the regional languages
+                of India including Hindi, Tamil, and Telugu to create
+                communication easier and more convenient.
+              </Typography>
+              <Button
+                type='submit'
+                color='primary'
+                variant='contained'
+                size='large'
+                component={Link}
+                to='/unic-collaboration'
+              >
+                READ MORE
+              </Button>
+            </Fade>
+          </Grid>
+        </Grid>
         <Grid container justify='center' className='p-5 my-5'>
           {stats.map(stat => (
             <Grid
