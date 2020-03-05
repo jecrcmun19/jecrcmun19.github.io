@@ -15,11 +15,27 @@ import Banner from '../components/banner'
 import Leaders from '../data/leader-code.json'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
-    fontSize: 60,
-    lineHeight: '71px',
+    fontSize: 40,
+    lineHeight: '50px',
+    letterSpacing: '0.08em',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 80,
+      lineHeight: '71px',
+    },
+  },
+  munTextProperty: {
+    fontWeight: 'bold',
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
+    fontSize: '20px',
+    lineHeight: '40px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 35,
+      lineHeight: '58px',
+    },
   },
   container: {
     backgroundColor: theme.palette.background.pinkish,
@@ -57,8 +73,6 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       width: '90%',
       margin: theme.spacing(2),
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
     },
     margin: theme.spacing(8),
   },
@@ -123,9 +137,12 @@ function CountryMatrix(props) {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           COUNTRY MATRIX
+        </Typography>
+        <Typography className={classes.munTextProperty} variant='h5'>
+          JECRC MUN 2020
         </Typography>
       </Banner>
       <Grid

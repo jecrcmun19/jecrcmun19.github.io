@@ -12,9 +12,12 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     // fontFamily: "'Rubik' , sans-serif",
     fontSize: '2.25rem',
-    lineHeight: '65px',
+    lineHeight: '45px',
     letterSpacing: '0.08em',
     textTransform: 'uppercase',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '2rem',
+    },
   },
   munTextProperty: {
     // fontFamily: "'Rubik' , sans-serif",
@@ -24,8 +27,8 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.font.primary,
     letterSpacing: '0.08em',
     fontSize: '24px',
-    lineHeight: '58px',
-    [theme.breakpoints.up('md')]: {
+    lineHeight: '50px',
+    [theme.breakpoints.up('sm')]: {
       fontSize: 35,
     },
   },
