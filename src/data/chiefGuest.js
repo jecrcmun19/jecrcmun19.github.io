@@ -15,7 +15,7 @@ const chiefGuest = [
     name: 'Farrhad Acidwalla',
     image: 'images/farrhad.jpg',
     designation: 'Entrepreneur & Youth Influencer',
-    organization: 'Rockstah Media and CYBERNETIV DIGITAL',
+    organization: 'Rockstah Media & Cybernetiv Digital',
     content: [
       "Farrhad Acidwalla is a young Indian entrepreneur, investor and TEDx speaker. He is regarded as one of the world's youngest entrepreneurs having a flair for technology and unique ideas that revolutionize the life. He is the founder of Rockstah Media and CYBERNETIV DIGITAL",
       "The bright entrepreneurial spirit of Farrhad didn't go unnoticed even in the early stages of his life. At 17 years of age, he did a live interview on CNN. Numerous awards for his work, digital strategies and concepts have been conferred upon him. He has been named countless times in young entrepreneurs list of many international media houses. ",
