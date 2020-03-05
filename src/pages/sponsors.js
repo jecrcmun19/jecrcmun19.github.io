@@ -237,7 +237,7 @@ function Sponsors(props) {
           component='h2'
           className={classes.headingTextProperty}
         >
-          OUR SPONSORS
+          OUR PREVIOUS SPONSORS
         </Typography>
         <Typography className={classes.munTextProperty} variant='h5'>
           JECRC MUN 2020
