@@ -11,6 +11,17 @@ const chiefGuest = [
       'Jha completed his MBA from XLRI, Jamshedpur and his Master’s in Economics from Gokhale Institute of Politics and Economics. He graduated with distinction in Economics from Fergusson College. Jha has also authored a bestseller on leadership called The Superstar Syndrome (The Making Of A Champion), co-authored with Dr. Myra White, who is a Professor at the Harvard Medical School.',
     ],
   },
+  {
+    name: 'Farrhad Acidwalla',
+    image: 'images/farrhad.jpg',
+    designation: 'Entrepreneur & Youth Influencer',
+    organization: 'Rockstah Media & Cybernetiv Digital',
+    content: [
+      "Farrhad Acidwalla is a young Indian entrepreneur, investor and TEDx speaker. He is regarded as one of the world's youngest entrepreneurs having a flair for technology and unique ideas that revolutionize the life. He is the founder of Rockstah Media and CYBERNETIV DIGITAL",
+      "The bright entrepreneurial spirit of Farrhad didn't go unnoticed even in the early stages of his life. At 17 years of age, he did a live interview on CNN. Numerous awards for his work, digital strategies and concepts have been conferred upon him. He has been named countless times in young entrepreneurs list of many international media houses. ",
+      'Today he stands as the most influential entrepreneur among youth delivering guest lectures at entrepreneurship summits and motivating them through TED talks. He has been featured on CNN, CNN-IBN, LiveMint and several others. With a mind that is always sparking with new ideas, he is passing on this spark to ignite other hearts with the zeal of innovation and creation.',
+    ],
+  },
 ]
 
 export default chiefGuest
