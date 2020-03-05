@@ -39,7 +39,7 @@ function MunExcellencies() {
       <Fade bottom cascade>
         <Typography
           variant='h4'
-          style={{ color: '#000a2a' }}
+          style={{ color: '#fff' }}
           className='pt-5'
           color='primary'
         >
@@ -72,12 +72,12 @@ function MunExcellencies() {
               </div>
             </Fade>
             <Fade bottom cascade>
-              <div className='my-5'>
-                <Typography variant='h5' color='textPrimary'>
-                  {data.title}
-                </Typography>
+              <div className='my-5 text-white'>
+                <Typography variant='h5'>{data.title}</Typography>
               </div>
-              <Typography color='textPrimary' className={classes.content}>
+              <Typography
+                className={classnames([classes.content, 'text-white'])}
+              >
                 {data.desc}
               </Typography>
             </Fade>

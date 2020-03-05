@@ -176,7 +176,6 @@ export default () => {
         }}
       >
         <About />
-        <MunExcellencies />
       </div>
       <div id='ambassador' className='flex flex-wrap justify-center'>
         <Banner
@@ -187,7 +186,10 @@ export default () => {
           height='auto'
           minHeight={true}
         >
-          <div className='py-10'>
+          <div className='py-3'>
+            <MunExcellencies />
+          </div>
+          <div className='py-3'>
             <Ambassador />
           </div>
         </Banner>
