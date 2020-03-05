@@ -13,10 +13,8 @@ const useStyles = makeStyles(theme => ({
   headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
-    // fontFamily: "'Rubik' , sans-serif",
     fontSize: 25,
     lineHeight: '31px',
-
     letterSpacing: '0.08em',
     [theme.breakpoints.up('md')]: {
       fontSize: 80,
@@ -24,10 +22,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   munTextProperty: {
-    // fontFamily: "'Rubik' , sans-serif",
-
     fontWeight: 'bold',
-
     color: theme.palette.font.primary,
     letterSpacing: '0.08em',
     fontSize: '24px',
@@ -79,12 +74,7 @@ function UNIC() {
 
   return (
     <Wrapper>
-      <Helmet>
-        {/* <link
-          href='https://fonts.googleapis.com/css?family=Rubik&display=swap'
-          rel='stylesheet'
-        /> */}
-      </Helmet>
+      <Helmet></Helmet>
       <Banner
         backgrounds={[
           `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
@@ -114,7 +104,7 @@ function UNIC() {
               marginTop: '20px',
             }}
           >
-            JECRC MUN
+            UNIC
           </Typography>
           <Grid container justify='center' className='p-4'>
             <Grid item md={10}>

@@ -186,10 +186,12 @@ export default () => {
           height='auto'
           minHeight={true}
         >
-          <div className='py-10'>
+          <div className='py-3'>
+            <MunExcellencies />
+          </div>
+          <div className='py-3'>
             <Ambassador />
           </div>
-          <MunExcellencies />
         </Banner>
       </div>
       <div

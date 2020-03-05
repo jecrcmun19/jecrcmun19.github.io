@@ -31,6 +31,20 @@ const useStyles = makeStyles(theme => ({
       fontSize: '1.3rem',
     },
   },
+  button: {
+    marginTop: '10px',
+  },
+  image: {
+    margin: '0 auto',
+    width: '300px',
+    height: 'auto',
+    [theme.breakpoints.up('md')]: {
+      width: '400px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '500px',
+    },
+  },
 }))
 
 export default () => {
@@ -50,29 +64,31 @@ export default () => {
         style={{
           backgroundColor: theme.palette.background.pinkish,
         }}
-        className='pt-20 h-full'
+        className='py-5 h-full'
         alignContent='center'
       >
-        <Grid container justify='center'>
+        <Grid container justify='center' alignItems='center'>
           <Grid item md={6} xs={12} className='p-5 text-center lg:text-left'>
-            <Typography
-              variant='subtitle1'
-              className={classnames(['italic', classes.content])}
-            >
-              About Us
-            </Typography>
-            <Typography variant='h4' className={classes.heading}>
-              WELCOME TO JECRC MUN
-            </Typography>
-            <img
-              src='/images/line.png'
-              className='mx-auto lg:m-0'
-              alt='---------------------'
-            />
+            <Fade bottom cascade>
+              <Typography
+                variant='subtitle1'
+                className={classnames(['italic', classes.content])}
+              >
+                About Us
+              </Typography>
+              <Typography variant='h4' className={classes.heading}>
+                WELCOME TO JECRC MUN
+              </Typography>
+              <img
+                src='/images/line.png'
+                className='mx-auto mb-10 lg:m-0'
+                alt='---------------------'
+              />
+            </Fade>
             <Fade bottom cascade>
               <Typography
                 className={classnames([
-                  'text-center p-10 lg:text-justify lg:pt-8 lg:pr-10 lg:pl-0',
+                  'text-center lg:text-justify lg:pt-8 lg:pr-10 lg:pl-0',
                   classes.content,
                 ])}
               >
@@ -88,6 +104,7 @@ export default () => {
               <Button
                 type='submit'
                 color='primary'
+                className={classes.button}
                 variant='contained'
                 size='large'
                 component={Link}
@@ -104,56 +121,6 @@ export default () => {
                 className='mx-auto p-10 lg:mx-0 lg:px-10 lg:py-0'
                 alt='JECRC MUN'
               />
-            </Fade>
-          </Grid>
-        </Grid>
-        <Grid container justify='center'>
-          <Grid item md={4} xs={12}>
-            <Fade bottom>
-              <img
-                src='/images/committee-02.png'
-                className='mx-auto p-10 lg:mx-0 lg:px-10 lg:py-0 mt-16'
-                alt='JECRC MUN'
-              />
-            </Fade>
-          </Grid>
-          <Grid item md={6} xs={12} className='p-5 text-center lg:text-left'>
-            <Typography variant='h4' className={classes.heading}>
-              COLLABORATION WITH UNIC
-            </Typography>
-            <img
-              src='/images/line.png'
-              className='mx-auto lg:m-0'
-              alt='---------------------'
-            />
-            <Fade bottom cascade>
-              <Typography
-                className={classnames([
-                  'text-center p-10 lg:text-justify lg:pt-8 lg:pr-10 lg:pl-0',
-                  classes.content,
-                ])}
-              >
-                JECRC MUN 2020 is now in collaboration with the United Nations
-                Information Centre (UNIC) for India and Bhutan. The United
-                Nations Information Centre for India and Bhutan is based in New
-                Delhi, India and is one of 63 United Nations Information Centres
-                established worldwide. The United Nations Information Centre for
-                India and Bhutan performs an essential role in broadcasting and
-                communicating information from the United Nations to India and
-                Bhutan. It interprets the information in the regional languages
-                of India including Hindi, Tamil, and Telugu to create
-                communication easier and more convenient.
-              </Typography>
-              <Button
-                type='submit'
-                color='primary'
-                variant='contained'
-                size='large'
-                component={Link}
-                to='/unic-collaboration'
-              >
-                READ MORE
-              </Button>
             </Fade>
           </Grid>
         </Grid>
@@ -177,6 +144,59 @@ export default () => {
               </Fade>
             </Grid>
           ))}
+        </Grid>
+        <Grid container justify='center' alignItems='center'>
+          <Grid item md={4} xs={12}>
+            <Fade bottom>
+              <img
+                src='/images/unic.png'
+                className={classes.image}
+                alt='JECRC MUN'
+              />
+            </Fade>
+          </Grid>
+          <Grid item md={6} xs={12} className='p-5 text-center lg:text-left'>
+            <Fade bottom cascade>
+              <Typography variant='h4' className={classes.heading}>
+                COLLABORATION WITH UNIC
+              </Typography>
+              <img
+                src='/images/line.png'
+                className='mx-auto mb-10 lg:m-0'
+                alt='---------------------'
+              />
+            </Fade>
+            <Fade bottom cascade>
+              <Typography
+                className={classnames([
+                  'text-center lg:text-justify lg:pt-8 lg:pr-10 lg:pl-0',
+                  classes.content,
+                ])}
+              >
+                JECRC MUN 2020 is now in collaboration with the United Nations
+                Information Centre (UNIC) for India and Bhutan. The United
+                Nations Information Centre for India and Bhutan is based in New
+                Delhi, India and is one of 63 United Nations Information Centres
+                established worldwide. The United Nations Information Centre for
+                India and Bhutan performs an essential role in broadcasting and
+                communicating information from the United Nations to India and
+                Bhutan. It interprets the information in the regional languages
+                of India including Hindi, Tamil, and Telugu to create
+                communication easier and more convenient.
+              </Typography>
+              <Button
+                type='submit'
+                color='primary'
+                className={classes.button}
+                variant='contained'
+                size='large'
+                component={Link}
+                to='/unic-collaboration'
+              >
+                READ MORE
+              </Button>
+            </Fade>
+          </Grid>
         </Grid>
       </Grid>
     </>
