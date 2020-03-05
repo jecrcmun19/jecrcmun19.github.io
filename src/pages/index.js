@@ -176,7 +176,6 @@ export default () => {
         }}
       >
         <About />
-        <MunExcellencies />
       </div>
       <div id='ambassador' className='flex flex-wrap justify-center'>
         <Banner
@@ -190,6 +189,7 @@ export default () => {
           <div className='py-10'>
             <Ambassador />
           </div>
+          <MunExcellencies />
         </Banner>
       </div>
       <div
