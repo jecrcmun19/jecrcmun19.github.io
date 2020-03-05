@@ -23,26 +23,23 @@ const useStyles = makeStyles(theme => ({
   headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
-    // fontFamily: "'Rubik' , sans-serif",
-    fontSize: 50,
-    lineHeight: '71px',
-
+    fontSize: 40,
+    lineHeight: '50px',
     letterSpacing: '0.08em',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       fontSize: 80,
+      lineHeight: '71px',
     },
   },
   munTextProperty: {
-    // fontFamily: "'Rubik' , sans-serif",
-
     fontWeight: 'bold',
-
     color: theme.palette.font.primary,
     letterSpacing: '0.08em',
-    fontSize: '24px',
-    lineHeight: '58px',
-    [theme.breakpoints.up('md')]: {
+    fontSize: '20px',
+    lineHeight: '40px',
+    [theme.breakpoints.up('sm')]: {
       fontSize: 35,
+      lineHeight: '58px',
     },
   },
   container: {
