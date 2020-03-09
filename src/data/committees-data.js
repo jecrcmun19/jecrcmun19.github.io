@@ -22,7 +22,7 @@ export const Agenda = [
   'Use of AI and unmanned aerial vehicle in armed conflict',
   'Social protectoin systems, access to public services and sustainable infrastructure for gender equality',
   'Ebola epidemic in Western Africa',
-  'Discussing the policy making approach of the NDA govt (Special emphasis on the economic policies & Security)',
+  'Discussing the policy making approach of the NDA govt (Special emphasis on economic policies & NRC)',
 ]
 export const Committe = {
   0: UNSC,
@@ -84,6 +84,6 @@ export const CommitteesData = [
     title: 'AIPPM',
     img: '/images/pmo.jpg',
     agenda:
-      'Discussing the policy making approach of the NDA govt( special emphasis on the economic policies and Security',
+      'Discussing the policy making approach of the NDA govt(Special emphasis on economic policies and NRC)',
   },
 ]
