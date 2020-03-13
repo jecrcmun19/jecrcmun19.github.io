@@ -47,6 +47,7 @@ const useStyles = makeStyles(theme => ({
     '&:hover > div': {
       background: 'rgba(217, 8, 69, 0.7)',
       height: '450px',
+      borderRadius: '12px',
       animation: `$mouseMoveIntoCard 900ms ${theme.transitions.easing.easeIn}`,
     },
     '&:hover > p': {
@@ -87,7 +88,7 @@ const useStyles = makeStyles(theme => ({
     background: 'rgba(0, 0, 0, 0.7)',
     transition: 'all 600ms ease-out',
     padding: theme.spacing(0.5),
-    borderRadius: '12px',
+    borderRadius: '0px 0 12px 12px',
   },
   socialIconsContainer: {
     position: 'absolute',
@@ -111,6 +112,7 @@ const useStyles = makeStyles(theme => ({
     },
     '100%': {
       height: '450px',
+      borderRadius: '12px',
     },
   },
   '@keyframes socialIconseffect': {
