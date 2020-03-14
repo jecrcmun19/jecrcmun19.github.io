@@ -39,9 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
   containerCard: {
     borderRadius: '12px',
-    marginBottom: theme.spacing(5),
-    marginTop: theme.spacing(5),
-    marginRight: theme.spacing(2),
+    margin: `${theme.spacing(5)}px ${theme.spacing(4)}px`,
     position: 'relative',
     maxHeight: '450px',
     '&:hover > main': {
@@ -62,7 +60,6 @@ const useStyles = makeStyles(theme => ({
     '&:hover > img': {
       filter: `brightness(0.7) drop-shadow(0 0 6px #000)`,
     },
-    marginLeft: theme.spacing(2),
     width: '450px',
     [theme.breakpoints.down('xs')]: {
       width: '300px',
