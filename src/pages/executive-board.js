@@ -44,11 +44,15 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
     position: 'relative',
     maxHeight: '450px',
-    '&:hover > div': {
+    '&:hover > main': {
       background: 'rgba(217, 8, 69, 0.7)',
       height: '450px',
       borderRadius: '12px',
       animation: `$mouseMoveIntoCard 900ms ${theme.transitions.easing.easeIn}`,
+      [theme.breakpoints.down('xs')]: {
+        height: '300px',
+        animation: `$mouseMoveIntoCardSmallViewPort 700ms ${theme.transitions.easing.easeIn}`,
+      },
     },
     '&:hover > p': {
       animationDelay: '800ms',
@@ -74,6 +78,7 @@ const useStyles = makeStyles(theme => ({
     height: '450px',
     transition: 'all 300ms ease-out',
     [theme.breakpoints.down('xs')]: {
+      width: '300px',
       height: '300px',
     },
     background: '#000',
@@ -84,8 +89,8 @@ const useStyles = makeStyles(theme => ({
     bottom: '0px',
     width: '100%',
     color: '#FFF',
-    height: '145px',
-    background: 'rgba(0, 0, 0, 0.7)',
+    height: '120px',
+    background: 'rgba(217, 8, 69, 0.7)',
     transition: 'all 600ms ease-out',
     padding: theme.spacing(0.5),
     borderRadius: '0px 0 12px 12px',
@@ -108,10 +113,19 @@ const useStyles = makeStyles(theme => ({
   },
   '@keyframes mouseMoveIntoCard': {
     '0%': {
-      height: '145px',
+      height: '120px',
     },
     '100%': {
       height: '450px',
+      borderRadius: '12px',
+    },
+  },
+  '@keyframes mouseMoveIntoCardSmallViewPort': {
+    '0%': {
+      height: '120px',
+    },
+    '100%': {
+      height: '300px',
       borderRadius: '12px',
     },
   },
@@ -125,16 +139,6 @@ const useStyles = makeStyles(theme => ({
 function Something(props) {
   const classes = useStyles(props)
   const theme = useTheme()
-
-  const committees = [
-    'UNSC',
-    'UNODC',
-    'DISEC',
-    'UNCSW',
-    'WHO',
-    'AIPPM',
-    'International Press',
-  ]
   let { image, eb } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/about.jpg" }) {
@@ -190,11 +194,11 @@ function Something(props) {
         ])}
       >
         <Grid container justify='center' className={classes.root}>
-          {committees.map((name, index) => (
+          {executives.map((value, index) => (
             <Grid key={index} container className='w-full' justify='center'>
               <Grid item xs={12} className='text-center py-10'>
                 <Typography style={{ color: '#000a2a' }} variant='h4'>
-                  {name}
+                  {value.committee}
                 </Typography>
                 <img
                   src='/images/line.png'
@@ -202,69 +206,65 @@ function Something(props) {
                   alt='---------------------'
                 />
               </Grid>
-              {executives
-                .filter(executive => executive.committee === name)
-                .map((value, index) => (
-                  <div key={index} className={classes.containerCard}>
-                    <Image
-                      fluid={
-                        ebImages.filter(
-                          image =>
-                            image.sharp.fluid.src.split('/').pop() ===
-                            value.image,
-                        )[0].sharp.fluid
-                      }
-                      fadeIn={false}
-                      alt='JECRC MUN eb'
-                      className={classnames(['mx-auto', classes.blogImage])}
-                    />
+              {value.members.map((member, index) => (
+                <div key={index} className={classes.containerCard}>
+                  <Image
+                    fluid={
+                      ebImages.filter(
+                        image =>
+                          image.sharp.fluid.src.split('/').pop() ===
+                          member.image,
+                      )[0].sharp.fluid
+                    }
+                    fadeIn={false}
+                    alt='JECRC MUN eb'
+                    className={classnames(['mx-auto', classes.blogImage])}
+                  />
 
-                    <Grid
-                      container
-                      alignItems='flex-end'
-                      className={classes.bottomText}
-                    >
-                      <div className='w-full text-center'>
-                        <Typography variant='h5' className='py-2'>
-                          {value.name}
-                        </Typography>
-                        <Typography variant='h6' className='py-1'>
-                          {value.designation}
-                        </Typography>
-                        <Typography variant='h6' className='pb-2'>
-                          {value.committee}
-                        </Typography>
-                      </div>
-                    </Grid>
+                  <Grid
+                    container
+                    alignItems='flex-end'
+                    className={classes.bottomText}
+                    component='main'
+                  >
+                    <div className='w-full text-center'>
+                      <Typography variant='h5' className='py-2'>
+                        {member.name}
+                      </Typography>
+                      <Typography variant='h6' className='pb-2'>
+                        {member.designation}
+                      </Typography>
+                    </div>
+                  </Grid>
 
-                    <Grid
-                      container
-                      justify='center'
-                      className={classnames([
-                        'mb-2',
-                        classes.socialIconsContainer,
-                      ])}
-                      component='p'
+                  <Grid
+                    container
+                    justify='center'
+                    className={classnames([
+                      'mb-2',
+                      classes.socialIconsContainer,
+                    ])}
+                    component='p'
+                  >
+                    <Avatar
+                      component='a'
+                      href='https://instagram.com/jecrcmun'
+                      target='_blank'
+                      className={classnames(['m-2', classes.socialIcon])}
                     >
-                      <Avatar
-                        component='a'
-                        href='https://instagram.com/jecrcmun'
-                        target='_blank'
-                        className={classnames(['m-2', classes.socialIcon])}
-                      >
-                        <InstagramIcon className={classes.icon} />
-                      </Avatar>
-                      <Avatar
-                        component='a'
-                        href='https://twitter.com/jecrcmun'
-                        target='_blank'
-                        className={classnames(['m-2', classes.socialIcon])}
-                      >
-                        <TwitterIcon className={classes.icon} />
-                      </Avatar>
-                    </Grid>
-                  </div>
-                ))}
+                      <InstagramIcon className={classes.icon} />
+                    </Avatar>
+                    <Avatar
+                      component='a'
+                      href='https://twitter.com/jecrcmun'
+                      target='_blank'
+                      className={classnames(['m-2', classes.socialIcon])}
+                    >
+                      <TwitterIcon className={classes.icon} />
+                    </Avatar>
+                  </Grid>
+                </div>
+              ))}
             </Grid>
           ))}
         </Grid>
