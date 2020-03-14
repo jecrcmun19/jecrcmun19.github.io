@@ -86,8 +86,9 @@ const ImageContent = props => {
   const classes = useStyles()
   return (
     <Fade bottom cascade>
-      {props.data.content.map(content => (
+      {props.data.content.map((content, index) => (
         <Typography
+          key={index}
           className={classnames([
             'text-justify font-medium p-3',
             classes.content,

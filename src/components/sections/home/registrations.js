@@ -64,9 +64,10 @@ function Registrations(props) {
       </Fade>
       <div className='flex flex-wrap justify-center'>
         <Fade cascade bottom>
-          {RegistrationsData.map(section => (
+          {RegistrationsData.map((section, index) => (
             <Card
               raised={true}
+              key={index}
               className={classnames([
                 'my-10 mx-auto justify-center text-center flex flex-col sm:mx-10',
                 classes.card,

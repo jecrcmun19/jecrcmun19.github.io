@@ -9,6 +9,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
 import { Link as GatsbyLink } from 'gatsby'
 import MateriaLink from '@material-ui/core/Link'
+import classnames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -51,7 +52,7 @@ function Footer(props) {
             alt='MUN Logo'
           />
           <Typography
-            className={`${classes.textStyle}`}
+            className={classes.textStyle}
             display='inline'
             variant='h5'
           >
@@ -126,7 +127,9 @@ function Footer(props) {
               style={{ borderColor: theme.palette.primary.main }}
             />
           </Grid>
-          <Typography className={['text-center pt-1', classes.textStyle]}>
+          <Typography
+            className={classnames(['text-center pt-1', classes.textStyle])}
+          >
             © Copyright JECRC MUN 2020
           </Typography>
         </Grid>
@@ -135,7 +138,7 @@ function Footer(props) {
             component='a'
             href='https://facebook.com/jecrcmun'
             target='_blank'
-            className={['m-2', classes.socialIcon]}
+            className={classnames(['m-2', classes.socialIcon])}
           >
             <FacebookIcon />
           </Avatar>
@@ -143,7 +146,7 @@ function Footer(props) {
             component='a'
             href='https://instagram.com/jecrcmun'
             target='_blank'
-            className={['m-2', classes.socialIcon]}
+            className={classnames(['m-2', classes.socialIcon])}
           >
             <InstagramIcon />
           </Avatar>
@@ -151,7 +154,7 @@ function Footer(props) {
             component='a'
             href='https://twitter.com/jecrcmun'
             target='_blank'
-            className={['m-2', classes.socialIcon]}
+            className={classnames(['m-2', classes.socialIcon])}
           >
             <TwitterIcon />
           </Avatar>
