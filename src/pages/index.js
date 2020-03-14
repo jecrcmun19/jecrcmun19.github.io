@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import About from '../components/sections/home/about'
-import PreviousYearChiefGuest from '../components/sections/home/previousYearChiefGuests'
+import ChiefGuest from '../components/sections/home/ourChiefGuest'
 import Registrations from '../components/sections/home/registrations'
 import HomeBlogs from '../components/sections/home/blogs'
 import Committees from '../components/sections/home/committees'
@@ -17,8 +17,21 @@ import VideoDialog from '../components/sections/home/videoDialog'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 import LocationIcon from '@material-ui/icons/PlaceOutlined'
+import classnames from 'classnames'
+import MunExcellencies from '../components/sections/home/munExcellencies'
+import Ambassador from '../components/sections/home/ambassador'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
+  munLogo: {
+    height: '200px',
+    [theme.breakpoints.down('lg')]: {
+      height: '150px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      height: '120px',
+    },
+  },
   munTextProperty: {
     color: theme.palette.primary.main,
     fontWeight: 'bold',
@@ -26,13 +39,24 @@ const useStyles = makeStyles(theme => ({
     fontSize: 60,
     lineHeight: '71px',
     letterSpacing: '0.08em',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 80,
+    },
   },
   diplomacyTextProperty: {
     color: '#fff',
     fontFamily: "'Rubik' , sans-serif",
     fontWeight: 'bold',
     fontSize: '24px',
-    lineHeight: '28px',
+    lineHeight: '58px',
+    [theme.breakpoints.up('md')]: {
+      fontSize: 35,
+    },
+  },
+  FontInfo: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: 30,
+    },
   },
 }))
 
@@ -41,7 +65,13 @@ export default () => {
   const classes = useStyles()
   const theme = useTheme()
   const matches = useMediaQuery('(min-width:640px)')
-  const { image, chiefGuestImage, blogsImage } = useStaticQuery(graphql`
+  const logoMatches = useMediaQuery('(min-height:600px)')
+  const {
+    image,
+    chiefGuestImage,
+    blogsImage,
+    ambassadorImage,
+  } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/bg.png" }) {
         sharp: childImageSharp {
@@ -58,6 +88,13 @@ export default () => {
         }
       }
       blogsImage: file(relativePath: { eq: "banners/blogs.jpg" }) {
+        sharp: childImageSharp {
+          fluid(maxWidth: 1080) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      ambassadorImage: file(relativePath: { eq: "banners/ambassador.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -86,10 +123,19 @@ export default () => {
         ]}
         className='flex flex-col justify-center item-center'
       >
+        {logoMatches && (
+          <Fade top>
+            <img
+              src='images/mun-logo-white.png'
+              className={classnames(['mx-auto mt-10 w-auto', classes.munLogo])}
+              alt='logo'
+            />
+          </Fade>
+        )}
         <div className='self-start self-center'>
           {matches && <Countdown date='11 April 2020 09:00:000 GMT+05:30' />}
         </div>
-        <div className='my-10'>
+        <div className='my-5'>
           <Typography className={classes.munTextProperty}>
             JECRC MUN 2020
           </Typography>
@@ -97,12 +143,18 @@ export default () => {
             Diplomacy At It’s Zenith
           </Typography>
         </div>
-        <div className='my-10'>
-          <Typography className='text-white' variant='h6'>
+        <div className='my-5'>
+          <Typography
+            className={classnames('text-white', classes.FontInfo)}
+            variant='h6'
+          >
             <LocationIcon color='primary' /> Jaipur Engineering College and
             Research Center, Jaipur
           </Typography>
-          <Typography className='text-white' variant='h6'>
+          <Typography
+            className={classnames('text-white', classes.FontInfo)}
+            variant='h6'
+          >
             <CalendarIcon color='primary' /> 11th - 12th April 2020
           </Typography>
         </div>
@@ -116,20 +168,29 @@ export default () => {
           />
         </div>
       </Banner>
-      <div id='about' style={{ minHeight: '100vh' }}>
+      <div
+        id='about'
+        style={{
+          minHeight: '100vh',
+          background: theme.palette.background.pinkish,
+        }}
+      >
         <About />
       </div>
-      <div className='flex flex-wrap justify-center h-auto'>
+      <div id='ambassador' className='flex flex-wrap justify-center'>
         <Banner
           backgrounds={[
             `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
-            chiefGuestImage.sharp.fluid,
+            ambassadorImage.sharp.fluid,
           ]}
           height='auto'
           minHeight={true}
         >
-          <div className='py-10'>
-            <PreviousYearChiefGuest />
+          <div className='py-3'>
+            <MunExcellencies />
+          </div>
+          <div className='py-3'>
+            <Ambassador />
           </div>
         </Banner>
       </div>
@@ -141,6 +202,30 @@ export default () => {
         }}
       >
         <Registrations />
+      </div>
+      <div className='flex flex-wrap justify-center h-auto' id='chief-guest'>
+        <Banner
+          backgrounds={[
+            `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+            chiefGuestImage.sharp.fluid,
+          ]}
+          height='auto'
+          minHeight={true}
+        >
+          <div className='py-10'>
+            <ChiefGuest />
+          </div>
+        </Banner>
+      </div>
+      <div
+        id='resources'
+        className='pt-10'
+        style={{
+          minHeight: '100vh',
+          background: theme.palette.background.pinkish,
+        }}
+      >
+        <HomeBlogs />
       </div>
       <div id='committees' className='flex flex-wrap justify-center h-auto'>
         <Banner
@@ -155,16 +240,6 @@ export default () => {
             <Committees />
           </div>
         </Banner>
-      </div>
-      <div
-        id='blogs'
-        className='pt-10'
-        style={{
-          minHeight: '100vh',
-          background: theme.palette.background.pinkish,
-        }}
-      >
-        <HomeBlogs />
       </div>
     </Wrapper>
   )

@@ -1,21 +1,40 @@
-import React, { useState, useLayoutEffect, useEffect } from 'react'
+import React from 'react'
 import Wrapper from '../components/wrapper'
 import Banner from '../components/banner'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Image from 'gatsby-image'
+import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     color: '#D90845',
     fontWeight: 'bold',
-    fontFamily: "'Rubik' , sans-serif",
-    fontSize: 60,
-    lineHeight: '71px',
+    fontSize: 42,
+    lineHeight: '40px',
+    letterSpacing: '0.08em',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 80,
+      lineHeight: '71px',
+    },
+  },
+  munTextProperty: {
+    fontWeight: 'bold',
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
+    fontSize: '20px',
+    lineHeight: '40px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 35,
+      lineHeight: '58px',
+    },
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
   },
   imageContainer: {
     width: '25%',
@@ -45,26 +64,28 @@ const useStyles = makeStyles(theme => ({
   gridContainer: {
     margin: theme.spacing(4, 0),
   },
+  btnStyle: {
+    width: '80%',
+    marginLeft: '30px',
+    [theme.breakpoints.up('sm')]: {
+      width: '100%',
+      margin: 0,
+    },
+  },
 }))
 function Gallery() {
   const classes = useStyles()
   const theme = useTheme()
-  const { image, bgImage, gallery } = useStaticQuery(graphql`
+  const { image, gallery } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/about.jpg" }) {
+      image: file(relativePath: { eq: "banners/gallery.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
-      bgImage: file(relativePath: { eq: "pages-background.png" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
+
       gallery: allFile(filter: { relativeDirectory: { eq: "gallery" } }) {
         images: nodes {
           sharp: childImageSharp {
@@ -94,15 +115,31 @@ function Gallery() {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           GALLERY
         </Typography>
+        <Typography className={classes.munTextProperty} variant='h5'>
+          JECRC MUN 2020
+        </Typography>
+        <div className={classes.btnStyle}>
+          <Button
+            type='submit'
+            color='primary'
+            variant='contained'
+            size='medium'
+            href='https://drive.google.com/open?id=1w1f8IPEiYPZlLE6ypmIF9B7vo1p-8hRV'
+            target='_blank'
+          >
+            Previous Year Conference Pictures
+          </Button>
+        </div>
       </Banner>
-      <BackgroundImage
-        className='flex flex-col justify-center items-center'
-        fluid={bgImage.sharp.fluid}
-        durationFadeIn={50}
+      <Grid
+        className={[
+          'flex flex-col justify-center items-center',
+          classes.container,
+        ]}
       >
         <Grid
           container
@@ -115,16 +152,18 @@ function Gallery() {
         >
           {gallery.images.map(image => (
             <Grid item className={classes.imageContainer}>
-              <Image
-                fluid={image.sharp.fluid}
-                fadeIn={false}
-                alt='JECRC MUN Gallery'
-                className={classes.image}
-              />
+              <Fade bottom>
+                <Image
+                  fluid={image.sharp.fluid}
+                  fadeIn={false}
+                  alt='JECRC MUN Gallery'
+                  className={classes.image}
+                />
+              </Fade>
             </Grid>
           ))}
         </Grid>
-      </BackgroundImage>
+      </Grid>
     </Wrapper>
   )
 }

@@ -8,21 +8,29 @@ import { graphql, useStaticQuery } from 'gatsby'
 import AmbassadorForm from '../../components/campus-ambassador-form'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     fontWeight: 'bold',
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: '2.25rem',
-    lineHeight: '65px',
+    fontSize: '1.75rem',
+    lineHeight: '40px',
     letterSpacing: '0.08em',
     textTransform: 'uppercase',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '2.25rem',
+    },
   },
-  diplomacyTextProperty: {
+  munTextProperty: {
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: '1.25rem',
+
     fontWeight: 'bold',
-    lineHeight: '28px',
+
     color: theme.palette.font.primary,
     letterSpacing: '0.08em',
+    fontSize: '20px',
+    lineHeight: '50px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 35,
+    },
   },
 }))
 
@@ -57,11 +65,11 @@ export default () => {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           Campus Ambassador Application
         </Typography>
-        <Typography component='h3' className={classes.diplomacyTextProperty}>
+        <Typography component='h3' className={classes.munTextProperty}>
           JECRC MUN 2020
         </Typography>
       </Banner>

@@ -8,7 +8,6 @@ import CloseSharp from '@material-ui/icons/CloseSharp'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import CollapseDropDown from './collapse'
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 import ExpandLess from '@material-ui/icons/ExpandLess'
 import { Link } from 'gatsby'
@@ -16,15 +15,11 @@ import { Link } from 'gatsby'
 const drawerWidth = 240
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    alignContent: 'center',
-  },
   headerItems: {
-    // fontFamily: "'Rubik', sans-serif",
     paddingBottom: 0,
     color: '#FFF',
     paddingTop: 0,
+    textTransform: 'uppercase',
   },
   drawer: {
     width: drawerWidth,
@@ -71,95 +66,92 @@ function MobileViewDrawer(props) {
     if (!open) handleDropDownClose()
   }, [open])
   return (
-    <ClickAwayListener onClickAway={handleDrawerClose}>
-      <div className={classes.root}>
-        <Drawer
-          className={classes.drawer}
-          variant='persistent'
-          anchor='right'
-          open={open}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-        >
-          <div className={classes.drawerHeader}>
-            <IconButton onClick={handleDrawerClose} className={classes.close}>
-              <CloseSharp className={classes.close} />
-            </IconButton>
-          </div>
-          <Divider />
-          <List className={classes.headerItems}>
-            {[
-              { name: 'HOME', link: '/' },
-              {
-                name: 'ABOUT',
-                link: '/#about',
-                items: [
-                  { name: 'JECRC MUN', to: '/about' },
-                  { name: 'OUR SPONSORS', to: '/sponsors' },
-                ],
-              },
-              { name: 'COMMITTEES', link: '/#committees' },
-              {
-                name: 'REGISTRATIONS',
-                link: '/#registrations',
-                items: [
-                  {
-                    name: 'PRIORITY DELEGATE',
-                    to: '/apply/delegate-priority-register',
-                  },
-                  {
-                    name: 'CAMPUS AMBASSADOR',
-                    to: '/apply/campus-ambassador-application',
-                  },
-                  {
-                    name: 'INTERNATIONAL PRESS',
-                    to: '/apply/international-press-application',
-                  },
-                  {
-                    name: 'EXECUTIVE BOARD',
-                    to: '/apply/executive-board',
-                  },
-                ],
-              },
-              { name: 'BLOGS', link: '/#blogs' },
-              { name: 'GALLERY', link: '/gallery' },
-              { name: 'CONTACT', link: '/contact' },
-            ].map((text, index) => (
-              <div key={index}>
-                <ListItem
-                  button
-                  component={Link}
-                  to={text.link}
-                  className={classes.listItem}
-                >
-                  <ListItemText primary={text.name} />
-                  {['ABOUT', 'REGISTRATIONS'].includes(text.name) ? (
-                    openDropDown && text.name === openFor ? (
-                      <ExpandLess onClick={handleDropDownClose} />
-                    ) : (
-                      <ExpandMore
-                        value={text.name}
-                        onClick={() => handleOpen(text.name)}
-                      />
-                    )
-                  ) : null}
-                </ListItem>
-                {openFor === text.name ? (
-                  <CollapseDropDown
-                    openDropDown={openDropDown}
-                    handleDrawerClose={handleDrawerClose}
-                    listOfItems={text.items}
-                    handleDropDownClose={handleDropDownClose}
-                  />
-                ) : null}
-              </div>
-            ))}
-          </List>
-          <Divider />
-        </Drawer>
+    <Drawer
+      variant='temporary'
+      anchor='right'
+      open={open}
+      onClose={handleDrawerClose}
+      classes={{
+        paper: classes.drawerPaper,
+      }}
+    >
+      <div className={classes.drawerHeader}>
+        <IconButton onClick={handleDrawerClose} className={classes.close}>
+          <CloseSharp className={classes.close} />
+        </IconButton>
       </div>
-    </ClickAwayListener>
+      <Divider />
+      <List className={classes.headerItems}>
+        {[
+          { name: 'HOME', link: '/' },
+          {
+            name: 'ABOUT',
+            link: '/#about',
+            items: [
+              { name: 'JECRC MUN', to: '/about' },
+              { name: 'OUR CHIEF GUEST', to: '/#chief-guest' },
+              { name: 'OUR SPONSORS', to: '/sponsors' },
+            ],
+          },
+          { name: 'COMMITTEES', link: '/#committees' },
+          {
+            name: 'REGISTRATIONS',
+            link: '/#registrations',
+            items: [
+              {
+                name: 'DELEGATE REGISTRATIONS',
+                to: '/apply/delegate-registration',
+              },
+              {
+                name: 'CAMPUS AMBASSADOR',
+                to: '/apply/campus-ambassador-application',
+              },
+              {
+                name: 'INTERNATIONAL PRESS',
+                to: '/apply/international-press-application',
+              },
+              {
+                name: 'EXECUTIVE BOARD',
+                to: '/#registrations',
+              },
+            ],
+          },
+          { name: 'RESOURCES', link: '/#resources' },
+          { name: 'GALLERY', link: '/gallery' },
+          { name: 'CONTACT', link: '/contact' },
+        ].map((text, index) => (
+          <div key={index}>
+            <ListItem
+              button
+              component={Link}
+              to={text.link}
+              className={classes.listItem}
+            >
+              <ListItemText primary={text.name} />
+              {['ABOUT', 'REGISTRATIONS'].includes(text.name) ? (
+                openDropDown && text.name === openFor ? (
+                  <ExpandLess onClick={handleDropDownClose} />
+                ) : (
+                  <ExpandMore
+                    value={text.name}
+                    onClick={() => handleOpen(text.name)}
+                  />
+                )
+              ) : null}
+            </ListItem>
+            {openFor === text.name ? (
+              <CollapseDropDown
+                openDropDown={openDropDown}
+                handleDrawerClose={handleDrawerClose}
+                listOfItems={text.items}
+                handleDropDownClose={handleDropDownClose}
+              />
+            ) : null}
+          </div>
+        ))}
+      </List>
+      <Divider />
+    </Drawer>
   )
 }
 

@@ -27,6 +27,7 @@ export default function VideoDialog(props) {
       <iframe
         width='100%'
         height='100%'
+        title='JECRC MUN Video'
         src='https://www.youtube.com/embed/g1XSCfJFNJA'
         frameborder='0'
         allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'

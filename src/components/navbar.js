@@ -1,5 +1,4 @@
 import React from 'react'
-import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import ListItem from '@material-ui/core/ListItem'
 import List from '@material-ui/core/List'
@@ -45,12 +44,18 @@ const useStyles = makeStyles(theme => ({
 const dropdownList = {
   about: [
     { name: 'JECRC MUN', link: '/about', type: 'gatsby' },
+    { name: 'OUR CHIEF GUEST', link: '/#chief-guest', type: 'gatsby' },
     { name: 'OUR SPONSORS', link: '/sponsors', type: 'gatsby' },
   ],
   registrations: [
     {
-      name: 'PRIORITY DELEGATE',
-      link: '/apply/delegate-priority-register',
+      name: 'DELEGATE REGISTRATIONS',
+      link: '/apply/delegate-registration',
+      type: 'gatsby',
+    },
+    {
+      name: 'INTERNATIONAL PRESS',
+      link: '/apply/international-press-application',
       type: 'gatsby',
     },
     {
@@ -60,7 +65,7 @@ const dropdownList = {
     },
     {
       name: 'EXECUTIVE BOARD',
-      link: '/apply/executive-board',
+      link: '/#registrations',
       type: 'gatsby',
     },
   ],
@@ -138,6 +143,7 @@ function NavBarWeb(props) {
         component='div'
         onMouseLeave={handleClose}
         onMouseOver={e => handleOnMouse('about')}
+        onFocus={e => handleOnMouse('about')}
         className={classes.navItem}
       >
         <Typography
@@ -154,19 +160,10 @@ function NavBarWeb(props) {
         )}
       </ListItem>
       <ListItem
-        component={Link}
-        to='/#committees'
-        className={classes.navItem}
-        className={classes.navItem}
-      >
-        <Typography variant='subtitle2' className={classes.headerItems}>
-          Committees
-        </Typography>
-      </ListItem>
-      <ListItem
         component='div'
         onMouseLeave={handleClose}
         onMouseOver={e => handleOnMouse('registrations')}
+        onFocus={e => handleOnMouse('registrations')}
         className={classes.navItem}
       >
         <Typography
@@ -185,11 +182,16 @@ function NavBarWeb(props) {
       <ListItem
         component={MaterialLink}
         underline='none'
-        href='/#blogs'
+        href='/#resources'
         className={classes.navItem}
       >
         <Typography variant='subtitle2' className={classes.headerItems}>
-          Blogs
+          Resources
+        </Typography>
+      </ListItem>
+      <ListItem component={Link} to='/#committees' className={classes.navItem}>
+        <Typography variant='subtitle2' className={classes.headerItems}>
+          Committees
         </Typography>
       </ListItem>
       <ListItem component={Link} to='/gallery' className={classes.navItem}>

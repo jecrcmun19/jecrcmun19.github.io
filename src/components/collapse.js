@@ -24,7 +24,7 @@ function CollapseDropDown(props) {
     <Collapse in={openDropDown} timeout='auto' unmountOnExit>
       {listOfItems.map((text, index) => {
         return (
-          <List component='div' key={index} disablePadding key={index}>
+          <List component='div' key={index} disablePadding>
             <ListItem
               button
               component={Link}

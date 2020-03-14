@@ -8,22 +8,29 @@ import { graphql, useStaticQuery } from 'gatsby'
 import PressAppForm from '../../components/press-application-form'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
+  headingTextProperty: {
     fontWeight: 'bold',
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: '2.25rem',
-    lineHeight: '65px',
+    fontSize: '1.75rem',
+    lineHeight: '40px',
     letterSpacing: '0.08em',
     textTransform: 'uppercase',
-    marginTop: '20px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '2.25rem',
+    },
   },
-  diplomacyTextProperty: {
+  munTextProperty: {
     // fontFamily: "'Rubik' , sans-serif",
-    fontSize: '1.25rem',
+
     fontWeight: 'bold',
-    lineHeight: '28px',
+
     color: theme.palette.font.primary,
     letterSpacing: '0.08em',
+    fontSize: '20px',
+    lineHeight: '50px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 35,
+    },
   },
 }))
 
@@ -31,7 +38,7 @@ export default () => {
   const classes = useStyles()
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/registration-form-bg.jpg" }) {
+      image: file(relativePath: { eq: "banners/registration-form-bg4.jpg" }) {
         sharp: childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid_withWebp
@@ -58,11 +65,11 @@ export default () => {
         <Typography
           color='primary'
           component='h2'
-          className={classes.munTextProperty}
+          className={classes.headingTextProperty}
         >
           International Press Application
         </Typography>
-        <Typography component='h3' className={classes.diplomacyTextProperty}>
+        <Typography component='h3' className={classes.munTextProperty}>
           JECRC MUN 2020
         </Typography>
       </Banner>

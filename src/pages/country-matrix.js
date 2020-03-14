@@ -2,36 +2,49 @@ import React from 'react'
 import Wrapper from '../components/wrapper'
 import CardContent from '@material-ui/core/CardContent'
 import Card from '@material-ui/core/Card'
-import makeStyles from '@material-ui/styles/makeStyles'
+import { makeStyles, useTheme } from '@material-ui/styles'
 import Grid from '@material-ui/core/Grid'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-import classNames from 'classnames'
 import Typography from '@material-ui/core/Typography'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import { Committe, MembersUNSC } from '../data/country-data'
 import Countries from '../data/country-code.json'
+import Banner from '../components/banner'
 import Leaders from '../data/leader-code.json'
 
 const useStyles = makeStyles(theme => ({
-  banner: {
-    background: `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main}), url(images/country-matrix.png)`,
-    height: 300,
-    textAlign: 'center',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
+  headingTextProperty: {
+    color: '#D90845',
+    fontWeight: 'bold',
+    fontSize: 40,
+    lineHeight: '50px',
+    letterSpacing: '0.08em',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 80,
+      lineHeight: '71px',
+    },
   },
+  munTextProperty: {
+    fontWeight: 'bold',
+    color: theme.palette.font.primary,
+    letterSpacing: '0.08em',
+    fontSize: '20px',
+    lineHeight: '40px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 35,
+      lineHeight: '58px',
+    },
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
+  },
+
   root: {
     paddingTop: 10,
     paddingBottom: 10,
     background: '#D90845',
-  },
-  cardContent: {
-    width: '100%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginBottom: '5px',
-    padding: '5px',
   },
   cardStyle: {
     marginBottom: '10%',
@@ -56,29 +69,25 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   backgroundCardProperty: {
-    // margin: '50px',
+    width: '80%',
+    [theme.breakpoints.down('xs')]: {
+      width: '90%',
+      margin: theme.spacing(2),
+    },
+    margin: theme.spacing(8),
   },
   bgCardContentProperty: {
     padding: 0,
-    // margin: '40px',
   },
-  countryMatrixBackground: {
-    background: 'url(images/committees-card.png)',
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    minHeight: '300px',
-    padding: '6%',
-  },
+
   textPropertyHeading: {
     textAlign: 'center',
     fontWeight: 700,
-    lineHeight: 1,
     display: 'flex',
-    marginBottom: '1%',
     justifyContent: 'center',
     width: '100%',
-    marginTop: '2%',
+    marginBottom: theme.spacing(3),
+    marginTop: theme.spacing(3),
   },
   tabsTextProperty: {
     fontSize: '1.1rem',
@@ -93,8 +102,20 @@ const useStyles = makeStyles(theme => ({
 function CountryMatrix(props) {
   const classes = useStyles()
   const [value, setValue] = React.useState(0)
+  const theme = useTheme()
 
-  const bannerClasses = classNames(classes.header, classes.banner)
+  const { image } = useStaticQuery(graphql`
+    query {
+      image: file(relativePath: { eq: "banners/committees.png" }) {
+        sharp: childImageSharp {
+          fluid(maxWidth: 1080) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
+
   const membersObject = {
     permanentMembers: 'Permanent Members',
     nonPermanentMembers: 'Non Permanent Members',
@@ -106,82 +127,102 @@ function CountryMatrix(props) {
 
   return (
     <Wrapper>
-      <div className={bannerClasses}></div>
-      <div className={classes.countryMatrixBackground}>
-        <div>
-          <Card className={classes.backgroundCardProperty} raised={true}>
-            <CardContent className={classes.bgCardContentProperty}>
-              <Grid container justify='center' className={classes.root}>
-                <Tabs
-                  value={value}
-                  variant='scrollable'
-                  onChange={handleChange}
-                  indicatorColor='#FFFF8C'
-                  scrollButtons='desktop'
-                >
-                  <Tab className={classes.tabsTextProperty} label='UNSC' />
-                  <Tab className={classes.tabsTextProperty} label='UNODC' />
-                  <Tab className={classes.tabsTextProperty} label='DISEC' />
-                  <Tab className={classes.tabsTextProperty} label='UNCSW' />
-                  <Tab className={classes.tabsTextProperty} label='WHO' />
-                  <Tab className={classes.tabsTextProperty} label='AIPPM' />
-                </Tabs>
-              </Grid>
-              <div className={classes.cardStyle}>
-                <div>
-                  <span class='flag-icon flag-icon-gr w-32'></span>
-                </div>
-                {MembersUNSC.map(members => (
-                  <Grid container justify='center' alignContent='space-around'>
-                    {value === 0 ? (
-                      <Typography className={classes.textPropertyHeading}>
-                        {membersObject[members]}
-                      </Typography>
-                    ) : null}
-                    {Committe[value][members].sort().map((text, index) => {
-                      const CountryCode = Countries[`${text.toLowerCase()}`]
-                      const LeaderCode = Leaders[`${text}`]
-                      return (
-                        <Grid
-                          item
-                          className={classes.listItemStyle}
-                          xl={2}
-                          md={4}
-                          lg={3}
-                          sm={6}
-                          xs={12}
-                        >
-                          <Card className={classes.cardProperty}>
-                            <CardContent className={classes.textProperty}>
-                              <span className={classes.cardTextMargin}>
-                                {text}
-                              </span>
-                              {CountryCode ? (
-                                <img
-                                  src={`/flags-mini/${CountryCode}.png`}
-                                  className='h-5'
-                                  alt={CountryCode}
-                                />
-                              ) : null}
-                              {LeaderCode ? (
-                                <img
-                                  src={`/leader-logo/${LeaderCode}.png`}
-                                  className='h-5'
-                                  alt={CountryCode}
-                                />
-                              ) : null}
-                            </CardContent>
-                          </Card>
-                        </Grid>
-                      )
-                    })}
-                  </Grid>
-                ))}
+      <Banner
+        backgrounds={[
+          `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
+          image.sharp.fluid,
+        ]}
+        height='50vh'
+      >
+        <Typography
+          color='primary'
+          component='h2'
+          className={classes.headingTextProperty}
+        >
+          COUNTRY MATRIX
+        </Typography>
+        <Typography className={classes.munTextProperty} variant='h5'>
+          JECRC MUN 2020
+        </Typography>
+      </Banner>
+      <Grid
+        className={[
+          'flex flex-col justify-center items-center',
+          classes.container,
+        ]}
+      >
+        <Card className={classes.backgroundCardProperty} raised={true}>
+          <CardContent className={classes.bgCardContentProperty}>
+            <Grid container justify='center' className={classes.root}>
+              <Tabs
+                value={value}
+                variant='scrollable'
+                onChange={handleChange}
+                indicatorColor='#FFFF8C'
+                scrollButtons='desktop'
+              >
+                <Tab className={classes.tabsTextProperty} label='UNSC' />
+                <Tab className={classes.tabsTextProperty} label='UNODC' />
+                <Tab className={classes.tabsTextProperty} label='DISEC' />
+                <Tab className={classes.tabsTextProperty} label='UNCSW' />
+                <Tab className={classes.tabsTextProperty} label='WHO' />
+                <Tab className={classes.tabsTextProperty} label='AIPPM' />
+              </Tabs>
+            </Grid>
+            <div className={classes.cardStyle}>
+              <div>
+                <span class='flag-icon flag-icon-gr w-32'></span>
               </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+              {MembersUNSC.map(members => (
+                <Grid container justify='center' alignContent='space-around'>
+                  {value === 0 ? (
+                    <Typography className={classes.textPropertyHeading}>
+                      {membersObject[members]}
+                    </Typography>
+                  ) : null}
+                  {Committe[value][members].sort().map((text, index) => {
+                    const CountryCode = Countries[`${text.toLowerCase()}`]
+                    const LeaderCode = Leaders[`${text}`]
+                    return (
+                      <Grid
+                        item
+                        className={classes.listItemStyle}
+                        xl={2}
+                        md={4}
+                        lg={3}
+                        sm={6}
+                        xs={12}
+                      >
+                        <Card className={classes.cardProperty}>
+                          <CardContent className={classes.textProperty}>
+                            <span className={classes.cardTextMargin}>
+                              {text}
+                            </span>
+                            {CountryCode ? (
+                              <img
+                                src={`/flags-mini/${CountryCode}.png`}
+                                className='h-5'
+                                alt={CountryCode}
+                              />
+                            ) : null}
+                            {LeaderCode ? (
+                              <img
+                                src={`/leader-logo/${LeaderCode}.png`}
+                                className='h-5'
+                                alt={CountryCode}
+                              />
+                            ) : null}
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    )
+                  })}
+                </Grid>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </Grid>
     </Wrapper>
   )
 }
