@@ -100,7 +100,6 @@ const ImageContent = props => {
   )
 }
 const OurChiefGuest = () => {
-  console.log(chiefGuestData)
   const matches = useMediaQuery('(min-width:1024px)')
   return (
     <div className='h-full'>
