@@ -1,6 +1,5 @@
 import React from 'react'
 import Wrapper from '../components/wrapper'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import Banner from '../components/banner'
 import Typography from '@material-ui/core/Typography'
@@ -8,8 +7,10 @@ import Grid from '@material-ui/core/Grid'
 import { useTheme } from '@material-ui/core/styles'
 import makeStyles from '@material-ui/styles/makeStyles'
 import Avatar from '@material-ui/core/Avatar'
-import InstagramIcon from '@material-ui/icons/Instagram'
-import TwitterIcon from '@material-ui/icons/Twitter'
+import GitHub from '@material-ui/icons/GitHub'
+import LinkedIn from '@material-ui/icons/LinkedIn'
+import Image from 'gatsby-image'
+import classnames from 'classnames'
 import teams from '../data/teamDetails'
 
 const useStyles = makeStyles(theme => ({
@@ -18,6 +19,9 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     fontSize: 60,
     lineHeight: '71px',
+  },
+  container: {
+    backgroundColor: theme.palette.background.pinkish,
   },
   root: {
     margin: theme.spacing(4),
@@ -46,26 +50,28 @@ const useStyles = makeStyles(theme => ({
       width: '70%',
     },
   },
-  container: {
+  cardContainer: {
     display: 'flex',
     position: 'relative',
     width: '350px',
     height: '350px',
     maxHeight: '350px',
     color: '#FFF',
+    marginLeft: theme.spacing(5),
+    marginRight: theme.spacing(5),
     margin: theme.spacing('4'),
     [theme.breakpoints.down('xs')]: {
       marginLeft: '5px',
       marginRight: '5px',
     },
     [theme.breakpoints.down('md')]: {
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2),
-    },
-    '&:hover > img': {
-      filter: 'brightness(0.5)',
+      marginLeft: theme.spacing(3),
+      marginRight: theme.spacing(3),
     },
     '&:hover > div': {
+      filter: 'brightness(0.5)',
+    },
+    '&:hover > header': {
       opacity: '0',
       transition: 'none',
     },
@@ -126,7 +132,7 @@ const useStyles = makeStyles(theme => ({
 function Team(props) {
   const classes = useStyles()
   const theme = useTheme()
-  const { image, bgImage } = useStaticQuery(graphql`
+  const { image, team } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "banners/committees.png" }) {
         sharp: childImageSharp {
@@ -135,15 +141,23 @@ function Team(props) {
           }
         }
       }
-      bgImage: file(relativePath: { eq: "pages-background.png" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
+      team: allFile(filter: { relativeDirectory: { eq: "team" } }) {
+        images: nodes {
+          sharp: childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
           }
         }
       }
     }
   `)
+
+  console.log(
+    team.images.filter(
+      image => image.sharp.fluid.src.split('/').pop() === 'keshav.jpg',
+    )[0].sharp.fluid,
+  )
 
   return (
     <Wrapper>
@@ -161,11 +175,15 @@ function Team(props) {
         >
           Team
         </Typography>
+        <Typography className='text-white' variant='h5'>
+          JECRC MUN 2020
+        </Typography>
       </Banner>
-      <BackgroundImage
-        className='flex flex-col justify-center items-center'
-        fluid={bgImage.sharp.fluid}
-        durationFadeIn={50}
+      <div
+        className={classnames([
+          classes.container,
+          'flex flex-col justify-center items-center',
+        ])}
       >
         {teams.map((value, index) => (
           <div className='w-full flex justify-center'>
@@ -183,16 +201,27 @@ function Team(props) {
                   alt='---------------------'
                 />
               </div>
-              {value.members.map((value, index) => (
-                <div key={index} className={classes.container}>
-                  <img
+              {value.members.map((member, index) => (
+                <div key={index} className={classes.cardContainer}>
+                  <Image
+                    fluid={
+                      team.images.filter(
+                        image =>
+                          image.sharp.fluid.src.split('/').pop() ===
+                          member.image,
+                      )[0].sharp.fluid
+                    }
+                    fadeIn={false}
+                    key={`${index}`}
+                    alt='JECRC MUN Gallery'
                     className={classes.imageStyle}
-                    src='images/anandChulani.jpg'
                   />
-                  <Grid className={classes.bottomText}>
-                    <Typography variant='h6'>{value.name}</Typography>
+                  <Grid className={classes.bottomText} component='header'>
+                    <Typography variant='h6' className='py-2'>
+                      {member.name}
+                    </Typography>
                     <Typography variant='subtitle1'>
-                      {value.designation}
+                      {member.designation}
                     </Typography>
                   </Grid>
                   <Grid className={classes.hoverContainer} component='main'>
@@ -204,25 +233,25 @@ function Team(props) {
                     >
                       <Avatar
                         component='a'
-                        href='https://instagram.com/jecrcmun'
+                        href={member.github}
                         target='_blank'
                         className={['m-2', classes.socialIcon]}
                       >
-                        <InstagramIcon className={classes.icon} />
+                        <GitHub className={classes.icon} />
                       </Avatar>
                       <Avatar
                         component='a'
-                        href='https://twitter.com/jecrcmun'
+                        href={member.linkedIn}
                         target='_blank'
                         className={['m-2', classes.socialIcon]}
                       >
-                        <TwitterIcon className={classes.icon} />
+                        <LinkedIn className={classes.icon} />
                       </Avatar>
                     </Grid>
                     <Grid className={classes.hoverText}>
-                      <Typography variant='h5'>{value.name}</Typography>
+                      <Typography variant='h5'>{member.name}</Typography>
                       <Typography variant='subtitle1'>
-                        {value.designation}
+                        {member.designation}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -231,7 +260,7 @@ function Team(props) {
             </div>
           </div>
         ))}
-      </BackgroundImage>
+      </div>
     </Wrapper>
   )
 }
