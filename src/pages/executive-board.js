@@ -136,7 +136,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function Something(props) {
+function ExecutiveBoard(props) {
   const classes = useStyles(props)
   const theme = useTheme()
   let { image, eb } = useStaticQuery(graphql`
@@ -273,4 +273,4 @@ function Something(props) {
   )
 }
 
-export default Something
+export default ExecutiveBoard

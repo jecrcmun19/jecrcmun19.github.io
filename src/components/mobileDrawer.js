@@ -61,7 +61,48 @@ function MobileViewDrawer(props) {
   }
 
   const { handleDrawerClose, open } = props
-
+  const drawerData = [
+    { name: 'HOME', link: '/' },
+    {
+      name: 'ABOUT',
+      link: '/#about',
+      items: [
+        { name: 'JECRC MUN', to: '/about' },
+        { name: 'OUR CHIEF GUEST', to: '/#chief-guest' },
+        { name: 'OUR SPONSORS', to: '/sponsors' },
+        {
+          name: 'EXECUTIVE BOARD',
+          to: '/executive-board',
+        },
+      ],
+    },
+    { name: 'COMMITTEES', link: '/#committees' },
+    {
+      name: 'REGISTRATIONS',
+      link: '/#registrations',
+      items: [
+        {
+          name: 'DELEGATE REGISTRATIONS',
+          to: '/apply/delegate-registration',
+        },
+        {
+          name: 'CAMPUS AMBASSADOR',
+          to: '/apply/campus-ambassador-application',
+        },
+        {
+          name: 'INTERNATIONAL PRESS',
+          to: '/apply/international-press-application',
+        },
+        {
+          name: 'EXECUTIVE BOARD',
+          to: '/#registrations',
+        },
+      ],
+    },
+    { name: 'RESOURCES', link: '/#resources' },
+    { name: 'GALLERY', link: '/gallery' },
+    { name: 'CONTACT', link: '/contact' },
+  ]
   useEffect(() => {
     if (!open) handleDropDownClose()
   }, [open])
@@ -82,44 +123,7 @@ function MobileViewDrawer(props) {
       </div>
       <Divider />
       <List className={classes.headerItems}>
-        {[
-          { name: 'HOME', link: '/' },
-          {
-            name: 'ABOUT',
-            link: '/#about',
-            items: [
-              { name: 'JECRC MUN', to: '/about' },
-              { name: 'OUR CHIEF GUEST', to: '/#chief-guest' },
-              { name: 'OUR SPONSORS', to: '/sponsors' },
-            ],
-          },
-          { name: 'COMMITTEES', link: '/#committees' },
-          {
-            name: 'REGISTRATIONS',
-            link: '/#registrations',
-            items: [
-              {
-                name: 'DELEGATE REGISTRATIONS',
-                to: '/apply/delegate-registration',
-              },
-              {
-                name: 'CAMPUS AMBASSADOR',
-                to: '/apply/campus-ambassador-application',
-              },
-              {
-                name: 'INTERNATIONAL PRESS',
-                to: '/apply/international-press-application',
-              },
-              {
-                name: 'EXECUTIVE BOARD',
-                to: '/#registrations',
-              },
-            ],
-          },
-          { name: 'RESOURCES', link: '/#resources' },
-          { name: 'GALLERY', link: '/gallery' },
-          { name: 'CONTACT', link: '/contact' },
-        ].map((text, index) => (
+        {drawerData.map((text, index) => (
           <div key={index}>
             <ListItem
               button
