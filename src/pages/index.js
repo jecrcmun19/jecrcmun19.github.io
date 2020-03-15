@@ -20,6 +20,7 @@ import LocationIcon from '@material-ui/icons/PlaceOutlined'
 import classnames from 'classnames'
 import MunExcellencies from '../components/sections/home/munExcellencies'
 import Ambassador from '../components/sections/home/ambassador'
+import ExecutiveBoard from '../components/sections/home/eb'
 import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
@@ -240,6 +241,16 @@ export default () => {
             <Committees />
           </div>
         </Banner>
+      </div>
+      <div
+        id='executive-board'
+        className='pt-10'
+        style={{
+          minHeight: '100vh',
+          background: theme.palette.background.pinkish,
+        }}
+      >
+        <ExecutiveBoard />
       </div>
     </Wrapper>
   )

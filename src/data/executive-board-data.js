@@ -1,6 +1,6 @@
 export const executives = [
   {
-    committee: 'DISEC',
+    committee: 'DISARMAMENT AND INTERNATIONAL SECURITY COMMITTEE',
     members: [
       {
         name: 'Vardaan Shekhawat',
@@ -19,7 +19,7 @@ export const executives = [
     ],
   },
   {
-    committee: 'UNSC',
+    committee: 'UNITED NATIONS SECURITY COUNCIL',
     members: [
       {
         name: 'Raghav Sodhi',
@@ -38,7 +38,7 @@ export const executives = [
     ],
   },
   {
-    committee: 'UNCSW',
+    committee: 'UNITED NATIONS COMMISSION ON STATUS OF WOMEN',
     members: [
       {
         name: 'Vaibhavi Pathak',
@@ -57,7 +57,7 @@ export const executives = [
     ],
   },
   {
-    committee: 'WHO',
+    committee: 'WORLD HEALTH ORGANIZATION',
     members: [
       {
         name: 'Mukund Vatsa',
@@ -76,7 +76,7 @@ export const executives = [
     ],
   },
   {
-    committee: 'UNODC',
+    committee: 'UNITED NATIONS OFFICE ON DRUGS AND CRIME',
     members: [
       {
         name: 'Mamta Bisht',
@@ -95,7 +95,7 @@ export const executives = [
     ],
   },
   {
-    committee: 'AIPPM',
+    committee: 'ALL INDIA POLITICAL PARTIES MEET',
     members: [
       {
         name: 'Ayush Rawtani',
