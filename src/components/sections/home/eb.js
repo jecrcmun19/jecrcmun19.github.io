@@ -11,7 +11,9 @@ import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import Image from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
+import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
+import { Link } from 'gatsby'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -147,9 +149,9 @@ function ExecutiveBoard() {
       delay: 4000,
       disableOnInteraction: false,
     },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
     },
   }
   return (
@@ -164,78 +166,92 @@ function ExecutiveBoard() {
           alt='---------------------'
         />
       </Fade>
-      <Grid container justify='center' className={classes.root}>
-        <Swiper {...ebSwiperParams}>
-          {executives.map((value, index) => (
-            <Grid key={index} container className='w-full' justify='center'>
-              <Grid item xs={12} className='text-center py-10'>
-                <Typography style={{ color: '#000a2a' }} variant='h4'>
-                  {value.committee}
-                </Typography>
+      <Fade bottom>
+        <Grid container justify='center' className={classes.root}>
+          <Swiper {...ebSwiperParams}>
+            {executives.map((value, index) => (
+              <Grid key={index} container className='mb-16' justify='center'>
+                <Grid item xs={12} className='text-center py-10'>
+                  <Typography style={{ color: '#000a2a' }} variant='h4'>
+                    {value.committee}
+                  </Typography>
+                </Grid>
+                {value.members.map((member, index) => (
+                  <div key={index} className={classes.containerCard}>
+                    <Image
+                      fluid={
+                        ebImages.filter(
+                          image =>
+                            image.sharp.fluid.src.split('/').pop() ===
+                            member.image,
+                        )[0].sharp.fluid
+                      }
+                      fadeIn={false}
+                      alt='JECRC MUN eb'
+                      className={classnames(['mx-auto', classes.blogImage])}
+                    />
+
+                    <Grid
+                      container
+                      alignItems='flex-end'
+                      className={classes.bottomText}
+                      component='main'
+                    >
+                      <div className='w-full text-center'>
+                        <Typography variant='h5' className='py-2'>
+                          {member.name}
+                        </Typography>
+                        <Typography variant='h6' className='pb-2'>
+                          {member.designation}
+                        </Typography>
+                      </div>
+                    </Grid>
+
+                    <Grid
+                      container
+                      justify='center'
+                      className={classnames([
+                        'mb-2',
+                        classes.socialIconsContainer,
+                      ])}
+                      component='p'
+                    >
+                      <Avatar
+                        component='a'
+                        href='https://instagram.com/jecrcmun'
+                        target='_blank'
+                        className={classnames(['m-2', classes.socialIcon])}
+                      >
+                        <InstagramIcon className={classes.icon} />
+                      </Avatar>
+                      <Avatar
+                        component='a'
+                        href='https://twitter.com/jecrcmun'
+                        target='_blank'
+                        className={classnames(['m-2', classes.socialIcon])}
+                      >
+                        <TwitterIcon className={classes.icon} />
+                      </Avatar>
+                    </Grid>
+                  </div>
+                ))}
               </Grid>
-              {value.members.map((member, index) => (
-                <div key={index} className={classes.containerCard}>
-                  <Image
-                    fluid={
-                      ebImages.filter(
-                        image =>
-                          image.sharp.fluid.src.split('/').pop() ===
-                          member.image,
-                      )[0].sharp.fluid
-                    }
-                    fadeIn={false}
-                    alt='JECRC MUN eb'
-                    className={classnames(['mx-auto', classes.blogImage])}
-                  />
-
-                  <Grid
-                    container
-                    alignItems='flex-end'
-                    className={classes.bottomText}
-                    component='main'
-                  >
-                    <div className='w-full text-center'>
-                      <Typography variant='h5' className='py-2'>
-                        {member.name}
-                      </Typography>
-                      <Typography variant='h6' className='pb-2'>
-                        {member.designation}
-                      </Typography>
-                    </div>
-                  </Grid>
-
-                  <Grid
-                    container
-                    justify='center'
-                    className={classnames([
-                      'mb-2',
-                      classes.socialIconsContainer,
-                    ])}
-                    component='p'
-                  >
-                    <Avatar
-                      component='a'
-                      href='https://instagram.com/jecrcmun'
-                      target='_blank'
-                      className={classnames(['m-2', classes.socialIcon])}
-                    >
-                      <InstagramIcon className={classes.icon} />
-                    </Avatar>
-                    <Avatar
-                      component='a'
-                      href='https://twitter.com/jecrcmun'
-                      target='_blank'
-                      className={classnames(['m-2', classes.socialIcon])}
-                    >
-                      <TwitterIcon className={classes.icon} />
-                    </Avatar>
-                  </Grid>
-                </div>
-              ))}
-            </Grid>
-          ))}
-        </Swiper>
-      </Grid>
+            ))}
+          </Swiper>
+        </Grid>
+      </Fade>
+      <div className='mt-10'>
+        <Button
+          type='submit'
+          color='primary'
+          variant='contained'
+          size='large'
+          component={Link}
+          to='/executive-board'
+        >
+          Our Executive Board
+        </Button>
+      </div>
     </div>
   )
 }

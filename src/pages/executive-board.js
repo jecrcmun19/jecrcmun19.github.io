@@ -11,6 +11,7 @@ import Avatar from '@material-ui/core/Avatar'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import Image from 'gatsby-image'
+import Fade from 'react-reveal'
 import { executives } from '../data/executive-board-data'
 
 const useStyles = makeStyles(theme => ({
@@ -191,79 +192,81 @@ function ExecutiveBoard(props) {
         ])}
       >
         <Grid container justify='center' className={classes.root}>
-          {executives.map((value, index) => (
-            <Grid key={index} container className='w-full' justify='center'>
-              <Grid item xs={12} className='text-center py-10'>
-                <Typography style={{ color: '#000a2a' }} variant='h4'>
-                  {value.committee}
-                </Typography>
-                <img
-                  src='/images/line.png'
-                  className='mx-auto'
-                  alt='---------------------'
-                />
-              </Grid>
-              {value.members.map((member, index) => (
-                <div key={index} className={classes.containerCard}>
-                  <Image
-                    fluid={
-                      ebImages.filter(
-                        image =>
-                          image.sharp.fluid.src.split('/').pop() ===
-                          member.image,
-                      )[0].sharp.fluid
-                    }
-                    fadeIn={false}
-                    alt='JECRC MUN eb'
-                    className={classnames(['mx-auto', classes.blogImage])}
+          <Fade cascade bottom>
+            {executives.map((value, index) => (
+              <Grid key={index} container className='w-full' justify='center'>
+                <Grid item xs={12} className='text-center py-10'>
+                  <Typography style={{ color: '#000a2a' }} variant='h4'>
+                    {value.committee}
+                  </Typography>
+                  <img
+                    src='/images/line.png'
+                    className='mx-auto'
+                    alt='---------------------'
                   />
+                </Grid>
+                {value.members.map((member, index) => (
+                  <div key={index} className={classes.containerCard}>
+                    <Image
+                      fluid={
+                        ebImages.filter(
+                          image =>
+                            image.sharp.fluid.src.split('/').pop() ===
+                            member.image,
+                        )[0].sharp.fluid
+                      }
+                      fadeIn={false}
+                      alt='JECRC MUN eb'
+                      className={classnames(['mx-auto', classes.blogImage])}
+                    />
 
-                  <Grid
-                    container
-                    alignItems='flex-end'
-                    className={classes.bottomText}
-                    component='main'
-                  >
-                    <div className='w-full text-center'>
-                      <Typography variant='h5' className='py-2'>
-                        {member.name}
-                      </Typography>
-                      <Typography variant='h6' className='pb-2'>
-                        {member.designation}
-                      </Typography>
-                    </div>
-                  </Grid>
+                    <Grid
+                      container
+                      alignItems='flex-end'
+                      className={classes.bottomText}
+                      component='main'
+                    >
+                      <div className='w-full text-center'>
+                        <Typography variant='h5' className='py-2'>
+                          {member.name}
+                        </Typography>
+                        <Typography variant='h6' className='pb-2'>
+                          {member.designation}
+                        </Typography>
+                      </div>
+                    </Grid>
 
-                  <Grid
-                    container
-                    justify='center'
-                    className={classnames([
-                      'mb-2',
-                      classes.socialIconsContainer,
-                    ])}
-                    component='p'
-                  >
-                    <Avatar
-                      component='a'
-                      href='https://instagram.com/jecrcmun'
-                      target='_blank'
-                      className={classnames(['m-2', classes.socialIcon])}
+                    <Grid
+                      container
+                      justify='center'
+                      className={classnames([
+                        'mb-2',
+                        classes.socialIconsContainer,
+                      ])}
+                      component='p'
                     >
-                      <InstagramIcon className={classes.icon} />
-                    </Avatar>
-                    <Avatar
-                      component='a'
-                      href='https://twitter.com/jecrcmun'
-                      target='_blank'
-                      className={classnames(['m-2', classes.socialIcon])}
-                    >
-                      <TwitterIcon className={classes.icon} />
-                    </Avatar>
-                  </Grid>
-                </div>
-              ))}
-            </Grid>
-          ))}
+                      <Avatar
+                        component='a'
+                        href='https://instagram.com/jecrcmun'
+                        target='_blank'
+                        className={classnames(['m-2', classes.socialIcon])}
+                      >
+                        <InstagramIcon className={classes.icon} />
+                      </Avatar>
+                      <Avatar
+                        component='a'
+                        href='https://twitter.com/jecrcmun'
+                        target='_blank'
+                        className={classnames(['m-2', classes.socialIcon])}
+                      >
+                        <TwitterIcon className={classes.icon} />
+                      </Avatar>
+                    </Grid>
+                  </div>
+                ))}
+              </Grid>
+            ))}
+          </Fade>
         </Grid>
       </div>
     </Wrapper>

@@ -72,7 +72,7 @@ function MobileViewDrawer(props) {
         { name: 'OUR SPONSORS', to: '/sponsors' },
         {
           name: 'EXECUTIVE BOARD',
-          to: '/executive-board',
+          to: '/#executive-board',
         },
       ],
     },

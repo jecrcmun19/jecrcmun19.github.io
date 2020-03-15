@@ -243,7 +243,7 @@ export default () => {
         </Banner>
       </div>
       <div
-        id='resources'
+        id='executive-board'
         className='pt-10'
         style={{
           minHeight: '100vh',

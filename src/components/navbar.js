@@ -46,7 +46,7 @@ const dropdownList = {
     { name: 'JECRC MUN', link: '/about', type: 'gatsby' },
     { name: 'OUR CHIEF GUEST', link: '/#chief-guest', type: 'gatsby' },
     { name: 'OUR SPONSORS', link: '/sponsors', type: 'gatsby' },
-    { name: 'EXECUTIVE BOARD', link: '/executive-board', type: 'gatsby' },
+    { name: 'EXECUTIVE BOARD', link: '/#executive-board', type: 'gatsby' },
   ],
   registrations: [
     {
