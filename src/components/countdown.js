@@ -84,7 +84,7 @@ class Countdown extends React.Component {
           {days && (
             <div className={classes.borderRound}>
               <SVGCircle radius={daysRadius} />
-              <Typography style={{ marginTop: -136 }}>
+              <Typography style={{ marginTop: -136 }} component='h6'>
                 <Typography style={{ fontSize: '30px' }}>{days}</Typography>
                 <Typography>
                   <span className='text-white'>DAYS</span>
@@ -95,7 +95,7 @@ class Countdown extends React.Component {
           {hours && (
             <div className={classes.borderRound}>
               <SVGCircle radius={hoursRadius} />
-              <Typography style={{ marginTop: -136 }}>
+              <Typography style={{ marginTop: -136 }} component='h6'>
                 <Typography style={{ fontSize: '30px' }}>{hours}</Typography>
                 <Typography>
                   <span className='text-white'>HOURS</span>
@@ -107,7 +107,7 @@ class Countdown extends React.Component {
           {minutes && (
             <div className={classes.borderRound}>
               <SVGCircle radius={minutesRadius} />
-              <Typography style={{ marginTop: -136 }}>
+              <Typography style={{ marginTop: -136 }} component='h6'>
                 <Typography style={{ fontSize: '30px' }}>{minutes}</Typography>
                 <Typography>
                   <span className='text-white'>MINUTES</span>
@@ -119,7 +119,7 @@ class Countdown extends React.Component {
           {seconds && (
             <div className={classes.borderRound}>
               <SVGCircle radius={secondsRadius} />
-              <Typography style={{ marginTop: -136 }}>
+              <Typography style={{ marginTop: -136 }} component='h6'>
                 <Typography style={{ fontSize: '30px' }}>{seconds}</Typography>
                 <Typography>
                   <span className='text-white'>SECONDS</span>
@@ -138,13 +138,13 @@ const SVGCircle = ({ radius }) => (
     <path
       fill='none'
       stroke='#fff'
-      stroke-width='4'
+      strokeWidth='4'
       d={describeArc(50, 50, 48, 0, 359)}
     />
     <path
       fill='none'
       stroke='#D90845'
-      stroke-width='6'
+      strokeWidth='6'
       d={describeArc(50, 50, 48, 0, radius)}
     />
   </svg>

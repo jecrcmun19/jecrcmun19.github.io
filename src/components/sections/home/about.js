@@ -129,8 +129,8 @@ export default () => {
             <Grid
               item
               md={2}
-              sm={0}
-              xs={0}
+              sm={false}
+              xs={false}
               className={classnames([classes.bg, 'text-center py-5'])}
               key={stat.count}
             >

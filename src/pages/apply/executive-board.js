@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import { graphql, useStaticQuery } from 'gatsby'
-import ExecutiveBoardForm from '../../components/executive-board'
+// import ExecutiveBoardForm from '../../components/executive-board'
 
 const useStyles = makeStyles(theme => ({
   headingTextProperty: {
