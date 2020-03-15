@@ -1,36 +1,26 @@
 import React from 'react'
-import Wrapper from '../components/wrapper'
-import Banner from '../components/banner'
-import { graphql, useStaticQuery } from 'gatsby'
-import Helmet from 'react-helmet'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
+import Swiper from 'react-id-swiper'
+import 'swiper/css/swiper.css'
+import { executives } from '../../../data/executive-board-data'
 import Grid from '@material-ui/core/Grid'
+import { graphql, useStaticQuery } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
 import classnames from 'classnames'
 import Avatar from '@material-ui/core/Avatar'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import Image from 'gatsby-image'
-import { executives } from '../data/executive-board-data'
+import Fade from 'react-reveal/Fade'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
-  munTextProperty: {
-    color: '#D90845',
-    fontWeight: 'bold',
-    fontFamily: "'Rubik' , sans-serif",
-    fontSize: 60,
-    lineHeight: '71px',
-  },
-  container: {
-    backgroundColor: theme.palette.background.pinkish,
-  },
   root: {
     marginBottom: theme.spacing(4),
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(4),
     [theme.breakpoints.up('md')]: {
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
+      paddingLeft: theme.spacing(0),
+      paddingRight: theme.spacing(0),
     },
     [theme.breakpoints.down('xs')]: {
       paddingRight: theme.spacing(0),
@@ -41,42 +31,42 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '12px',
     margin: `${theme.spacing(5)}px ${theme.spacing(4)}px`,
     position: 'relative',
-    maxHeight: '450px',
+    maxHeight: '425px',
+    boxShadow:
+      '10px 20px 38px rgba(0, 0, 0, 0.3), 5px 15px 12px rgba(0, 0, 0, 0.22)',
+    width: '425px',
+    [theme.breakpoints.down('xs')]: {
+      width: '275px',
+      maxHeight: '275px',
+      marginRight: theme.spacing(0),
+      marginLeft: theme.spacing(0),
+    },
     '&:hover > main': {
       background: 'rgba(217, 8, 69, 0.7)',
-      height: '450px',
+      height: '425px',
       borderRadius: '12px',
-      animation: `$mouseMoveIntoCard 900ms ${theme.transitions.easing.easeIn}`,
+      animation: `$mouseMoveIntoCard 600ms ${theme.transitions.easing.easeIn}`,
       [theme.breakpoints.down('xs')]: {
-        height: '300px',
+        height: '275px',
         animation: `$mouseMoveIntoCardSmallViewPort 700ms ${theme.transitions.easing.easeIn}`,
       },
     },
     '&:hover > p': {
-      animationDelay: '800ms',
+      animationDelay: '600ms',
       animationFillMode: 'forwards',
       animation: `$socialIconseffect 200ms ${theme.transitions.easing.easeIn}`,
     },
     '&:hover > img': {
       filter: `brightness(0.7) drop-shadow(0 0 6px #000)`,
     },
-    width: '450px',
-    [theme.breakpoints.down('xs')]: {
-      width: '300px',
-      maxHeight: '300px',
-      marginRight: theme.spacing(0),
-      marginLeft: theme.spacing(0),
-    },
-    boxShadow:
-      '10px 20px 38px rgba(0, 0, 0, 0.3), 5px 15px 12px rgba(0, 0, 0, 0.22)',
   },
   blogImage: {
-    width: '450px',
-    height: '450px',
+    width: '425px',
+    height: '425px',
     transition: 'all 300ms ease-out',
     [theme.breakpoints.down('xs')]: {
-      width: '300px',
-      height: '300px',
+      width: '275px',
+      height: '275px',
     },
     background: '#000',
     borderRadius: '12px',
@@ -113,7 +103,7 @@ const useStyles = makeStyles(theme => ({
       height: '120px',
     },
     '100%': {
-      height: '450px',
+      height: '425px',
       borderRadius: '12px',
     },
   },
@@ -122,7 +112,7 @@ const useStyles = makeStyles(theme => ({
       height: '120px',
     },
     '100%': {
-      height: '300px',
+      height: '275px',
       borderRadius: '12px',
     },
   },
@@ -133,18 +123,10 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function ExecutiveBoard(props) {
-  const classes = useStyles(props)
-  const theme = useTheme()
-  let { image, eb } = useStaticQuery(graphql`
+function ExecutiveBoard() {
+  const classes = useStyles()
+  let { eb } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "banners/about.jpg" }) {
-        sharp: childImageSharp {
-          fluid(maxWidth: 1080) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
       eb: allFile(filter: { relativeDirectory: { eq: "eb" } }) {
         images: nodes {
           sharp: childImageSharp {
@@ -158,50 +140,38 @@ function ExecutiveBoard(props) {
   `)
   let { images: ebImages } = eb
 
+  const ebSwiperParams = {
+    spaceBetween: 5,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  }
   return (
-    <Wrapper>
-      <Helmet>
-        <link
-          href='https://fonts.googleapis.com/css?family=Rubik&display=swap'
-          rel='stylesheet'
+    <div className='text-center py-10 sm:py-5'>
+      <Fade bottom cascade>
+        <Typography variant='h4' className='pt-5'>
+          Executive Board
+        </Typography>
+        <img
+          src='/images/line.png'
+          className='mx-auto pb-5'
+          alt='---------------------'
         />
-      </Helmet>
-      <Banner
-        backgrounds={[
-          `linear-gradient(${theme.palette.glare.main}, ${theme.palette.glare.main})`,
-          image.sharp.fluid,
-        ]}
-        height='50vh'
-      >
-        <Typography
-          color='primary'
-          component='h2'
-          className={classes.munTextProperty}
-        >
-          EXECUTIVE BOARD
-        </Typography>
-        <Typography className='text-white' variant='h5'>
-          JECRC MUN 2020
-        </Typography>
-      </Banner>
-      <div
-        className={classnames([
-          classes.container,
-          'flex flex-col justify-center items-center',
-        ])}
-      >
-        <Grid container justify='center' className={classes.root}>
+      </Fade>
+      <Grid container justify='center' className={classes.root}>
+        <Swiper {...ebSwiperParams}>
           {executives.map((value, index) => (
             <Grid key={index} container className='w-full' justify='center'>
               <Grid item xs={12} className='text-center py-10'>
                 <Typography style={{ color: '#000a2a' }} variant='h4'>
                   {value.committee}
                 </Typography>
-                <img
-                  src='/images/line.png'
-                  className='mx-auto'
-                  alt='---------------------'
-                />
               </Grid>
               {value.members.map((member, index) => (
                 <div key={index} className={classes.containerCard}>
@@ -264,9 +234,9 @@ function ExecutiveBoard(props) {
               ))}
             </Grid>
           ))}
-        </Grid>
-      </div>
-    </Wrapper>
+        </Swiper>
+      </Grid>
+    </div>
   )
 }
 
