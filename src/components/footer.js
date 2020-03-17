@@ -127,7 +127,8 @@ function Footer(props) {
             />
           </Grid>
           <Typography className={['text-center pt-1', classes.textStyle]}>
-            © Copyright JECRC MUN 2020
+            This site is maintained &amp; developed by{' '}
+            <a href='/team'>JECRC MUN Technical Team</a>
           </Typography>
         </Grid>
         <Grid container justify='center' className='mb-2'>
