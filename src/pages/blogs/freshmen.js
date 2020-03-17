@@ -10,6 +10,7 @@ import Wrapper from '../../components/wrapper'
 import Banner from '../../components/banner'
 import ContentBox from '../../components/content-box'
 import Fade from 'react-reveal/Fade'
+import classnames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   headingTextProperty: {
@@ -84,10 +85,10 @@ function Freshmen() {
         </Typography>
       </Banner>
       <Grid
-        className={[
+        className={classnames([
           'flex flex-col justify-center items-center',
           classes.container,
-        ]}
+        ])}
       >
         <Fade bottom>
           <ContentBox className='my-16'>

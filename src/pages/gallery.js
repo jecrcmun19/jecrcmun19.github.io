@@ -9,6 +9,7 @@ import Image from 'gatsby-image'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Fade from 'react-reveal/Fade'
+import classnames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   headingTextProperty: {
@@ -136,10 +137,10 @@ function Gallery() {
         </div>
       </Banner>
       <Grid
-        className={[
+        className={classnames([
           'flex flex-col justify-center items-center',
           classes.container,
-        ]}
+        ])}
       >
         <Grid
           container
@@ -150,8 +151,8 @@ function Gallery() {
           className={classes.gridContainer}
           justify='center'
         >
-          {gallery.images.map(image => (
-            <Grid item className={classes.imageContainer}>
+          {gallery.images.map((image, index) => (
+            <Grid key={index} item className={classes.imageContainer}>
               <Fade bottom>
                 <Image
                   fluid={image.sharp.fluid}

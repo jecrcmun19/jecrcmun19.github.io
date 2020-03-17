@@ -253,9 +253,9 @@ function Sponsors(props) {
       >
         <div className='py-5 flex flex-wrap justify-center'>
           <Fade bottom cascade>
-            {sponsorsData.map(sponsor => {
+            {sponsorsData.map((sponsor, index) => {
               return (
-                <div>
+                <div key={index}>
                   <img
                     src={`/images/${sponsor}.png`}
                     alt={sponsor}

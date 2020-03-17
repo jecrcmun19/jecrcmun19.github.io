@@ -124,10 +124,10 @@ function Committee() {
         </Typography>
       </Banner>
       <Grid
-        className={[
+        className={classnames([
           'flex flex-col justify-center items-center',
           classes.container,
-        ]}
+        ])}
       >
         <Card
           raised={true}
@@ -143,7 +143,7 @@ function Committee() {
                 value={value}
                 variant='scrollable'
                 onChange={handleChange}
-                indicatorColor='#FFFF8C'
+                indicatorColor='primary'
                 scrollButtons='desktop'
               >
                 <Tab className={classes.tabsTextProperty} label='UNSC' />

@@ -183,7 +183,7 @@ function Team(props) {
         ])}
       >
         {teams.map((value, index) => (
-          <div className='w-full flex justify-center'>
+          <div key={index} className='w-full flex justify-center'>
             <div className={classes.root}>
               <div className='w-full'>
                 <Fade cascade bottom>

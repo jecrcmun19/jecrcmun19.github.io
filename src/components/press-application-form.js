@@ -95,10 +95,10 @@ export default function PressApplicationForm() {
   }
   return (
     <Grid
-      className={[
+      className={classnames([
         'flex flex-col justify-center items-center',
         classes.container,
-      ]}
+      ])}
     >
       <Fade bottom>
         <ContentBox className={classnames(['my-16', classes.content])}>

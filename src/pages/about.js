@@ -103,7 +103,7 @@ function About() {
           JECRC MUN 2020
         </Typography>
       </Banner>
-      <Grid className={classes.container} justify='center'>
+      <Grid className={classnames([classes.container, 'justify-center'])}>
         <Paper elevation={5} className={classnames([classes.paper])}>
           <Typography
             style={{

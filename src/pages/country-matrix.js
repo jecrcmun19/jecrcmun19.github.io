@@ -13,6 +13,7 @@ import { Committe, MembersUNSC } from '../data/country-data'
 import Countries from '../data/country-code.json'
 import Banner from '../components/banner'
 import Leaders from '../data/leader-code.json'
+import classnames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   headingTextProperty: {
@@ -146,10 +147,10 @@ function CountryMatrix(props) {
         </Typography>
       </Banner>
       <Grid
-        className={[
+        className={classnames([
           'flex flex-col justify-center items-center',
           classes.container,
-        ]}
+        ])}
       >
         <Card className={classes.backgroundCardProperty} raised={true}>
           <CardContent className={classes.bgCardContentProperty}>
@@ -158,7 +159,7 @@ function CountryMatrix(props) {
                 value={value}
                 variant='scrollable'
                 onChange={handleChange}
-                indicatorColor='#FFFF8C'
+                indicatorColor='primary'
                 scrollButtons='desktop'
               >
                 <Tab className={classes.tabsTextProperty} label='UNSC' />
@@ -171,10 +172,15 @@ function CountryMatrix(props) {
             </Grid>
             <div className={classes.cardStyle}>
               <div>
-                <span class='flag-icon flag-icon-gr w-32'></span>
+                <span className='flag-icon flag-icon-gr w-32'></span>
               </div>
-              {MembersUNSC.map(members => (
-                <Grid container justify='center' alignContent='space-around'>
+              {MembersUNSC.map((members, index) => (
+                <Grid
+                  key={index}
+                  container
+                  justify='center'
+                  alignContent='space-around'
+                >
                   {value === 0 ? (
                     <Typography className={classes.textPropertyHeading}>
                       {membersObject[members]}
@@ -185,6 +191,7 @@ function CountryMatrix(props) {
                     const LeaderCode = Leaders[`${text}`]
                     return (
                       <Grid
+                        key={index}
                         item
                         className={classes.listItemStyle}
                         xl={2}

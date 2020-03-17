@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import FormCompleted from '../components/form-completed'
 import Fade from 'react-reveal/Fade'
+import classnames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   headingTextProperty: {
@@ -126,10 +127,10 @@ function Contact(props) {
         </Typography>
       </Banner>
       <Grid
-        className={[
+        className={classnames([
           'flex flex-col justify-center items-center',
           classes.container,
-        ]}
+        ])}
       >
         <Fade bottom cascade>
           <Grid
@@ -209,9 +210,9 @@ function Contact(props) {
             <Grid item md={5} lg={4} className={classes.mapContainer}>
               <iframe
                 src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.825855186854!2d75.81833451496024!3d26.7818204831841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc977c6898ab9%3A0x8010b7bf0b1f29c9!2sJECRC%20Foundation!5e0!3m2!1sen!2sin!4v1579948771763!5m2!1sen!2sin'
-                frameborder='0'
+                frameBorder='0'
                 className={classes.map}
-                allowfullscreen=''
+                allowFullScreen=''
                 title='JECRC Foundation'
               ></iframe>
             </Grid>

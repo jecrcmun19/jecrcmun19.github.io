@@ -57,9 +57,10 @@ function MunExcellencies() {
             item
             md={4}
             key={data.title}
-            justify='center'
-            direction='column'
-            className={classnames(['m-10 p-10', classes.containerContent])}
+            className={classnames([
+              'm-10 p-10 flex-col justify-center',
+              classes.containerContent,
+            ])}
           >
             <Fade bottom>
               <div

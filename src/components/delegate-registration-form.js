@@ -77,8 +77,8 @@ function CommitteePreference({ first, second, third, onChange }) {
           </Typography>
         </div>
       </div>
-      {committees.map(name => (
-        <div className='flex justify-end items-center'>
+      {committees.map((name, index) => (
+        <div key={index} className='flex justify-end items-center'>
           <div className='mr-auto'>
             <Typography variant='subtitle1' component='p'>
               {name}
@@ -196,10 +196,10 @@ export default function DelegatePriorityForm() {
   }
   return (
     <Grid
-      className={[
+      className={classnames([
         'flex flex-col justify-center items-center',
         classes.container,
-      ]}
+      ])}
     >
       <Fade bottom>
         <ContentBox className={classnames(['my-16', classes.content])}>
