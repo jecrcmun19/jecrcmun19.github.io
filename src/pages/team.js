@@ -11,6 +11,7 @@ import GitHub from '@material-ui/icons/GitHub'
 import LinkedIn from '@material-ui/icons/LinkedIn'
 import Image from 'gatsby-image'
 import classnames from 'classnames'
+import Fade from 'react-reveal'
 import teams from '../data/teamDetails'
 
 const useStyles = makeStyles(theme => ({
@@ -90,12 +91,13 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     bottom: 0,
     opacity: '1',
-    clipPath: 'polygon(100% 100%, 0% 100%, 50% -180%)',
+    clipPath: 'polygon(97% 100%, 3% 100%, 50% -180%)',
     background: '#d90845c4',
   },
   imageStyle: {
     width: '100%',
     height: '350px',
+    borderRadius: '10px',
   },
   hoverContainer: {
     display: 'flex',
@@ -110,6 +112,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     bottom: 0,
     background: '#d90845c4',
+    borderRadius: '10px',
   },
   socialIcons: {
     position: 'absolute',
@@ -153,12 +156,6 @@ function Team(props) {
     }
   `)
 
-  console.log(
-    team.images.filter(
-      image => image.sharp.fluid.src.split('/').pop() === 'keshav.jpg',
-    )[0].sharp.fluid,
-  )
-
   return (
     <Wrapper>
       <Banner
@@ -189,74 +186,78 @@ function Team(props) {
           <div className='w-full flex justify-center'>
             <div className={classes.root}>
               <div className='w-full'>
-                <Typography
-                  className='pt-10 text-black text-center'
-                  variant='h4'
-                >
-                  {value.teamName}
-                </Typography>
-                <img
-                  src='/images/line.png'
-                  className='mx-auto pb-10 '
-                  alt='---------------------'
-                />
-              </div>
-              {value.members.map((member, index) => (
-                <div key={index} className={classes.cardContainer}>
-                  <Image
-                    fluid={
-                      team.images.filter(
-                        image =>
-                          image.sharp.fluid.src.split('/').pop() ===
-                          member.image,
-                      )[0].sharp.fluid
-                    }
-                    fadeIn={false}
-                    key={`${index}`}
-                    alt='JECRC MUN Gallery'
-                    className={classes.imageStyle}
+                <Fade cascade bottom>
+                  <Typography
+                    className='pt-10 text-black text-center'
+                    variant='h4'
+                  >
+                    {value.teamName}
+                  </Typography>
+                  <img
+                    src='/images/line.png'
+                    className='mx-auto pb-10 '
+                    alt='---------------------'
                   />
-                  <Grid className={classes.bottomText} component='header'>
-                    <Typography variant='h6' className='py-2'>
-                      {member.name}
-                    </Typography>
-                    <Typography variant='subtitle1'>
-                      {member.designation}
-                    </Typography>
-                  </Grid>
-                  <Grid className={classes.hoverContainer} component='main'>
-                    <Grid
-                      component='p'
-                      container
-                      justify='center'
-                      className={classes.socialIcons}
-                    >
-                      <Avatar
-                        component='a'
-                        href={member.github}
-                        target='_blank'
-                        className={['m-2', classes.socialIcon]}
-                      >
-                        <GitHub className={classes.icon} />
-                      </Avatar>
-                      <Avatar
-                        component='a'
-                        href={member.linkedIn}
-                        target='_blank'
-                        className={['m-2', classes.socialIcon]}
-                      >
-                        <LinkedIn className={classes.icon} />
-                      </Avatar>
-                    </Grid>
-                    <Grid className={classes.hoverText}>
-                      <Typography variant='h5'>{member.name}</Typography>
+                </Fade>
+              </div>
+              <Fade bottom>
+                {value.members.map((member, index) => (
+                  <div key={index} className={classes.cardContainer}>
+                    <Image
+                      fluid={
+                        team.images.filter(
+                          image =>
+                            image.sharp.fluid.src.split('/').pop() ===
+                            member.image,
+                        )[0].sharp.fluid
+                      }
+                      fadeIn={false}
+                      key={`${index}`}
+                      alt='JECRC MUN Gallery'
+                      className={classes.imageStyle}
+                    />
+                    <Grid className={classes.bottomText} component='header'>
+                      <Typography variant='h6' className='py-2'>
+                        {member.name}
+                      </Typography>
                       <Typography variant='subtitle1'>
                         {member.designation}
                       </Typography>
                     </Grid>
-                  </Grid>
-                </div>
-              ))}
+                    <Grid className={classes.hoverContainer} component='main'>
+                      <Grid
+                        component='p'
+                        container
+                        justify='center'
+                        className={classes.socialIcons}
+                      >
+                        <Avatar
+                          component='a'
+                          href={member.github}
+                          target='_blank'
+                          className={['m-2', classes.socialIcon]}
+                        >
+                          <GitHub className={classes.icon} />
+                        </Avatar>
+                        <Avatar
+                          component='a'
+                          href={member.linkedIn}
+                          target='_blank'
+                          className={['m-2', classes.socialIcon]}
+                        >
+                          <LinkedIn className={classes.icon} />
+                        </Avatar>
+                      </Grid>
+                      <Grid className={classes.hoverText}>
+                        <Typography variant='h5'>{member.name}</Typography>
+                        <Typography variant='subtitle1'>
+                          {member.designation}
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                ))}
+              </Fade>
             </div>
           </div>
         ))}
