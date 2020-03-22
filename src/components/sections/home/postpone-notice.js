@@ -7,7 +7,14 @@ const useStyles = makeStyles(theme => ({
   root: {
     margin: 'auto auto',
     marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
     padding: '2px',
+    paddingTop: theme.spacing(2),
+    border: '2px solid #999',
+    [theme.breakpoints.down('sm')]: {
+      margin: '8px',
+      marginBottom: theme.spacing(8),
+    },
   },
   heading: {
     color: theme.palette.primary.main,
@@ -19,21 +26,13 @@ const useStyles = makeStyles(theme => ({
     textJustify: 'justify',
     padding: theme.spacing(2),
     fontWeight: 500,
-    marginBottom: theme.spacing(4),
   },
 }))
 
 const CoronaWarning = () => {
   const classes = useStyles()
   return (
-    <Grid
-      justify='center'
-      container
-      sm={9}
-      md={7}
-      lg={5}
-      className={classes.root}
-    >
+    <Grid item sm={9} md={7} lg={5} className={classes.root}>
       <Typography variant='h3' className={classes.heading}>
         event postponed!
       </Typography>

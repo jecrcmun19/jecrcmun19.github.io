@@ -18,11 +18,11 @@ import VideoDialog from '../components/sections/home/videoDialog'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 // import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
 // import LocationIcon from '@material-ui/icons/PlaceOutlined'
-// import classnames from 'classnames'
+import classnames from 'classnames'
 import MunExcellencies from '../components/sections/home/munExcellencies'
 import Ambassador from '../components/sections/home/ambassador'
 import ExecutiveBoard from '../components/sections/home/eb'
-// import Fade from 'react-reveal/Fade'
+import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
   munLogo: {
@@ -127,7 +127,7 @@ export default () => {
         minHeight
         height='auto'
       >
-        {/* {logoMatches && (
+        {logoMatches && (
           <Fade top>
             <img
               src='images/mun-logo-white.png'
@@ -135,7 +135,7 @@ export default () => {
               alt='logo'
             />
           </Fade>
-        )} */}
+        )}
         {/* <div className='self-start self-center'>
           {matches && <Countdown date='11 April 2020 09:00:000 GMT+05:30' />}
         </div> */}
