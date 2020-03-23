@@ -6,12 +6,12 @@ import makeStyles from '@material-ui/styles/makeStyles'
 const useStyles = makeStyles(theme => ({
   root: {
     margin: 'auto auto',
-    marginTop: theme.spacing(4),
-    marginBottom: theme.spacing(4),
+    marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(6),
     padding: '2px',
     paddingTop: theme.spacing(2),
     border: '2px solid #999',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('xs')]: {
       margin: '8px',
       marginBottom: theme.spacing(8),
     },
