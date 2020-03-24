@@ -10,13 +10,14 @@ import ChiefGuest from '../components/sections/home/ourChiefGuest'
 import Registrations from '../components/sections/home/registrations'
 import HomeBlogs from '../components/sections/home/blogs'
 import Committees from '../components/sections/home/committees'
-import Countdown from '../components/countdown'
+// import Countdown from '../components/countdown'
+import CoronaWarning from '../components/sections/home/postpone-notice'
 import VideoDialog from '../components/sections/home/videoDialog'
 // import Fab from '@material-ui/core/Fab'
 // import PlayIcon from '@material-ui/icons/PlayArrowSharp'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
-import LocationIcon from '@material-ui/icons/PlaceOutlined'
+// import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined'
+// import LocationIcon from '@material-ui/icons/PlaceOutlined'
 import classnames from 'classnames'
 import MunExcellencies from '../components/sections/home/munExcellencies'
 import Ambassador from '../components/sections/home/ambassador'
@@ -123,6 +124,8 @@ export default () => {
           image.sharp.fluid,
         ]}
         className='flex flex-col justify-center item-center'
+        minHeight
+        height='auto'
       >
         {logoMatches && (
           <Fade top>
@@ -133,9 +136,9 @@ export default () => {
             />
           </Fade>
         )}
-        <div className='self-start self-center'>
+        {/* <div className='self-start self-center'>
           {matches && <Countdown date='11 April 2020 09:00:000 GMT+05:30' />}
-        </div>
+        </div> */}
         <div className='my-5'>
           <Typography className={classes.munTextProperty}>
             JECRC MUN 2020
@@ -144,7 +147,10 @@ export default () => {
             Diplomacy At It’s Zenith
           </Typography>
         </div>
-        <div className='my-5'>
+        <div>
+          <CoronaWarning />
+        </div>
+        {/* <div className='my-5'>
           <Typography
             className={classnames('text-white', classes.FontInfo)}
             variant='h6'
@@ -158,7 +164,7 @@ export default () => {
           >
             <CalendarIcon color='primary' /> 11th - 12th April 2020
           </Typography>
-        </div>
+        </div> */}
         <div>
           {/* <Fab color='primary' size='large' onClick={handleOpenVideoDialog}>
             <PlayIcon fontSize='large' />
