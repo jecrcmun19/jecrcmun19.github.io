@@ -97,6 +97,10 @@ function MobileViewDrawer(props) {
           name: 'EXECUTIVE BOARD',
           to: '/#registrations',
         },
+        {
+          name: "IT'S DEBATABLE",
+          to: '/apply/debatable',
+        },
       ],
     },
     { name: 'RESOURCES', link: '/#resources' },
