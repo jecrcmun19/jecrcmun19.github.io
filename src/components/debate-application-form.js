@@ -60,7 +60,7 @@ export default function DebateForm() {
   const institute = useForm('')
   const classSemYear = useForm('')
   const stand = useForm('')
-  const time = useForm('')
+  const time = useForm('09:00')
   const platform = useForm('')
   const queries = useForm('')
   const [loading, setLoading] = useState(false)
@@ -72,7 +72,7 @@ export default function DebateForm() {
     const form = e.target
     setLoading(true)
     fetch(
-      'https://script.google.com/macros/s/AKfycbz_JnTw8tbJ07ZIaMXkAoTRcs6E6X8DknVyAhxHS4z4sTWO0Oc/exec',
+      'https://script.google.com/a/jecrc.ac.in/macros/s/AKfycbwQhhkfVVhCLESuZhu9tgGN0aYUBeuY0rckJd1M/exec',
       {
         method: 'POST',
         body: new FormData(form),
@@ -179,7 +179,6 @@ export default function DebateForm() {
                 label='Your Preferred Time'
                 name='time'
                 type='time'
-                defaultValue='09:00'
                 {...time}
               />
               <InputField label='Platform' name='platform' {...platform} />
@@ -221,7 +220,6 @@ export default function DebateForm() {
 
 function useForm(initialValue) {
   const [value, setValue] = useState(initialValue)
-
   const handleChange = e => {
     setValue(e.target.value)
   }
