@@ -69,6 +69,11 @@ const dropdownList = {
       link: '/#registrations',
       type: 'gatsby',
     },
+    {
+      name: "IT'S DEBATABLE",
+      link: '/its-debatable',
+      type: 'gatsby',
+    },
   ],
 }
 
