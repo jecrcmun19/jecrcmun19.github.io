@@ -51,7 +51,7 @@ const useRadioStyles = makeStyles(theme => ({
   checked: {},
 }))
 
-export default function DebatableForm() {
+export default function DebateForm() {
   const classes = useStyles()
   const radioClasses = useRadioStyles()
   const fullName = useForm('')

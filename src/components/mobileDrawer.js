@@ -99,7 +99,7 @@ function MobileViewDrawer(props) {
         },
         {
           name: "IT'S DEBATABLE",
-          to: '/apply/debatable',
+          to: '/its-debatable',
         },
       ],
     },

@@ -1,11 +1,11 @@
 import React from 'react'
-import Wrapper from '../../components/wrapper'
-import Banner from '../../components/banner'
+import Wrapper from '../components/wrapper'
+import Banner from '../components/banner'
 import Helmet from 'react-helmet'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import { graphql, useStaticQuery } from 'gatsby'
-import DebatableForm from '../../components/debatable-form.js'
+import DebateForm from '../components/debate-application-form'
 
 const useStyles = makeStyles(theme => ({
   headingTextProperty: {
@@ -73,7 +73,7 @@ export default () => {
           JECRC MUN 2020
         </Typography>
       </Banner>
-      <DebatableForm />
+      <DebateForm />
     </Wrapper>
   )
 }

@@ -71,7 +71,7 @@ const dropdownList = {
     },
     {
       name: "IT'S DEBATABLE",
-      link: '/apply/debatable',
+      link: '/its-debatable',
       type: 'gatsby',
     },
   ],
